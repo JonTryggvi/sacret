@@ -131,7 +131,7 @@ function bones_scripts_and_styles() {
 		// wp_register_style( '-styles', get_stylesheet_directory_uri() . '/library/css/.css', array(), '', 'all' );
 
 		// register main Avista stylesheet
-		wp_register_style( 'avista-styles', get_stylesheet_directory_uri() . '/library/css/avista-styles.css', array(), '', 'all' );
+		wp_register_style( 'avista-styles', get_stylesheet_directory_uri() . '/library/dist/css/avista-app.css', array(), '', 'all' );
 
 		// ie-only style sheet
 		// wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
@@ -148,7 +148,7 @@ function bones_scripts_and_styles() {
 		// wp_register_script( '-js', get_stylesheet_directory_uri() . '/library/js/.js', array( 'jquery' ), '', true );
 
 		//adding main Avista script file
-		wp_register_script( 'avista-js', get_stylesheet_directory_uri() . '/library/js/avista-scripts.js', array( 'jquery' ), '', true );
+		wp_register_script( 'avista-js', get_stylesheet_directory_uri() . '/library/dist/js/avista-app.js', array( 'jquery' ), '', true );
 
 		// enqueue styles and scripts
 		wp_enqueue_script( 'bones-modernizr' );
