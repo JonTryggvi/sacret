@@ -6,15 +6,17 @@ Smá svona leiðbeiningar frá JT
     git clone git@bitbucket.org:JonTryggviUnnarsson/aaa-blueprint.git some_name_we_like
     annars mun theme mappan heita aaa_blueprint sem er svo sem í lagi
   
-2.  cd some_name_we_like og þegar við erum þar getum við gert npm install eða yarn install (ég mæli með yarn virðist vera stabílla)
-3.  Hér er mikilvægt að skipta bara strax um git branch. Við viljum aldrei vinna á master branch
-    git branch -m some_new_branch_name. Ég geri venjulega bara safe se ég breit síðar í eitthvað annað þegar kemur að því að pusha á origin.
+2.  cd some_name_we_like og þegar við erum þar getum við gert npm install eða yarn install (ég mæli með yarn því það virðist vera stabílla)
 
-4.  ef allt gekk vel má keyra skipunina gulp og vona það besta. 
+3.  Hér er mikilvægt að skipta bara strax um git branch. Við viljum aldrei vinna á master branch
+    git branch -m some_new_branch_name. Ég geri venjulega bara safe sem ég breiti síðar í eitthvað annað þegar kemur að því að pusha á origin.
+
+4.  Ef allt gekk vel má keyra skipunina gulp og vona það besta. 
 
 5.  Chrome er stundum með vesen varðandi https og þá þarf að tryggja að flywheel sé stillt á trusted undir ssl stillingunni.
 
-
+ps. Ég mæli með að setja upp .bash_profile og henda inn git aliases þar til að flýta fyrir með git skipanir t.d. Við notum ekki GUI ;)
+https://natelandau.com/my-mac-osx-bash_profile/
 
 # Bones
 A Lightweight Wordpress Development Theme
