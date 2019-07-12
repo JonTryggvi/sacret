@@ -38,6 +38,8 @@ nbproject/
 ## Misc
 ############
 
+node_modules
+library/dist
 bin/
 tmp/
 *.tmp
