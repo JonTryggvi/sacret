@@ -71,12 +71,12 @@ if ( ! isset( $content_width ) ) {
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'bones-thumb-600', 600, 150, true );
-add_image_size( 'bones-thumb-300', 300, 100, true );
-add_image_size( 'bones-banner', 1600, 700, true );
-add_image_size( 'bones-banner-nc', 1600, 700, false );
-add_image_size( 'bones-thumb-square', 500, 500, true );
-add_image_size( 'bones-thumb-square-nc', 500, 500, false );
+// add_image_size( 'bones-thumb-600', 600, 150, true );
+// add_image_size( 'bones-thumb-300', 300, 100, true );
+add_image_size( 'site-banner', 1800, 1600, true );
+add_image_size( 'site-banner-nc', 1800, 1600, false );
+add_image_size( 'site-thumb-square', 800, 800, true );
+add_image_size( 'site-thumb-square-nc', 800, 800, false );
 
 /*
 to add more sizes, simply copy a line from above
