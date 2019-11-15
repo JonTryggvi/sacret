@@ -149,6 +149,7 @@ function bones_scripts_and_styles() {
 
 		//adding main Avista script file
 		wp_register_script( 'avista-js', get_stylesheet_directory_uri() . '/library/dist/js/avista-app.js', array( 'jquery' ), '', true );
+		wp_register_script( 'elements-js', get_stylesheet_directory_uri() . '/library/dist/js/page-elements.js', array( 'jquery' ), '', true );
 		wp_register_script( 'avista-single_post-js', get_stylesheet_directory_uri() . '/library/dist/js/avista-single.js', array( 'jquery' ), '', true );
 
 		// enqueue styles and scripts
@@ -163,6 +164,11 @@ function bones_scripts_and_styles() {
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'bones-js' );
 		wp_enqueue_script( 'avista-js' );
+
+		if( is_page_template('page-elements.php')){
+			wp_enqueue_script('elements-js');
+		}
+
 		/** Hér erum við með sérstakt js skjal fyrir single post type */
 		if(get_post_type() === 'post') {
 			wp_enqueue_script( 'avista-single_post-js' );

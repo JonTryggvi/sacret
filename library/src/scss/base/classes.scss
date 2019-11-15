@@ -1,0 +1,22 @@
+.bc {
+  &--white {
+    background-color: #fff !important;
+  }
+}
+
+.grid-with-margin {
+  display: grid;
+  grid-template-columns: [start] 30px [middle] repeat(12, 1fr) [middle-end] 30px [end];
+  grid-column-gap: 1em;
+}
+
+.grid-5-row {
+  grid-template-rows: [top] 65px [middle] repeat(5, 1fr) [bottom] 80px [last-line];
+  grid-row-gap: 1em;
+}
+
+.grid-row-content {
+  grid-template-rows: [top] 65px [title]100px[middle] auto [bottom] 80px [last-line];
+  grid-row-gap: 1em;
+
+}

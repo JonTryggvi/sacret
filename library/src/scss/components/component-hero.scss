@@ -1,0 +1,50 @@
+.uni_section__hero {
+  display: block;
+  width: 100vw;
+  height: calc(100vh - 80px);
+  // margin-top: 80px;
+  // max-width: 200vw;
+  overflow: hidden;
+  &__row {
+    display: grid;
+    width: 100vw;
+    height: calc(100vh - 80px);
+    grid-template-columns: [start] 30px [middle] repeat(12, 1fr) [middle-end] 30px [end];
+    grid-column-gap: 1em;
+    grid-template-rows: [top] 65px [middle] repeat(5, 1fr) [bottom] 80px [last-line];
+    grid-row-gap: 1em;
+    &__left {
+      grid-column-start: middle;
+      grid-column-end: span 5;
+      grid-row-start: 4;
+      grid-row-end: span 2;
+      
+      // &__box {
+      
+      // }
+    }
+    &__right {
+      grid-column-start: 7;
+      grid-column-end: end;
+      grid-row-start: 2;
+      grid-row-end: bottom;
+      position: relative;
+      overflow: hidden;
+      picture {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        grid-row-start: 2;
+        grid-row-end: bottom;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+
