@@ -1,0 +1,99 @@
+.uni_header {
+  // display: flex;
+  justify-content: center;
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 80px;
+  z-index: 10;
+  background-color: transparent;
+  box-shadow: 0 0 0 rgba($blue, 0);
+  transition: background-color 400ms ease, box-shadow 400ms 100ms ease;
+  &__inner-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    // max-width: $global-width;
+    grid-column-start: middle;
+    grid-column-end: span 12;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo-link {
+    position: relative;
+    width: 83px;
+    height: 66px;
+    color: transparent;
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0px;
+    }
+  }
+  &__nav-list {
+    position: relative;
+    display: flex;
+    height: 100%;
+    min-width: 320px;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+    list-style: none;
+    z-index: 1;
+    li {
+      display: flex;
+      align-items: center;
+      margin-left: 30px;
+      height: 100%;
+      z-index: 1;
+
+      &:hover {
+        cursor: pointer;
+        a {
+          color: $white;
+        }
+      }
+      a {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        text-transform: uppercase;
+        font-family: $nav-font-family;
+        color: $darkBlue;
+        font-size: 13px;
+        transition: all 600ms 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        text-decoration: none;
+      }
+    }
+  }
+  & nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    & .magic-line {
+      position: absolute;
+      top:6px;
+      min-width: 30px;
+      width: 30px;
+      height: calc(100% - 12px);
+      opacity: 0;
+      background-color: $pink;
+      z-index: 0;
+      transition: 
+        opacity 400ms 100ms ease-in, 
+        width 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95), 
+        left 400ms 100ms cubic-bezier(1, 0, 0, 1);
+    }
+  }
+}
+.bc__header {
+  &--white {
+    background-color: #fff !important;
+    box-shadow: 0px 0px 16px rgba($darkBlue, 0.2);
+    transition: background-color 400ms ease, box-shadow 400ms 100ms ease;
+  }
+}

@@ -1,0 +1,57 @@
+  
+  $zen_dot_color: var(--zen-color);
+  .zen-rows {
+    grid-template-rows: [top] 15px [middle] repeat(5, 1fr) [bottom] 15px [last-line];
+    grid-row-gap: 1em;
+  }
+  .zen-dot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 3 / span 4;
+    grid-row-start: 3;
+    grid-row-end: span 3;
+    .zen-pulse {
+      min-width: 200px;
+      min-height: 200px;
+      overflow: visible;
+      position: relative;
+      &::after {
+        position: absolute;
+        content: '';
+        top: calc(50% - 100px);
+        left: calc(50% - 100px);
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba($pink, 1) 10%, rgba($pink, .1) 50%, rgba($pink, 0) 60%), no-repeat;
+        animation: pulse 10s infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      }
+    }
+  }
+  .zen-text {
+    grid-column: 7 / span 4;
+    grid-row-start: 3;
+    grid-row-end: span 3;
+    align-self: center;
+    h2 {
+      font-family: $raleway;
+      font-weight: 600;
+      display: block;
+      text-align: right;
+    }
+    p {
+      text-align: right;
+    }
+  }
+
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: .9;
+    transform: scale(1.5);    
+  }
+}

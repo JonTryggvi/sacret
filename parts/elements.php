@@ -1,20 +1,23 @@
 <?php
 /*
-//	Element Page - Advanced Custom fields - Flexible Content
+**	Element Page - Advanced Custom fields - Flexible Content
 */
 ?> 
-<?php if( have_rows('elements') ): ?>
+<?php  /*
+if( have_rows('elements') ): 
+	 while ( have_rows('elements') ) : the_row();
+			$row_layout = get_row_layout() ? get_row_layout() : 'row_layout_not_found'; 
+			uni_partial('parts/elements_parts/'.$row_layout, ['post' => get_queried_object()]);
+		
+	 endwhile; 
+endif;  */?>
 
-    <?php while ( have_rows('elements') ) : the_row(); ?>
+<?php 
+if( have_rows('sections') ):
+	while ( have_rows('sections') ) : the_row(); 
+	
+		$row_layout = get_row_layout() ? get_row_layout() : 'row_layout_not_found'; 
+		uni_partial('parts/sections/'.$row_layout, ['post' => get_queried_object()]);
 
-	    <?php if( get_row_layout() == 'something' ): ?>
-
-
-	  	<?php elseif( get_row_layout() == 'something' ): ?>
-
-
-	    <?php endif; ?>
-
-    <?php endwhile; ?>
-
-<?php endif; ?>
+	endwhile; 
+endif; ?>

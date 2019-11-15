@@ -1,13 +1,24 @@
 # Browsersync config
 BROWSERSYNC:
   # URL of local development server goes here (ex. http://localsite.dev)
-  url: "https://aaa-blueprint.local/"
+  url: "http://localhost/uni/"
 
 # Autoprefixer will make sure your CSS works with these browsers
 COMPATIBILITY:
   - "last 2 versions"
   - "ie >= 9"
   - "ios >= 7"
+  - "> 1%"
+  - "ie >= 8"
+  - "edge >= 15"
+  - "ie_mob >= 10"
+  - "ff >= 45"
+  - "chrome >= 45"
+  - "safari >= 7"
+  - "opera >= 23"
+  - "ios >= 7"
+  - "android >= 4"
+  - "bb >= 10"
   
 # Set to true if you want static asset revisioning, helpful for cache busting
 REVISIONING: false  
@@ -23,10 +34,11 @@ PATHS:
     - "!library/src/{images,images/**/*,js,js/**/*,scss,scss/**/*}"
   # Paths to Sass libraries, which can then be loaded with @import
   sass:
-    
+    - "node_modules/owl.carousel/src/scss/"
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
     - "library/src/js/avista-app.js"
+    - "library/src/js/page-elements.js"
   # Paths for the package task to include/exclude in .zip archive
   package:
     - "**/*"

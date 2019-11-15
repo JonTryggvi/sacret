@@ -83,7 +83,7 @@ function sass() {
     })
       .on('error', $.sass.logError))
     .pipe($.autoprefixer({
-      browsers: COMPATIBILITY
+      overrideBrowserslist: COMPATIBILITY
     }))
 
     .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))

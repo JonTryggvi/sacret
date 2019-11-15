@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:700&display=swap|Raleway:400,600&display=swap|EB+Garamond:400,700&display=swap');
+$nav-font-family: 'Raleway', sans-serif;
+$paragraph-font-family: 'EB Garamond', serif;
+$raleway: $nav-font-family;
+$body-font-family: 'Cormorant Garamond', serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$corma: $body-font-family;
+
+h1 {
+  font-family: $raleway;
+  font-size: em(64);
+  color: $blue;
+}
+p {
+  font-family: $paragraph-font-family;
+  font-size: em(20);
+  line-height: em(24);
+}
