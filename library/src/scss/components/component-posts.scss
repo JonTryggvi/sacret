@@ -1,0 +1,45 @@
+.uni_section__posts {
+  &__container {
+    grid-column-start: middle;
+    grid-column-end: middle-end;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 1em;
+    // grid-template-rows: [top] 65px [middle] repeat(5, 1fr) [bottom] 80px [last-line];
+    grid-row-gap: 1em;
+    min-height: 500px;
+    .post-card {
+      position: relative;
+      article {
+        margin-bottom: 1em;
+        transition: box-shadow 500ms 200ms ease-in;
+        padding-bottom: 1.5em;
+        &:hover {
+          box-shadow: 0 14px 14px 5px rgba($black, 0.1);
+          transition: box-shadow 500ms 200ms ease-out;
+        }
+      }
+      main {
+        margin:20px 15px 0; 
+      }
+      figure {
+        width: 100%;
+        margin: 0;
+        img {
+          object-fit: contain;
+          width: 100%;
+        }
+      }
+      h2 {
+        font-size: 24px;
+        color: $pink;
+      }
+      &--large{
+        grid-column: span 6;
+      }
+      &--small {
+        grid-column: span 4;
+      }
+  }
+  }
+}

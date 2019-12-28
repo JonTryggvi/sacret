@@ -1,7 +1,9 @@
 # Browsersync config
 BROWSERSYNC:
   # URL of local development server goes here (ex. http://localsite.dev)
-  url: "http://localhost/uni/"
+  url: "http://uni.test"
+  key: "/Users/jontryggviunnarsson/.localhost-ssl/localhost.key"
+  crt: "/Users/jontryggviunnarsson/.localhost-ssl/localhost.crt"
 
 # Autoprefixer will make sure your CSS works with these browsers
 COMPATIBILITY:
@@ -39,6 +41,7 @@ PATHS:
   entries:
     - "library/src/js/avista-app.js"
     - "library/src/js/page-elements.js"
+    - "library/src/js/single-product.js"
   # Paths for the package task to include/exclude in .zip archive
   package:
     - "**/*"

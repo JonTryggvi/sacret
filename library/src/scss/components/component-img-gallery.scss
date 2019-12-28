@@ -1,0 +1,44 @@
+.uni_section__gallery {
+  & > h2 {
+    grid-row-start: top;
+    grid-column: middle / span 6;
+    align-self: end;
+    margin-bottom: 0;
+  }
+  max-height: 100vh;
+  figure {
+    overflow: hidden;
+    margin: 0;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .img_1 {
+    grid-column: middle / span 6;
+    grid-row: middle / span 12;
+  }
+  .img_1.one {
+    grid-column: middle / span 12;
+  }
+
+  .img_2 {
+    grid-column: 8 / span 6;
+  }
+  .img_2.two {
+    grid-row: middle / span 12;
+  }
+  .img_2.three {
+    grid-row: middle / span 6;
+  }
+  .img_3 {
+    grid-column: 8 / span 6;
+  }
+  .img_3.three {
+    grid-row: 8 / span 6;
+  }
+  .hideme {
+    display: none;
+  }
+}

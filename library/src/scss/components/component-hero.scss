@@ -16,12 +16,11 @@
     &__left {
       grid-column-start: middle;
       grid-column-end: span 5;
-      grid-row-start: 4;
+      grid-row-start: 3;
       grid-row-end: span 2;
-      
-      // &__box {
-      
-      // }
+      p, a {
+        margin-left: 40px;
+      }
     }
     &__right {
       grid-column-start: 7;

@@ -217,14 +217,19 @@ gulp.task('phpcbf', function () {
 
 // Start BrowserSync to preview the site in
 function server(done) {
-  browser.init({
+  let options = {
     proxy: BROWSERSYNC.url,
-    https: true,
     ui: {
       port: 8080
     },
-
-  });
+  }
+  if (BROWSERSYNC.hasOwnProperty('key')) {
+    options.https = { 
+      key:  BROWSERSYNC.key,
+      cert: BROWSERSYNC.crt
+    }
+  }
+  browser.init(options);
   done();
 }
 

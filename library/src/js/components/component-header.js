@@ -23,7 +23,8 @@ const Header = {
     scrollTop > 30 ? this.header.classList.add('bc__header--white') : this.header.classList.remove('bc__header--white')
   },
   handleMenuItemMouseover(e) {
-    const menuItemPosition = e.target.getBoundingClientRect()
+    const liItem = e.target.closest('.menu-item')
+    const menuItemPosition = liItem.getBoundingClientRect()
     this.setMacigLine(this.magicLine, menuItemPosition.left, menuItemPosition.top, menuItemPosition.width)
   },
   handleMenuItemMouseleave(e) {
@@ -31,7 +32,7 @@ const Header = {
   },
   setMacigLine(line, left, top, width) {
     line.style.opacity = '1'
-    line.style.left = left - 40 + 'px'
+    line.style.left = left - 10 + 'px'
     line.style.top = top + 6 + 'px'
     line.style.width = width + 20 + 'px'
   },
