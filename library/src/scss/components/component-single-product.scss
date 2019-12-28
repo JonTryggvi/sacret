@@ -1,0 +1,22 @@
+.uni_section__single-product {
+  figure {
+    grid-column: middle / span 6;
+    grid-row: middle / span 9;
+    margin: 0;
+  }
+  &__h2 {
+    grid-column: 8 / span 6;
+    grid-row: middle / span 1;
+    margin: 0 ;
+    align-self: start;
+  }
+  &__price {
+    grid-column: 8 / span 6;
+    grid-row: middle / span 1;
+    align-self: end;
+  }
+  &__description{
+    grid-column: 8 / span 6;
+    grid-row: 3 / span 7;
+  }
+}

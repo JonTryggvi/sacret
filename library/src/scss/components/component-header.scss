@@ -11,10 +11,8 @@
   box-shadow: 0 0 0 rgba($blue, 0);
   transition: background-color 400ms ease, box-shadow 400ms 100ms ease;
   &__inner-container {
-    position: relative;
     height: 100%;
     width: 100%;
-    // max-width: $global-width;
     grid-column-start: middle;
     grid-column-end: span 12;
     display: flex;
@@ -33,22 +31,20 @@
     }
   }
   &__nav-list {
-    position: relative;
     display: flex;
     height: 100%;
     min-width: 320px;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     margin: 0;
     list-style: none;
     z-index: 1;
+    padding: 0;
     li {
       display: flex;
       align-items: center;
-      margin-left: 30px;
       height: 100%;
       z-index: 1;
-
       &:hover {
         cursor: pointer;
         a {

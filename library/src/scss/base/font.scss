@@ -10,8 +10,19 @@ h1 {
   font-size: em(64);
   color: $blue;
 }
+h2 {
+  font-size: em(44);
+  color: $darkBlue;
+}
+
 p {
   font-family: $paragraph-font-family;
   font-size: em(20);
   line-height: em(24);
+}
+
+button, .btn {
+  font-family: $raleway;
+  font-size: em(16);
+  text-decoration: none;
 }

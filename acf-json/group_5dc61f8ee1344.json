@@ -156,6 +156,25 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_5de95d440d23c",
+                            "label": "Product title",
+                            "name": "product_title",
+                            "type": "text",
+                            "instructions": "Leave empty for no title",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ],
                     "min": "",
@@ -232,6 +251,91 @@
                     "sub_fields": [],
                     "min": "",
                     "max": ""
+                },
+                "layout_5dcfbe769b2b2": {
+                    "key": "layout_5dcfbe769b2b2",
+                    "name": "image_gallery",
+                    "label": "Image gallery",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5dcfbedb9b2b3",
+                            "label": "Images",
+                            "name": "images",
+                            "type": "gallery",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "insert": "append",
+                            "library": "all",
+                            "min": "",
+                            "max": "",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_5de95cd20d23a",
+                            "label": "Section title",
+                            "name": "section_title",
+                            "type": "text",
+                            "instructions": "Leave empty if you'd don' want a title for the section",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5dd059f42b0a1": {
+                    "key": "layout_5dd059f42b0a1",
+                    "name": "blog_section",
+                    "label": "Blog section",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5de95d160d23b",
+                            "label": "Blog title",
+                            "name": "blog_title",
+                            "type": "text",
+                            "instructions": "Leave empty if you don't want the title",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add section",
@@ -245,6 +349,13 @@
                 "param": "page_template",
                 "operator": "==",
                 "value": "page-elements.php"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
             }
         ]
     ],
@@ -271,5 +382,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1573763527
+    "modified": 1575578902
 }

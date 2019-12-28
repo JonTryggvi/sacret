@@ -3,8 +3,9 @@
   <div class="uni_section__content__wrap">
     <?php 
       $blocks = parse_blocks( $post->post_content );  
+     
       foreach ($blocks as $key => $block) {
-        echo $block['innerHTML'];
+        echo $block['blockName'] == 'core/shortcode' ? do_shortcode($block['innerHTML']) : $block['innerHTML'];
       } 
     ?>
     </div>

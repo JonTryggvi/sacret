@@ -15,16 +15,16 @@
   a {
     grid-column: span 4;
     transition: box-shadow 500ms 200ms ease-in;
-    padding:15px;
+    // padding:15px;
     &:hover {
       box-shadow: 0 14px 14px 5px rgba($black, 0.1);
       transition: box-shadow 500ms 200ms ease-out;
     }
-    flex-basis: 32%;
     min-width: 280px;
     max-width: calc($global-width / 3);
-    margin-bottom: 1%;
     figure {
+      margin: 0;
+      height: 250px;
       img {
         object-fit: cover;
         width: 100%;
@@ -32,6 +32,9 @@
       }
     }
   
+    main {
+      margin:20px 15px 0;
+    }
     h2 {
       font-family: $corma;
       font-style: normal;
@@ -40,8 +43,6 @@
       line-height: 26px;
       margin-top:20px;
       text-align: center;
-      /* or 130% */
-
       color: $darkBlue;
     }
   }
