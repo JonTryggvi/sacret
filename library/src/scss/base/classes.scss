@@ -7,7 +7,14 @@
 .grid-with-margin {
   display: grid;
   grid-template-columns: [start] 60px [middle] repeat(12, 1fr) [middle-end] 60px [end];
-  grid-column-gap: 1em;
+  @include bp(phablet){
+    grid-template-columns: [start] 10px [middle] repeat(12, 1fr) [middle-end] 10px [end];
+    grid-column-gap: 0.2em;
+  }
+}
+.grid-12-container {
+  display: grid;
+  grid-template-columns:  repeat(12, 1fr) ;
 }
 
 .grid-5-row {

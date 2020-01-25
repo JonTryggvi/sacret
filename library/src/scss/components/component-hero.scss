@@ -13,13 +13,25 @@
     grid-column-gap: 1em;
     grid-template-rows: [top] 65px [middle] repeat(5, 1fr) [bottom] 80px [last-line];
     grid-row-gap: 1em;
+    @include bp(phablet){
+      grid-template-rows: [top] 50px [middle] repeat(5, 1fr) [bottom] 80px [last-line];
+      grid-row-gap: 0.2em;
+    }
     &__left {
-      grid-column-start: middle;
-      grid-column-end: span 5;
+      grid-column: middle / span 5;
       grid-row-start: 3;
       grid-row-end: span 2;
+      
       p, a {
         margin-left: 40px;
+      }
+      @include bp(phablet){
+        grid-column: middle / span 12;
+        grid-row: 5 / span 3
+        p, a {
+          margin-left: 40px;
+        }
+        
       }
     }
     &__right {
@@ -29,6 +41,10 @@
       grid-row-end: bottom;
       position: relative;
       overflow: hidden;
+      @include bp(phablet){
+        grid-column: start / span 14;
+        grid-row: 2 / span 3 ;
+      }
       picture {
         position: absolute;
         top: 0;

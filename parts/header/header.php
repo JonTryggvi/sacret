@@ -1,11 +1,12 @@
 <header class="uni_header header grid-with-margin" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 
-  <div id="inner-header" class="uni_header__inner-container">
+  <div id="inner-header" class="uni_header__inner-container grid-12-container">
 
     <?php // to use a image just replace the bloginfo('name') with your img src and remove the surrounding <p> ?>
     <a href="<?php echo home_url('/', 'https'); ?>" class="uni_header__logo-link">Uni<?php uni_partial('library/svg_php/logo.svg'); ?></a>
 
     <nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <span class="menu_hamburger"><span></span><span></span></span>
       <span class="magic-line"></span>
       <?php wp_nav_menu(array(
                 'container' => false,                           // remove nav container

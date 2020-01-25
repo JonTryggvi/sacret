@@ -9,10 +9,16 @@ h1 {
   font-family: $raleway;
   font-size: em(64);
   color: $blue;
+  @include bp(phablet){
+    font-size: em(42);
+  }
 }
 h2 {
   font-size: em(44);
   color: $darkBlue;
+  @include bp(phablet){
+    font-size: em(22);
+  }
 }
 
 p {

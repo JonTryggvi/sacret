@@ -1,0 +1,42 @@
+.svgFooter {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: calc(100vh - 80px);
+  filter: drop-shadow( 1px 1px 7px transparent);
+  path {
+    fill: transparent;  
+    transition: fill 800ms ease-in-out;
+  }
+ 
+
+}
+ .svgFill {
+    fill: $pink;
+    transition: all 800ms 300ms ease-in-out;
+  }
+  .svgShadow  {
+    filter: drop-shadow( 1px 1px 7px $pink);
+  }
+
+  .svgPath {
+    stroke: transparent !important;
+  }
+
+.svgBody {
+  position: fixed;
+  height: 80vh;
+  width: 80vh;
+  top: calc(50% - 40vh + 40px);
+  left: calc(50% - 40vh);
+  z-index: -1;
+  opacity: 0;
+  transition: all 800ms 300ms ease-in-out;
+  path {
+    stroke: $pink;
+    transition: all 800ms 300ms ease-in-out;
+  }
+  g {
+    transition: all 800ms 300ms ease-in-out;
+  }
+}

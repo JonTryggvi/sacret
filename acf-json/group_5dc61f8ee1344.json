@@ -125,6 +125,25 @@
                                     "allow_null": 0,
                                     "allow_archives": 1,
                                     "multiple": 0
+                                },
+                                {
+                                    "key": "field_5e1b787655511",
+                                    "label": "Hero link text",
+                                    "name": "hero_link_text",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
                                 }
                             ]
                         }
@@ -382,5 +401,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1575578902
+    "modified": 1578858646
 }
