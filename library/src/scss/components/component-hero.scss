@@ -2,8 +2,6 @@
   display: block;
   width: 100vw;
   height: calc(100vh - 80px);
-  // margin-top: 80px;
-  // max-width: 200vw;
   overflow: hidden;
   &__row {
     display: grid;
@@ -15,26 +13,29 @@
     grid-row-gap: 1em;
     @include bp(phablet){
       grid-template-rows: [top] 50px [middle] repeat(5, 1fr) [bottom] 80px [last-line];
+      grid-column-gap: 0.2em;
       grid-row-gap: 0.2em;
     }
-    &__left {
+    &__text {
       grid-column: middle / span 5;
-      grid-row-start: 3;
-      grid-row-end: span 2;
-      
+      grid-row: 3 / span 2;
       p, a {
         margin-left: 40px;
       }
+      &__box {
+        display: flex;
+        flex-direction: column;
+      }
       @include bp(phablet){
         grid-column: middle / span 12;
-        grid-row: 5 / span 3
+        grid-row: 5 / span 3;
         p, a {
-          margin-left: 40px;
+          margin-left: 0px;
         }
-        
       }
+
     }
-    &__right {
+    &__image {
       grid-column-start: 7;
       grid-column-end: end;
       grid-row-start: 2;
@@ -57,6 +58,46 @@
           height: 100%;
           object-fit: cover;
         }
+      }
+    }
+  }
+ 
+  .right .uni_section__hero__row {
+    &__text {
+      justify-content: flex-end;
+      grid-column: span 5 / middle-end;
+      h1 {
+        text-align: right;
+      }
+      p, a {
+        text-align: right;
+        margin-right: 40px;
+      }
+      a {
+        align-self: flex-end;
+      }
+      @include bp(phablet){
+        grid-column: middle / span 12;
+        grid-row: 5 / span 3;
+        h1 {
+          text-align: left;
+          margin: 25px 0 10px;
+        }
+        p, a {
+          text-align: left;
+          margin-top: 5px;
+          margin-left: 0px;
+        }
+        a {
+          align-self: flex-start;
+        }
+      }
+    }
+    &__image{
+      grid-column: start / span 8;
+       @include bp(phablet){
+        grid-column: start / span 14;
+        grid-row: 2 / span 3 ;
       }
     }
   }

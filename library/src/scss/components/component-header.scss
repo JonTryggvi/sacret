@@ -30,6 +30,9 @@
     height: 100%;
     // width: 83px;
     // height: 66px;
+    &:hover {
+      color: transparent;
+    }
     color: transparent;
     @include bp(phablet){
       grid-column:6 / span 2;
@@ -52,6 +55,8 @@
     display: flex;
     height: 100%;
     min-width: 320px;
+    width: 100%;
+    max-width: 420px;
     justify-content: space-between;
     align-items: center;
     margin: 0;

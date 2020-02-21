@@ -6,21 +6,38 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-column-gap: 1em;
-  // grid-template-rows: [top] 65px [middle] repeat(5, 1fr) [bottom] 80px [last-line];
   grid-row-gap: 1em;
   min-height: 500px;
+ 
+  @include bp(small-laptop){
+    grid-template-columns: repeat(12, 1fr);
+  }
+
   @include bp($large){
     padding: 5rem 1rem 1rem; 
   }
   a {
     grid-column: span 4;
     transition: box-shadow 500ms 200ms ease-in;
+    text-decoration: none;
+    
     // padding:15px;
+    @include bp(small-laptop) {
+      grid-column: span 4;
+    }
+    @include bp(tablet) {
+      grid-column: span 6;
+     
+    }
+    @include bp(milli) {
+      grid-column: span 12
+    }
     &:hover {
+      color: $black;
       box-shadow: 0 14px 14px 5px rgba($black, 0.1);
       transition: box-shadow 500ms 200ms ease-out;
     }
-    min-width: 280px;
+    min-width: 230px;
     max-width: calc($global-width / 3);
     figure {
       margin: 0;

@@ -9,8 +9,11 @@
     justify-content: center;
     align-items: center;
     grid-column: 3 / span 4;
-    grid-row-start: 3;
-    grid-row-end: span 3;
+    grid-row: 3 / span 3;
+     @include bp(phablet) {
+      grid-column: 2 / span 12;
+      grid-row: top / span 3 ;
+    }
     .zen-pulse {
       min-width: 200px;
       min-height: 200px;
@@ -30,9 +33,9 @@
   }
   .zen-text {
     grid-column: 7 / span 4;
-    grid-row-start: 3;
-    grid-row-end: span 3;
+    grid-row: 3 / span 3; 
     align-self: center;
+
     h2 {
       font-family: $raleway;
       font-weight: 600;
@@ -41,6 +44,13 @@
     }
     p {
       text-align: right;
+    }
+    @include bp(phablet) {
+      grid-column: 2 / span 12;
+      grid-row: span 3 / bottom;
+      h2, p {
+        text-align: center;
+      }
     }
   }
 

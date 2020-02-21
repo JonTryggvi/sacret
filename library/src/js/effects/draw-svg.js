@@ -9,14 +9,17 @@ const DrawSvg = {
     this.svgMandala = this.body.querySelector('.svgBody')
     this.paths = this.svgMandala.querySelectorAll('path')
     this.gMandala = this.svgMandala.querySelector('#mandala')
- 
   },
   addEvents(){
     window.addEventListener('scroll', this.handleScroll.bind(this))
   },
   handleScroll(e) {
-    const scrollpercent = (this.body.scrollTop + document.documentElement.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight)
-    this.setPaths(scrollpercent)
+    var h = document.documentElement,
+      b = document.body,
+      st = 'scrollTop',
+      sh = 'scrollHeight';
+    var percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight);
+    this.setPaths(percent)
   },
   setPaths(scrlPerc = false) {
     this.paths.forEach(path => {
@@ -24,7 +27,7 @@ const DrawSvg = {
       path.style.strokeDasharray = length
       path.style.strokeDashoffset = length
       if (scrlPerc) {
-        const draw = length > 1000 ? length * scrlPerc / 50 : length * scrlPerc
+        const draw = length > 1000 ? length * scrlPerc : length * scrlPerc
         path.style.strokeDashoffset = length - draw
         if (scrlPerc <= 0.2) {
           this.svgMandala.style.opacity = scrlPerc
@@ -39,7 +42,6 @@ const DrawSvg = {
         path.classList.remove('svgPath')
         this.svgMandala.classList.remove('svgShadow')
       }
-
     })
   }
 }

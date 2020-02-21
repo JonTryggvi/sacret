@@ -1,0 +1,1 @@
+<div class="btnContainer"><button class="btn btn--pink btnLoadMore" data-next-page = "2" >Load more</button></div>
