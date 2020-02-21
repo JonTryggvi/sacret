@@ -15,9 +15,12 @@ $browser-context: 16;
    @if $point == small-laptop {
     @media (max-width: $large) { @content ; }
  }
- @if $point == tablet {
-  @media (max-width: $medium) { @content ; }
-}
+  @if $point == tablet {
+    @media (max-width: $medium) { @content ; }
+  }
+  @if $point == milli {
+    @media (max-width: 600px)  { @content ; }
+  }
   @if $point == phablet {
     @media (max-width: $small)  { @content ; }
  }

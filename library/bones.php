@@ -150,9 +150,21 @@ function bones_scripts_and_styles() {
 
 		//adding main Avista script file
 		wp_register_script( 'avista-js', get_stylesheet_directory_uri() . '/library/dist/js/avista-app.js', array( 'jquery' ), '', true );
-		wp_register_script( 'elements-js', get_stylesheet_directory_uri() . '/library/dist/js/page-elements.js', array( 'jquery' ), '', true );
+		wp_register_script( 'frontpage-js', get_stylesheet_directory_uri() . '/library/dist/js/page-frontpage.js', array( 'jquery' ), '', true );
+		wp_register_script( 'offerings-js', get_stylesheet_directory_uri() . '/library/dist/js/page-offerings.js', array( 'jquery' ), '', true );
+		wp_register_script( 'news-js', get_stylesheet_directory_uri() . '/library/dist/js/page-news.js', array( 'jquery' ), '', true );
 		wp_register_script( 'single-product-js', get_stylesheet_directory_uri() . '/library/dist/js/single-product.js', array( 'jquery' ), '', true );
 
+		wp_localize_script( 'avista-js', 'phpObj',
+			array( 
+				'ajaxPath' => admin_url( 'admin-ajax.php' ),
+				'ajax_nonce' => wp_create_nonce('morning_rain'),
+				'translations' => array(
+					'someTextToTranslate' => __('my text', 'avista'),
+				)
+			)
+		);
+	$body_classes = get_body_class();
 		// enqueue styles and scripts
 		wp_enqueue_script( 'bones-modernizr' );
 		wp_enqueue_script( 'scroll' );
@@ -167,9 +179,17 @@ function bones_scripts_and_styles() {
 		wp_enqueue_script( 'bones-js' );
 		wp_enqueue_script( 'avista-js' );
 
-		if( is_page_template('page-elements.php')){
-			wp_enqueue_script('elements-js');
+
+		if( in_array('page-front-page', $body_classes) || in_array('page-forsida', $body_classes)){
+			wp_enqueue_script('frontpage-js');
 		}
+		if( in_array('page-offerings', $body_classes) || in_array('page-i-bodi', $body_classes)){
+			wp_enqueue_script('offerings-js');
+		}
+		if( in_array('page-news', $body_classes) || in_array('page-frettir', $body_classes)){
+			wp_enqueue_script('news-js');
+		}
+
 
 		/** Hér erum við með sérstakt js skjal fyrir single post type */
 		if(get_post_type() === 'product') {

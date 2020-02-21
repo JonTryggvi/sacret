@@ -7,6 +7,7 @@
 .grid-with-margin {
   display: grid;
   grid-template-columns: [start] 60px [middle] repeat(12, 1fr) [middle-end] 60px [end];
+  grid-column-gap: 1em;
   @include bp(phablet){
     grid-template-columns: [start] 10px [middle] repeat(12, 1fr) [middle-end] 10px [end];
     grid-column-gap: 0.2em;
@@ -20,6 +21,10 @@
 .grid-5-row {
   grid-template-rows: [top] 130px [middle] repeat(5, 1fr) [bottom] 80px [last-line];
   grid-row-gap: 1em;
+  @include bp(phablet) {
+    grid-template-rows: [top] 50px [middle] repeat(5, 1fr) [bottom] 30px [last-line];
+    grid-row-gap: 0.2em;
+  }
 }
 
 .grid-row-content {
@@ -30,6 +35,10 @@
 .grid-row-content__single-prod, .grid-row-content__12_row {
   grid-template-rows: [top] 130px [middle] repeat(12, 1fr) [bottom] 80px [last-line];
   grid-row-gap: 1em;
+  @include bp(phablet) {
+    grid-template-rows: [top] 50px [middle] repeat(12, 1fr) [bottom] 30px [last-line];
+    grid-row-gap: 0.2em;
+  }
 }
 
 .visibility {
@@ -44,3 +53,4 @@
     opacity: 0;
   }
 }
+

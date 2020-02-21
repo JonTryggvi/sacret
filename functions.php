@@ -11,7 +11,9 @@ sidebars, comments, etc.
 // LOAD BONES CORE (if you remove this, the theme will break)
 require_once( 'library/bones.php' );
 require_once( 'inc/remove-comments.php' );
+require_once('library/uni-translations.php');
 require_once('library/uni-function.php');
+require_once('library/uni-ajax.php');
 // CUSTOMIZE THE WORDPRESS ADMIN (off by default)
 // require_once( 'library/admin.php' );
 

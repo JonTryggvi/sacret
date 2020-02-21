@@ -52,7 +52,7 @@ const Header = {
       if (!this.header.classList.contains('menu-open')) {
         sr.reveal(this.menuItems, {
           scale: 1,
-          reset: false,
+          reset: true,
           mobile: false,
           duration: 600,
           distance: '10px',
@@ -63,6 +63,7 @@ const Header = {
     }
   },
   handleWindowScroll(e) {
+   
     var scrollTop = e.srcElement.scrollingElement.scrollTop;
     if (scrollTop > 30 && !this.scrolled) {
       this.header.classList.add('bc__header--white')
@@ -71,7 +72,6 @@ const Header = {
       this.header.classList.remove('bc__header--white')
       this.scrolled = false
     }
-    console.log(this.scrolled)
   },
   handleMenuItemMouseover(e) {
     const liItem = e.target.closest('.menu-item')
@@ -89,7 +89,8 @@ const Header = {
   },
   hideMagicLine(line) {
     line.style.opacity = '0'
-  },
+  }
 
 }
 module.exports = Header
+

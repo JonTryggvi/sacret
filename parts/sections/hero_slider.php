@@ -3,10 +3,11 @@
 		<?php
 			while(have_rows('hero_slider')): the_row();
 			$img_obj = get_sub_field('hero_img');
+			$side_class = get_sub_field('hero_switch_sides') ? 'right' : '';
 		?>
-			<div class="uni_section__hero__row">
-				<div class="uni_section__hero__row__left medium-7">
-					<div class="uni_section__hero__row__left__box">
+			<div class="<?php echo $side_class; ?> uni_section__hero__row">
+				<div class="uni_section__hero__row__text medium-7">
+					<div class="uni_section__hero__row__text__box">
 						<h1 class="text--pink"><?php the_sub_field('hero_title'); ?></h1>
 						<p><?php the_sub_field('hero_text'); ?> </p>
 						<?php $hero_link = get_sub_field('hero_link'); if(NULL !== $hero_link) :?>
@@ -14,7 +15,7 @@
 						<?php endif; ?>
 					</div>
 				</div>
-				<div class="uni_section__hero__row__right">
+				<div class="uni_section__hero__row__image">
 					<picture>
 						<source srcset="<?php echo $img_obj['sizes']['medium_large']; ?>" media="(min-width: 600px)">
 						<img src="<?php echo$img_obj['sizes']['large']; ?>" alt="">

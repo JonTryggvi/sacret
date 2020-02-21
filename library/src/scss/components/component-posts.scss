@@ -5,16 +5,23 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-column-gap: 1em;
-    // grid-template-rows: [top] 65px [middle] repeat(5, 1fr) [bottom] 80px [last-line];
     grid-row-gap: 1em;
     min-height: 500px;
+    @include bp(phablet) {
+      grid-template-columns: repeat(auto-fit, 1fr);
+      grid-column-gap: 0.2em;
+      grid-row-gap: 0.2em;
+    }
     .post-card {
       position: relative;
+      text-decoration: none;
       article {
         margin-bottom: 1em;
         transition: box-shadow 500ms 200ms ease-in;
         padding-bottom: 1.5em;
+
         &:hover {
+          color: $black;
           box-shadow: 0 14px 14px 5px rgba($black, 0.1);
           transition: box-shadow 500ms 200ms ease-out;
         }
@@ -36,10 +43,17 @@
       }
       &--large{
         grid-column: span 6;
+        @include bp(phablet) {
+         grid-column: span 12;
+        }
+
       }
       &--small {
         grid-column: span 4;
+        @include bp(phablet) {
+         grid-column: span 12;
+        }
       }
-  }
+    }
   }
 }

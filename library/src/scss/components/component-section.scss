@@ -2,6 +2,9 @@
   // width: 100vw;
   min-height: 500px;
   margin-bottom: 180px;
+  @include bp(phablet) {
+    margin-bottom: 80px;
+  }
   // background-color: tomato;
   &__has_title{
 
@@ -13,10 +16,16 @@
       grid-column: middle / span 6;
       grid-row-start: title;
       margin: 0;  
+      @include bp(tablet){
+        grid-column: middle / span 12;
+      }
     }
   }
   .card-container {
     grid-row-start: middle;
   }
-
+  &.archive {
+    margin-top: 100px;
+    
+  }
 }

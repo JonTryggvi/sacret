@@ -40,8 +40,10 @@ PATHS:
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
     - "library/src/js/avista-app.js"
-    - "library/src/js/page-elements.js"
+    - "library/src/js/page-frontpage.js"
     - "library/src/js/single-product.js"
+    - "library/src/js/page-offerings.js"
+    - "library/src/js/page-news.js"
   # Paths for the package task to include/exclude in .zip archive
   package:
     - "**/*"
