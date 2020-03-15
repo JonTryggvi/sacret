@@ -1,5 +1,5 @@
 $ = window.$
-let sr =  ScrollReveal();
+let sr = ScrollReveal();
 const Header = {
   scrolled: false,
   init(body){
@@ -35,43 +35,48 @@ const Header = {
     }
     window.addEventListener('scroll', this.handleWindowScroll.bind(this))
     this.navUl.addEventListener('transitionend', e => {
-      if (this.header.classList.contains('menu-open')) {
-
-        sr.reveal(this.menuItems, {
+      if (this.header.classList.contains('menu-open') && window.innerWidth <= 414) {
+        this.reveal({
           scale: 1,
           reset: false,
-          // mobile: fal,
-          duration: 1000,
+          mobile: true,
+          duration: 1200,
           distance: '20px',
-          interval: 250,
-          origin: 'bottom'
-        });
+          interval: 200,
+          origin: 'bottom',
+          container: this.navUl
+        })
       }
     })
     window.onload = e => {
-      if (!this.header.classList.contains('menu-open')) {
-        sr.reveal(this.menuItems, {
+      let windowScrollTop = e.srcElement.scrollingElement.scrollTop
+      if (windowScrollTop > 30) {
+        this.header.classList.add('bc__header--white')
+        this.scrolled = true
+      }
+      if (!this.header.classList.contains('menu-open') && window.innerWidth > 414) {
+        this.reveal({
           scale: 1,
-          reset: true,
+          reset: false,
           mobile: false,
           duration: 600,
           distance: '10px',
           interval: 200,
-          origin: 'bottom'
-        });
+          origin: 'bottom',
+          container: this.navUl
+        })
       }
     }
   },
   handleWindowScroll(e) {
-   
-    var scrollTop = e.srcElement.scrollingElement.scrollTop;
+    let scrollTop = e.srcElement.scrollingElement.scrollTop;
     if (scrollTop > 30 && !this.scrolled) {
       this.header.classList.add('bc__header--white')
-      this.scrolled = true
+      this.scrolled = true 
     } else if(scrollTop < 30){
       this.header.classList.remove('bc__header--white')
       this.scrolled = false
-    }
+    } 
   },
   handleMenuItemMouseover(e) {
     const liItem = e.target.closest('.menu-item')
@@ -89,8 +94,11 @@ const Header = {
   },
   hideMagicLine(line) {
     line.style.opacity = '0'
+  },
+  reveal(options) {
+    console.log('reveal fn runs')
+    sr.reveal(this.menuItems, options);
   }
-
 }
 module.exports = Header
 

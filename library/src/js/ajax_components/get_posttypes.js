@@ -51,7 +51,6 @@ const GetPosts = {
   get_posts(page = 1, hasButton) {
     this.ajaxObj.page = page
     Global.postAjax(this.ajaxObj).done(res => {
-      console.log(page,res)
       if (page == 1) {
         this.cardContainer.innerHTML = res.posts
       }
