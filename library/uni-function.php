@@ -27,3 +27,27 @@ function get_link_by_slug($slug, $lang_slug = null, $type = 'post'){
   $id = ($lang_slug) ? pll_get_post($post->ID, $lang_slug) : $post->ID;
   return get_permalink($id);
 }
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Uni General Settings',
+		'menu_title'	=> 'Uni Settings',
+		'menu_slug' 	=> 'uni-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Uni Header Settings',
+		'menu_title'	=> 'Header',
+		'parent_slug'	=> 'uni-general-settings',
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Uni Footer Settings',
+		'menu_title'	=> 'Footer',
+		'parent_slug'	=> 'uni-general-settings',
+	));
+	
+}

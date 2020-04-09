@@ -70,10 +70,10 @@ const Header = {
   },
   handleWindowScroll(e) {
     let scrollTop = e.srcElement.scrollingElement.scrollTop;
-    if (scrollTop > 30 && !this.scrolled) {
+    if (scrollTop > 0 && !this.scrolled) {
       this.header.classList.add('bc__header--white')
       this.scrolled = true 
-    } else if(scrollTop < 30){
+    } else if(scrollTop < 1){
       this.header.classList.remove('bc__header--white')
       this.scrolled = false
     } 

@@ -1,20 +1,18 @@
 $browser-context: 16;
-
 @function em($pixels, $context: $browser-context) {
   @return ($pixels / $context) * 1em;
 }
 
-
 @mixin bp($point) {
   @if $point == desktop {
     @media (max-width: $xx-large) { @content ; }
- }
+  }
   @if $point == laptop {
     @media (max-width: $x-large) { @content ; }
- }
-   @if $point == small-laptop {
+  }  
+  @if $point == small-laptop {
     @media (max-width: $large) { @content ; }
- }
+  }
   @if $point == tablet {
     @media (max-width: $medium) { @content ; }
   }
@@ -23,9 +21,9 @@ $browser-context: 16;
   }
   @if $point == phablet {
     @media (max-width: $small)  { @content ; }
- }
- @if $point == mobile {
+  }
+  @if $point == mobile {
     @media (max-width: $x-small)  { @content ; }
- }
+  }
 }
 

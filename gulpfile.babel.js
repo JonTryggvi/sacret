@@ -1,17 +1,18 @@
 'use strict';
-import plugins      from 'gulp-load-plugins';
-import yargs         from 'yargs';
-import browser       from 'browser-sync';
-import gulp          from 'gulp';
-import rimraf        from 'rimraf';
-import yaml          from 'js-yaml';
-import fs            from 'fs';
-import dateFormat    from 'dateformat';
-import webpackStream from 'webpack-stream';
-import webpack2      from 'webpack';
-import named         from 'vinyl-named';
-import log           from 'fancy-log';
-import colors        from 'ansi-colors';
+import plugins        from 'gulp-load-plugins';
+import yargs          from 'yargs';
+import browser        from 'browser-sync';
+import gulp           from 'gulp';
+import rimraf         from 'rimraf';
+import yaml           from 'js-yaml';
+import fs             from 'fs';
+import dateFormat     from 'dateformat';
+import webpackStream  from 'webpack-stream';
+import webpack2       from 'webpack';
+import named          from 'vinyl-named';
+import log            from 'fancy-log';
+import colors         from 'ansi-colors';
+import merge          from 'merge-stream';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -76,25 +77,26 @@ function copy() {
 // Compile Sass into CSS
 // In production, the CSS is compressed
 function sass() {
-  return gulp.src('library/src/scss/avista-app.scss')
-    .pipe($.sourcemaps.init())
-    .pipe($.sass({
-      includePaths: PATHS.sass
-    })
-      .on('error', $.sass.logError))
-    .pipe($.autoprefixer({
-      overrideBrowserslist: COMPATIBILITY
-    }))
-
-    .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
-    .pipe($.if(!PRODUCTION, $.sourcemaps.write('.')))
-    .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
-    .pipe(gulp.dest(PATHS.dist + '/css'))
-    .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
-    .pipe(gulp.dest(PATHS.dist + '/css'))
-    .pipe(browser.reload({ stream: true }));
+  let tasks = PATHS.entries_sass.map(url => {
+    return gulp.src(url)
+      .pipe($.sourcemaps.init())
+      .pipe($.sass({
+        includePaths: PATHS.sass
+      })
+        .on('error', $.sass.logError))
+      .pipe($.autoprefixer({
+        overrideBrowserslist: COMPATIBILITY
+      }))
+      .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
+      .pipe($.if(!PRODUCTION, $.sourcemaps.write('.')))
+      .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
+      .pipe(gulp.dest(PATHS.dist + '/css'))
+      .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
+      .pipe(gulp.dest(PATHS.dist + '/css'))
+      .pipe(browser.reload({ stream: true }));
+  });
+  return merge(tasks);
 }
-
 
 // Combine JavaScript into one file
 // In production, the file is minified
@@ -134,6 +136,7 @@ const webpack = {
       .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
       .pipe(gulp.dest(PATHS.dist + '/js'));
   },
+ 
 
   watch() {
     const watchConfig = Object.assign(webpack.config, {
@@ -254,10 +257,11 @@ function watch() {
 }
 
 // Build the "dist" folder by running all of the below tasks
-gulp.task('build', gulp.series(clean, gulp.parallel(sass, 'webpack:build', images, copy)));
+gulp.task('build',
+  gulp.series(clean, gulp.parallel(sass, 'webpack:build', images, copy)));
 
   
-// Buildthe site, run the server, and watch for file changes
+// Build the site, run the server, and watch for file changes
 gulp.task('default',
   gulp.series('build', server, gulp.parallel('webpack:watch', watch)));
 

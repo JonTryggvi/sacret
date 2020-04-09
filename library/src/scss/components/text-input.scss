@@ -1,0 +1,21 @@
+.txtInpLabel {
+  display: flex;
+  flex-flow: column;
+}
+.txtInp {
+  border: none;
+  border-bottom: 1px solid $black;
+  max-width: 320px;
+  height: 24px;
+  line-height: 50px;
+  padding-top: 11px;
+  &--w100 {
+    width: 100%;
+  }
+  &--w75 {
+    width: 75%;
+  }
+  &--w50 {
+    width: 50%;
+  }
+}

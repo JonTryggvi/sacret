@@ -1,6 +1,6 @@
 			<footer class="footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
 
-				<div id="inner-footer" class="wrap">
+				<div id="inner-footer" class="grid-with-margin">
 
 					<nav role="navigation">
 						<?php wp_nav_menu(array(
@@ -17,11 +17,9 @@
     					'fallback_cb' => 'bones_footer_links_fallback'  // fallback function
 						)); ?>
 					</nav>
-
-					<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>.</p>
-
+					<?php uni_partial('parts/components/mailchimp-form', ['id_index' => 2, 'columns' => 4]); ?>
 				</div>
-
+				<p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>.</p>
 			</footer>
 
 		</div>
