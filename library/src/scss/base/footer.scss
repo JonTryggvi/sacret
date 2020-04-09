@@ -1,5 +1,25 @@
 .footer {
   margin-top: 100vh;
+  min-height: 45vh;
+  display: flex;
+  flex-flow: column ;
+  justify-content: space-between;
+  nav {
+    grid-column: middle / span 4;
+    ul {
+      list-style: none;
+      a {
+        font-family: $raleway;
+        font-size: em(16);
+        text-decoration: none;
+      }
+    }
+  }
+  .copyright {
+    font-family: $raleway;
+    font-size: em(12);    
+    text-align: center;
+  }
 }
 
 .svgFooter {
@@ -12,12 +32,12 @@
     fill: transparent;  
     transition: fill 800ms ease-in-out;
   }
- 
+
 
 }
- .svgFill {
+.svgFill {
     fill: $pink;
-    transition: all 800ms 300ms ease-in-out;
+    transition: all 2000ms 300ms ease-in-out;
   }
   .svgShadow  {
     filter: drop-shadow( 0px 0px 2px rgba($pink, 0.2));

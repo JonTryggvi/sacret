@@ -44,6 +44,16 @@ const Globals = {
     }
     
 
+  },
+  validateEmail(inputText, inp) {
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (inputText.match(mailformat)) {
+      return { success: true };
+    }
+    else {
+      inp.focus();
+      return { success: false, msg: "You have entered an invalid email address!"};
+    }
   }
 }
 module.exports = Globals

@@ -19,6 +19,12 @@
     background-color: $darkBlue;
     color: $white;
   }
+  &--small {
+    min-width: 110px;
+  }
+  &--nomargin {
+    margin: 0;
+  }
 }
 
 .btnContainer {

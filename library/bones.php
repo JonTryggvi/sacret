@@ -154,13 +154,14 @@ function bones_scripts_and_styles() {
 		wp_register_script( 'offerings-js', get_stylesheet_directory_uri() . '/library/dist/js/page-offerings.js', array( 'jquery' ), '', true );
 		wp_register_script( 'news-js', get_stylesheet_directory_uri() . '/library/dist/js/page-news.js', array( 'jquery' ), '', true );
 		wp_register_script( 'single-product-js', get_stylesheet_directory_uri() . '/library/dist/js/single-product.js', array( 'jquery' ), '', true );
+		wp_register_script( 'mailchimp', get_stylesheet_directory_uri() . '/library/dist/js/element-mailchimp.js', array( 'jquery' ), '', true );
 
 		wp_localize_script( 'avista-js', 'phpObj',
 			array( 
 				'ajaxPath' => admin_url( 'admin-ajax.php' ),
 				'ajax_nonce' => wp_create_nonce('morning_rain'),
 				'translations' => array(
-					'someTextToTranslate' => __('my text', 'avista'),
+					'Skrá vefpóst' => __('Skrá vefpóst', 'avista'),
 				)
 			)
 		);
@@ -189,6 +190,13 @@ function bones_scripts_and_styles() {
 		if( in_array('page-news', $body_classes) || in_array('page-frettir', $body_classes)){
 			wp_enqueue_script('news-js');
 		}
+
+		// if( have_rows('sections') ): 
+    //   /** How cool is this!! we can apply scripts if a specific row_layout is loaded !!!!! */
+    //   while ( have_rows('sections') ) : the_row();
+    //     'mailchimp_section' == get_row_layout() ? wp_enqueue_script( 'mailchimp' ) : NULL; 
+    //   endwhile; 
+    // endif;
 
 
 		/** Hér erum við með sérstakt js skjal fyrir single post type */

@@ -44,6 +44,10 @@ PATHS:
     - "library/src/js/single-product.js"
     - "library/src/js/page-offerings.js"
     - "library/src/js/page-news.js"
+    - "library/src/js/element-mailchimp.js"
+    # Paths to sass entry points for building different css files for different page loads
+  entries_sass:
+    - "library/src/scss/avista-app.scss"
   # Paths for the package task to include/exclude in .zip archive
   package:
     - "**/*"

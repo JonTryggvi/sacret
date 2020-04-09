@@ -1,0 +1,53 @@
+.mailchimp-container {
+  grid-column: middle / span 12;
+  align-items: center;
+}
+
+.mailchimp--form {
+  label {
+    grid-column: 1 / span 6;
+  }
+  input {
+    grid-column: 1 / span 6;
+    line-height: inherit;
+    transition: $transition;
+    background-color: transparent;
+    &:focus {
+      background-color: rgba(255,255,255,0.6);
+    }
+  }
+
+  .btn {
+    grid-column: 1 / span 2;
+    margin-top: 30px;
+    align-self: center;
+  }
+  .hide {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    position: absolute;
+  }
+  .show {
+    animation: showInputs 400ms forwards cubic-bezier(0.645, 0.045, 0.355, 1) ;
+  }
+}
+
+@keyframes showInputs {
+  0% {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+  }
+  50% {
+    position: relative;
+    height: auto;
+  }
+  100% {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+  }
+}
