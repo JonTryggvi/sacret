@@ -1,0 +1,18 @@
+.woocommerce  {
+  
+    & table {
+      & thead {
+        & tr th {
+          font-family: $table !important;
+        }
+      }
+      & tbody {
+        & tr td.product-quantity {
+          & input {
+            font-size: em(16);
+            line-height: em(30);
+          }
+        }
+      }
+    }
+  }

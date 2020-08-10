@@ -24,10 +24,10 @@ const LoadMore = {
     this.btnLoadMore.onclick = this.handleLoadMoreClick.bind(this)
   },
   handleLoadMoreClick(e) {
-      this.hasButton = true
-      let clickedItem = e.target.closest('.btnLoadMore')
-      let postType = clickedItem.closest('[data-post-type]').dataset.postType
-      let nextPage = parseInt(clickedItem.dataset.nextPage)
+    this.hasButton = true
+    let clickedItem = e.target.closest('.btnLoadMore')
+    let postType = clickedItem.closest('[data-post-type]').dataset.postType
+    let nextPage = parseInt(clickedItem.dataset.nextPage)
     this.renderCards(postType, nextPage, this.hasButton)
   },
   renderCards(post_type, page = 1, hasButton) {

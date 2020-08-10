@@ -1,1 +1,1 @@
-<div class="btnContainer"><button class="btn btn--pink btnLoadMore" data-next-page = "2" >Load more</button></div>
+<div class="btnContainer"><button class="btn btn--pink btnLoadMore visibility__hidden" data-next-page = "1" >Load more</button></div>

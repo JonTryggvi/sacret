@@ -28,6 +28,9 @@
       }
       main {
         margin:20px 15px 0; 
+        &, p {
+          font-size: 1rem;
+        }
       }
       figure {
         width: 100%;
@@ -44,7 +47,7 @@
       &--large{
         grid-column: span 6;
         @include bp(phablet) {
-         grid-column: span 12;
+          grid-column: span 12;
         }
 
       }

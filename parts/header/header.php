@@ -21,6 +21,7 @@
                       'depth' => 0,                                   // limit the depth of the nav
                 'fallback_cb' => ''                             // fallback function (if there is one)
       )); ?>
+      <!-- <button type="button" class="toggle-cart">cart</button> -->
     </nav>
 
   </div>
