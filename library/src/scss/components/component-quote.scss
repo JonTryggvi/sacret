@@ -1,0 +1,56 @@
+.uni_section_quote {
+  & main {
+    grid-column: 3 / span 10;
+    display: flex;
+    align-items: center;
+    background-color: $blue;
+    color: $white;
+    font-family: $corma;
+    font-size: em(28);
+    text-align: center;
+    justify-content: center;
+  }
+  & main.init-hide {
+    // opacity: 0;
+    // visibility: hidden;
+  }
+  & blockquote {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  
+    p { max-width: 80%; text-align: center;}
+  }
+  .q-accent{
+    position: relative;
+    display: inline-flex;
+    padding: 0 5px;
+   
+    &::before {
+      position: absolute;
+      content: '';
+      top:0;
+      left:0;
+      width: 0%;
+      height: 1.5em;
+      z-index: -1;
+      background-color: $pink;
+      background-clip: text;
+      color: transparent;
+    }
+    &--active {
+      &::before {
+        animation: q_accent 1600ms 300ms forwards cubic-bezier(0.86, 0, 0.07, 1) ;
+      }
+    }
+  }
+}
+
+@keyframes q_accent {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%
+  }
+}

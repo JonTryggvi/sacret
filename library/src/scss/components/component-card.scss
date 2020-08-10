@@ -5,10 +5,10 @@
   grid-column-end: middle-end;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 1em;
-  grid-row-gap: 1em;
+  grid-column-gap: 2em;
+  grid-row-gap: 2em;
   min-height: 500px;
- 
+  max-height: 550px;
   @include bp(small-laptop){
     grid-template-columns: repeat(12, 1fr);
   }
@@ -61,6 +61,9 @@
       margin-top:20px;
       text-align: center;
       color: $darkBlue;
+    }
+    p {
+      font-size: 1rem;
     }
   }
 }

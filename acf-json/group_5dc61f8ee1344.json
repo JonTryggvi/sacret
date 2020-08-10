@@ -427,6 +427,35 @@
                     "sub_fields": [],
                     "min": "",
                     "max": ""
+                },
+                "layout_5e943e79c1670": {
+                    "key": "layout_5e943e79c1670",
+                    "name": "quote_section",
+                    "label": "Quote section",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5e943e90c1671",
+                            "label": "Quote text",
+                            "name": "quote_text",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add section",
@@ -473,5 +502,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1584785643
+    "modified": 1586773746
 }

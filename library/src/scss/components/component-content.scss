@@ -1,20 +1,20 @@
 .uni_section__content {
   min-height: calc(100vw - 80px);
   h1 {
-    grid-column: 3 / span 11;
+    grid-column: middle / span 11;
     grid-row-start: title;
     align-self: center;
   }
   &__wrap {
     
     align-self: top;
-    grid-column: 4 / span 10;
+    grid-column: middle / span 12;
     grid-row: middle;
 
     
     p {
       display: block;
-      max-width: calc((100% / 12) * 8); 
+      max-width: calc((100% / 12) * 10); 
       @include bp($medium) {
         max-width: 100%;
       }

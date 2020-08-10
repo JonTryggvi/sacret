@@ -1,0 +1,1 @@
+ScrollReveal.debug = true;

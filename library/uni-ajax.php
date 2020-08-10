@@ -13,7 +13,8 @@ function get_products() {
     'orderby' => 'date',
     'order' => 'DESC',
     'fields' => 'ids',
-    'post_type' => 'product'
+    'post_type' => 'product',
+    'post_status' => 'publish'
   ) );
   $products = $query->posts; 
   $sProducts = '';
@@ -42,8 +43,9 @@ function get_uni_posts() {
     'posts_per_page' => $per_page,
     'paged' => $page,
     'orderby' => 'modified',
-    'order' => 'ASC',
-    'post_type' => 'post'
+    'order' => 'DESC',
+    'post_type' => 'post',
+    'post_status' => "publish"
   );
   // $page === 1 ? false : $args['offset'] = 5;
   $query = new WP_Query( $args );
@@ -55,10 +57,7 @@ function get_uni_posts() {
     $post_link = get_the_permalink($post);
     $s_posts .= uni_partial('parts/components/post-card', [
       'card_size' => $card_size,
-      'featured_img' => $featured_img,
-      'post_link' => $post_link,
-      'excerpt' => $post->post_excerpt,
-      'title' => $post->post_title
+      'post' => $post
     ], false);
 
   } 

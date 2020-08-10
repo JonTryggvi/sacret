@@ -1,0 +1,23 @@
+.woocommerce {
+  a.remove {
+    color: $darkBlue !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
+    line-height: 1px;
+    font-size: 16px;
+    &:hover {
+      background-color: $darkBlue !important;
+    }
+  }
+  a.button.alt {
+    @extend .btn;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $pink;
+
+  }
+}

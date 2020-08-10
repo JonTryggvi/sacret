@@ -22,10 +22,6 @@
   grid-template-columns:  repeat(4, 1fr) ;
 }
 
-
-
-
-
 .grid-5-row {
   grid-template-rows: [top] 130px [middle] repeat(5, 1fr) [bottom] 80px [last-line];
   grid-row-gap: 1em;

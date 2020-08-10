@@ -126,13 +126,15 @@ function bones_scripts_and_styles() {
 
 		// modernizr (without media query polyfill)
 		wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
-		wp_register_script( 'scroll', get_stylesheet_directory_uri() . '/library/js/libs/scroll.js', array(), '2.5.3', false );
+		wp_register_script( 'scroll', 'https://unpkg.com/scrollreveal', array(), '2.5.3', false );
+		wp_register_script( 'scroll-debug',get_stylesheet_directory_uri() . '/library/js/libs/debugscroll.js' , array(), '2.5.3', false );
 
 		// register other stylesheets
 		// wp_register_style( '-styles', get_stylesheet_directory_uri() . '/library/css/.css', array(), '', 'all' );
 
 		// register main Avista stylesheet
 		wp_register_style( 'avista-styles', get_stylesheet_directory_uri() . '/library/dist/css/avista-app.css', array(), '', 'all' );
+		wp_register_style( 'avista-woocommerce', get_stylesheet_directory_uri() . '/library/dist/css/avista-woocommerce.css', array(), '', 'all' );
 
 		// ie-only style sheet
 		// wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
@@ -160,8 +162,9 @@ function bones_scripts_and_styles() {
 			array( 
 				'ajaxPath' => admin_url( 'admin-ajax.php' ),
 				'ajax_nonce' => wp_create_nonce('morning_rain'),
+				'lang' => pll_current_language(),
 				'translations' => array(
-					'Skrá vefpóst' => __('Skrá vefpóst', 'avista'),
+					'Skrá vefpóst' => pll__('Skrá vefpóst', 'avista'),
 				)
 			)
 		);
@@ -169,8 +172,9 @@ function bones_scripts_and_styles() {
 		// enqueue styles and scripts
 		wp_enqueue_script( 'bones-modernizr' );
 		wp_enqueue_script( 'scroll' );
+		wp_enqueue_script( 'scroll-debug' );
 		wp_enqueue_style( 'avista-styles' );
-
+		
 		/*
 		I recommend using a plugin to call jQuery
 		using the google cdn. That way it stays cached
@@ -179,7 +183,10 @@ function bones_scripts_and_styles() {
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'bones-js' );
 		wp_enqueue_script( 'avista-js' );
-
+		if(in_array('woocommerce-cart', $body_classes)) {
+			wp_enqueue_style( 'avista-woocommerce' );
+			
+		}
 
 		if( in_array('page-front-page', $body_classes) || in_array('page-forsida', $body_classes)){
 			wp_enqueue_script('frontpage-js');

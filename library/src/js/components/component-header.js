@@ -14,6 +14,8 @@ const Header = {
     this.menuItems = this.nav.querySelectorAll('.menu-item')
     this.magicLine = this.nav.querySelector('.magic-line')
     this.hamburger = this.nav.querySelector('.menu_hamburger')
+    // this.btnCart = this.nav.querySelector('.toggle-cart');
+    // this.miniCart = body.querySelector('.uni-minicart')
     
   },
   addEvents(){
@@ -33,6 +35,8 @@ const Header = {
         this.navUl.classList.add('uni_header__nav-list--active')
       }
     }
+  
+
     window.addEventListener('scroll', this.handleWindowScroll.bind(this))
     this.navUl.addEventListener('transitionend', e => {
       if (this.header.classList.contains('menu-open') && window.innerWidth <= 414) {
@@ -66,7 +70,13 @@ const Header = {
           container: this.navUl
         })
       }
+      // this.btnCart.onclick = this.handleBtnCartClick.bind(this)
     }
+    
+  },
+  handleBtnCartClick(e) {
+    console.log(e)
+    this.miniCart.classList.toggle('mini-active')
   },
   handleWindowScroll(e) {
     let scrollTop = e.srcElement.scrollingElement.scrollTop;
@@ -96,7 +106,6 @@ const Header = {
     line.style.opacity = '0'
   },
   reveal(options) {
-    console.log('reveal fn runs')
     sr.reveal(this.menuItems, options);
   }
 }
