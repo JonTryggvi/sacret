@@ -4,11 +4,17 @@ html, body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  // margin-top: 80px;
-
 }
 main {
   position: relative;
+  
+}
+.mainarea {
+  opacity: 0;
+}
+.mainarea--loaded {
+  opacity: 1;
+  transition: opacity 400ms ease;
 }
 textarea, select, input, button { outline: none; }
 a {

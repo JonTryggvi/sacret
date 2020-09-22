@@ -2,13 +2,12 @@ const Animation = {
   init(sr) {
     this.sr = sr
     this.fadeIn();
-    console.log('test')
   },
 
   fadeIn() {
     this.sr.reveal('.item-fadein', {
       reset: false,
-      delay: 500,
+      delay: 700,
       duration: 1200,
       distance: '20px',
       interval: 600,

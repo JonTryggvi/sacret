@@ -3,7 +3,7 @@ $product_title = $product->get_name();
 $product_img_url = get_the_post_thumbnail_url($product_id) ? get_the_post_thumbnail_url($product_id) : ''; # get_field('missing_image', 'option');
 $product_text = wp_trim_words($product->get_description(), 20, ' ...');
 ?>
- <a class="uni_card cell medium-4" href="<?php echo get_the_permalink($product_id); ?>">
+ <a class="uni_card cell medium-4 item-fadein load-hidden" href="<?php echo get_the_permalink($product_id); ?>">
 <article >
   <header>
    
