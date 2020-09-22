@@ -9,6 +9,14 @@ html, body {
 }
 main {
   position: relative;
+  
+}
+.mainarea {
+  opacity: 0;
+}
+.mainarea--loaded {
+  opacity: 1;
+  transition: opacity 400ms ease;
 }
 textarea, select, input, button { outline: none; }
 a {

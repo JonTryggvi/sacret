@@ -13,12 +13,13 @@ jQuery.fn.exists = function (callback) {
 let sr = ScrollReveal();
 
 // global variable stores body and we can use that to send to our modules
-var domBody = Globals.cacheBody();
-
+let domBody = Globals.cacheBody();
+let mainarea = domBody.querySelector('#mainarea')
 // initiate the demo_module from /components/demo_module
 Header.init(domBody)
 window.addEventListener('load', e => {
   // Animation.init(sr)
+  mainarea.classList.add('mainarea--loaded')
   DrawSvg.init(domBody)
 })
 

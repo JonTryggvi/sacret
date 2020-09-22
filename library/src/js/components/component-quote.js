@@ -19,7 +19,7 @@ const QuoteSection = {
   },
   ops:{
     // mobile: true,
-    duration: 400,
+    duration: 700,
     delay: 100,
     distance: '20px',
     interval: 200,
