@@ -122,7 +122,7 @@ function bones_scripts_and_styles() {
 
   global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 
-  if (!is_admin()) {
+  if (! is_admin()) {
 
 		// modernizr (without media query polyfill)
 		wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
@@ -141,7 +141,7 @@ function bones_scripts_and_styles() {
 
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
-		  wp_enqueue_script( 'comment-reply' );
+			wp_enqueue_script( 'comment-reply' );
     }
 
 		//adding scripts file in the footer
@@ -151,23 +151,26 @@ function bones_scripts_and_styles() {
 		// wp_register_script( '-js', get_stylesheet_directory_uri() . '/library/js/.js', array( 'jquery' ), '', true );
 
 		//adding main Avista script file
+		
 		wp_register_script( 'avista-js', get_stylesheet_directory_uri() . '/library/dist/js/avista-app.js', array( 'jquery' ), '', true );
 		wp_register_script( 'frontpage-js', get_stylesheet_directory_uri() . '/library/dist/js/page-frontpage.js', array( 'jquery' ), '', true );
 		wp_register_script( 'offerings-js', get_stylesheet_directory_uri() . '/library/dist/js/page-offerings.js', array( 'jquery' ), '', true );
 		wp_register_script( 'news-js', get_stylesheet_directory_uri() . '/library/dist/js/page-news.js', array( 'jquery' ), '', true );
 		wp_register_script( 'single-product-js', get_stylesheet_directory_uri() . '/library/dist/js/single-product.js', array( 'jquery' ), '', true );
-		wp_register_script( 'mailchimp', get_stylesheet_directory_uri() . '/library/dist/js/element-mailchimp.js', array( 'jquery' ), '', true );
+		wp_register_script( 'mailchimp', get_stylesheet_directory_uri() . '/library/dist/js/elements/element-mailchimp.js', array( 'jquery' ), '', true );
+		wp_register_script( 'quote', get_stylesheet_directory_uri() . '/library/dist/js/elements/element-quote.js', array( 'jquery' ), '', true );
 
-		wp_localize_script( 'avista-js', 'phpObj',
-			array( 
-				'ajaxPath' => admin_url( 'admin-ajax.php' ),
-				'ajax_nonce' => wp_create_nonce('morning_rain'),
-				'lang' => pll_current_language(),
-				'translations' => array(
-					'Skrá vefpóst' => pll__('Skrá vefpóst', 'avista'),
-				)
-			)
+		$args_local = 	array( 
+			'ajaxPath' => admin_url( 'admin-ajax.php' ),
+			'ajax_nonce' => wp_create_nonce('morning_rain'),
 		);
+		if(function_exists('pll_current_language')) {
+			$args_local['lang'] = pll_current_language();
+			$args_local['translations'] = array(
+					'Skrá vefpóst' => pll__('Skrá vefpóst', 'avista'),
+				);
+		}
+		wp_localize_script( 'avista-js', 'phpObj', $args_local);
 	$body_classes = get_body_class();
 		// enqueue styles and scripts
 		wp_enqueue_script( 'bones-modernizr' );
@@ -182,13 +185,11 @@ function bones_scripts_and_styles() {
 		*/
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'bones-js' );
-		wp_enqueue_script( 'avista-js' );
+		wp_enqueue_script( 'avista-js' );	
 		if(in_array('woocommerce-cart', $body_classes)) {
 			wp_enqueue_style( 'avista-woocommerce' );
-			
 		}
-
-		if( in_array('page-front-page', $body_classes) || in_array('page-forsida', $body_classes)){
+		if( in_array('page-front-page', $body_classes) || in_array('page-forsida', $body_classes) ){
 			wp_enqueue_script('frontpage-js');
 		}
 		if( in_array('page-offerings', $body_classes) || in_array('page-i-bodi', $body_classes)){
@@ -198,12 +199,13 @@ function bones_scripts_and_styles() {
 			wp_enqueue_script('news-js');
 		}
 
-		// if( have_rows('sections') ): 
-    //   /** How cool is this!! we can apply scripts if a specific row_layout is loaded !!!!! */
-    //   while ( have_rows('sections') ) : the_row();
-    //     'mailchimp_section' == get_row_layout() ? wp_enqueue_script( 'mailchimp' ) : NULL; 
-    //   endwhile; 
-    // endif;
+		if( have_rows('sections') ): 
+      /** How cool is this!! we can apply scripts if a specific row_layout is loaded !!!!! */
+      while ( have_rows('sections') ) : the_row();
+        'mailchimp_section' == get_row_layout() ? wp_enqueue_script( 'mailchimp' ) : NULL; 
+        'quote_section' == get_row_layout() ? wp_enqueue_script( 'mailchimp' ) : NULL; 
+      endwhile; 
+    endif;
 
 
 		/** Hér erum við með sérstakt js skjal fyrir single post type */
@@ -349,7 +351,3 @@ function bones_excerpt_more($more) {
 	// edit here if you like
 	return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', 'bonestheme' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more &raquo;', 'bonestheme' ) .'</a>';
 }
-
-
-
-?>

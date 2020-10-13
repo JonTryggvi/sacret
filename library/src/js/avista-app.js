@@ -22,6 +22,5 @@ window.addEventListener('load', e => {
   mainarea.classList.add('mainarea--loaded')
   DrawSvg.init(domBody)
 })
-
-MailChimp.init(domBody, Globals)
+// MailChimp.init(domBody, Globals)
 
