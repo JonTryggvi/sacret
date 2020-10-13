@@ -22,7 +22,9 @@
                 'fallback_cb' => ''                             // fallback function (if there is one)
       )); ?>
       <!-- <button type="button" class="toggle-cart">cart</button> -->
+      <?php if(class_exists( 'WooCommerce' )): ?>
       <a href="<?php echo wc_get_cart_url(); ?> "><?php uni_partial('library/images/shopping-basket.svg'); ?></a>
+      <?php endif; ?>
     </nav>
   </div>
 

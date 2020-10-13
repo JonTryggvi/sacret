@@ -255,7 +255,7 @@ function woocommerce_support() {
 
 // Comment Layout
 function bones_comments( $comment, $args, $depth ) {
-   $GLOBALS['comment'] = $comment; ?>
+  $GLOBALS['comment'] = $comment; ?>
   <div id="comment-<?php comment_ID(); ?>" <?php comment_class('cf'); ?>>
     <article  class="cf">
       <header class="comment-author vcard">
