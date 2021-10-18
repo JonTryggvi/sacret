@@ -80,10 +80,10 @@ function sass() {
   let tasks = PATHS.entries_sass.map(url => {
     return gulp.src(url)
       .pipe($.sourcemaps.init())
-      .pipe($.sass({
+      .pipe($.dartScss({
         includePaths: PATHS.sass
       })
-        .on('error', $.sass.logError))
+        .on('error', err => console.log(err)))
       .pipe($.autoprefixer({
         overrideBrowserslist: COMPATIBILITY
       }))

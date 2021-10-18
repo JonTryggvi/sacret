@@ -26,7 +26,7 @@
 
 		<?php // all js scripts are loaded in library/bones.php ?>
 		<?php wp_footer(); ?>
-		<?php uni_partial('library/images/mandala.svg'); ?>
+		<?php # uni_partial('library/images/mandala.svg'); ?>
 	</body>
 
 </html> <!-- The End | Avista.is -->

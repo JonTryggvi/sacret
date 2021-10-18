@@ -10,7 +10,7 @@
   <?php if(false !== $section_title): ?>
     <h2><?php echo $section_title; ?></h2>  
   <?php endif; ?>
-  <div class="uni_section__posts__container">
+  <div class="card-container">
 
     
   
@@ -18,6 +18,6 @@
   <?php if($is_archive): 
     uni_partial('parts/components/loadmore-button');
   else:
-    uni_partial('parts/components/read-more', ['slug' => 'news']);
+    uni_partial('parts/components/read-more', ['slug' => pll__('frettir')]);
   endif; ?>
 </section>

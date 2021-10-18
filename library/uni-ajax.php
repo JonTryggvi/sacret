@@ -8,7 +8,7 @@ function get_products() {
   }
   $page = absint($_POST['page']);
   $query = new WP_Query( array(
-    'posts_per_page' => 3,
+    'posts_per_page' => 4,
     'paged' => $page,
     'orderby' => 'date',
     'order' => 'DESC',
@@ -18,13 +18,10 @@ function get_products() {
   ) );
   $products = $query->posts; 
   $sProducts = '';
-  foreach ($products as $key => $product_id) {
-    $product = wc_get_product($product_id);
-    $sProducts .= uni_partial('parts/components/product-card', [
-      'product' => $product,
-      'product_id' => $product_id
-    ], false);
-  }
+  if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); 
+    $sProducts .= uni_partial('parts/components/product-card', [], false);
+  endwhile; endif;
+  wp_reset_query();
   
   wp_send_json(['posted' => $_POST, 'products' => $sProducts, 'queryObject' => $query]);
   wp_die();
@@ -38,9 +35,8 @@ function get_uni_posts() {
     exit('not happening');
   }
   $page = absint($_POST['page']);
-  $per_page = $page === 1 ? 5 : 5;
   $args = array(
-    'posts_per_page' => $per_page,
+    'posts_per_page' => 4,
     'paged' => $page,
     'orderby' => 'modified',
     'order' => 'DESC',
@@ -51,18 +47,11 @@ function get_uni_posts() {
   $query = new WP_Query( $args );
   $posts = $query->posts; 
   $s_posts = '';
-  foreach ($posts as $key => $post) {
-    $card_size = $key <= 1 && $page === 1 ? 'post-card--large' : 'post-card--small'; 
-    $featured_img = get_the_post_thumbnail_url($post, 'medium_large');
-    $post_link = get_the_permalink($post);
-    $s_posts .= uni_partial('parts/components/post-card', [
-      'card_size' => $card_size,
-      'post' => $post
-    ], false);
-
-  } 
-  
-  wp_send_json(['posted' => $_POST, 'posts' => $s_posts, 'queryObject' => $query]);
+  if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); 
+    $s_posts .= uni_partial('parts/components/post-card', [], false);
+  endwhile; endif;
+  wp_reset_query();
+  wp_send_json(['posted' => $_POST, 'posts' => $s_posts, 'queryObject' => $query, 'p' => $posts]);
   wp_die();
 }
 

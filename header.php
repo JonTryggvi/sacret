@@ -12,7 +12,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 		<title><?php wp_title(''); ?></title>
-
+		
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320">
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -50,8 +50,9 @@
 		<?php // end of wordpress head ?>
 
 	</head>
+		<?php $theme_color =  get_field('set_theme_color_palete', 'option') .'_theme'; ?>
 
-	<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
+	<body <?php body_class(['bc--white', $theme_color]); ?> itemscope itemtype="http://schema.org/WebPage">
 
 		<div id="container">
 

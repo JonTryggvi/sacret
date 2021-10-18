@@ -1,0 +1,53 @@
+{
+    "key": "group_616be4b40c03e",
+    "title": "Uni settings",
+    "fields": [
+        {
+            "key": "field_616be4d6833d4",
+            "label": "Set theme color palette",
+            "name": "set_theme_color_palete",
+            "type": "select",
+            "instructions": "Hér geturðu stillt hvaða litaur á að vera grunnlitur fyrir síðuna þína :)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "yellow": "Gulur",
+                "gold": "Gylltur",
+                "green": "Grænn",
+                "black": "Black",
+                "lilac": "Lilla blár",
+                "blue": "Blár"
+            },
+            "default_value": "lilac",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "uni-general-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1634461842
+}

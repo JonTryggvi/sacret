@@ -9,12 +9,10 @@
 
 <section class="uni_section uni_section__products <?php echo $section_has_title; echo $archive_class; ?> grid-with-margin" data-type="<?php echo $section_type; ?>" data-post-type="product">
 <?php if(false !== $section_title): ?>
-  <h2><?php echo $section_title; ?></h2>
+  <h2 class="text"><?php echo $section_title; ?></h2>
 <?php endif; ?>
   <div class="card-container">
-  
-    
-   
+
   </div>
   <?php if($is_archive): 
     uni_partial('parts/components/loadmore-button');

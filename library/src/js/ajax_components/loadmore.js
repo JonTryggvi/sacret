@@ -2,17 +2,19 @@ import { GetProducts, GetPosts } from './get_posttypes'
 
 const LoadMore = {
   hasButton: false,
-  init(scope){
+  init(scope) {
     this.cacheDom(scope)
-    this.getAvailablePosttypes(this.ajaxSections)
     jQuery('.btnLoadMore').exists(() => {
+      this.hasButton = true;
       this.addEvents()
     })
+    this.getAvailablePosttypes(this.ajaxSections)
   },
   cacheDom(scope) {
     this.body = scope
     this.btnLoadMore = this.body.querySelector('.btnLoadMore')
     this.ajaxSections = this.body.querySelectorAll('[data-post-type]')
+    
   },
   getAvailablePosttypes(sections) {
     sections.forEach((section, i) => {
@@ -31,7 +33,6 @@ const LoadMore = {
     this.renderCards(postType, nextPage, this.hasButton)
   },
   renderCards(post_type, page = 1, hasButton) {
-
     const post_types = {
       'product': (_this) => GetProducts.init(_this.body, page, hasButton),
       'post': (_this) => GetPosts.init(_this.body, page, hasButton)

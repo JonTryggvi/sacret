@@ -1,7 +1,7 @@
 {
     "key": "group_5dc61f8ee1344",
     "title": "Sections",
-    "fields": [ 
+    "fields": [
         {
             "key": "field_5dc61fa370cf2",
             "label": "Sections",
@@ -18,7 +18,7 @@
             "layouts": {
                 "layout_5dc61fb360ba6": {
                     "key": "layout_5dc61fb360ba6",
-                    "name": "hero_slider",
+                    "name": "hero_slider_cont",
                     "label": "Hero slider",
                     "display": "block",
                     "sub_fields": [
@@ -104,13 +104,40 @@
                                     "mime_types": ""
                                 },
                                 {
+                                    "key": "field_612124530c1bd",
+                                    "label": "Sleppa takka",
+                                    "name": "sleppa_takka",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui": 1,
+                                    "ui_on_text": "",
+                                    "ui_off_text": ""
+                                },
+                                {
                                     "key": "field_5dc84d3f0b586",
                                     "label": "Hero link",
                                     "name": "hero_link",
                                     "type": "page_link",
                                     "instructions": "FIndu póstinn eða  námskeiðið sem þú vilta vísa í",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_612124530c1bd",
+                                                "operator": "!=",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -133,7 +160,15 @@
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_612124530c1bd",
+                                                "operator": "!=",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -144,6 +179,33 @@
                                     "prepend": "",
                                     "append": "",
                                     "maxlength": ""
+                                },
+                                {
+                                    "key": "field_61210d56b490f",
+                                    "label": "Link is add to cart",
+                                    "name": "link_is_add_to_cart",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_612124530c1bd",
+                                                "operator": "!=",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui": 1,
+                                    "ui_on_text": "",
+                                    "ui_off_text": ""
                                 },
                                 {
                                     "key": "field_5e2ca3fa883d7",
@@ -159,7 +221,7 @@
                                         "id": ""
                                     },
                                     "message": "",
-                                    "default_value": 0,
+                                    "default_value": 1,
                                     "ui": 1,
                                     "ui_on_text": "Right",
                                     "ui_off_text": "Left"
@@ -477,30 +539,22 @@
                 "operator": "==",
                 "value": "post"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "product"
+            }
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [
-        "permalink",
-        "the_content",
-        "excerpt",
-        "discussion",
-        "comments",
-        "revisions",
-        "slug",
-        "author",
-        "format",
-        "page_attributes",
-        "featured_image",
-        "categories",
-        "tags",
-        "send-trackbacks"
-    ],
-    "active": 1,
+    "hide_on_screen": "",
+    "active": true,
     "description": "",
-    "modified": 1586773746
+    "modified": 1629564444
 }
