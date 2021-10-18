@@ -186,7 +186,7 @@ function bones_scripts_and_styles() {
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'bones-js' );
 		wp_enqueue_script( 'avista-js' );	
-		if(in_array('woocommerce-cart', $body_classes)) {
+		if(is_checkout() || is_cart()) {
 			wp_enqueue_style( 'avista-woocommerce' );
 		}
 		if( in_array('page-front-page', $body_classes) || in_array('page-forsida', $body_classes) ){
@@ -195,7 +195,7 @@ function bones_scripts_and_styles() {
 		if( in_array('page-offerings', $body_classes) || in_array('page-i-bodi', $body_classes)){
 			wp_enqueue_script('offerings-js');
 		}
-		if( in_array('page-news', $body_classes) || in_array('page-frettir', $body_classes)){
+		if( in_array(['page-musings'], $body_classes) || in_array('page-hugvekjur', $body_classes)){
 			wp_enqueue_script('news-js');
 		}
 

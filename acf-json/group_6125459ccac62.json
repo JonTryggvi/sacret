@@ -1,0 +1,59 @@
+{
+    "key": "group_6125459ccac62",
+    "title": "Posts",
+    "fields": [
+        {
+            "key": "field_612545a28b338",
+            "label": "Overlay",
+            "name": "overlay",
+            "type": "select",
+            "instructions": "Veldu lit sem slykju yfir mynd",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "yellow": "Gulur",
+                "red": "Rauður",
+                "blue": "Blár",
+                "green": "Grænn",
+                "lilac": "Liljublár"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "product"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1634458683
+}

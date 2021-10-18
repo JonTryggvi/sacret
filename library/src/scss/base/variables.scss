@@ -1,16 +1,25 @@
 // colors
-$pink: #CD687A;
+
+$pink: #CF6262;
 $white: #f7f7f7;
-$black: #302929;
+$black: #010125;
 $lightBlue: #CBD9E2;
 $blue: #6788A7;
 $darkBlue: #264D6A;
 $lilac: #A29BAB;
+$green: #787e01;
+$darkGreen: darken($green, 10%);
+$darkGreenParagraph: darken($green, 15%);
+$darkLilac: #877986;
 $background1: #D4CDD2;
 
+$yellow_overlay: linear-gradient(180deg, rgba(255, 250, 95, 0.421) 0%, rgba(39, 174, 166, 0.47) 100%);
+$green_overlay: linear-gradient(180deg, rgba(18, 133, 112, 0.53) 0%, rgba(220, 142, 73, 0.41) 100%);
+$blue_overlay: linear-gradient(0, rgba($pink, 0.41), rgba($blue, 0.47) 50%);
+$lilac_overlay: linear-gradient(0deg, rgba($lilac, 0.47), rgba($lilac, 0.47));
+$red_overlay: linear-gradient(0deg, rgba($pink, 0.47), rgba($pink, 0.47));
 
 // sizes
-
 $xx-large: 2560px;
 $x-large : 1440px;
 $large: 1024px;
@@ -21,4 +30,5 @@ $x-small: 320px;
 $global-width: $x-large;
 
 $transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+$transition-medium: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
 $easing: cubic-bezier(0.645, 0.045, 0.355, 1);

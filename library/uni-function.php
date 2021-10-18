@@ -1,15 +1,17 @@
 <?php 
   if(!function_exists('uni_partial')){
     function uni_partial($path, $args = [], $echo = true) {
+      $path_explode = explode('.', $path);
+	    $extension = empty($path_explode[1]) ? '.php' : ''; // safe way to update function without messing upp older paths
       if (!empty($args)) {
         extract($args);
       }
       if ($echo) {
-        include(locate_template($path . '.php'));
+        include(locate_template($path . $extension));
         return;
       }
       ob_start();
-      include(locate_template($path . '.php'));
+      include(locate_template($path . $extension));
       return ob_get_clean();
     }
   }
@@ -50,4 +52,22 @@ if( function_exists('acf_add_options_page') ) {
 		'parent_slug'	=> 'uni-general-settings',
 	));
 	
+}
+
+add_filter('woocommerce_add_to_cart_redirect', 'uni_add_to_cart_redirect');
+function uni_add_to_cart_redirect() {
+  global $woocommerce;
+  $checkout_url = wc_get_checkout_url();
+  return $checkout_url;
+}
+
+add_filter( 'wp_nav_menu_items', 'lunchbox_add_loginout_link', 10, 2 );
+function lunchbox_add_loginout_link( $items, $args ) {
+  $cart_is_empty = WC()->cart->is_empty();
+  if ($args->theme_location == 'main-nav' && !$cart_is_empty) {
+      $svg = uni_partial('library/images/shopping-basket.svg',[],false);
+      $cart_url = wc_get_cart_url();
+      return $items . "<li class='menu-item menu-item-type-post_type menu-item-object-page'><a href='$cart_url'>$svg</a></li>";
+  }
+  return $items;
 }

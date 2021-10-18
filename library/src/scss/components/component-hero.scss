@@ -9,7 +9,7 @@
     height: calc(100vh - 80px);
     grid-template-columns: [start] 30px [middle] repeat(12, 1fr) [middle-end] 30px [end];
     grid-column-gap: 1em;
-    grid-template-rows: [top] 65px [middle] repeat(5, 1fr) [bottom] 80px [last-line];
+    grid-template-rows: [top] 80px [middle] repeat(12, 1fr) [bottom] 80px [last-line];
     grid-row-gap: 1em;
     @include bp(phablet){
       grid-template-rows: [top] 50px [middle] repeat(5, 1fr) [bottom] 80px [last-line];
@@ -18,7 +18,7 @@
     }
     &__text {
       grid-column: middle / span 5;
-      grid-row: 3 / span 2;
+      grid-row: 5 / span 5;
       p, a {
         margin-left: 40px;
       }
@@ -38,14 +38,15 @@
     &__image {
       grid-column-start: 7;
       grid-column-end: end;
-      grid-row-start: 2;
-      grid-row-end: bottom;
+      grid-row-start: 3;
+      grid-row-end: 14;
       position: relative;
-      overflow: hidden;
+      // overflow: hidden;
       @include bp(phablet){
-        grid-column: start / span 14;
+        grid-column: start / span 1;
         grid-row: 2 / span 3 ;
       }
+
       picture {
         position: absolute;
         top: 0;
@@ -61,25 +62,29 @@
       }
     }
   }
- 
+
   .right .uni_section__hero__row {
     &__text {
       justify-content: flex-end;
       grid-column: span 5 / middle-end;
-      h1 {
-        text-align: right;
+      h1.hero_h1 {
+        margin-top: 0;
+        margin-left: 40px;
+        margin-bottom: 10px;
+        text-align: left;
       }
       p, a {
-        text-align: right;
+        text-align: left;
         margin-right: 40px;
       }
       a {
-        align-self: flex-end;
+        align-self: flex-start;
       }
       @include bp(phablet){
         grid-column: middle / span 12;
         grid-row: 5 / span 3;
-        h1 {
+        h1.hero_h1 {
+          margin-top: 0;
           text-align: left;
           margin: 25px 0 10px;
         }
@@ -94,10 +99,40 @@
       }
     }
     &__image{
-      grid-column: start / span 8;
-       @include bp(phablet){
+      grid-column: 2 / span 7;
+      @include bp(phablet){
         grid-column: start / span 14;
         grid-row: 2 / span 3 ;
+      }
+      &__backdrop-mask {
+        position: absolute;
+        background: radial-gradient(150.07% 712.09% at 144.05% 90.56%, rgba($lilac, 0) 0%, rgba($white, 0.1) 40.79%, $lilac 100%);
+        width: calc(100vw / 1.7);
+        height: calc((100vh - 80px) / 12 * 10);
+        left: calc((30px + 1em) * -1);
+        top: calc((100vh - 80px) / 12 * -1);
+        clip-path: ellipse(182% 68% at 51% 32%);
+        @include bp(phablet) {
+          top: calc((100vh - 50px) / 5 * -1);
+        }
+        .blue_theme & {
+          background: radial-gradient(150.07% 712.09% at 144.05% 90.56%, rgba($blue, 0) 0%, rgba($white, 0.1) 40.79%, $blue 100%);
+        }
+        .green_theme & {
+          background: radial-gradient(150.07% 712.09% at 144.05% 90.56%, rgba($darkGreen, 0) 0%, rgba($white, 0.1) 40.79%, $darkGreen 100%);
+        }
+        .lilac_theme & {
+          background: radial-gradient(150.07% 712.09% at 144.05% 90.56%, rgba($lilac, 0) 0%, rgba($white, 0.1) 40.79%, $lilac 100%);
+        }
+        .black_theme & {
+          background: radial-gradient(150.07% 712.09% at 144.05% 90.56%, rgba($lilac, 0) 0%, rgba($white, 0) 40.79%, $lilac 100%);
+        }
+      }
+
+      &__mask{
+        height:100%;
+        clip-path: ellipse(150% 65%  at 51% 35%);
+
       }
     }
   }

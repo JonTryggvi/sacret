@@ -5,8 +5,6 @@ import LoadMore from "./ajax_components/loadmore"
 var domBody = Globals.cacheBody();
 HeroSlider.init(domBody)
 LoadMore.init(domBody) 
-// window.onload = () => {
 
-// }
 
 

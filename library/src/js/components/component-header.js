@@ -2,12 +2,13 @@ $ = window.$
 let sr = ScrollReveal();
 const Header = {
   scrolled: false,
-  init(body){
+  init(body, loaded){
     this.cacheDom(body)
     this.addEvents()
     
   },
-  cacheDom(body){
+  cacheDom(body) {
+    this.body = body
     this.header = body.querySelector('header')
     this.nav = this.header.querySelector('nav')
     this.navUl = this.header.querySelector('.uni_header__nav-list')
@@ -16,6 +17,7 @@ const Header = {
     this.hamburger = this.nav.querySelector('.menu_hamburger')
     // this.btnCart = this.nav.querySelector('.toggle-cart');
     // this.miniCart = body.querySelector('.uni-minicart')
+    this.iMenuItems = this.menuItems.length
     
   },
   addEvents(){
@@ -52,30 +54,13 @@ const Header = {
         })
       }
     })
-    window.onload = e => {
-      let windowScrollTop = e.srcElement.scrollingElement.scrollTop
-      if (windowScrollTop > 30) {
-        this.header.classList.add('bc__header--white')
-        this.scrolled = true
-      }
-      if (!this.header.classList.contains('menu-open') && window.innerWidth > 414) {
-        this.reveal({
-          scale: 1,
-          reset: false,
-          mobile: false,
-          duration: 600,
-          distance: '10px',
-          interval: 200,
-          origin: 'bottom',
-          container: this.navUl
-        })
-      }
-      // this.btnCart.onclick = this.handleBtnCartClick.bind(this)
+    let windowScrollTop = window.pageYOffset || document.documentElement.scrollTop
+    if (windowScrollTop > 30) {
+      this.header.classList.add('bc__header--white')
+      this.scrolled = true
     }
-    
   },
   handleBtnCartClick(e) {
-    console.log(e)
     this.miniCart.classList.toggle('mini-active')
   },
   handleWindowScroll(e) {
@@ -91,7 +76,7 @@ const Header = {
   handleMenuItemMouseover(e) {
     const liItem = e.target.closest('.menu-item')
     const menuItemPosition = liItem.getBoundingClientRect()
-    this.setMacigLine(this.magicLine, menuItemPosition.left, menuItemPosition.top, menuItemPosition.width)
+    this.setMacigLine(this.magicLine, liItem.offsetLeft, menuItemPosition.top, menuItemPosition.width)
   },
   handleMenuItemMouseleave(e) {
     this.hideMagicLine(this.magicLine)
@@ -104,6 +89,7 @@ const Header = {
   },
   hideMagicLine(line) {
     line.style.opacity = '0'
+    // line.style.width = '0'
   },
   reveal(options) {
     sr.reveal(this.menuItems, options);

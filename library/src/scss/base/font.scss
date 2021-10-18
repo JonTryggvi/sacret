@@ -1,36 +1,99 @@
 @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:700&display=swap|Raleway:400,600&display=swap|EB+Garamond:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ruthie&display=swap');
-$nav-font-family: 'Raleway', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Gabriela&family=Fleur+De+Leah&&display=swap');
+$nav-font-family: 'Gabriela', sans-serif;
 $table: $nav-font-family;
 $paragraph-font-family: 'EB Garamond', serif;
-$raleway: $nav-font-family;
-$body-font-family: 'Cormorant Garamond', serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$raleway: 'Raleway', sans-serif;
+$body-font-family: 'Gabriela', serif;
 $corma: $body-font-family;
-$cursive : 'Ruthie', cursive;
+$cursive : 'Fleur De Leah', cursive;
 h1 {
-  font-family: $paragraph-font-family;
+  font-family: $cursive;
   font-size: em(64);
-  color: $blue;
-  @include bp(phablet){
+  color: inherit;
+  font-weight: 400;
+  .blue_theme & {
+    color: $darkBlue;
+  }
+  .green_theme & {
+    color: $darkGreen;
+  }
+  .lilac_theme & {
+    color: $darkLilac;
+  }
+  .black_theme & {
+    color: $white;
+  }
+  @include bp(phablet){ 
     font-size: em(42);
   }
 }
 h2 {
+  font-family: $cursive;
   font-size: em(44);
   color: $darkBlue;
+  font-weight: 400;
+  .blue_theme & {
+    color: $darkBlue;
+  }
+  .green_theme & {
+    color: $darkGreen;
+  }
+  .lilac_theme & {
+    color: $darkLilac
+  }
+  .black_theme & {
+    color: $white;
+  }
   @include bp(phablet){
     font-size: em(22);
   }
+}
+
+h3 {
+  font-family: $cursive;
+  font-size: em(36);
+  color: $darkBlue;
+  font-weight: 400;
+  & b {
+    font-weight: 400 !important;
+  }
+  .blue_theme & {
+    color: $darkBlue;
+  }
+  .green_theme & {
+    color: $darkGreen;
+    & b {font-weight: 400 !important;}
+  }
+  .lilac_theme & {
+    color: $darkLilac
+  }
+  .black_theme & {
+    color: $white;
+  }
+  @include bp(phablet){
+    font-size: em(18);
+  }
+}
+
+.s1 b {
+  font-weight: 400 !important;
 }
 
 p, a {
   font-family: $paragraph-font-family;
   font-size: em(20);
   line-height: em(24);
+  .green_theme & {
+    color: $darkGreenParagraph;
+  }
+  .black_theme & {
+    color: $white;
+  }
 }
 
 button, .btn {
-  font-family: $raleway;
+  font-family: $body-font-family;
   font-size: em(16);
   text-decoration: none;
 }
@@ -43,13 +106,33 @@ a {
   }
 }
 
+ul {
+  list-style: none;
+}
+
 input {
-  font-size: em(24);
+  font-size: em(18);
   line-height: 50px;
 }
 
 label {
   font-family: $raleway;
   font-size: em(9);
-  color: $darkBlue;
+  color: $black;
+}
+
+.select2-container--open .select2-dropdown {
+  & input.select2-search__field {
+    border: none;
+    line-height: 18px;
+  }
+  & .select2-results__options {
+    font-family: $raleway;
+  }
+  &.select2-results__option--highlighted {
+    color: $white;
+    .green_theme & {
+      background-color: lighten($green, 20%);
+    }
+  }
 }

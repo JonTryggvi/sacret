@@ -1,12 +1,28 @@
 .bc {
   &--white {
-    background-color: #fff !important;
+    background-color: $white;
+    .green_theme & {
+      background-color: lighten($green, 40%);
+    }
   }
+  &--black {
+    background-color: $black;
+  }
+  &--lilac {
+    background-color: $lilac;
+  }
+  &--dark-blue {
+    background-color: $darkBlue;
+  }
+}
+
+.black_theme {
+  background-color: $black;
 }
 
 .grid-with-margin {
   display: grid;
-  grid-template-columns: [start] 60px [middle] repeat(12, 1fr) [middle-end] 60px [end];
+  grid-template-columns: [start] 30px [middle] repeat(12, 1fr) [middle-end] 30px [end];
   grid-column-gap: 1em;
   @include bp(phablet){
     grid-template-columns: [start] 10px [middle] repeat(12, 1fr) [middle-end] 10px [end];
@@ -70,4 +86,6 @@
     opacity: 0;
   }
 }
+
+
 

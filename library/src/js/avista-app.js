@@ -1,6 +1,6 @@
 import Globals from "./base/globals";
 import Header from "./components/component-header";
-import DrawSvg from "./effects/draw-svg";
+// import DrawSvg from "./effects/draw-svg";
 import MailChimp from "./components/component-mailchimp";
 import Animation from "./effects/animation"
 jQuery.fn.exists = function (callback) {
@@ -16,11 +16,13 @@ let sr = ScrollReveal();
 let domBody = Globals.cacheBody();
 let mainarea = domBody.querySelector('#mainarea')
 // initiate the demo_module from /components/demo_module
-Header.init(domBody)
 window.addEventListener('load', e => {
-  // Animation.init(sr)
-  mainarea.classList.add('mainarea--loaded')
-  DrawSvg.init(domBody)
+  Header.init(domBody, true)
+  Animation.init(sr)
+  if (null != mainarea) {
+    mainarea.classList.add('mainarea--loaded')
+  }
+  // DrawSvg.init(domBody)
 })
 // MailChimp.init(domBody, Globals)
 

@@ -2,6 +2,12 @@
   // width: 100vw;
   min-height: 500px;
   margin-bottom: 180px;
+  &--less-margin {
+    margin-bottom: 80px;
+    @include bp(phablet) {
+      margin-bottom: 60px;
+    }
+  }
   @include bp(phablet) {
     margin-bottom: 80px;
   }
@@ -9,7 +15,7 @@
   &__has_title{
 
     grid-template-rows: [title] 4em [middle] auto [end];
-    row-gap: 1em;
+    row-gap: 3em;
     align-content: end;
     & > h2 {
       align-self: end;
