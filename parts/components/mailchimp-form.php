@@ -1,5 +1,5 @@
-
 <form class="mailchimp--form grid-span--<?php echo $columns; ?>">
+  <p>Skrá mig á póstlista</p>
   <input id="mailchimp_<?php echo $id_index; ?>" type="email" name="email" class="txtInp txtInp--w75 mc-email"  autocomplete="autocomplete_off_hack_xfr4!k">
   <label for="mailchimp_<?php echo $id_index; ?>" class="txtInpLabel mc-label mc-label--email "><?php pll_e('Skrá veffang'); ?></label>
   

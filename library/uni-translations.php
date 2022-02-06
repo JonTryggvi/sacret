@@ -33,7 +33,7 @@ if(function_exists('pll_register_string')) {
     'Order notes',
     'House number and street name',
     'Apartment, suite, unit etc. (optional)',
-    'Notes about your order, e.g. special notes for delivery.' 
+    'Notes about your order, e.g. special notes for delivery.',
   ];
 
   foreach ($fields_and_labels as $value) {

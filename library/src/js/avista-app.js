@@ -18,6 +18,7 @@ let mainarea = domBody.querySelector('#mainarea')
 // initiate the demo_module from /components/demo_module
 window.addEventListener('load', e => {
   Header.init(domBody, true)
+  MailChimp.init(domBody, Globals)
   Animation.init(sr)
   if (null != mainarea) {
     mainarea.classList.add('mainarea--loaded')

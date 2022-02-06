@@ -1,10 +1,12 @@
 $ = window.$
 let sr = ScrollReveal();
+import anime from 'animejs/lib/anime.es.js'
 const Header = {
   scrolled: false,
   init(body, loaded){
     this.cacheDom(body)
     this.addEvents()
+    this.animation.play()
     
   },
   cacheDom(body) {
@@ -93,7 +95,15 @@ const Header = {
   },
   reveal(options) {
     sr.reveal(this.menuItems, options);
-  }
+  },
+  animation: anime({
+    targets: '#menu-main-nav .menu-item',
+    translateY: [20, 0],
+    opacity: 1,
+    autoplay: false,
+    easing: 'easeInOutSine',
+    delay: anime.stagger(200) // increase delay by 100ms for each elements.
+  }),
 }
 module.exports = Header
 

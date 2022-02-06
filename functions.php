@@ -214,9 +214,9 @@ function special_nav_class ($classes, $item) {
 }
 
 // Add Option Page to ADCF
-if( function_exists('acf_add_options_page') ) {
-    acf_add_options_page('Stillingar');
-}
+// if( function_exists('acf_add_options_page') ) {
+//     acf_add_options_page('Stillingar');
+// }
 
 // Add Google API key for Advanced Custom Fields
 function my_acf_init() {

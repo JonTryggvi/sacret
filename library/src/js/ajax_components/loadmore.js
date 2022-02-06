@@ -14,14 +14,12 @@ const LoadMore = {
     this.body = scope
     this.btnLoadMore = this.body.querySelector('.btnLoadMore')
     this.ajaxSections = this.body.querySelectorAll('[data-post-type]')
-    
   },
   getAvailablePosttypes(sections) {
     sections.forEach((section, i) => {
       this.renderCards(section.dataset.postType, 1, this.hasButton)
     })
   },
-  
   addEvents() {
     this.btnLoadMore.onclick = this.handleLoadMoreClick.bind(this)
   },
@@ -33,6 +31,7 @@ const LoadMore = {
     this.renderCards(postType, nextPage, this.hasButton)
   },
   renderCards(post_type, page = 1, hasButton) {
+    console.log(post_type)
     const post_types = {
       'product': (_this) => GetProducts.init(_this.body, page, hasButton),
       'post': (_this) => GetPosts.init(_this.body, page, hasButton)
