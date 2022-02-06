@@ -24,6 +24,7 @@
   ],
   "dependencies": {
     "@chenfengyuan/datepicker": "^1.0.9",
+    "animejs": "^3.2.1",
     "babel-preset-env": "^1.7.0",
     "jquery": "~3.0.0",
     "moment": "^2.24.0",
@@ -48,6 +49,7 @@
     "gulp-clean-css": "^3.3.1",
     "gulp-cli": "^1.2.1",
     "gulp-concat": "^2.5.2",
+    "gulp-dart-scss": "^1.1.0",
     "gulp-extname": "^0.2.0",
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^4.1.0",
@@ -55,7 +57,6 @@
     "gulp-phpcbf": "^0.1.2",
     "gulp-phpcs": "^2.1.0",
     "gulp-rev": "^8.0.0",
-    "gulp-dart-scss": "^1.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.2.0",
     "gulp-zip": "^4.0.0",

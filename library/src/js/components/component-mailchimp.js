@@ -40,6 +40,8 @@ const Mailchimp = {
     this.ajaxObj.lname = inputlname.value
     this.Global.postAjax(this.ajaxObj).done(jRes => {
       console.log(jRes)
+      const has = jRes.prototype.hasOwnProperty
+      if(has.call(jRes, 'body')) {}
       // res ok skilaboð
     })
   },

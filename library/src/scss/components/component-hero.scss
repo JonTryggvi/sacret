@@ -113,7 +113,11 @@
         top: calc((100vh - 80px) / 12 * -1);
         clip-path: ellipse(182% 68% at 51% 32%);
         @include bp(phablet) {
-          top: calc((100vh - 50px) / 5 * -1);
+          height:  calc((100vh - 80px) / 12 * 5);
+          top: 60px;
+          left:0;
+          clip-path: ellipse(162% 65%  at 51% 35%);
+          width:100vw;
         }
         .blue_theme & {
           background: radial-gradient(150.07% 712.09% at 144.05% 90.56%, rgba($blue, 0) 0%, rgba($white, 0.1) 40.79%, $blue 100%);
@@ -136,6 +140,11 @@
       }
     }
   }
+}
+
+.stagger, .staggerBtn {
+  opacity: 0;
+  // transform: translateX(-270px);
 }
 
 

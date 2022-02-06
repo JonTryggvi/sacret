@@ -30,6 +30,30 @@
             "ajax": 0,
             "return_format": "value",
             "placeholder": ""
+        },
+        {
+            "key": "field_61ffb130fff40",
+            "label": "Missing image",
+            "name": "missing_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -49,5 +73,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1634461842
+    "show_in_rest": 0,
+    "modified": 1644147094
 }

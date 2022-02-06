@@ -1,5 +1,6 @@
 import Global from '../base/globals'
 import Animation from "../effects/animation"
+import { CardHoverState } from '../components/component-card'
 
 const GetProducts = {
   ajaxObj: {
@@ -32,6 +33,7 @@ const GetProducts = {
         this.loadMoreBtn.dataset.nextPage = parseInt(this.loadMoreBtn.dataset.nextPage) + 1
         res.queryObject.max_num_pages <= page ? this.loadMoreBtn.classList.add('visibility__hidden') : this.loadMoreBtn.classList.remove('visibility__hidden')
       }
+      CardHoverState.init(this.body)
       this.cacheDom(this.body)
       // this.mainArea.classList.add('mainarea--loaded');
     })
@@ -58,7 +60,6 @@ const GetPosts = {
   get_posts(page = 1, hasButton) {
     this.ajaxObj.page = page
     Global.postAjax(this.ajaxObj).done(res => {
-      console.log(res)
       if (page == 1) {
         this.cardContainer.innerHTML = res.posts
       }
@@ -72,6 +73,7 @@ const GetPosts = {
       }
       this.mainArea.classList.add('mainarea--loaded');
       Animation.animationSync(ScrollReveal())
+      CardHoverState.init(this.body)
       this.cacheDom(this.body)
     })
   }

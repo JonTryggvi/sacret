@@ -1,1 +1,1 @@
-<div class="btnContainer"><a class="btn btn--lilac" href="<?php echo get_link_by_slug($slug, pll_current_language(), 'page'); ?>"><?php pll_e('Meira'); ?></a></div>
+<div class="btnContainer"><a class="btn" href="<?php echo get_link_by_slug($slug, pll_current_language(), 'page'); ?>"><?php pll_e('Meira'); ?></a></div>

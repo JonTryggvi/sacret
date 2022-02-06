@@ -24,6 +24,7 @@ function add_slug_body_class( $classes ) {
   return $classes;
 }
 add_filter( 'body_class', 'add_slug_body_class' );
+
 function get_link_by_slug($slug, $lang_slug = null, $type = 'post'){
   $post = get_page_by_path($slug, OBJECT, $type);
   $id = ($lang_slug) ? pll_get_post($post->ID, $lang_slug) : $post->ID;
@@ -70,4 +71,9 @@ function lunchbox_add_loginout_link( $items, $args ) {
       return $items . "<li class='menu-item menu-item-type-post_type menu-item-object-page'><a href='$cart_url'>$svg</a></li>";
   }
   return $items;
+}
+
+function product_count_shortcode() {
+  $count_posts = wp_count_posts('product');
+  return $count_posts->publish;
 }

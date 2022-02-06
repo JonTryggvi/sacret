@@ -3,6 +3,7 @@
 				<div id="inner-footer" class="grid-with-margin">
 
 					<nav role="navigation">
+						<p>Nytsamlegir hlekkir</p>
 						<?php wp_nav_menu(array(
     					'container' => 'div',                           // enter '' to remove nav container (just make sure .footer-links in _base.scss isn't wrapping)
     					'container_class' => 'footer-links',         // class of container (should you choose to use it)

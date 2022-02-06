@@ -83,7 +83,12 @@
         background-color: lighten($blue, 20%);
       }
       .green_theme & {
-        background-color: lighten($green, 20%);
+        color: $green;
+        border: 1px solid $green;
+      }
+      .blue_theme & {
+        color: $blue;
+        border: 1px solid $blue;
       }
       .black_theme & {
         color: white;
@@ -100,7 +105,8 @@
     align-items: center;
     border: none;
     .green_theme & {
-      background-color: lighten($green, 20%);
+      border: 1px solid $green;
+      // background-color: lighten($green, 20%);
     }
     .black_theme & {
       background-color: $lilac;
@@ -109,6 +115,9 @@
       font-family: $raleway;
       .black_theme & {
         color: $white;
+      }
+      .green_theme & {
+        color: $green;
       }
     }
     & .select2-selection__arrow {
@@ -132,7 +141,7 @@
     line-height: 18px;
     border-radius: 4px;
     .green_theme & {
-      background-color: lighten($green, 20%) !important;
+       background-color: $white !important;
     }
     .blue_theme & {
       background-color: lighten($blue, 20%) !important;
@@ -145,21 +154,29 @@
       color: $white;
     }
   }
-  & .select2-results__options {
+  & .select2-results__options{
     font-family: $raleway;
     padding: 0 4px;
+    border-radius: 4px;
+  }
+  & .select2-results__option[data-selected='true'] {
+    
+    border-radius: 4px;
   }
   & .select2-results__option--highlighted[data-selected] {
     border-radius: 4px;
     color: $white;
     .green_theme & {
-      background-color: lighten($green, 20%) !important;
+      color: $white;
+      background-color: $green !important;
     }
     .blue_theme & {
-      background-color: lighten($blue, 20%) !important;
+      color: $white;
+      background-color: $blue !important;
     }
     .lilac_theme & {
-      background-color: lighten($lilac, 20%) !important;
+      color: $white;
+      background-color: $lilac !important;
     }
     .black_theme & {
       background-color: $lilac;

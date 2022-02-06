@@ -5,5 +5,5 @@ var domBody = Globals.cacheBody();
 
 // initiate the demo_module from /components/demo_module
 
-// LoadMore.init(domBody)
-// $('btnLoadMore').exists( ()=> LoadMore.init(domBody) )
+LoadMore.init(domBody)
+// jQuery('btnLoadMore').exists( ()=> LoadMore.init(domBody) )

@@ -297,6 +297,33 @@
                             "default_value": "",
                             "layout": "horizontal",
                             "return_format": "value"
+                        },
+                        {
+                            "key": "field_6173f4dac0046",
+                            "label": "Page slug",
+                            "name": "page_slug",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5e3ea66c06e58",
+                                        "operator": "==",
+                                        "value": "showcase"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ],
                     "min": "",
@@ -476,6 +503,33 @@
                             "default_value": "",
                             "layout": "horizontal",
                             "return_format": "value"
+                        },
+                        {
+                            "key": "field_6173f537c0047",
+                            "label": "Page slug",
+                            "name": "page_slug",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5e3f1f99ed376",
+                                        "operator": "==",
+                                        "value": "showcase"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ],
                     "min": "",
@@ -556,5 +610,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1629564444
+    "modified": 1634989392
 }

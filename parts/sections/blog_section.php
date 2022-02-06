@@ -18,6 +18,7 @@
   <?php if($is_archive): 
     uni_partial('parts/components/loadmore-button');
   else:
-    uni_partial('parts/components/read-more', ['slug' => pll__('frettir')]);
+    $section_page_slug = get_sub_field('page_slug', $post->ID);
+    uni_partial('parts/components/read-more', ['slug' => $section_page_slug]);
   endif; ?>
 </section>
