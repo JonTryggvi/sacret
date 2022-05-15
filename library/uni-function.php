@@ -73,7 +73,7 @@ function lunchbox_add_loginout_link( $items, $args ) {
   return $items;
 }
 
-function product_count_shortcode() {
+function product_count_shortcode () {
   $count_posts = wp_count_posts('product');
-  return $count_posts->publish;
+  return $count_posts-> publish;
 }

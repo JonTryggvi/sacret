@@ -50,10 +50,12 @@
 		<?php // end of wordpress head ?>
 
 	</head>
-		<?php $theme_color =  get_field('set_theme_color_palete', 'option') .'_theme'; ?>
+	<?php 
+	$get_color =  get_field('set_theme_color_palete', 'option');
+	$theme_color = $get_color .'_theme'; ?>
 
 	<body <?php body_class(['bc--white', $theme_color]); ?> itemscope itemtype="http://schema.org/WebPage">
 
 		<div id="container">
 
-		<?php uni_partial('parts/header/header'); ?>
+		<?php uni_partial('parts/header/header', ['theme_color' => $get_color]); ?>

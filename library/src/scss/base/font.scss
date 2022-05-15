@@ -24,6 +24,9 @@ h1 {
   .black_theme & {
     color: $white;
   }
+  .gold_theme & {
+    color: $gold-light;
+  }
   @include bp(phablet){ 
     font-size: em(42);
   }
@@ -44,6 +47,9 @@ h2 {
   }
   .black_theme & {
     color: $white;
+  }
+  .gold_theme & {
+    color: $gold-light;
   }
   @include bp(phablet){
     font-size: em(22);
@@ -71,6 +77,9 @@ h3 {
   .black_theme & {
     color: $white;
   }
+  .gold_theme & {
+    color: $gold-light;
+  }
   @include bp(phablet){
     font-size: em(18);
   }
@@ -89,6 +98,9 @@ p, a {
   }
   .black_theme & {
     color: $white;
+  }
+  .gold_theme & {
+    color: $gold-light;
   }
 }
 
@@ -134,5 +146,79 @@ label {
     .green_theme & {
       background-color: lighten($green, 20%);
     }
+  
   }
+}
+
+svg.uni_logo {
+  .green_theme & {
+        & path {
+          fill: $green;
+        }
+        & #dot_1 {
+          fill: $green;
+        }
+        & #dot_2 {
+          fill: rgba($green, 75%);
+        }
+        & #dot_3 {
+          fill: rgba($green, 25%);
+        }
+      }
+      .blue_theme & {
+        & path {
+          fill: $blue;
+        }
+        & #dot_1 {
+          fill: $blue;
+        }
+        & #dot_2 {
+          fill: rgba($blue, 75%);
+        }
+        & #dot_3 {
+          fill: rgba($blue, 25%);
+        }
+      }
+      .lilac_theme & {
+        & path {
+          fill: $lilac;
+        }
+        & #dot_1 {
+          fill: $lilac;
+        }
+        & #dot_2 {
+          fill: rgba($lilac, 75%);
+        }
+        & #dot_3 {
+          fill: rgba($lilac, 25%);
+        }
+      }
+      .black_theme & {
+        & path {
+          fill: $lilac;
+        }
+        & #dot_1 {
+          fill: $lilac;
+        }
+        & #dot_2 {
+          fill: rgba($lilac, 0.75);
+        }
+        & #dot_3 {
+          fill: rgba($lilac, 0.5);
+        }
+      }
+      .gold_theme & {
+        & path {
+          fill: $gold !important;
+        }
+        & #dot_1 {
+          fill: $gold-light;
+        }
+        & #dot_2 {
+          fill: $gold;
+        }
+        & #dot_3 {
+          fill:$gold-dark;
+        }
+      }
 }

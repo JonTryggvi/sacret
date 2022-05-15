@@ -14,9 +14,15 @@
   &--dark-blue {
     background-color: $darkBlue;
   }
+  &--gold {
+    background-color: $gold;
+  }
 }
 
 .black_theme {
+  background-color: $black;
+}
+.gold_theme {
   background-color: $black;
 }
 

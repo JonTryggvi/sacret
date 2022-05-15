@@ -1,6 +1,6 @@
 import Global from '../base/globals'
 import Animation from "../effects/animation"
-import { CardHoverState } from '../components/component-card'
+// import { CardHoverState } from '../components/component-card'
 
 const GetProducts = {
   ajaxObj: {
@@ -33,7 +33,7 @@ const GetProducts = {
         this.loadMoreBtn.dataset.nextPage = parseInt(this.loadMoreBtn.dataset.nextPage) + 1
         res.queryObject.max_num_pages <= page ? this.loadMoreBtn.classList.add('visibility__hidden') : this.loadMoreBtn.classList.remove('visibility__hidden')
       }
-      CardHoverState.init(this.body)
+      // CardHoverState.init(this.body)
       this.cacheDom(this.body)
       // this.mainArea.classList.add('mainarea--loaded');
     })
@@ -73,7 +73,7 @@ const GetPosts = {
       }
       this.mainArea.classList.add('mainarea--loaded');
       Animation.animationSync(ScrollReveal())
-      CardHoverState.init(this.body)
+      // CardHoverState.init(this.body)
       this.cacheDom(this.body)
     })
   }

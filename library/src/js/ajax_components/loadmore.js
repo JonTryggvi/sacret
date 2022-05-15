@@ -31,7 +31,6 @@ const LoadMore = {
     this.renderCards(postType, nextPage, this.hasButton)
   },
   renderCards(post_type, page = 1, hasButton) {
-    console.log(post_type)
     const post_types = {
       'product': (_this) => GetProducts.init(_this.body, page, hasButton),
       'post': (_this) => GetPosts.init(_this.body, page, hasButton)

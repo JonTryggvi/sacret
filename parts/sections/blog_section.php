@@ -5,6 +5,8 @@
   $section_type = get_sub_field('type', $post->ID);
   $is_archive = 'archive' === $section_type ? true : false;
   $archive_class = $section_type;
+  $is_published = get_sub_field('publish_section');
+  if($is_published) :
 ?>
 <section class="uni_section uni_section__posts <?php echo $section_has_title; echo $section_type; ?> grid-with-margin" data-post-type="post">
   <?php if(false !== $section_title): ?>
@@ -22,3 +24,5 @@
     uni_partial('parts/components/read-more', ['slug' => $section_page_slug]);
   endif; ?>
 </section>
+
+<?php endif; ?>
