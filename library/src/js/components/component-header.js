@@ -22,7 +22,8 @@ const Header = {
     this.iMenuItems = this.menuItems.length
     
   },
-  addEvents(){
+  addEvents() {
+    this.theme_color = this.header.dataset.theme_color;
     this.menuItems.forEach(menuItem => {
       menuItem.addEventListener('mouseover', this.handleMenuItemMouseover.bind(this))
       menuItem.addEventListener('mouseleave', this.handleMenuItemMouseleave.bind(this))
@@ -39,8 +40,6 @@ const Header = {
         this.navUl.classList.add('uni_header__nav-list--active')
       }
     }
-  
-
     window.addEventListener('scroll', this.handleWindowScroll.bind(this))
     this.navUl.addEventListener('transitionend', e => {
       if (this.header.classList.contains('menu-open') && window.innerWidth <= 414) {
@@ -58,7 +57,7 @@ const Header = {
     })
     let windowScrollTop = window.pageYOffset || document.documentElement.scrollTop
     if (windowScrollTop > 30) {
-      this.header.classList.add('bc__header--white')
+      this.header.classList.add('bc__header--'+this.theme_color)
       this.scrolled = true
     }
   },
@@ -68,10 +67,10 @@ const Header = {
   handleWindowScroll(e) {
     let scrollTop = e.srcElement.scrollingElement.scrollTop;
     if (scrollTop > 0 && !this.scrolled) {
-      this.header.classList.add('bc__header--white')
+      this.header.classList.add('bc__header--'+this.theme_color)
       this.scrolled = true 
     } else if(scrollTop < 1){
-      this.header.classList.remove('bc__header--white')
+      this.header.classList.remove('bc__header--'+this.theme_color)
       this.scrolled = false
     } 
   },

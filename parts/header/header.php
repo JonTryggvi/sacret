@@ -1,4 +1,4 @@
-<header class="uni_header header grid-with-margin" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+<header class="uni_header header grid-with-margin" role="banner" itemscope itemtype="http://schema.org/WPHeader" data-theme_color="<?php echo $theme_color; ?>">
 
   <div id="inner-header" class="uni_header__inner-container grid-12-container">
 

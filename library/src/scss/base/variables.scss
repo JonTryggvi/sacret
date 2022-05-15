@@ -1,7 +1,7 @@
 // colors
 
 $pink: #CF6262;
-$white: #f7f7f7;
+$white: #fefbfb;
 $black: #010125;
 $lightBlue: #CBD9E2;
 $blue: #6788A7;
@@ -13,6 +13,11 @@ $darkGreenParagraph: darken($green, 15%);
 $darkLilac: #877986;
 $background1: #D4CDD2;
 
+$gold:#ffd700;
+$gold-light: lighten($gold, 25%);
+$gold-dark: darken($gold, 25%);
+
+$gold_overlay: linear-gradient(180deg, rgba($gold, 0.421) 0%, rgba($gold, 0.47) 100%);
 $yellow_overlay: linear-gradient(180deg, rgba(255, 250, 95, 0.421) 0%, rgba(39, 174, 166, 0.47) 100%);
 $green_overlay: linear-gradient(180deg, rgba(18, 133, 112, 0.53) 0%, rgba(220, 142, 73, 0.41) 100%);
 $blue_overlay: linear-gradient(0, rgba($pink, 0.41), rgba($blue, 0.47) 50%);

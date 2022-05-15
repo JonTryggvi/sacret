@@ -324,6 +324,25 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_6280e1c16041a",
+                            "label": "Publish section",
+                            "name": "publish_section",
+                            "type": "true_false",
+                            "instructions": "Here you can publish or hide section.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "Published",
+                            "ui_off_text": "Hidden"
                         }
                     ],
                     "min": "",
@@ -386,7 +405,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "#ffc0cb"
+                            "default_value": "#ffc0cb",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         }
                     ],
                     "min": "",
@@ -530,6 +551,25 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_6280e2426041b",
+                            "label": "Publish section",
+                            "name": "publish_section",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "Publish",
+                            "ui_off_text": "Hidden"
                         }
                     ],
                     "min": "",
@@ -610,5 +650,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1634989392
+    "show_in_rest": 0,
+    "modified": 1652613786
 }

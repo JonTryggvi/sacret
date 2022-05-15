@@ -26,6 +26,7 @@ PATHS:
   # Paths to Sass libraries, which can then be loaded with @import
   sass:
     - "node_modules/owl.carousel/src/scss/"
+    - "node_modules/slick-slider/slick/"
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
     - "library/src/js/avista-app.js"

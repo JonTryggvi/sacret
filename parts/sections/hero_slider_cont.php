@@ -1,19 +1,22 @@
-<?php if(have_rows('hero_slider')): 
+<?php 
+$slide_count = is_array(get_sub_field('hero_slider')) ? count(get_sub_field('hero_slider')) : 1;
+if(have_rows('hero_slider')): 
+
 		$post_type = get_post_type();
 		$set_product_margin = 'product' == $post_type ? 'uni_section--less-margin' : '';
 	?>
-		<section class="uni_section uni_section__hero slider owl-carousel <?php echo $set_product_margin; ?>" role="main" > 
-		<?php
-		
+		<section class="uni_section uni_section__hero slider owl-carousel <?php echo $set_product_margin; ?>" role="main" data-slide_count="<?php echo $slide_count; ?>"> 
+		<?php 
+			
 			while(have_rows('hero_slider')): the_row();
 				$img_obj = get_sub_field('hero_img');
 				$side_class = get_sub_field('hero_switch_sides') ? 'right' : '';
-				$hero_link = get_sub_field('hero_link'); if(NULL !== $hero_link) :
+				$hero_link = get_sub_field('hero_link');
 				$hero_link_text = get_sub_field('hero_link_text') ? get_sub_field('hero_link_text') : 'Nánar';
 				$is_add_to_cart = get_sub_field('link_is_add_to_cart') ? get_sub_field('link_is_add_to_cart') : false;
 				$sleppa_takka = get_sub_field('sleppa_takka') ? get_sub_field('sleppa_takka') : false;
-	
 		?>
+	
 			<div class="<?php echo $side_class; ?> uni_section__hero__row">
 				<div class="uni_section__hero__row__text medium-7">
 					<div class="uni_section__hero__row__text__box">
@@ -27,10 +30,10 @@
 									<a class="btn addToCart staggerBtn" data-product-id="<?php echo $product_id; ?>"><?php echo $hero_link_text;?></a>
 								<?php		else :	?>
 								<a class="btn staggerBtn" href="<?php echo $hero_link ?>"><?php echo $hero_link_text; ?></a>
-						<?php endif; endif; endif; ?>
+						<?php endif; endif; ?>
 					</div>
 				</div>
-				<div class="uni_section__hero__row__image">
+				<div class="uni_section__hero__row__image stagger">
 					<div class="uni_section__hero__row__image__backdrop-mask"></div>
 					<div class="uni_section__hero__row__image__mask stagger">
 						<picture>
@@ -40,6 +43,8 @@
 					</div>
 				</div>
 			</div>
-	<?php	endwhile; ?>
+
+
+	<?php 	endwhile; ?>
 	</section>
 <?php endif; ?>

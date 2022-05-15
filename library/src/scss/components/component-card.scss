@@ -8,7 +8,7 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
   grid-column-gap: 1em;
   grid-row-gap: 2em;
   min-height: 500px;
-  max-height: 550px;
+  // max-height: 550px;
   @include bp(small-laptop){
     grid-template-columns: repeat(12, 1fr);
   }
@@ -19,7 +19,8 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
 
   a {
     grid-column: span 3;
-    transition: box-shadow 500ms 200ms ease-in;
+    transition: box-shadow 500ms 200ms ease, border-radius 500ms ease-out;
+    border-radius: 14px 14px $card-bottom-rad $card-bottom-rad;
     text-decoration: none;
     overflow: hidden;
     @include bp(small-laptop) {
@@ -32,24 +33,25 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
       grid-column: span 12
     }
     & .card_container {
-      border-radius: 14px 14px $card-bottom-rad $card-bottom-rad;
+      // border-radius: 14px 14px $card-bottom-rad $card-bottom-rad;
       overflow: hidden;
       height: 100%;
       max-height: 500px;
+      // transition: border-radius 500 ease-in;
     }
-    &.hovering {
+    &:hover {
       color: $black;
       box-shadow: 0 14px 14px 5px rgba($black, 0.1);
-      transition: box-shadow 500ms 200ms ease-out;
+      border-radius:  23px;
+      transition: box-shadow 500ms ease-out, border-radius 500ms ease-in;
       figure {
         height: 220px;
         transition: $transition-medium;
-
         img {
-          height: 100%;;
+          height: 100%;
           max-height: 220px;
           min-height: 220px;
-        transition: $transition-medium;
+          transition: $transition-medium;
         }
         figcaption {
           opacity: 0;

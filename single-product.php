@@ -4,7 +4,7 @@
   $product_id = $product->get_id();
   $title = $product->get_name();
   $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
-  $description = $product->description;
+  // $description = $product->get_description();
   $the_price = $product->get_price();
 
 ?>

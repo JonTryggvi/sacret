@@ -4,7 +4,7 @@
   height: calc(100vh - 80px);
   overflow: hidden;
   &__row {
-    display: grid;
+    display: grid !important;
     width: 100vw;
     height: calc(100vh - 80px);
     grid-template-columns: [start] 30px [middle] repeat(12, 1fr) [middle-end] 30px [end];
@@ -84,11 +84,13 @@
         grid-column: middle / span 12;
         grid-row: 5 / span 3;
         h1.hero_h1 {
+          opacity: 0;
           margin-top: 0;
           text-align: left;
           margin: 25px 0 10px;
         }
         p, a {
+          opacity: 0;
           text-align: left;
           margin-top: 5px;
           margin-left: 0px;
@@ -130,6 +132,9 @@
         }
         .black_theme & {
           background: radial-gradient(150.07% 712.09% at 144.05% 90.56%, rgba($lilac, 0) 0%, rgba($white, 0) 40.79%, $lilac 100%);
+        }
+        .gold_theme & {
+          background: radial-gradient(150.07% 712.09% at 144.05% 90.56%, rgba($gold-dark, 0) 0%, rgba($gold-light, 0) 40.79%, $gold 100%);
         }
       }
 

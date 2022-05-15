@@ -4,6 +4,11 @@
 }
 
 .mailchimp--form {
+  &--location-footer {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
   label {
     grid-column: 1 / span 6;
     .black_theme & {
@@ -11,7 +16,7 @@
     }
   }
   input {
-    grid-column: 1 / span 6;
+    grid-column: 1 / span 8;
     line-height: inherit;
     transition: $transition;
     background-color: transparent;
@@ -26,9 +31,11 @@
   }
 
   .btn {
+    height: 36px;
     grid-column: 1 / span 2;
     margin-top: 30px;
     align-self: center;
+    font-size: 14px;
   }
   .hide {
     visibility: hidden;

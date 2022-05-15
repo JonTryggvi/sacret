@@ -70,6 +70,17 @@
       color: $white;
     }
   }
+  .gold_theme & {
+    color: darken($gold, 40%) !important;
+    background: radial-gradient(82% 68% at 50% 32%, rgba($gold,1) 0%, rgba($gold-dark,1) 100%) !important;
+    &::before {
+      background: radial-gradient(82% 78% at 50% 0%, rgba($gold-dark,1) 0%, rgba($gold,1) 100%);
+    }
+    &:hover {
+      color: $gold-light;
+    }
+
+  }
   &--lilac {
     color: $white;
     background: radial-gradient(82% 68% at 50% 32%, rgba($lilac,1) 0%, rgba($darkLilac,1) 100%);

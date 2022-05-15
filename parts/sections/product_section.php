@@ -5,7 +5,8 @@
   $is_archive = 'archive' === $section_type;
   $archive_class = $section_type;
   $product_count = product_count_shortcode();
-  if(!empty($product_count)) :
+  $is_published = get_sub_field('publish_section');
+  if(!empty($product_count) && $is_published) :
 ?>
   <section class="uni_section uni_section__products <?php echo $section_has_title; echo $archive_class; ?> grid-with-margin" data-type="<?php echo $section_type; ?>" data-post-type="product">
   <?php if(false !== $section_title): ?>
