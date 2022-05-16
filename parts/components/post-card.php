@@ -20,9 +20,7 @@
         <h2><?php echo $title; ?></h2>
         <p><?php echo $excerpt; ?></p>
       </main>
-    </article>
-
-    
+    </article>   
   </div>
 </a>
 
