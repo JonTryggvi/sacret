@@ -52,23 +52,24 @@
   &__logo-link {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     grid-column: 1 / span 1;
     position: relative;
     height: 100%;
     color: transparent !important;
+    font-size: 0;
     // width: 83px;
     // height: 66px;
     &:hover {
       color: transparent;
     }
-    color: transparent;
     @include bp(phablet){
       grid-column:6 / span 2;
       justify-content: center;
       height:36px;
     }
     & svg {
-      position: absolute;
+      position: relative;
       top: 5px;
       left: 0px;
       transition: all 300ms $easing;
@@ -168,6 +169,7 @@
       right: 0;
     }
   }
+ 
   & nav {
     height: 100%;
     display: flex;
@@ -239,7 +241,9 @@
       }
     }
   }
-
+   .black_theme & {
+    background-color: $black;
+  }
 }
 
 .bc__header {
