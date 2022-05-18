@@ -10,7 +10,7 @@ jQuery.fn.exists = function (callback) {
   }
   return this;
 }
-let sr = ScrollReveal();
+// let sr = ScrollReveal();
 
 // global variable stores body and we can use that to send to our modules
 let domBody = Globals.cacheBody();
@@ -19,7 +19,7 @@ let mainarea = domBody.querySelector('#mainarea')
 window.addEventListener('load', e => {
   Header.init(domBody, true)
   MailChimp.init(domBody, Globals)
-  Animation.init(sr)
+  // Animation.init(sr)
   if (null != mainarea) {
     mainarea.classList.add('mainarea--loaded')
   }

@@ -10,20 +10,32 @@
   display: flex;
   flex-flow: column ;
   justify-content: flex-end;
+  @include bp(phablet){
+    & .grid-with-margin {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
   & nav {
-    grid-column: middle / span 4;
+    // grid-column: middle / span 4;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-self: flex-start;
+   
     & p {
       width: 60%;
       margin-bottom: 0;
       display: inline-block;
+      @include bp(phablet){
+        width: 100%;
+      }
     }
-    & .footer-links{
+    & .footer-links {
       width: 60%;
+      @include bp(phablet){
+        width: 100%;
+      }
     }
     & ul {
       list-style: none;
@@ -35,21 +47,32 @@
       }
       
     }
+    // @include bp(phablet){
+    //   width: 90%;
+    // }
   }
   .maillist {
     display: flex;
     justify-content: center;
+     
   }
   .footer-contact {
     display: flex;
     justify-content: center;
+
     &--inner {
       width: 80%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
+      @include bp(phablet){
+        width: 100%;
+        margin-top: 40px;
+      }
     }
+    
+    
   }
   #inner-footer {
     margin-bottom: 46px;
@@ -58,6 +81,9 @@
     font-family: $raleway;
     font-size: em(12);    
     text-align: center;
+    @include bp(phablet) {
+      grid-column: span 12;
+    }
   }
 }
 

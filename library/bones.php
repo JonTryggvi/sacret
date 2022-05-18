@@ -153,6 +153,7 @@ function bones_scripts_and_styles() {
 		//adding main Avista script file
 		
 		wp_register_script( 'avista-js', get_stylesheet_directory_uri() . '/library/dist/js/avista-app.js', array( 'jquery' ), '', true );
+		wp_register_script( 'archive-js', get_stylesheet_directory_uri() . '/library/dist/js/archive.js', array( 'jquery' ), '', true );
 		wp_register_script( 'frontpage-js', get_stylesheet_directory_uri() . '/library/dist/js/page-frontpage.js', array( 'jquery' ), '', true );
 		wp_register_script( 'offerings-js', get_stylesheet_directory_uri() . '/library/dist/js/page-offerings.js', array( 'jquery' ), '', true );
 		wp_register_script( 'news-js', get_stylesheet_directory_uri() . '/library/dist/js/page-news.js', array( 'jquery' ), '', true );
@@ -197,6 +198,11 @@ function bones_scripts_and_styles() {
 		}
 		if( in_array(['page-musings'], $body_classes) || in_array('page-hugvekjur', $body_classes)){
 			wp_enqueue_script('news-js');
+		}
+
+		if(is_archive()) {
+			wp_enqueue_script('archive-js');
+			
 		}
 
 		if( have_rows('sections') ): 
