@@ -1,5 +1,5 @@
 var $ = window.jQuery
-import Owl from "../modules/module-owl";
+// import Owl from "../modules/module-owl";
 import slick from 'slick-slider';
 import anime from 'animejs/lib/anime.es.js'
 const HeroSlider = {
@@ -9,8 +9,7 @@ const HeroSlider = {
     let sliderCount = parseInt(this.sliderContainer.dataset.slide_count);
     this.is_slider = sliderCount > 1 // this.heroSlides.length > 1
     this.setSLider()
-    this.animation(this.is_slider).play();
-    this.animationBtn(this.is_slider).play();
+    this.addEvents()
   },
   cacheDom(scope){
     this.body = scope
@@ -25,11 +24,18 @@ const HeroSlider = {
         speed: 0,
         slidesToShow: 1,
         autoplay: true,
-        autoplaySpeed: 10000,
+       autoplaySpeed: 10000,
+       lazyLoad: 'progressive'
       });
       slider.on('afterChange', e => {
         HeroSlider.animation(HeroSlider.is_slider, 'animatOptMulti').play()
       })
+    }
+  },
+  addEvents() {
+    window.onload = e => {
+      this.animation(this.is_slider).play();
+      this.animationBtn(this.is_slider).play();
     }
   },
   animatOptMulti: {
@@ -73,21 +79,23 @@ const HeroSlider = {
   },
   animatOptSolo: {
     targets: '.uni_section__hero__row .stagger',
-    translateY: [
-      { value: 20, duration: 0 },
-      { value: 0, duration: 300 },
-      { value: 0, duration: 7500 },
-      { value: 0 , duration: 200 },
-    ],
-    opacity: [
-      { value: 0, duration: 0 },
-      { value: 1, duration: 200 },
-      { value: 1, duration: 7600 },
-      { value: 1, duration: 200 }
-    ],
+    translateY: [20, 0],
+    opacity: [0, 1],
+    // translateY: [
+    //   { value: 20, duration: 200 },
+    //   { value: 0, delay: 300, duration: 300 },
+    //   { value: 0, duration: 7500 },
+    //   { value: 0, duration: 200 },
+    // ],
+    // opacity: [
+    //   { value: 0, duration: 0 },
+    //   { value: 1, duration: 200 },
+    //   { value: 1, duration: 7600 },
+    //   { value: 1, duration: 200 }
+    // ],
     autoplay: false,
     easing: 'spring(1, 80, 10, 0)',
-    delay: anime.stagger(200), // increase delay by 100ms for each elements.
+    delay: anime.stagger(400), // increase delay by 100ms for each elements.
 
   },
   animatBtnOptMulti: {
@@ -126,7 +134,7 @@ const HeroSlider = {
     easing: 'spring(1, 80, 10, 0)',
     // delay: anime.stagger(400) // increase delay by 100ms for each elements.
   },
-  animation(is_slider, inout = 'animatOptMulti'){ return anime(is_slider ? this[inout] : this.animatOptSolo)},
+  animation(is_slider, inout = 'animatOptMulti') { console.log(inout);  return anime(is_slider ? this[inout] : this.animatOptSolo)},
   animationBtn(is_slider){return anime(is_slider ? this.animatBtnOptMulti : this.animatBtnOptSolo)},
 
   

@@ -10,17 +10,18 @@
       <span class="magic-line"></span>
       <?php 
         wp_nav_menu(array(
-          'container' => false,                           // remove nav container
-          'container_class' => 'menu',                 // class of container (should you choose to use it)
-          'menu' => __( 'The Main Menu', 'bonestheme' ),  // nav name
-          'menu_class' => 'nav top-nav uni_header__nav-list text-pink',               // adding custom nav class
-          'theme_location' => 'main-nav',                 // where it's located in the theme
-          'before' => '',                                 // before the menu
-                'after' => '',                                  // after the menu
-                'link_before' => '',                            // before each link
-                'link_after' => '',                             // after each link
-                'depth' => 0,                                   // limit the depth of the nav
-          'fallback_cb' => ''                             // fallback function (if there is one)
+          'container' => false,
+          'container_class' => 'menu',
+          'menu' => __( 'The Main Menu', 'bonestheme' ),
+          'menu_class' => 'nav top-nav uni_header__nav-list text-pink',
+          'theme_location' => 'main-nav',
+          'before' => '', 
+          'after' => '',
+          'link_before' => '',
+          'link_after' => '',
+          'depth' => 2,
+          'fallback_cb' => '',
+          // 'walker' => new Walker_Nav_Menu()
         ));
       ?>
       <?php /* if(class_exists( 'WooCommerce' ) && !WC()->cart->is_empty()) : ?>

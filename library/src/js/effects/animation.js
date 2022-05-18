@@ -8,12 +8,12 @@ const Animation = {
     this.sr.reveal('.item-fadein', {
       reset: false,
       delay: 700,
-      duration: 1200,
+      duration: 800,
       distance: '20px',
-      interval: 600,
+      interval: 200,
       // opacity: 0,
       // viewFactor: 0.9,
-      // container: container
+      // container: '.card-container'
     }) 
     
   },

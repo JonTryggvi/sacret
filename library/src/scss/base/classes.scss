@@ -1,3 +1,7 @@
+html.sr .load-hidden {
+    visibility: hidden;
+}
+
 .bc {
   &--white {
     background-color: $white;
@@ -70,9 +74,21 @@
 .grid-span {
   &--4 {
     grid-column: span 4;
+    @include bp(phablet) {
+      grid-column: 2 / span 10;
+      .footer & {
+        grid-column-gap: 4rem;
+      }
+    }
   }
   &--6 {
     grid-column: span 6;
+     @include bp(phablet) {
+      grid-column: span 12;
+      .footer & {
+        grid-row-gap: 4rem;
+      }
+    }
   }
   &--12 {
     grid-column: span 12;

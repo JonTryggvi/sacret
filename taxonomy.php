@@ -1,14 +1,14 @@
 <?php
 /*
- * CUSTOM POST TYPE ARCHIVE TEMPLATE
+ * CUSTOM POST TYPE TAXONOMY TEMPLATE
  *
- * This is the custom post type archive template. If you edit the custom post type name,
+ * This is the custom post type taxonomy template. If you edit the custom taxonomy name,
  * you've got to change the name of this template to reflect that name change.
  *
- * For Example, if your custom post type is called "register_post_type( 'bookmarks')",
- * then your template name should be archive-bookmarks.php
+ * For Example, if your custom taxonomy is called "register_taxonomy('shoes')",
+ * then your template name should be taxonomy-shoes.php
  *
- * For more info: http://codex.wordpress.org/Post_Type_Templates
+ * For more info: http://codex.wordpress.org/Post_Type_Templates#Displaying_Custom_Taxonomies
 */
 ?>
 
@@ -21,9 +21,9 @@
 
 				<div id="inner-content" class="wrap cf">
 
-					<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+						<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-						<h1 class="archive-title h2"><?php post_type_archive_title(); ?></h1>
+							<h1 class="archive-title h2"><span><?php _e( 'Posts Categorized:', 'bonestheme' ); ?></span> <?php single_cat_title(); ?></h1>
 
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -33,14 +33,13 @@
 
 									<h3 class="h2"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 									<p class="byline vcard"><?php
-										printf( __( 'Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time( 'Y-m-j' ), get_the_time( __( 'F jS, Y', 'bonestheme' ) ), get_author_posts_url( get_the_author_meta( 'ID' ) ));
+										printf(__('Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span> <span class="amp">&</span> filed under %4$s.', 'bonestheme'), get_the_time('Y-m-j'), get_the_time(__('F jS, Y', 'bonestheme')), bones_get_the_author_posts_link(), get_the_term_list( get_the_ID(), 'custom_cat', "", ", ", "" ));
 									?></p>
-		<?php var_dump('tstsd'); ?>
+									<?php var_dump('tste'); ?>
 								</header>
 
-								<section class="entry-content cf">
-
-									<?php the_excerpt(); ?>
+								<section class="entry-content">
+									<?php the_excerpt( '<span class="read-more">' . __( 'Read More &raquo;', 'bonestheme' ) . '</span>' ); ?>
 
 								</section>
 
@@ -64,7 +63,7 @@
 											<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
 										</section>
 										<footer class="article-footer">
-												<p><?php _e( 'This is the error message in the custom posty type archive template.', 'bonestheme' ); ?></p>
+												<p><?php _e( 'This is the error message in the taxonomy-custom_cat.php template.', 'bonestheme' ); ?></p>
 										</footer>
 									</article>
 
@@ -72,7 +71,7 @@
 
 						</main>
 
-					<?php get_sidebar(); ?>
+						<?php get_sidebar(); ?>
 
 				</div>
 

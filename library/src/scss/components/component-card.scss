@@ -18,6 +18,7 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
   }
 
   a {
+
     grid-column: span 3;
     transition: box-shadow 500ms 200ms ease, border-radius 500ms ease-out;
     border-radius: 14px 14px $card-bottom-rad $card-bottom-rad;

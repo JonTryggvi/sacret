@@ -8,11 +8,18 @@
     display: flex;
     flex-direction: column;
     width: 70%;
+    @include bp(phablet){
+      width: 100%;
+      // grid-column: 1 / span 11;
+    }
   }
   label {
-    grid-column: 1 / span 6;
+  .mailchimp-container & {grid-column: 1 / span 6;}
     .black_theme & {
       color: $white;
+    }
+   &.show {
+      animation: showLabels 400ms forwards cubic-bezier(0.645, 0.045, 0.355, 1) ;
     }
   }
   input {
@@ -21,12 +28,16 @@
     transition: $transition;
     background-color: transparent;
     border-radius: 4px;
+  
     &:focus {
       background-color: rgba(255,255,255,0.6);
     }
     .black_theme & {
           color: white;
     background-color: $lilac;
+    }
+    &.show {
+      animation: showInputs 400ms forwards cubic-bezier(0.645, 0.045, 0.355, 1) ;
     }
   }
 
@@ -36,19 +47,42 @@
     margin-top: 30px;
     align-self: center;
     font-size: 14px;
+    @include bp(phablet){
+      margin-top: 15px;
+    }
   }
   .hide {
     visibility: hidden;
     opacity: 0;
     height: 0;
-    position: absolute;
+    left: 0;
+    padding-top: 0;
+    // position: absolute;
   }
-  .show {
-    animation: showInputs 400ms forwards cubic-bezier(0.645, 0.045, 0.355, 1) ;
-  }
+  
 }
 
 @keyframes showInputs {
+  0% {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+  }
+  50% {
+    position: relative;
+    height: auto;
+    line-height: inherit;
+  }
+  100% {
+    position: relative;
+    visibility: visible;
+    height: auto;
+    padding-top: 11px;
+    opacity: 1;
+  }
+}
+@keyframes showLabels{
   0% {
     position: absolute;
     visibility: hidden;
@@ -62,7 +96,7 @@
   100% {
     position: relative;
     visibility: visible;
-    opacity: 1;
     height: auto;
+    opacity: 1;
   }
 }

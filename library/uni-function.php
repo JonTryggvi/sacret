@@ -62,7 +62,7 @@ function uni_add_to_cart_redirect() {
   return $checkout_url;
 }
 
-add_filter( 'wp_nav_menu_items', 'lunchbox_add_loginout_link', 10, 2 );
+// add_filter( 'wp_nav_menu_items', 'lunchbox_add_loginout_link', 10, 2 );
 function lunchbox_add_loginout_link( $items, $args ) {
   $cart_is_empty = WC()->cart->is_empty();
   if ($args->theme_location == 'main-nav' && !$cart_is_empty) {

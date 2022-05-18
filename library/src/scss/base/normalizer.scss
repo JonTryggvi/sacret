@@ -4,13 +4,18 @@ html, body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 main {
   position: relative;
+    box-sizing: border-box;
+
   
 }
 .mainarea {
   opacity: 0;
+    box-sizing: border-box;
+
 }
 .mainarea--loaded {
   opacity: 1;
@@ -20,9 +25,17 @@ textarea, select, input, button { outline: none; }
 a {
   text-decoration: none;
   color: $black;
+    box-sizing: border-box;
+
+}
+img {
+    box-sizing: border-box;
+  
 }
 
 .text {
+    box-sizing: border-box;
+
   &--pink {
     color: $pink;
   }

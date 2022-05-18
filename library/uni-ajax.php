@@ -35,6 +35,7 @@ function get_uni_posts() {
     exit('not happening');
   }
   $page = absint($_POST['page']);
+  $term_id = !empty($_POST['term_id']) ? absint($_POST['term_id']) : false;
   $args = array(
     'posts_per_page' => 4,
     'paged' => $page,
@@ -43,6 +44,9 @@ function get_uni_posts() {
     'post_type' => 'post',
     'post_status' => "publish"
   );
+  if(!!$term_id) {
+    $args['cat'] = $term_id;
+  }
   // $page === 1 ? false : $args['offset'] = 5;
   $query = new WP_Query( $args );
   $posts = $query->posts; 

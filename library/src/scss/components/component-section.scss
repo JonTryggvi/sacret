@@ -11,13 +11,11 @@
   @include bp(phablet) {
     margin-bottom: 80px;
   }
-  // background-color: tomato;
   &__has_title{
-
     grid-template-rows: [title] 4em [middle] auto [end];
     row-gap: 3em;
-    align-content: end;
-    & > h2 {
+    // align-content: end;
+    & > h2,  & > p {
       align-self: end;
       grid-column: middle / span 6;
       grid-row-start: title;
@@ -26,6 +24,9 @@
         grid-column: middle / span 12;
       }
     }
+     & > p {
+       grid-row-start: 2;
+     }
   }
   .card-container {
     grid-row-start: middle;
