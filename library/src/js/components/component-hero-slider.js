@@ -17,7 +17,8 @@ const HeroSlider = {
     this.sliderContainer = this.body.querySelector('.slider')
   },
   setSLider() {
-    if (this.is_slider) {
+    // if (this.is_slider)
+    {
      let slider =  $('.slider').slick({
         // dots: true,
         infinite: true,
