@@ -141,7 +141,9 @@
       &__mask{
         height:100%;
         clip-path: ellipse(150% 65%  at 51% 35%);
-
+        @include bp(phablet){
+          max-height: 41vh;
+        }
       }
     }
   }

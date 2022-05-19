@@ -38,7 +38,7 @@ if(have_rows('hero_slider')):
 					<div class="uni_section__hero__row__image__mask stagger">
 						<picture>
 							<source srcset="<?php echo $img_obj['sizes']['large']; ?>" media="(min-width: 600px)">
-							<img data-src="<?php echo$img_obj['sizes']['large']; ?>" alt="">
+							<img src="<?php echo$img_obj['sizes']['large']; ?>" alt="">
 						</picture>
 					</div>
 				</div>
