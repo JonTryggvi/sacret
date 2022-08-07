@@ -13,22 +13,28 @@
   @include bp(phablet){
     & .grid-with-margin {
       grid-template-columns: repeat(12, 1fr);
+      grid-row-gap: 5em;
     }
   }
   & nav {
-    // grid-column: middle / span 4;
+    grid-column: middle / span 4;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-self: flex-start;
-   
+    @include bp(phablet) {
+      align-self: center;
+      grid-column: 2 / span 10;
+      grid-column-gap: 4rem;
+    }
     & p {
       width: 60%;
       margin-bottom: 0;
       display: inline-block;
       @include bp(phablet){
         width: 100%;
+        text-align: center;
       }
     }
     & .footer-links {
@@ -40,6 +46,9 @@
     & ul {
       list-style: none;
       padding: 0;
+      @include bp(phablet){
+        text-align: center;
+      }
       & a {
         font-family: $raleway;
         font-size: em(16);

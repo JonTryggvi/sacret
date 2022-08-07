@@ -77,3 +77,9 @@ function product_count_shortcode () {
   $count_posts = wp_count_posts('product');
   return $count_posts-> publish;
 }
+
+
+add_filter( 'woocommerce_return_to_shop_redirect', 'custom_empty_cart_redirect_url' );
+function custom_empty_cart_redirect_url(){
+  return home_url();
+}

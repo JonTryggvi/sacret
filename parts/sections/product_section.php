@@ -8,16 +8,16 @@
   $is_published = get_sub_field('publish_section');
   if(!empty($product_count) && $is_published) :
 ?>
-  <section class="uni_section uni_section__products <?php echo $section_has_title; echo $archive_class; ?> grid-with-margin" data-type="<?php echo $section_type; ?>" data-post-type="product">
+  <section class="uni_section uni_section__products <?php echo $section_has_title; echo $archive_class; ?> grid-with-margin" data-type="<?php echo $section_type; ?>" data-post-type="product" data-section_order="<?php echo $i ?>">
   <?php if(false !== $section_title): ?>
     <h2 class="text"><?php echo $section_title; ?></h2>
   <?php endif; ?>
     <div class="card-container">
 
     </div>
-    <?php if($is_archive): 
+    <?php if($is_archive) : 
       uni_partial('parts/components/loadmore-button');
-    else:
+    else :
       $section_page_slug = get_sub_field('page_slug', $post->ID);
       uni_partial('parts/components/read-more', ['slug' => $section_page_slug]);
     endif; ?>

@@ -99,6 +99,9 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
         transition: $transition-medium;
 
       }
+      img.emoji {
+        object-fit: contain;
+      }
       figcaption {
         position: absolute;
         font-size: 36px;

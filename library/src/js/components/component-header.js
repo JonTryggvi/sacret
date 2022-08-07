@@ -6,7 +6,9 @@ const Header = {
   init(body, loaded){
     this.cacheDom(body)
     this.addEvents()
-    this.animation.play()
+    if (window.innerWidth > 414) {
+      this.animation.play()
+    }
     
   },
   cacheDom(body) {
@@ -40,21 +42,14 @@ const Header = {
         this.header.classList.add('menu-open')
         clickedItem.classList.add('menu_hamburger--active')
         this.navUl.classList.add('uni_header__nav-list--active')
+        this.animation.restart();
+
       }
     }
     window.addEventListener('scroll', this.handleWindowScroll.bind(this))
     this.navUl.addEventListener('transitionend', e => {
       if (this.header.classList.contains('menu-open') && window.innerWidth <= 414) {
-        // this.reveal({
-        //   scale: 1,
-        //   reset: false,
-        //   mobile: true,
-        //   duration: 1200,
-        //   distance: '20px',
-        //   interval: 200,
-        //   origin: 'bottom',
-        //   container: this.navUl
-        // })
+        this.animation.play()
       }
     })
     let windowScrollTop = window.pageYOffset || document.documentElement.scrollTop
@@ -124,7 +119,7 @@ const Header = {
     autoplay: false,
     easing: 'easeInOutSine',
     delay: anime.stagger(200) // increase delay by 100ms for each elements.
-  }),
+  }), 
   submenuAnimationIn(target) {
     return anime.timeline({ autoplay: false,
     }).add({

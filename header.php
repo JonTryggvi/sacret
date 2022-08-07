@@ -18,16 +18,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 		<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
-		<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
-		<link rel="manifest" href="/images/favicon/site.webmanifest">
-		<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-		<link rel="shortcut icon" href="/images/favicon/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/library/images/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/library/images/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/library/images/favicon/favicon-16x16.png">
+		<link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/library/images/favicon/site.webmanifest">
+		<link rel="mask-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/library/images/favicon/favicon.ico">
 		<meta name="apple-mobile-web-app-title" content="Uni">
 		<meta name="application-name" content="Uni">
 		<meta name="msapplication-TileColor" content="#603cba">
-		<meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+		<meta name="msapplication-config" content="/library/images/favicon/browserconfig.xml">
 		<meta name="theme-color" content="#ffffff">
 		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
 		<!--[if IE]>

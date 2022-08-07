@@ -193,16 +193,15 @@ function bones_scripts_and_styles() {
 		if( in_array('page-front-page', $body_classes) || in_array('page-forsida', $body_classes) ){
 			wp_enqueue_script('frontpage-js');
 		}
-		if( in_array('page-offerings', $body_classes) || in_array('page-i-bodi', $body_classes)){
-			wp_enqueue_script('offerings-js');
-		}
+		// if( in_array('page-offerings', $body_classes) || in_array('page-i-bodi', $body_classes)){
+		// 	// wp_enqueue_script('offerings-js');
+		// }
 		if( in_array(['page-musings'], $body_classes) || in_array('page-hugvekjur', $body_classes)){
 			wp_enqueue_script('news-js');
 		}
 
 		if(is_archive()) {
 			wp_enqueue_script('archive-js');
-			
 		}
 
 		if( have_rows('sections') ): 
@@ -210,6 +209,9 @@ function bones_scripts_and_styles() {
       while ( have_rows('sections') ) : the_row();
         'mailchimp_section' == get_row_layout() ? wp_enqueue_script( 'mailchimp' ) : NULL; 
         'quote_section' == get_row_layout() ? wp_enqueue_script( 'mailchimp' ) : NULL; 
+				'product_section' == get_row_layout() ? wp_enqueue_script( 'offerings-js' ) : NULL; 
+				// if( !(in_array('page-front-page', $body_classes) || in_array('page-forsida', $body_classes)) ) {
+				// }
       endwhile; 
     endif;
 

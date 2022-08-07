@@ -17,20 +17,9 @@
     include_once('parts/elements.php');
 
   endwhile;  endif; ?>
-  <section class="uni_section uni_section__single-product grid-with-margin grid-row-content__single-prod">
-    <!-- <figure>
-      <img src="<?php echo $image[0]; ?>" alt="">
-    </figure>
-    <h2 class="uni_section__single-product__h2"><?php echo $title; ?></h2>  -->
-    <span class="uni_section__single-product__price"><?php echo wc_price( $the_price); ?></span>
-    <div class="uni_section__single-product__description">
-      <?php # echo $description; ?>
-      <?php the_content(); ?>
-      <div class="addToCart__container">
-        <button type="button" class="btn btn--lilac addToCart" data-product-id="<?php echo $product_id; ?>"><?php _e('Bæta í körfu'); ?></button>
-      </div>
-    </div>
-  </section>
+
+
+
 </main>
 
 

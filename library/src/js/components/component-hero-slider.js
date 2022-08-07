@@ -6,7 +6,7 @@ const HeroSlider = {
   
   init(scope){
     this.cacheDom(scope)
-    let sliderCount = parseInt(this.sliderContainer.dataset.slide_count);
+    let sliderCount = this.sliderContainer ?   parseInt(this.sliderContainer.dataset.slide_count) : 0;
     this.is_slider = sliderCount > 1 // this.heroSlides.length > 1
     this.setSLider()
     this.addEvents()

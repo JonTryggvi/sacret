@@ -29,6 +29,7 @@ h1 {
   }
   @include bp(phablet){ 
     font-size: em(42);
+    margin-top: em(12);
   }
 }
 h2 {
@@ -52,7 +53,7 @@ h2 {
     color: $gold-light;
   }
   @include bp(phablet){
-    font-size: em(22);
+    font-size: em(36);
   }
 }
 

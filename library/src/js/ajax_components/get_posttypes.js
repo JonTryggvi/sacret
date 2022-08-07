@@ -29,11 +29,13 @@ const GetProducts = {
         this.cardContainer.insertAdjacentHTML('beforeend', res.products)
       }
       if (res.queryObject.max_num_pages > 1 && hasButton )  {
+         Animation.init(ScrollReveal())
         this.loadMoreBtn = this.section.querySelector('.btnLoadMore')
         this.loadMoreBtn.dataset.nextPage = parseInt(this.loadMoreBtn.dataset.nextPage) + 1
         res.queryObject.max_num_pages <= page ? this.loadMoreBtn.classList.add('visibility__hidden') : this.loadMoreBtn.classList.remove('visibility__hidden')
       }
       // CardHoverState.init(this.body)
+      // Animation.animationSync(ScrollReveal())
       this.cacheDom(this.body)
       // this.mainArea.classList.add('mainarea--loaded');
     })
