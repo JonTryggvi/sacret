@@ -87,7 +87,7 @@ function sass() {
       .pipe($.autoprefixer({
         overrideBrowserslist: COMPATIBILITY
       }))
-      .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
+      // .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
       .pipe($.if(!PRODUCTION, $.sourcemaps.write('.')))
       .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
       .pipe(gulp.dest(PATHS.dist + '/css'))
@@ -107,7 +107,7 @@ const webpack = {
         {
           test: /.js$/,
           loader: 'babel-loader',
-          exclude: /node_modules(?![\\\/]foundation-sites)/,
+          exclude: /node_modules/,
         },
       ],
     },
