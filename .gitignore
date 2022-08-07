@@ -53,7 +53,7 @@ tmp/
 temp/
 ._*
 .Trashes
-
+config.yml
 .svn
 *.codekit
 *.scssc

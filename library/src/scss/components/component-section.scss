@@ -14,6 +14,9 @@
   &__has_title{
     grid-template-rows: [title] 4em [middle] auto [end];
     row-gap: 3em;
+    @include bp(phablet) {
+      row-gap: 1em;
+    }
     // align-content: end;
     & > h2,  & > p {
       align-self: end;

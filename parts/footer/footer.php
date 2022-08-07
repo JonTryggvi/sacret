@@ -1,5 +1,5 @@
 <div id="inner-footer" class="grid-with-margin">
-    <nav class="grid-span--4" role="navigation">
+    <nav class="" role="navigation">
       <?php if( has_nav_menu('footer-links')) : ?>
       <p>Nytsamlegir hlekkir</p>
       <?php wp_nav_menu(array(

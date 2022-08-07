@@ -1,4 +1,4 @@
-<section class="uni_section grid-with-margin zen-rows" style="--zen-color: <?php the_sub_field('zen_color', $post->ID); ?>;">
+<section class="uni_section grid-with-margin zen-rows" style="--zen-color: <?php the_sub_field('zen_color', $post->ID); ?>;" data-section_order="<?php echo $i ?>">
   <div class="zen-dot">
     <span class="zen-pulse"></span>
   </div>

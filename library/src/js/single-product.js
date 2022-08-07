@@ -1,5 +1,7 @@
 import Globals from "./base/globals";
 import AddToCart from './components/component-addToCart';
-var domBody = Globals.cacheBody();
+import HeroSlider from "./components/component-hero-slider"
 
+var domBody = Globals.cacheBody();
+HeroSlider.init(domBody)
 AddToCart.init(domBody)

@@ -40,13 +40,29 @@ if(function_exists('pll_register_string')) {
     pll_register_string('form', $value, 'Uni woo checkout');
   }
 
-  
+
+  add_filter( 'woocommerce_checkout_fields' , 'override_billing_checkout_fields', 20, 1 );
+  function override_billing_checkout_fields( $fields ) {
+    foreach ($fields['billing'] as $key => $forms) {
+      if(array_key_exists('placeholder', $fields['billing'][$key])) {
+        $fields['billing'][$key]['placeholder'] = pll__($forms['placeholder']);
+      }
+    }
+    foreach ($fields['shipping'] as $key => $forms) {
+      if(array_key_exists('placeholder', $fields['shipping'][$key])) {
+        $fields['shipping'][$key]['placeholder'] = pll__($forms['placeholder']);
+      }
+    }
+    return $fields;
+  }
 
   add_filter( 'woocommerce_default_address_fields' , 'translate_wc_address_fields' );
   function translate_wc_address_fields( $fields ) {
     foreach ($fields as $key => $forms) {
       $fields[$key]['label'] = pll__($forms['label']);
-      $fields[$key]['placeholder'] = pll__($forms['placeholder']);
+      if(array_key_exists('placeholder', $fields[$key])) {
+        $fields[$key]['placeholder'] = pll__($forms['placeholder']);
+      }
     }
     return $fields;
   }

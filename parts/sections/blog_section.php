@@ -8,7 +8,7 @@
   $is_published = get_sub_field('publish_section');
   if($is_published) :
 ?>
-<section class="uni_section uni_section__posts <?php echo $section_has_title; echo $section_type; ?> grid-with-margin" data-post-type="post">
+<section class="uni_section uni_section__posts <?php echo $section_has_title; echo $section_type; ?> grid-with-margin" data-post-type="post" data-section_order="<?php echo $i ?>">
   <?php if(false !== $section_title): ?>
     <h2><?php echo $section_title; ?></h2>  
   <?php endif; ?>

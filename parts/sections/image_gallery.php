@@ -3,7 +3,7 @@
   $img_objs = get_sub_field('images');
   $section_title = get_sub_field('section_title', $post->ID) ? get_sub_field('section_title', $post->ID) : false; 
   if(have_rows('images')): ?>
-    <section class="uni_section">
+    <section class="uni_section" data-section_order="<?php echo $i ?>">
       
       <div class="uni_section__gallery grid-with-margin grid-row-content__12_row" role="main" > 
           <?php if(false !== $section_title): ?>

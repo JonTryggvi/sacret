@@ -5,7 +5,7 @@ if(have_rows('hero_slider')):
 		$post_type = get_post_type();
 		$set_product_margin = 'product' == $post_type ? 'uni_section--less-margin' : '';
 	?>
-		<section class="uni_section uni_section__hero slider owl-carousel <?php echo $set_product_margin; ?>" role="main" data-slide_count="<?php echo $slide_count; ?>"> 
+		<section class="uni_section uni_section__hero slider owl-carousel <?php echo $set_product_margin; ?>" role="main" data-slide_count="<?php echo $slide_count; ?>" data-section_order="<?php echo $i ?>"> 
 		<?php 
 			
 			while(have_rows('hero_slider')): the_row();

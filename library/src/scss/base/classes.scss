@@ -60,7 +60,12 @@ html.sr .load-hidden {
 .grid-row-content {
   grid-template-rows: [top] 130px [title]100px[middle] auto [bottom] 80px [last-line];
   grid-row-gap: 1em;
+  @include bp(phablet) {
+    grid-template-rows: [top] 70px [title]70px[middle] auto [bottom] 80px [last-line];
+
+  }
 }
+
 
 .grid-row-content__single-prod, .grid-row-content__12_row {
   grid-template-rows: [top] 130px [middle] repeat(12, 1fr) [bottom] 80px [last-line];
@@ -73,7 +78,7 @@ html.sr .load-hidden {
 
 .grid-span {
   &--4 {
-    grid-column: span 4;
+    grid-column-start: span 4;
     @include bp(phablet) {
       grid-column: 2 / span 10;
       .footer & {
