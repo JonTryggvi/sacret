@@ -1,5 +1,4 @@
 $ = window.$
-// let sr = ScrollReveal();
 import anime from 'animejs/lib/anime.es.js'
 const Header = {
   scrolled: false,
@@ -57,8 +56,6 @@ const Header = {
       this.header.classList.add('bc__header--'+this.theme_color)
       this.scrolled = true
     }
-   
-    
   },
   handleBtnCartClick(e) {
     this.miniCart.classList.toggle('mini-active')
@@ -87,7 +84,6 @@ const Header = {
       this.currentSubMenu.classList.add('active')
       this.animateMenu = this.submenuAnimationIn('#' + liItem.id + ' .sub-menu')
       this.animateMenu.play()
-      
     }
   },
   handleMenuItemMouseleave(e) {
@@ -107,10 +103,6 @@ const Header = {
   },
   hideMagicLine(line) {
     line.style.opacity = '0'
-    // line.style.width = '0'
-  },
-  reveal(options) {
-    // sr.reveal(this.menuItems, options);
   },
   animation: anime({
     targets: '#menu-main-nav .menu-item:not(.sub-menu > .menu-item)',
@@ -144,7 +136,6 @@ const Header = {
       autoplay: false,
       easing: 'easeInOutSine',
       duration: 400,
-      
     })
   },
 }
