@@ -47,7 +47,7 @@ if ( ! is_ajax() ) {
 		<?php wc_get_template( 'checkout/terms.php' ); ?>
 
 		<?php do_action( 'woocommerce_review_order_before_submit' ); ?>
-		<?php $order_button_text = 'en' == pll_current_language(  ) ? $order_button_texts : 'Ganga frá greiðslu'; ?>
+		<?php $order_button_text = 'en' == current_language(  ) ? $order_button_texts : 'Ganga frá greiðslu'; ?>
 		<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="btn  alt" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '">' . esc_html( $order_button_text ) . '</button>' ); // @codingStandardsIgnoreLine ?>
 
 		<?php do_action( 'woocommerce_review_order_after_submit' ); ?>
