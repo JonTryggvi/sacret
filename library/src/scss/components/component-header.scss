@@ -144,13 +144,14 @@
         top: calc(100% - 7px);
         padding-left: 0;
         border-radius: 0px 0 8px 8px;
-        width: auto;
+        width: max-content;
         box-sizing: content-box;
         padding: 15px;
         opacity: 0;
         transform: scale(0);
         @include bp(phablet) {
           top:0;
+          width: auto;
           height: auto;  
           opacity: 1;
           position: relative;
@@ -364,7 +365,7 @@
       }
     }
   }
-  .black_theme & {
+  .black_theme &, .gold_theme & {
     background-color: $black;
   }
 }
