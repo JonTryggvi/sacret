@@ -19,6 +19,10 @@ jobs:
       uses: JesseTG/rm@v1.0.3
       with:
         path: node_modules/
+    - name: Remove package
+      uses: JesseTG/rm@v1.0.3
+      with:
+        path: package-lock.json
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@v2.1.5
       env:
