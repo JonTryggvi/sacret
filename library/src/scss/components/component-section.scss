@@ -1,7 +1,7 @@
 .uni_section {
   // width: 100vw;
   min-height: 500px;
-  margin-bottom: 180px;
+  margin-bottom: 100px;
   &--less-margin {
     margin-bottom: 80px;
     @include bp(phablet) {
