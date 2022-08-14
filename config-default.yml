@@ -37,6 +37,7 @@ PATHS:
     - "library/src/js/page-news.js"
     - "library/src/js/elements/element-mailchimp.js"
     - "library/src/js/elements/element-quote.js"
+    - "library/src/js/elements/element-hero-slider.js"
     # Paths to sass entry points for building different css files for different page loads
   entries_sass:
     - "library/src/scss/avista-app.scss"
