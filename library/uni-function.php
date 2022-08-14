@@ -31,6 +31,7 @@ function get_link_by_slug($slug, $lang_slug = null, $type = 'post'){
   return get_permalink($id);
 }
 
+
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page(array(
@@ -82,4 +83,20 @@ function product_count_shortcode () {
 add_filter( 'woocommerce_return_to_shop_redirect', 'custom_empty_cart_redirect_url' );
 function custom_empty_cart_redirect_url(){
   return home_url();
+}
+
+//custom archive header
+add_filter( 'get_the_archive_title', 'errorsea_archive_title' );
+function errorsea_archive_title( $title ) {
+	if ( is_category() ) {
+		// Remove prefix in category archive page
+		$title = single_cat_title( '', false );
+	} elseif ( is_tag() ) {
+		// Remove prefix in tag archive page
+		$title = single_tag_title( '', false );
+	} elseif ( is_author() ) {
+		// Remove prefix in author archive page
+		$title = get_the_author();
+	}
+	return $title;
 }

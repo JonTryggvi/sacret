@@ -4,6 +4,12 @@
 }
 
 .mailchimp--form {
+  &--location-postlisti {
+    grid-column: 3 / span  4;
+    @include bp(phablet) {
+      grid-column: 2 / span 10;
+    }
+  }
   &--location-footer {
     display: flex;
     flex-direction: column;
