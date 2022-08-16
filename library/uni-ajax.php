@@ -10,8 +10,6 @@ function get_products() {
   $query = new WP_Query( array(
     'posts_per_page' => 4,
     'paged' => $page,
-    'orderby' => 'date',
-    'order' => 'DESC',
     'fields' => 'ids',
     'post_type' => 'product',
     'post_status' => 'publish'
@@ -39,8 +37,6 @@ function get_uni_posts() {
   $args = array(
     'posts_per_page' => 4,
     'paged' => $page,
-    'orderby' => 'modified',
-    'order' => 'DESC',
     'post_type' => 'post',
     'post_status' => "publish"
   );

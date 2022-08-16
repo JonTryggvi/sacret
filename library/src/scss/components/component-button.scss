@@ -16,7 +16,6 @@
   position: relative;
   &:hover {
     background-color: $darkBlue;
-    box-shadow: 3px 3px 3px grey;
     &::before {
         transition: all 600ms $easing;
         opacity: 0;
