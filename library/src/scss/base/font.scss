@@ -6,7 +6,8 @@ $paragraph-font-family: 'EB Garamond', serif;
 $raleway: 'Raleway', sans-serif;
 $body-font-family: 'Gabriela', serif;
 $corma: $body-font-family;
-$cursive : 'Fleur De Leah', cursive;
+// $cursive : 'Fleur De Leah', cursive;
+$cursive : $body-font-family;
 h1 {
   font-family: $cursive;
   font-size: em(64);

@@ -5,20 +5,19 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
   grid-column-end: middle-end;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 1em;
-  grid-row-gap: 2em;
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;
   min-height: 500px;
   // max-height: 550px;
-  @include bp(small-laptop){
-    grid-template-columns: repeat(12, 1fr);
-  }
+  // @include bp(small-laptop){
+  //   grid-template-columns: repeat(12, 1fr);
+  // }
 
   @include bp($large){
     padding: 5rem 1rem 1rem; 
   }
 
   a {
-
     grid-column: span 3;
     transition: box-shadow 500ms 200ms ease, border-radius 500ms ease-out;
     border-radius: 14px 14px $card-bottom-rad $card-bottom-rad;
@@ -97,7 +96,6 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
         max-height: 500px;
         min-height: 500px;
         transition: $transition-medium;
-
       }
       img.emoji {
         object-fit: contain;
