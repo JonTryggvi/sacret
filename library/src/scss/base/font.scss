@@ -104,6 +104,9 @@ p, a {
   .gold_theme & {
     color: $gold-light;
   }
+  .lilac_theme & {
+    color: $darkLilac
+  }
 }
 
 button, .btn {
