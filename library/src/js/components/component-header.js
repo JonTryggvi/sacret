@@ -6,6 +6,7 @@ const Header = {
     this.cacheDom(body)
     this.addEvents()
     if (window.innerWidth > 414) {
+      
       this.animation.play()
     }
     
@@ -70,6 +71,13 @@ const Header = {
       this.scrolled = false
     } 
   },
+  handleActiveItemMagic() {
+    const liItem = this.nav.querySelector('.menu-item.active:not(.sub-menu > .menu-item)')
+    if (liItem) {
+      const menuItemPosition = liItem.getBoundingClientRect()
+      this.setMacigLine(this.magicLine, liItem.offsetLeft, menuItemPosition.top, menuItemPosition.width)
+    }
+  },
   handleMenuItemMouseover(e) {
     const liItem = e.target.closest('.menu-item:not(.sub-menu > .menu-item)')
     const menuItemPosition = liItem.getBoundingClientRect()
@@ -91,7 +99,7 @@ const Header = {
     this.hideMagicLine(this.magicLine)
     if (this.currentSubMenu) {
       this.submenuAnimationOut('.sub-menu.active').play()
-      this.currentSubMenu.classList.remove('active')
+      // this.currentSubMenu.classList.remove('active')
       this.currentSubMenu = null
     }
   },
