@@ -1,0 +1,87 @@
+.song-detail {
+  & p, & span, & div {
+    font-family: $raleway;
+  }
+  & .like-container, & .settings-bar-container, & .rel-song-container, & .all-song-container, & .chords-wrapper, & .tag-container--tag {
+    display: none;
+  }
+ 
+  & .subtitle-container {
+    & ul {
+      margin: -37px auto 40px; 
+      padding-left: 0;
+  
+     & li {
+      font-size: 8px;
+  
+    }}
+  }
+
+}
+.song {
+  .chordline {
+    min-height: 2.1rem;
+    position: relative;
+    vertical-align: bottom;
+    font-size: 1rem;
+    page-break-inside: avoid;
+    &  .span {
+      line-height: 2rem;
+      position: relative;
+    }
+    & .open-chords {
+      font-size: 0.8rem;
+      top: -0.8rem;
+      & span {display: none;}
+      position: absolute;
+
+    }
+  }
+}
+
+@media print {
+  .uni_header  {
+    overflow: hidden;
+    height: 0;
+  }
+  .footer {
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    min-height: 10px;
+
+  }
+ 
+  .grid-row-content {
+    display: flex;
+    flex-flow: column;
+    padding-left: 30px;
+    // grid-template-rows: [top] 30px [title] 30px [middle] auto [bottom] 10px [last-line];
+
+  }
+  .uni_section__content {
+    & h1 { 
+      font-size:1rem;
+      margin: 2px;}
+  }
+  .uni_section__content__wrap {
+    grid-column: 4/span 7 !important;
+    grid-row: 2;
+  }
+  // .chordline {
+  //    page-break-after: avoid;
+  // }
+  .chordline {
+    page-break-after: avoid;
+  }
+  .open-chords {
+    page-break-after: avoid;
+  }
+  .page-break {
+    page-break-after: always;
+  }
+  @page {
+    margin: 1cm 2cm 1cm;
+  }
+ 
+}
