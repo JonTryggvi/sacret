@@ -12,6 +12,7 @@
     align-self: top;
     grid-column: 4 / span 8;
     grid-row: 3;
+    
     @include bp(phablet) {
       grid-column: middle / span 12;
     }
