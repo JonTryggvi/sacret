@@ -1,28 +1,22 @@
 .uni_section__content {
-  min-height: calc(100vw - 80px);
+  // min-height: calc(100vw - 80px);
   h1 {
-    grid-column: 4 / span 10;
+    grid-column: 3 / span 10;
     grid-row-start: title;
     align-self: center;
      @include bp(phablet) {
       grid-column: middle / span 12;
-      
     }
-
   }
   &__wrap {
-    
     align-self: top;
-    grid-column: 5 / span 7;
+    grid-column: 3 / span 10;
     grid-row: 3;
     @include bp(phablet) {
       grid-column: middle / span 12;
-      
     }
-    
     p {
       display: block;
-      // max-width: calc((100% / 12) * 10); 
       @include bp($medium) {
         max-width: 100%;
       }
@@ -30,7 +24,6 @@
     figure {
       display: block;
       margin: 0;
-    
     }
   }
   .wp-block-media-text .wp-block-media-text__content {
