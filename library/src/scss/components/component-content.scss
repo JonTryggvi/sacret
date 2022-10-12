@@ -1,7 +1,7 @@
 .uni_section__content {
   // min-height: calc(100vw - 80px);
   h1 {
-    grid-column: 3 / span 10;
+    grid-column: 4 / span 8;
     grid-row-start: title;
     align-self: center;
      @include bp(phablet) {
