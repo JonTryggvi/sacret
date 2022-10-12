@@ -93,7 +93,7 @@ h3 {
 
 p, a {
   font-family: $paragraph-font-family;
-  font-size: em(20);
+  font-size: em(24);
   line-height: em(24);
   .green_theme & {
     color: $darkGreenParagraph;
@@ -106,6 +106,35 @@ p, a {
   }
   .lilac_theme & {
     color: $darkLilac
+  }
+}
+blockquote {
+  position: relative;
+  .add_tilda &::before, .add_tilda &::after {
+    content: '~';
+    font-size: 56px;
+    position: absolute;
+    top: calc(50% - 23px);
+  }
+  .add_tilda &::before {
+    left: 56px;
+  }
+  .add_tilda &::after {
+    right: 56px;
+  }
+  & {
+    .green_theme & {
+       color: $darkGreenParagraph;
+    }
+    .black_theme & {
+      color: $white;
+    }
+    .gold_theme & {
+      color: $gold-light;
+    }
+    .lilac_theme & {
+      color: $darkLilac;
+    }
   }
 }
 

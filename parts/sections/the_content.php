@@ -20,9 +20,13 @@
       </div>
     </div>
   </section>
-<?php else : ?>
-  <section class="uni_section uni_section__content grid-with-margin grid-row-content" data-section_order="<?php echo $i ?>">
+<?php else : 
+  $grid_class = $hero_title ? '' : ' grid-row-content'
+  ?>
+  <section class="uni_section uni_section__content grid-with-margin <?php echo $grid_class; ?>" data-section_order="<?php echo $i ?>">
+    <?php if(!$hero_title): ?>
     <h1><?php the_title(); ?></h1>
+    <?php endif; ?>
     <div class="uni_section__content__wrap">
       <?php   
         $blocks = parse_blocks( $post->post_content );  
