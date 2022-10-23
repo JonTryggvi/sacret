@@ -107,7 +107,8 @@ p, a {
     color: $gold-light;
   }
   .lilac_theme & {
-    color: $darkLilac
+    & strong { color: $darkLilac;}
+    color: darken($darkLilac, 20);
   }
 }
 blockquote {
