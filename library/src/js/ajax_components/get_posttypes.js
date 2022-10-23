@@ -21,6 +21,7 @@ const GetProducts = {
   
   get_products(page = 1, hasButton) {
     this.ajaxObj.page = page
+    this.ajaxObj.per_page = this.section.dataset.hasOwnProperty('per_page') ? this.section.dataset.per_page : 4;
     Global.postAjax(this.ajaxObj).done(res => {
       if (page == 1) {
         this.cardContainer.innerHTML = res.products
@@ -28,16 +29,16 @@ const GetProducts = {
       if (page > 1) {
         this.cardContainer.insertAdjacentHTML('beforeend', res.products)
       }
+      Animation.init(ScrollReveal())
       if (res.queryObject.max_num_pages > 1 && hasButton )  {
-         Animation.init(ScrollReveal())
         this.loadMoreBtn = this.section.querySelector('.btnLoadMore')
         this.loadMoreBtn.dataset.nextPage = parseInt(this.loadMoreBtn.dataset.nextPage) + 1
         res.queryObject.max_num_pages <= page ? this.loadMoreBtn.classList.add('visibility__hidden') : this.loadMoreBtn.classList.remove('visibility__hidden')
       }
       // CardHoverState.init(this.body)
-      // Animation.animationSync(ScrollReveal())
+      this.mainArea.classList.add('mainarea--loaded');
+      Animation.animationSync(ScrollReveal())
       this.cacheDom(this.body)
-      // this.mainArea.classList.add('mainarea--loaded');
     })
   }
 }
@@ -62,6 +63,7 @@ const GetPosts = {
   get_posts(page = 1, hasButton) {
     this.ajaxObj.page = page
     this.ajaxObj.term_id = this.section.dataset.hasOwnProperty('termId') ? this.section.dataset.termId : false;
+    this.ajaxObj.per_page = this.section.dataset.hasOwnProperty('per_page') ? this.section.dataset.per_page : 4;
     Global.postAjax(this.ajaxObj).done(res => {
       if (page == 1) {
         this.cardContainer.innerHTML = res.posts

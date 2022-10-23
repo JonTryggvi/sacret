@@ -4,11 +4,13 @@ if(have_rows('hero_slider')):
 
 		$post_type = get_post_type();
 		$set_product_margin = 'product' == $post_type ? 'uni_section--less-margin' : '';
+		
 	?>
 		<section class="uni_section uni_section__hero slider owl-carousel <?php echo $set_product_margin; ?>" role="main" data-slide_count="<?php echo $slide_count; ?>" data-section_order="<?php echo $i ?>"> 
 		<?php 
 			
 			while(have_rows('hero_slider')): the_row();
+				$img_position = get_sub_field('header_img_position') ? get_sub_field('header_img_position') : 'center';
 				$img_obj = get_sub_field('hero_img');
 				$side_class = get_sub_field('hero_switch_sides') ? 'right' : '';
 				$hero_link = get_sub_field('hero_link');
@@ -38,7 +40,7 @@ if(have_rows('hero_slider')):
 					<div class="uni_section__hero__row__image__mask stagger">
 						<picture>
 							<source srcset="<?php echo $img_obj['sizes']['large']; ?>" media="(min-width: 600px)">
-							<img src="<?php echo$img_obj['sizes']['large']; ?>" alt="">
+							<img class="img_pos_<?php echo $img_position; ?>"  src="<?php echo $img_obj['sizes']['large']; ?>" alt="">
 						</picture>
 					</div>
 				</div>
