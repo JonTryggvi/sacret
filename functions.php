@@ -79,6 +79,14 @@ add_image_size( 'site-banner-nc', 1800, 1600, false );
 add_image_size( 'site-thumb-square', 800, 800, true );
 add_image_size( 'site-thumb-square-nc', 800, 800, false );
 
+add_filter( 'image_size_names_choose', 'my_custom_sizes' );
+function my_custom_sizes( $sizes ) {
+  return array_merge( $sizes, array(
+    'site-thumb-square' => __( 'Unis Square 800x800' ),
+    
+  ) );
+}
+
 /*
 to add more sizes, simply copy a line from above
 and change the dimensions & name. As long as you

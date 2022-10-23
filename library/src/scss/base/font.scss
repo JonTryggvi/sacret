@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:700&display=swap|Raleway:400,600&display=swap|EB+Garamond:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gabriela&family=Fleur+De+Leah&&display=swap');
-$nav-font-family: 'Gabriela', sans-serif;
-$table: $nav-font-family;
-$paragraph-font-family: 'EB Garamond', serif;
+// @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:700&display=swap|Raleway:400,600&display=swap|EB+Garamond:400,700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Gabriela&family=Fleur+De+Leah&&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100;0,600;1,100;1,600&display=swap|Raleway:400,600&display=swap');
 $raleway: 'Raleway', sans-serif;
-$body-font-family: 'Gabriela', serif;
+$nav-font-family: $raleway;  //'Raleway', 'Josefin Slab', sans-serif;
+$table: $nav-font-family;
+$paragraph-font-family: 'Josefin Slab', serif;
+$body-font-family: 'Josefin Slab', serif;
 $corma: $body-font-family;
 // $cursive : 'Fleur De Leah', cursive;
 $cursive : $body-font-family;
@@ -12,7 +13,7 @@ h1 {
   font-family: $cursive;
   font-size: em(64);
   color: inherit;
-  font-weight: 400;
+  font-weight: 600;
   .blue_theme & {
     color: $darkBlue;
   }
@@ -23,7 +24,7 @@ h1 {
     color: $darkLilac;
   }
   .black_theme & {
-    color: $white;
+    color: $white; 
   }
   .gold_theme & {
     color: $gold-light;
@@ -94,7 +95,8 @@ h3 {
 p, a {
   font-family: $paragraph-font-family;
   font-size: em(24);
-  line-height: em(24);
+  line-height: em(28);
+  
   .green_theme & {
     color: $darkGreenParagraph;
   }
@@ -117,10 +119,10 @@ blockquote {
     top: calc(50% - 23px);
   }
   .add_tilda &::before {
-    left: 56px;
+    left: 0px;
   }
   .add_tilda &::after {
-    right: 56px;
+    right: 0px;
   }
   & {
     .green_theme & {
@@ -146,6 +148,8 @@ button, .btn {
 
 a {
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  font-weight: 600;
   transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
   &:hover {
     color: $pink;

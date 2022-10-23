@@ -118,6 +118,9 @@
   
 }
 
+.wp-block-button__link {
+  @extend .btn;
+}
 .btnContainer {
   grid-row: end;
   grid-column: middle / span 12;
