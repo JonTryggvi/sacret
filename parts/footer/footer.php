@@ -24,7 +24,7 @@
   <div class="grid-span--4 footer-contact">
     <div class="footer-contact--inner" >
       <?php uni_partial('library/icons/uni_logo.svg'); ?>
-      <a href="mailto:uni@uni.is">Hafa samband</a>
+      <a href="mailto:uni@uni.is"><?php _e('Hafa samband', 'uni') ?></a>
     </div>
   </div>
 </div>

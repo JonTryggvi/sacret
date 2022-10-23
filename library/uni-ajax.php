@@ -7,8 +7,9 @@ function get_products() {
     exit('not happening');
   }
   $page = absint($_POST['page']);
+  $per_page = absint($_POST['per_page']);
   $query = new WP_Query( array(
-    'posts_per_page' => 4,
+    'posts_per_page' => $per_page,
     'paged' => $page,
     'fields' => 'ids',
     'post_type' => 'product',
@@ -21,7 +22,7 @@ function get_products() {
   endwhile; endif;
   wp_reset_query();
   
-  wp_send_json(['posted' => $_POST, 'products' => $sProducts, 'queryObject' => $query]);
+  wp_send_json(['posted' => $_POST, 'products' => $sProducts, 'queryObject' => $query, 'per_page' => $per_page]);
   wp_die();
 }
 
@@ -33,9 +34,10 @@ function get_uni_posts() {
     exit('not happening');
   }
   $page = absint($_POST['page']);
+  $per_page = absint($_POST['per_page']);
   $term_id = !empty($_POST['term_id']) ? absint($_POST['term_id']) : false;
   $args = array(
-    'posts_per_page' => 4,
+    'posts_per_page' => $per_page,
     'paged' => $page,
     'post_type' => 'post',
     'post_status' => "publish"
@@ -51,7 +53,7 @@ function get_uni_posts() {
     $s_posts .= uni_partial('parts/components/post-card', [], false);
   endwhile; endif;
   wp_reset_query();
-  wp_send_json(['posted' => $_POST, 'posts' => $s_posts, 'queryObject' => $query, 'p' => $posts]);
+  wp_send_json(['posted' => $_POST, 'posts' => $s_posts, 'queryObject' => $query, 'p' => $posts, 'per_page' => $per_page]);
   wp_die();
 }
 

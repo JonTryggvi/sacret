@@ -35,8 +35,12 @@
   & .wp-block-column:has(.full-width)  {
     min-height: 430px;
     & .full-width {
+      
       position: absolute;
       left: 0;
+      &.position_img_top {
+        background-position: top;
+      }
     }
   }
 

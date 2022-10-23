@@ -6,6 +6,7 @@
             "key": "field_5dc61fa370cf2",
             "label": "Sections",
             "name": "sections",
+            "aria-label": "",
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
@@ -26,6 +27,7 @@
                             "key": "field_5dc6209070cf5",
                             "label": "Hero slider",
                             "name": "hero_slider",
+                            "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -45,6 +47,7 @@
                                     "key": "field_5dc6215e70cf6",
                                     "label": "Hero title",
                                     "name": "hero_title",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -58,12 +61,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_5dc6209070cf5"
                                 },
                                 {
                                     "key": "field_5dc6217070cf7",
                                     "label": "Hero text",
                                     "name": "hero_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -77,12 +82,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_5dc6209070cf5"
                                 },
                                 {
                                     "key": "field_5dc6218270cf8",
                                     "label": "Hero img",
                                     "name": "hero_img",
+                                    "aria-label": "",
                                     "type": "image",
                                     "instructions": "",
                                     "required": 0,
@@ -101,12 +108,14 @@
                                     "max_width": "",
                                     "max_height": "",
                                     "max_size": "",
-                                    "mime_types": ""
+                                    "mime_types": "",
+                                    "parent_repeater": "field_5dc6209070cf5"
                                 },
                                 {
                                     "key": "field_612124530c1bd",
                                     "label": "Sleppa takka",
                                     "name": "sleppa_takka",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -120,12 +129,14 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_5dc6209070cf5"
                                 },
                                 {
                                     "key": "field_5dc84d3f0b586",
                                     "label": "Hero link",
                                     "name": "hero_link",
+                                    "aria-label": "",
                                     "type": "page_link",
                                     "instructions": "FIndu póstinn eða  námskeiðið sem þú vilta vísa í",
                                     "required": 0,
@@ -151,12 +162,14 @@
                                     "taxonomy": "",
                                     "allow_null": 0,
                                     "allow_archives": 1,
-                                    "multiple": 0
+                                    "multiple": 0,
+                                    "parent_repeater": "field_5dc6209070cf5"
                                 },
                                 {
                                     "key": "field_5e1b787655511",
                                     "label": "Hero link text",
                                     "name": "hero_link_text",
+                                    "aria-label": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -178,12 +191,14 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "parent_repeater": "field_5dc6209070cf5"
                                 },
                                 {
                                     "key": "field_61210d56b490f",
                                     "label": "Link is add to cart",
                                     "name": "link_is_add_to_cart",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
@@ -205,12 +220,14 @@
                                     "default_value": 0,
                                     "ui": 1,
                                     "ui_on_text": "",
-                                    "ui_off_text": ""
+                                    "ui_off_text": "",
+                                    "parent_repeater": "field_5dc6209070cf5"
                                 },
                                 {
                                     "key": "field_5e2ca3fa883d7",
                                     "label": "Hero switch sides",
                                     "name": "hero_switch_sides",
+                                    "aria-label": "",
                                     "type": "true_false",
                                     "instructions": "switch layout of the hero from left to right",
                                     "required": 0,
@@ -224,9 +241,33 @@
                                     "default_value": 1,
                                     "ui": 1,
                                     "ui_on_text": "Right",
-                                    "ui_off_text": "Left"
+                                    "ui_off_text": "Left",
+                                    "parent_repeater": "field_5dc6209070cf5"
+                                },
+                                {
+                                    "key": "field_63553c28d0c8d",
+                                    "label": "Header img position",
+                                    "name": "header_img_position",
+                                    "aria-label": "",
+                                    "type": "range",
+                                    "instructions": "Bottom to top position if the image is not aligned",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 50,
+                                    "min": "",
+                                    "max": "",
+                                    "step": "",
+                                    "prepend": "",
+                                    "append": "%",
+                                    "parent_repeater": "field_5dc6209070cf5"
                                 }
-                            ]
+                            ],
+                            "rows_per_page": 20
                         }
                     ],
                     "min": "",
@@ -242,6 +283,7 @@
                             "key": "field_5dc86c145da84",
                             "label": "Order by",
                             "name": "order_by",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -261,6 +303,7 @@
                             "key": "field_5de95d440d23c",
                             "label": "Product title",
                             "name": "product_title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Leave empty for no title",
                             "required": 0,
@@ -280,6 +323,7 @@
                             "key": "field_5e3ea66c06e58",
                             "label": "Type",
                             "name": "type",
+                            "aria-label": "",
                             "type": "button_group",
                             "instructions": "",
                             "required": 0,
@@ -302,6 +346,7 @@
                             "key": "field_6173f4dac0046",
                             "label": "Page slug",
                             "name": "page_slug",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -329,6 +374,7 @@
                             "key": "field_6280e1c16041a",
                             "label": "Publish section",
                             "name": "publish_section",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "Here you can publish or hide section.",
                             "required": 0,
@@ -343,6 +389,26 @@
                             "ui": 1,
                             "ui_on_text": "Published",
                             "ui_off_text": "Hidden"
+                        },
+                        {
+                            "key": "field_63554a286e744",
+                            "label": "Per page",
+                            "name": "per_page",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 4,
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ],
                     "min": "",
@@ -358,6 +424,7 @@
                             "key": "field_5dc861a2193a9",
                             "label": "Zen title",
                             "name": "zen_title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -377,6 +444,7 @@
                             "key": "field_5dc861c1193aa",
                             "label": "Zen text",
                             "name": "zen_text",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -396,6 +464,7 @@
                             "key": "field_5dc861d2193ab",
                             "label": "Zen color",
                             "name": "zen_color",
+                            "aria-label": "",
                             "type": "color_picker",
                             "instructions": "",
                             "required": 0,
@@ -432,6 +501,7 @@
                             "key": "field_5dcfbedb9b2b3",
                             "label": "Images",
                             "name": "images",
+                            "aria-label": "",
                             "type": "gallery",
                             "instructions": "",
                             "required": 0,
@@ -459,6 +529,7 @@
                             "key": "field_5de95cd20d23a",
                             "label": "Section title",
                             "name": "section_title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Leave empty if you'd don' want a title for the section",
                             "required": 0,
@@ -488,6 +559,7 @@
                             "key": "field_5de95d160d23b",
                             "label": "Blog title",
                             "name": "blog_title",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "Leave empty if you don't want the title",
                             "required": 0,
@@ -507,6 +579,7 @@
                             "key": "field_5e3f1f99ed376",
                             "label": "Type",
                             "name": "type",
+                            "aria-label": "",
                             "type": "button_group",
                             "instructions": "",
                             "required": 0,
@@ -529,6 +602,7 @@
                             "key": "field_6173f537c0047",
                             "label": "Page slug",
                             "name": "page_slug",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -556,6 +630,7 @@
                             "key": "field_6280e2426041b",
                             "label": "Publish section",
                             "name": "publish_section",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -570,6 +645,26 @@
                             "ui": 1,
                             "ui_on_text": "Publish",
                             "ui_off_text": "Hidden"
+                        },
+                        {
+                            "key": "field_63554ab06e745",
+                            "label": "Per page",
+                            "name": "per_page",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 4,
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         }
                     ],
                     "min": "",
@@ -594,6 +689,7 @@
                             "key": "field_5e943e90c1671",
                             "label": "Quote text",
                             "name": "quote_text",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
@@ -651,5 +747,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1652613786
+    "modified": 1666534085
 }
