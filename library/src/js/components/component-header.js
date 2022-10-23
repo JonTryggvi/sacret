@@ -6,7 +6,6 @@ const Header = {
     this.cacheDom(body)
     this.addEvents()
     if (window.innerWidth > 414) {
-      
       this.animation.play()
     }
     
@@ -113,7 +112,7 @@ const Header = {
     line.style.opacity = '0'
   },
   animation: anime({
-    targets: '#menu-main-nav .menu-item:not(.sub-menu > .menu-item)',
+    targets: '.uni_header__nav-list .menu-item:not(.sub-menu > .menu-item)',
     translateY: [20, 0],
     opacity: 1,
     autoplay: false,
