@@ -40,7 +40,10 @@
     }
   }
 
-  & .wp-block-image + p {
-    margin-top: 1.5em;
+  & .wp-block-image {
+  margin: 0;
+  & + p {
+      margin-top: 1.5em;
+    }
   }
 }
