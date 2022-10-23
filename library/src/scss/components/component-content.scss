@@ -39,4 +39,8 @@
       left: 0;
     }
   }
+
+  & .wp-block-image + p {
+    margin-top: 1.5em;
+  }
 }
