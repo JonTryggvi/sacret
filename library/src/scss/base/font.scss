@@ -131,7 +131,7 @@ blockquote {
     @include bp(phablet) {
       right: -46px;
     }
-  }
+  } 
   & {
     .green_theme & {
        color: $darkGreenParagraph;
