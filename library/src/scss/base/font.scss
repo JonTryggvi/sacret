@@ -118,12 +118,19 @@ blockquote {
     font-size: 56px;
     position: absolute;
     top: calc(50% - 23px);
+  
   }
   .add_tilda &::before {
     left: 0px;
+    @include bp(phablet) {
+      left: -46px;
+    }
   }
   .add_tilda &::after {
     right: 0px;
+    @include bp(phablet) {
+      right: -46px;
+    }
   }
   & {
     .green_theme & {
