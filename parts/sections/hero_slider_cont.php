@@ -10,7 +10,7 @@ if(have_rows('hero_slider')):
 		<?php 
 			
 			while(have_rows('hero_slider')): the_row();
-				$img_position = get_sub_field('header_img_position') ? get_sub_field('header_img_position') : 'center';
+				$img_position = get_sub_field('header_img_position') ? get_sub_field('header_img_position') : '50';
 				$img_obj = get_sub_field('hero_img');
 				$side_class = get_sub_field('hero_switch_sides') ? 'right' : '';
 				$hero_link = get_sub_field('hero_link');
@@ -40,7 +40,7 @@ if(have_rows('hero_slider')):
 					<div class="uni_section__hero__row__image__mask stagger">
 						<picture>
 							<source srcset="<?php echo $img_obj['sizes']['large']; ?>" media="(min-width: 600px)">
-							<img class="img_pos_<?php echo $img_position; ?>"  src="<?php echo $img_obj['sizes']['large']; ?>" alt="">
+							<img  src="<?php echo $img_obj['sizes']['large']; ?>" alt="" style="object-position: <?php echo "50% $img_position%" ?>">
 						</picture>
 					</div>
 				</div>
