@@ -1,0 +1,19 @@
+<?php 
+  $section_title = get_sub_field('section_title', $post->ID) ? get_sub_field('section_title', $post->ID) : false; 
+  $section_has_title = $section_title !== false ? 'uni_section__has_title ' : ' ';
+  $is_published = get_sub_field('publish_section');
+  $selected_categories = get_sub_field('post_category');
+  if(!empty($selected_categories) && $is_published) :
+
+?>
+  <section class="uni_section uni_section__cat_nav <?php echo $section_has_title;  ?> grid-with-margin" data-type="post_category" >
+  <?php if(false !== $section_title): ?>
+    <h2 class="text"><?php echo $section_title; ?></h2>
+  <?php endif; ?>
+    <div class="card-container">
+      <?php foreach ($selected_categories as $key => $cat) :
+         uni_partial('parts/components/cat-card', (array)$cat);
+      endforeach; ?>
+    </div>
+  </section>
+<?php endif; ?>

@@ -38,6 +38,7 @@ PATHS:
     - "library/src/js/elements/element-quote.js"
     - "library/src/js/elements/element-hero-slider.js"
     - "library/src/js/elements/element-load-more.js"
+    - "library/src/js/elements/element-category-nav.js"
     # Paths to sass entry points for building different css files for different page loads
   entries_sass:
     - "library/src/scss/avista-app.scss"

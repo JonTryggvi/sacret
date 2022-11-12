@@ -1,14 +1,14 @@
 {
-    "key": "group_6125459ccac62",
-    "title": "Posts",
+    "key": "group_636fa5b3159f8",
+    "title": "Taxonomy single",
     "fields": [
         {
-            "key": "field_612545a28b338",
-            "label": "Overlay",
-            "name": "overlay",
+            "key": "field_636fa5b31e304",
+            "label": "Tax img",
+            "name": "tax_img",
             "aria-label": "",
-            "type": "select",
-            "instructions": "Veldu lit sem slykju yfir mynd",
+            "type": "image",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -16,25 +16,21 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "yellow": "Gulur",
-                "red": "Rauður",
-                "blue": "Blár",
-                "green": "Grænn",
-                "lilac": "Liljublár"
-            },
-            "default_value": false,
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
         },
         {
             "key": "field_636fc0dac0545",
-            "label": "Overlay (copy)",
-            "name": "overlay_copy",
+            "label": "Overlay",
+            "name": "overlay",
             "aria-label": "",
             "type": "select",
             "instructions": "Veldu lit sem slykju yfir mynd",
@@ -64,21 +60,21 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "taxonomy",
                 "operator": "==",
-                "value": "post"
+                "value": "category"
             }
         ],
         [
             {
-                "param": "post_type",
+                "param": "taxonomy",
                 "operator": "==",
-                "value": "product"
+                "value": "product_cat"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "side",
+    "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -86,5 +82,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1668268260
+    "modified": 1668268821
 }

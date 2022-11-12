@@ -2,7 +2,6 @@ import Globals from "./base/globals";
 import Header from "./components/component-header";
 // import DrawSvg from "./effects/draw-svg";
 import MailChimp from "./components/component-mailchimp";
-import Animation from "./effects/animation"
 jQuery.fn.exists = function (callback) {
   let args = [].slice.call(arguments, 1);
   if (this.length) {
