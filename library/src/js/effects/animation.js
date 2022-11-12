@@ -18,6 +18,7 @@ const Animation = {
     
   },
   animationSync(sr = this.sr) {
+    console.log('runs')
     sr.sync()
   }
 }

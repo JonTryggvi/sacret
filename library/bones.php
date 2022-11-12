@@ -151,6 +151,7 @@ function bones_scripts_and_styles() {
 		wp_register_script( 'hero-slider', get_stylesheet_directory_uri() . '/library/dist/js/element-hero-slider.js', array( 'jquery' ), '', true );
 		wp_register_script( 'quote', get_stylesheet_directory_uri() . '/library/dist/js/element-quote.js', array( 'jquery' ), '', true );
 		wp_register_script( 'load-more', get_stylesheet_directory_uri() . '/library/dist/js/element-load-more.js', array( 'jquery' ), '', true );
+		wp_register_script( 'cat_nav', get_stylesheet_directory_uri() . '/library/dist/js/element-category-nav.js', array( 'jquery' ), '', true );
 
 		$args_local = 	array( 
 			'ajaxPath' => admin_url( 'admin-ajax.php' ),
@@ -192,7 +193,8 @@ function bones_scripts_and_styles() {
 				'mailchimp' => 0,
 				'hero-slider' => 0,
 				'quote' => 0,
-				'load-more' => 0
+				'load-more' => 0,
+				'cat_nav' => 0
 			];
       /** How cool is this!! we can apply scripts if a specific row_layout is loaded !!!!! */
       while ( have_rows('sections') ) : the_row();
@@ -201,6 +203,7 @@ function bones_scripts_and_styles() {
 				if('hero_slider_cont' == get_row_layout() && 0 == $script_elements['hero-slider']) { wp_enqueue_script( 'hero-slider' ); $script_elements['hero-slider']++;}
 				if('product_section' == get_row_layout() && 0 == $script_elements['load-more'] ) {wp_enqueue_script( 'load-more' ); $script_elements['load-more']++;}
 				if('blog_section' == get_row_layout() && 0 == $script_elements['load-more']) {wp_enqueue_script( 'load-more' ); $script_elements['load-more']++;}
+				if('category_nav_section' == get_row_layout() && 0 == $script_elements['cat_nav']) {wp_enqueue_script( 'cat_nav' ); $script_elements['cat_nav']++;}
 				
       endwhile; 
     endif;

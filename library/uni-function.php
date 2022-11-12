@@ -100,3 +100,11 @@ function errorsea_archive_title( $title ) {
 	}
 	return $title;
 }
+
+if(!function_exists('print_uni')) {
+  function print_uni($data) {
+    echo '<pre>';
+      print_r($data);
+    echo '</pre>';
+  }
+}
