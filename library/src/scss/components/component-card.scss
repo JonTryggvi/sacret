@@ -17,7 +17,7 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
     padding: 5rem 1rem 1rem; 
   }
 
-  a {
+  a, div {
     grid-column: span 3;
     transition: box-shadow 500ms 200ms ease, border-radius 500ms ease-out;
     border-radius: 14px 14px $card-bottom-rad $card-bottom-rad;
@@ -33,11 +33,9 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
       grid-column: span 12
     }
     & .card_container {
-      // border-radius: 14px 14px $card-bottom-rad $card-bottom-rad;
       overflow: hidden;
       height: 100%;
       max-height: 500px;
-      // transition: border-radius 500 ease-in;
     }
     &:hover {
       color: $black;
@@ -75,6 +73,14 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
       }
       p {
         font-size: 1rem;
+      }
+      .link_container {
+        display: flex;
+        flex-flow: column;
+        & a {
+          grid-column: span 12;
+          flex-basis: 100%;
+        }
       }
     }
     min-width: 230px;
