@@ -32,4 +32,6 @@ jobs:
         REMOTE_HOST: uni-is.tempurl.host
         REMOTE_USER: ${{ secrets.SSH_USER }}
         ARGS: -rltgoDzvO --exclude .git --exclude .github
-        TARGET: /site/public_html/wp-content/themes/uni-hub
+        TARGET: /www/wp-content/themes/uni-hub
+
+        
