@@ -29,7 +29,7 @@ jobs:
       #  node-version: 16
       env:
         SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        REMOTE_HOST: ssh.getflywheel.com
+        REMOTE_HOST: uni-is.tempurl.host
         REMOTE_USER: ${{ secrets.SSH_USER }}
         ARGS: -rltgoDzvO --exclude .git --exclude .github
-        TARGET: /www/wp-content/themes/uni-hub
+        TARGET: /site/public_html/wp-content/themes/uni-hub

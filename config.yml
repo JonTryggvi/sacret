@@ -8,8 +8,8 @@ BROWSERSYNC:
 # Autoprefixer will make sure your CSS works with these browsers
 COMPATIBILITY:
   - "last 2 versions"
-  - "> 5%"
-  - 'Firefox ESR Safari'
+  # - "> 5%"
+  # - 'Firefox ESR'
 
 # Set to true if you want static asset revisioning, helpful for cache busting
 REVISIONING: false  
