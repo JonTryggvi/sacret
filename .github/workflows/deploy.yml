@@ -32,23 +32,23 @@ jobs:
       uses: JesseTG/rm@v1.0.3
       with:
         path: package-lock.json
-    # - name: Deploy to Server
-    #   uses: easingthemes/ssh-deploy@main
-    #   env:
-    #     SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-    #     REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-    #     REMOTE_USER: ${{ secrets.SSH_USER }}
-    #     TARGET: ${{ secrets.REMOTE_TARGET }}
-    #     ARGS: -rlgoDzvc -i 
-    #     EXCLUDE: "/dist/, /node_modules/, /.git/, /.github/"
-    #     SCRIPT_BEFORE: |
-    #       whoami
-    #       ls -al
-    - name: "Deploy"
-      uses: milanmk/actions-file-deployer@master
-      with:
-        remote-protocol: "sftp"
-        remote-host: ${{ secrets.REMOTE_HOST }}
-        remote-user: ${{ secrets.SFTP_USER }}
-        ssh-private-key: ${{ secrets.PRIVATE_KEY }}
-        remote-path: site/public_html/wp-content/themes/uni-hub
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@main
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+        REMOTE_USER: ${{ secrets.SSH_USER }}
+        TARGET: ${{ secrets.REMOTE_TARGET }}
+        ARGS: -rlgoDzvc -i 
+        EXCLUDE: "/dist/, /node_modules/, /.git/, /.github/"
+        SCRIPT_BEFORE: |
+          whoami
+          ls -al
+    # - name: "Deploy"
+    #   uses: milanmk/actions-file-deployer@master
+    #   with:
+    #     remote-protocol: "sftp"
+    #     remote-host: ${{ secrets.REMOTE_HOST }}
+    #     remote-user: ${{ secrets.SFTP_USER }}
+    #     ssh-private-key: ${{ secrets.PRIVATE_KEY }}
+    #     remote-path: site/public_html/wp-content/themes/uni-hub
