@@ -6,11 +6,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
     - name: Install Node.js
       uses: actions/setup-node@v3
-      # with:
-       # node-version: 16
+      with:
+       node-version: '16'
     - name: Install npm dependencies
       run: npm install
     - name: Run build task
@@ -33,9 +34,18 @@ jobs:
     #     EXCLUDE: "/node_modules/, /.github/, /.git/, /package-lock.json"
     #     TARGET: /site/public_html/wp-content/themes/uni-hub
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      uses: SamKirkland/FTP-Deploy-Action@2.0.0
       with:
+        method: sftp
         protocol: ftps
+        port: 22
         server: uni-is.tempurl.host
         username: jontryggvi
         password: ${{ secrets.FTP_PASS }}
+        dry-run: true
+        server-dir: site/public_html/wp-content/themes/uni-hub
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          package-lock.json
