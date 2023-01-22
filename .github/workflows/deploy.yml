@@ -27,8 +27,8 @@ jobs:
       uses: easingthemes/ssh-deploy@main
       env:
         SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        REMOTE_HOST: jontryggvi_ssh@uni-is.tempurl.host
+        REMOTE_HOST: uni-is.tempurl.host
         REMOTE_USER: ${{ secrets.SSH_USER }}
         ARGS: "-rlgoDzvc -i"
         EXCLUDE: "/node_modules/, /.github/, /.git/, /package-lock.json"
-        TARGET: /www/sites/public_html/wp-content/themes/uni-hub
+        TARGET: /site/public_html/wp-content/themes/uni-hub
