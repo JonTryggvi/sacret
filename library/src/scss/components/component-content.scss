@@ -37,7 +37,7 @@
     & .full-width {
       position: absolute;
       left: 0;
-      right: 0;
+      // right: 0;
       background-size: cover;
       @include bp(phablet){
         position: relative;
