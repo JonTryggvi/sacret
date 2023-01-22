@@ -1,4 +1,4 @@
-name: Flywheel SSH Deploy
+name: Flywheel SSH Deployer
 on:
   pull_request:
     branches: [ master ]
