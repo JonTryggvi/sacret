@@ -2,17 +2,20 @@ name: WPMUDEV SSH Deploy
 on:
   pull_request:
     branches: [ master ]
-  workflow_dispatch:
-    inputs:
-      sync:
-        description: "File synchronization"
-        required: true
-        default: "delta"
+  # workflow_dispatch:
+  #   inputs:
+  #     sync:
+  #       description: "File synchronization"
+  #       required: true
+  #       default: "delta"
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: "Checkout"
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
@@ -41,10 +44,6 @@ jobs:
     #     SCRIPT_BEFORE: |
     #       whoami
     #       ls -al
-    - name: "Checkout"
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
     - name: "Deploy"
       uses: milanmk/actions-file-deployer@master
       with:
@@ -52,4 +51,4 @@ jobs:
         remote-host: ${{ secrets.REMOTE_HOST }}
         remote-user: ${{ secrets.SFTP_USER }}
         ssh-private-key: ${{ secrets.PRIVATE_KEY }}
-        remote-path: /www/sites/public_html/wp-content/themes/uni-hub
+        remote-path: /sites/public_html/wp-content/themes/uni-hub
