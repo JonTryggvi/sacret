@@ -36,14 +36,14 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
-        method: sftp
-        protocol: ftps
+       
+        protocol: sftp
         port: 22
         server: uni-is.tempurl.host
         username: jontryggvi
         password: ${{ secrets.FTP_PASS }}
         dry-run: true
-        server-dir: site/public_html/wp-content/themes/uni-hub
+        server-dir: site/public_html/wp-content/themes/uni-hub/
         exclude: |
           **/.git*
           **/.git*/**
