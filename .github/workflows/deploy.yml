@@ -1,4 +1,4 @@
-name: Flywheel SSH Deploy
+name: Flywheel SSH Deployer
 on:
   pull_request:
     branches: [ master ]
@@ -15,22 +15,20 @@ jobs:
       run: npm install
     - name: Run build task
       run: npm run build --if-present
-    - name: Remove node mdules
-      uses: JesseTG/rm@v1.0.3
-      with:
-        path: node_modules/
-    - name: Remove package
-      uses: JesseTG/rm@v1.0.3
-      with:
-        path: package-lock.json
+    # - name: Remove node mdules
+    #   uses: JesseTG/rm@v1.0.3
+    #   with:
+    #     path: node_modules/
+    # - name: Remove package
+    #   uses: JesseTG/rm@v1.0.3
+    #   with:
+    #     path: package-lock.json
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
-     # with:
-      #  node-version: 16
       env:
         SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         REMOTE_HOST: jontryggvi_ssh@uni-is.tempurl.host
         REMOTE_USER: ${{ secrets.SSH_USER }}
         ARGS: "-rlgoDzvc -i"
-        EXCLUDE: "/node_modules/, /.github/, /.git/"
+        EXCLUDE: "/node_modules/, /.github/, /.git/, /package-lock.json"
         TARGET: /www/sites/public_html/wp-content/themes/uni-hub
