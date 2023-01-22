@@ -24,11 +24,11 @@ jobs:
     #   uses: JesseTG/rm@v1.0.3
     #   with:
     #     path: package-lock.json
-    - name: Deploy to Server
+    - name: Deploy to Server 🗂️
       uses: easingthemes/ssh-deploy@main
       env:
         SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        REMOTE_HOST: jontryggvi_ssh@uni-is.tempurl.host
+        REMOTE_HOST: uni-is.tempurl.host
         REMOTE_USER: ${{ secrets.SSH_USER }}
         ARGS: "-rlgoDzvc -i"
         EXCLUDE: "/node_modules/, /.github/, /.git/, /package-lock.json"
