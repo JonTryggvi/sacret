@@ -51,4 +51,4 @@ jobs:
         remote-host: ${{ secrets.REMOTE_HOST }}
         remote-user: ${{ secrets.SFTP_USER }}
         ssh-private-key: ${{ secrets.PRIVATE_KEY }}
-        remote-path: /sites/public_html/wp-content/themes/uni-hub
+        remote-path: /www/sites/public_html/wp-content/themes/uni-hub
