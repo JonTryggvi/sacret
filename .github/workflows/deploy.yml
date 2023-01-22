@@ -1,4 +1,4 @@
-name: Flywheel SSH Deploy
+name: WPMUDEV SSH Deploy
 on:
   pull_request:
     branches: [ master ]
@@ -29,9 +29,8 @@ jobs:
       #  node-version: 16
       env:
         SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        REMOTE_HOST: uni-is.tempurl.host
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
         REMOTE_USER: ${{ secrets.SSH_USER }}
+        TARGET: ${{ secrets.REMOTE_TARGET }}
         ARGS: -rltgoDzvO --exclude .git --exclude .github
-        TARGET: /www/wp-content/themes/uni-hub
-
-        
+        EXCLUDE: "/dist/, /node_modules/, /.git/, /.github/"
