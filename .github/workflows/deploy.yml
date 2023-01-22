@@ -25,8 +25,6 @@ jobs:
         path: package-lock.json
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
-      with:
-        node-version: 16
       env:
         SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         REMOTE_HOST: ${{ secrets.REMOTE_HOST }}

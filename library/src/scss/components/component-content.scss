@@ -47,7 +47,14 @@
       &.position_img_top {
         background-position: top;
       }
+      &.position_img_bottom {
+        background-position: bottom;
+      }
+      &.position_img_center {
+        background-position: center;
+      }
     }
+    
   }
 
   & .wp-block-image {
