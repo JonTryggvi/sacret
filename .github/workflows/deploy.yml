@@ -31,5 +31,6 @@ jobs:
         SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
         REMOTE_HOST: jontryggvi_ssh@uni-is.tempurl.host
         REMOTE_USER: ${{ secrets.SSH_USER }}
-        ARGS: -rltgoDzvO --exclude .git --exclude .github
+        ARGS: "-rlgoDzvc -i"
+        EXCLUDE: "/node_modules/, /.github/, /.git/"
         TARGET: /www/sites/public_html/wp-content/themes/uni-hub
