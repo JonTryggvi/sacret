@@ -23,12 +23,18 @@ jobs:
     #   uses: JesseTG/rm@v1.0.3
     #   with:
     #     path: package-lock.json
-    - name: Deploy to Server
-      uses: easingthemes/ssh-deploy@main
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        REMOTE_HOST: uni-is.tempurl.host
-        REMOTE_USER: ${{ secrets.SSH_USER }}
-        ARGS: "-rlgoDzvc -i"
-        EXCLUDE: "/node_modules/, /.github/, /.git/, /package-lock.json"
-        TARGET: /site/public_html/wp-content/themes/uni-hub
+    # - name: Deploy to Server
+    #   uses: easingthemes/ssh-deploy@main
+    #   env:
+    #     SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+    #     REMOTE_HOST: uni-is.tempurl.host
+    #     REMOTE_USER: ${{ secrets.SSH_USER }}
+    #     ARGS: "-rlgoDzvc -i"
+    #     EXCLUDE: "/node_modules/, /.github/, /.git/, /package-lock.json"
+    #     TARGET: /site/public_html/wp-content/themes/uni-hub
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      with:
+        server: uni-is.tempurl.host
+        username: jontryggvi
+        password: ${{ secrets.FTP_PASS }}
