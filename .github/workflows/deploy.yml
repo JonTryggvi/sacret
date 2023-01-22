@@ -2,6 +2,12 @@ name: WPMUDEV SSH Deploy
 on:
   pull_request:
     branches: [ master ]
+  workflow_dispatch:
+    inputs:
+      sync:
+        description: "File synchronization"
+        required: true
+        default: "delta"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,15 +29,33 @@ jobs:
       uses: JesseTG/rm@v1.0.3
       with:
         path: package-lock.json
-    - name: Deploy to Server
-      uses: easingthemes/ssh-deploy@main
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-        REMOTE_USER: ${{ secrets.SSH_USER }}
-        TARGET: ${{ secrets.REMOTE_TARGET }}
-        ARGS: -rlgoDzvc -i 
-        EXCLUDE: "/dist/, /node_modules/, /.git/, /.github/"
-        SCRIPT_BEFORE: |
-          whoami
-          ls -al
+    # - name: Deploy to Server
+    #   uses: easingthemes/ssh-deploy@main
+    #   env:
+    #     SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+    #     REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+    #     REMOTE_USER: ${{ secrets.SSH_USER }}
+    #     TARGET: ${{ secrets.REMOTE_TARGET }}
+    #     ARGS: -rlgoDzvc -i 
+    #     EXCLUDE: "/dist/, /node_modules/, /.git/, /.github/"
+    #     SCRIPT_BEFORE: |
+    #       whoami
+    #       ls -al
+  deploy-master:
+    name: "master branch"
+    if: ${{ github.ref == 'refs/heads/master' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: "Deploy"
+        uses: milanmk/actions-file-deployer@master
+        with:
+          remote-protocol: "sftp"
+          remote-host: ${{ secrets.REMOTE_HOST }}
+          remote-user: ${{ secrets.SFTP_USER }}
+          ssh-private-key: ${{ secrets.PRIVATE_KEY }}
+          remote-path: "/var/www/example.com"  
