@@ -32,4 +32,4 @@ const QuoteSection = {
     }
   }
 }
-module.exports = QuoteSection
+export default QuoteSection

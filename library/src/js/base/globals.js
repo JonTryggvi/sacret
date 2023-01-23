@@ -56,4 +56,4 @@ const Globals = {
     }
   }
 }
-module.exports = Globals
+export default Globals

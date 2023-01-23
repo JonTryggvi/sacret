@@ -14,4 +14,4 @@ const Owl = {
     return $(slider).owlCarousel(sliderOptions);
   }
 }
-module.exports = Owl
+export default Owl

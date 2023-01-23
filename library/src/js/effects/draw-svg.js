@@ -45,4 +45,4 @@ const DrawSvg = {
     })
   }
 }
-module.exports = DrawSvg
+export default DrawSvg

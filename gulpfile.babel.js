@@ -1,18 +1,18 @@
 'use strict';
-import plugins        from 'gulp-load-plugins';
-import yargs          from 'yargs';
-import browser        from 'browser-sync';
-import gulp           from 'gulp';
-import rimraf         from 'rimraf';
-import yaml           from 'js-yaml';
-import fs             from 'fs';
-import dateFormat     from 'dateformat';
-import webpackStream  from 'webpack-stream';
-import webpack2       from 'webpack';
-import named          from 'vinyl-named';
-import log            from 'fancy-log';
-import colors         from 'ansi-colors';
-import merge          from 'merge-stream';
+import plugins from 'gulp-load-plugins';
+import yargs from 'yargs';
+import browser from 'browser-sync';
+import gulp from 'gulp';
+import rimraf from 'rimraf';
+import yaml from 'js-yaml';
+import fs from 'fs';
+import dateFormat from 'dateformat';
+import webpackStream from 'webpack-stream';
+import webpack2 from 'webpack';
+import named from 'vinyl-named';
+import log from 'fancy-log';
+import colors from 'ansi-colors';
+import merge from 'merge-stream';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -31,7 +31,7 @@ function checkFileExists(filepath) {
   let flag = true;
   try {
     fs.accessSync(filepath, fs.F_OK);
-  } catch(e) {
+  } catch (e) {
     flag = false;
   }
   return flag;
@@ -47,7 +47,7 @@ function loadConfig() {
     let ymlFile = fs.readFileSync('config.yml', 'utf8');
     return yaml.load(ymlFile);
 
-  } else if(checkFileExists('config-default.yml')) {
+  } else if (checkFileExists('config-default.yml')) {
     // config-default.yml exists, load it
     log(colors.bold(colors.cyan('config.yml')), 'does not exist, loading', colors.bold(colors.cyan('config-default.yml')));
     let ymlFile = fs.readFileSync('config-default.yml', 'utf8');
@@ -136,7 +136,7 @@ const webpack = {
       .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
       .pipe(gulp.dest(PATHS.dist + '/js'));
   },
- 
+
 
   watch() {
     const watchConfig = Object.assign(webpack.config, {
@@ -171,32 +171,32 @@ function images() {
       $.imagemin.optipng({
         optimizationLevel: 5,
       }),
-			$.imagemin.gifsicle({
+      $.imagemin.gifsicle({
         interlaced: true,
       }),
-			$.imagemin.svgo({
+      $.imagemin.svgo({
         plugins: [
-          {cleanupAttrs: true},
-          {removeComments: true},
+          { cleanupAttrs: true },
+          { removeComments: true },
         ]
       })
-		])))
+    ])))
     .pipe(gulp.dest(PATHS.dist + '/images'));
 }
 
 // Create a .zip archive of the theme
-function archive() {
-  var time = dateFormat(new Date(), "yyyy-mm-dd_HH-MM");
-  var pkg = JSON.parse(fs.readFileSync('./package.json'));
-  var title = pkg.name + '_' + time + '.zip';
+// function archive() {
+//   var time = dateFormat(new Date(), "yyyy-mm-dd_HH-MM");
+//   var pkg = JSON.parse(fs.readFileSync('./package.json'));
+//   var title = pkg.name + '_' + time + '.zip';
 
-  return gulp.src(PATHS.package)
-    .pipe($.zip(title))
-    .pipe(gulp.dest('packaged'));
-}
+//   return gulp.src(PATHS.package)
+//     .pipe($.zip(title))
+//     .pipe(gulp.dest('packaged'));
+// }
 
 // PHP Code Sniffer task
-gulp.task('phpcs', function() {
+gulp.task('phpcs', function () {
   return gulp.src(PATHS.phpcs)
     .pipe($.phpcs({
       bin: 'wpcs/vendor/bin/phpcs',
@@ -209,13 +209,13 @@ gulp.task('phpcs', function() {
 // PHP Code Beautifier task
 gulp.task('phpcbf', function () {
   return gulp.src(PATHS.phpcs)
-  .pipe($.phpcbf({
-    bin: 'wpcs/vendor/bin/phpcbf',
-    standard: './codesniffer.ruleset.xml',
-    warningSeverity: 0
-  }))
-  .on('error', log)
-  .pipe(gulp.dest('.'));
+    .pipe($.phpcbf({
+      bin: 'wpcs/vendor/bin/phpcbf',
+      standard: './codesniffer.ruleset.xml',
+      warningSeverity: 0
+    }))
+    .on('error', log)
+    .pipe(gulp.dest('.'));
 });
 
 // Start BrowserSync to preview the site in
@@ -227,8 +227,8 @@ function server(done) {
     },
   }
   if (BROWSERSYNC.hasOwnProperty('key')) {
-    options.https = { 
-      key:  BROWSERSYNC.key,
+    options.https = {
+      key: BROWSERSYNC.key,
       cert: BROWSERSYNC.crt
     }
   }
@@ -253,18 +253,18 @@ function watch() {
     .on('unlink', path => log('File ' + colors.bold(colors.magenta(path)) + ' was removed.'));
   gulp.watch('library/src/images/**/*', gulp.series(images, reload));
 
-  
+
 }
 
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',
   gulp.series(clean, gulp.parallel(sass, 'webpack:build', images, copy)));
 
-  
+
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
   gulp.series('build', server, gulp.parallel('webpack:watch', watch)));
 
 // Package task
-gulp.task('package',
-  gulp.series('build', archive));
+// gulp.task('package',
+//   gulp.series('build', archive));

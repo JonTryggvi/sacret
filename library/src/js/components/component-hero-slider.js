@@ -140,4 +140,4 @@ const HeroSlider = {
 
   
 }
-module.exports = HeroSlider
+export default HeroSlider

@@ -21,4 +21,4 @@ const CardHoverState = {
 
   }
 }
-module.exports ={ CardHoverState }
+export { CardHoverState }

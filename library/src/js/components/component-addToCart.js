@@ -21,4 +21,4 @@ const AddToCart = {
       location.href = path
   }
 }
-module.exports = AddToCart
+export default AddToCart

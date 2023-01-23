@@ -38,4 +38,4 @@ const LoadMore = {
     post_types[post_type](this, page)
   }
 }
-module.exports = LoadMore
+export default LoadMore
