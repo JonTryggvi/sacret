@@ -22,4 +22,4 @@ const Animation = {
     sr.sync()
   }
 }
-module.exports = Animation
+export default Animation

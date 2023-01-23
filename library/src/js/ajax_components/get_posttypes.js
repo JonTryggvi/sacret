@@ -84,4 +84,4 @@ const GetPosts = {
   }
 }
 
-module.exports = { GetProducts, GetPosts }
+export { GetProducts, GetPosts }  

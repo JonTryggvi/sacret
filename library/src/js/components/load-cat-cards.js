@@ -12,4 +12,4 @@ const LoadCatCards = {
   }
 }
 
-module.exports = {LoadCatCards}
+export {LoadCatCards}

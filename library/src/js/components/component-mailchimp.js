@@ -52,4 +52,4 @@ const Mailchimp = {
   }
   
 }
-module.exports = Mailchimp
+export default Mailchimp

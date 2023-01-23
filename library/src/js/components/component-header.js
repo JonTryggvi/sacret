@@ -146,5 +146,5 @@ const Header = {
     })
   },
 }
-module.exports = Header
+export default Header
 
