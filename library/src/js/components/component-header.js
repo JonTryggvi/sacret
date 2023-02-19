@@ -98,7 +98,7 @@ const Header = {
     this.hideMagicLine(this.magicLine)
     if (this.currentSubMenu) {
       this.submenuAnimationOut('.sub-menu.active').play()
-      // this.currentSubMenu.classList.remove('active')
+      this.currentSubMenu.classList.remove('active')
       this.currentSubMenu = null
     }
   },
@@ -137,12 +137,12 @@ const Header = {
   submenuAnimationOut(target) {
     return anime({
       targets: target,
-      translateY: [{ value: 0, delay: 0, duration: 200 }, { value: -10, delay: 0, duration: 200 }],
-      opacity: [{ value: 1, delay: 0, duration: 210 }, { value: 0, delay: 0, duration: 210 }],
-      scale: [{ value: 1, delay: 400, duration: 1 }, { value: 0, delay: 400, duration: 1 }],
+      translateY: [{ value: 0, delay: 0, duration: 200 }, { value: -10, delay: 0, duration: 20 }],
+      opacity: [{ value: 1, delay: 0, duration: 21 }, { value: 0, delay: 0, duration: 21 }],
+      scale: [{ value: 1, delay: 40, duration: 1 }, { value: 0, delay: 400, duration: 1 }],
       autoplay: false,
       easing: 'easeInOutSine',
-      duration: 400,
+      duration: 40,
     })
   },
 }

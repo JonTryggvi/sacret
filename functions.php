@@ -13,6 +13,7 @@ require_once( 'library/bones.php' );
 require_once( 'inc/remove-comments.php' );
 require_once('library/uni-translations.php');
 require_once('library/uni-function.php');
+require_once('library/uni_custom_posttypes.php');
 require_once('library/uni-ajax.php');
 // CUSTOMIZE THE WORDPRESS ADMIN (off by default)
 // require_once( 'library/admin.php' );
@@ -216,7 +217,7 @@ add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
 
 function special_nav_class ($classes, $item) {
     if (in_array('current-menu-item', $classes) ){
-        $classes[] = 'active ';
+        $classes[] = 'active';
     }
     return $classes;
 }
