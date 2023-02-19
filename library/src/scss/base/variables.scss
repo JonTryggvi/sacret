@@ -19,9 +19,11 @@ $gold-dark: darken($gold, 25%);
 
 $gold_overlay: linear-gradient(180deg, rgba($gold, 0.421) 0%, rgba($gold, 0.47) 100%);
 $yellow_overlay: linear-gradient(180deg, rgba(255, 250, 95, 0.421) 0%, rgba(39, 174, 166, 0.47) 100%);
+$yellow_overlay_cat: linear-gradient(0deg, rgba(255, 250, 95, 0.421) 0%, rgba(39, 174, 166, 0.47) 100%);
 $green_overlay: linear-gradient(180deg, rgba(18, 133, 112, 0.53) 0%, rgba(220, 142, 73, 0.41) 100%);
 $blue_overlay: linear-gradient(0, rgba($pink, 0.41), rgba($blue, 0.47) 50%);
 $lilac_overlay: linear-gradient(0deg, rgba($lilac, 0.47), rgba($lilac, 0.47));
+$lilac_overlay_cat: linear-gradient(0deg, rgba($lilac, 0.47), rgba($darkLilac, 0.47));
 $red_overlay: linear-gradient(0deg, rgba($pink, 0.47), rgba($pink, 0.47));
 
 // sizes

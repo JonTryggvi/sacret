@@ -30,35 +30,6 @@
             "return_format": "value",
             "ajax": 0,
             "placeholder": ""
-        },
-        {
-            "key": "field_636fc0dac0545",
-            "label": "Overlay (copy)",
-            "name": "overlay_copy",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "Veldu lit sem slykju yfir mynd",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "yellow": "Gulur",
-                "red": "Rauður",
-                "blue": "Blár",
-                "green": "Grænn",
-                "lilac": "Liljublár"
-            },
-            "default_value": false,
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": ""
         }
     ],
     "location": [
@@ -75,6 +46,13 @@
                 "operator": "==",
                 "value": "product"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "perlumodir"
+            }
         ]
     ],
     "menu_order": 0,
@@ -86,5 +64,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1668268260
+    "modified": 1676121228
 }

@@ -39,8 +39,8 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
     }
     &:hover {
       color: $black;
-      box-shadow: 0 14px 14px 5px rgba($black, 0.1);
       border-radius:  23px;
+      box-shadow: 0 14px 14px 5px rgba($black, 0.1);
       transition: box-shadow 500ms ease-out, border-radius 500ms ease-in;
       figure {
         height: 220px;

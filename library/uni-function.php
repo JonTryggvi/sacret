@@ -108,3 +108,11 @@ if(!function_exists('print_uni')) {
     echo '</pre>';
   }
 }
+
+if(!function_exists('pprint')){
+  function pprint($data) {
+    echo '<pre>';
+     print_r($data);
+    echo '</pre>';
+  }
+}

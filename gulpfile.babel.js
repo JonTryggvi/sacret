@@ -23,6 +23,8 @@ const PRODUCTION = !!(yargs.argv.production);
 // Check for --development flag unminified with sourcemaps
 const DEV = !!(yargs.argv.dev);
 
+const WevPackEnv = PRODUCTION ? 'production' : 'development';
+
 // Load settings from settings.yml
 const { BROWSERSYNC, COMPATIBILITY, REVISIONING, PATHS } = loadConfig();
 
@@ -102,6 +104,7 @@ function sass() {
 // In production, the file is minified
 const webpack = {
   config: {
+    mode: WevPackEnv,
     module: {
       rules: [
         {
