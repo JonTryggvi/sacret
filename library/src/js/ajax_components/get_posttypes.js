@@ -64,6 +64,7 @@ const GetPosts = {
     this.ajaxObj.page = page
     this.ajaxObj.term_id = this.section.dataset.hasOwnProperty('termId') ? this.section.dataset.termId : false;
     this.ajaxObj.per_page = this.section.dataset.hasOwnProperty('per_page') ? this.section.dataset.per_page : 4;
+    this.ajaxObj.post_type = this.section.dataset.hasOwnProperty('post_type') ? this.section.dataset.post_type : 'post';
     Global.postAjax(this.ajaxObj).done(res => {
       if (page == 1) {
         this.cardContainer.innerHTML = res.posts
