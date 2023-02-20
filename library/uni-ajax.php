@@ -21,7 +21,6 @@ function get_products() {
     $sProducts .= uni_partial('parts/components/product-card', [], false);
   endwhile; endif;
   wp_reset_query();
-  
   wp_send_json(['posted' => $_POST, 'products' => $sProducts, 'queryObject' => $query, 'per_page' => $per_page]);
   wp_die();
 }
@@ -34,12 +33,13 @@ function get_uni_posts() {
     exit('not happening');
   }
   $page = absint($_POST['page']);
+  $post_type = wp_strip_all_tags($_POST['post_type']);
   $per_page = absint($_POST['per_page']);
   $term_id = !empty($_POST['term_id']) ? absint($_POST['term_id']) : false;
   $args = array(
     'posts_per_page' => $per_page,
     'paged' => $page,
-    'post_type' => 'post',
+    'post_type' => $post_type,
     'post_status' => "publish"
   );
   if(!!$term_id) {
