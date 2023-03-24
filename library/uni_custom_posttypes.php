@@ -13,7 +13,7 @@ function uni_perlumodir_post() {
 		)
 	);
 }
-add_action('init', 'uni_perlumodir_post');
+// add_action('init', 'uni_perlumodir_post');
 
 
 function uni_perlumodir_cat() {
@@ -40,4 +40,4 @@ function uni_perlumodir_cat() {
 	 );
 	 register_taxonomy( 'perlumodir_cat', [ 'perlumodir' ], $args );
 }
-add_action( 'init', 'uni_perlumodir_cat' );
+// add_action( 'init', 'uni_perlumodir_cat' );
