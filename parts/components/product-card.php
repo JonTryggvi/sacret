@@ -11,7 +11,7 @@ $card_color_class = get_field('overlay', $product_id) ? get_field('overlay', $pr
 ?>
 <a class="uni_card cell medium-4 item-fadein load-hidden" href="<?php echo get_the_permalink($product_id); ?>">
   <div class="card_container">
-    <article >
+    <article>
       <header>
         <figure>
           <img src="<?php echo $product_img_url; ?>" alt="">
