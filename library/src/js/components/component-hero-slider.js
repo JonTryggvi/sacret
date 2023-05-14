@@ -3,7 +3,7 @@ var $ = window.jQuery
 import slick from 'slick-slider';
 import anime from 'animejs/lib/anime.es.js'
 const HeroSlider = {
-  
+
   init(scope){
     this.cacheDom(scope)
     let sliderCount = this.sliderContainer ?   parseInt(this.sliderContainer.dataset.slide_count) : 0;
@@ -135,9 +135,11 @@ const HeroSlider = {
     easing: 'spring(1, 80, 10, 0)',
     // delay: anime.stagger(400) // increase delay by 100ms for each elements.
   },
-  animation(is_slider, inout = 'animatOptMulti') { console.log(inout);  return anime(is_slider ? this[inout] : this.animatOptSolo)},
+  animation(is_slider, inout = 'animatOptMulti') {
+    return anime(is_slider ? this[inout] : this.animatOptSolo)
+  },
   animationBtn(is_slider){return anime(is_slider ? this.animatBtnOptMulti : this.animatBtnOptSolo)},
 
-  
+
 }
 export default HeroSlider

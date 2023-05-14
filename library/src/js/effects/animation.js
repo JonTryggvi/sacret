@@ -1,11 +1,12 @@
 const Animation = {
-  init(sr) {
+  init(sr, currentContainer) {
     this.sr = sr
-    this.fadeIn();
+    this.fadeIn(currentContainer);
   },
 
-  fadeIn() {
-    this.sr.reveal('.item-fadein', {
+  fadeIn(currentContainer) {
+    let fadein = document.querySelectorAll('.item-fadein')
+    this.sr.reveal(fadein, {
       reset: false,
       delay: 700,
       duration: 800,
@@ -13,13 +14,12 @@ const Animation = {
       interval: 200,
       // opacity: 0,
       // viewFactor: 0.9,
-      // container: '.card-container'
-    }) 
-    
+      container: currentContainer
+    })
+
   },
   animationSync(sr = this.sr) {
-    console.log('runs')
-    sr.sync()
+    // sr.sync()
   }
 }
 export default Animation

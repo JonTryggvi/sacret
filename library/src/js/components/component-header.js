@@ -8,7 +8,7 @@ const Header = {
     if (window.innerWidth > 414) {
       this.animation.play()
     }
-    
+
   },
   cacheDom(body) {
     this.body = body
@@ -21,7 +21,7 @@ const Header = {
     // this.btnCart = this.nav.querySelector('.toggle-cart');
     // this.miniCart = body.querySelector('.uni-minicart')
     this.iMenuItems = this.menuItems.length
-    
+
   },
   addEvents() {
     this.theme_color = this.header.dataset.theme_color;
@@ -64,11 +64,11 @@ const Header = {
     let scrollTop = e.srcElement.scrollingElement.scrollTop;
     if (scrollTop > 0 && !this.scrolled) {
       this.header.classList.add('bc__header--'+this.theme_color)
-      this.scrolled = true 
+      this.scrolled = true
     } else if(scrollTop < 1){
       this.header.classList.remove('bc__header--'+this.theme_color)
       this.scrolled = false
-    } 
+    }
   },
   handleActiveItemMagic() {
     const liItem = this.nav.querySelector('.menu-item.active:not(.sub-menu > .menu-item)')
@@ -94,7 +94,6 @@ const Header = {
     }
   },
   handleMenuItemMouseleave(e) {
-    const liItem = e.target.closest('.menu-item:not(.sub-menu > .menu-item)')
     this.hideMagicLine(this.magicLine)
     if (this.currentSubMenu) {
       this.submenuAnimationOut('.sub-menu.active').play()
@@ -118,7 +117,7 @@ const Header = {
     autoplay: false,
     easing: 'easeInOutSine',
     delay: anime.stagger(200) // increase delay by 100ms for each elements.
-  }), 
+  }),
   submenuAnimationIn(target) {
     return anime.timeline({ autoplay: false,
     }).add({

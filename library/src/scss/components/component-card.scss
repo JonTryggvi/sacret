@@ -1,45 +1,112 @@
-$card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
+$card-bottom-rad: calc((100vw - 120px) / 12 * 1.5);
+
+.uni_section {
+  &__posts, &__products {
+    position: relative;
+    & .scrollBack,
+    & .scrollForward {
+      display: flex;
+      cursor: pointer;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-color: white;
+      z-index: 100;
+      top: calc(50% - 90px);
+      // bottom:0;
+      transition: box-shadow 300ms ease;
+      .green_theme & {
+        svg path {
+          stroke: $darkGreen;
+        }
+      }
+      .lilac_theme & {
+        svg path {
+          stroke: $darkLilac;
+        }
+      }
+      &:active {
+        box-shadow: 0px 0px 3px -3px rgba(gray, 0.5);
+      }
+    }
+    & .scrollBack {
+      border-radius: 50% 0 0 50%;
+      box-shadow: 0px 1px 13px -3px rgba(gray, 0.5);
+      transform: rotateY(180deg);
+      left: 0px;
+    }
+    & .scrollForward {
+      border-radius: 50% 0 0 50%;
+      box-shadow: 5px 1px 13px -3px rgba(gray, 0.5);
+      right: -0px;
+    }
+  }
+}
+
 .card-container {
-  // display: flex;
   grid-column-start: middle;
   grid-column-end: middle-end;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 1.5rem;
-  grid-row-gap: 2rem;
-  min-height: 500px;
-  // max-height: 550px;
-  // @include bp(small-laptop){
-  //   grid-template-columns: repeat(12, 1fr);
-  // }
-
-  @include bp($large){
-    padding: 5rem 1rem 1rem; 
+  display: flex;
+  overflow-x: visible;
+  overflow-y: scroll;
+  grid-column-gap: 1rem;
+  grid-row-gap: 4rem;
+  min-height: 300px;
+  padding-bottom: 30px;
+  .archive & {
+    display: grid;
+    overflow: visible;
+    grid-template-columns: repeat(12, 1fr);
+    overflow-x: visible;
+    overflow-y: hidden;
+  }
+  &::-webkit-scrollbar {
+    display: none;
   }
 
-  a, div {
-    grid-column: span 3;
+  @include bp($large) {
+    padding: 5rem 1rem 1rem;
+  }
+  a,
+  div {
+    display: flex;
+    justify-content: center;
+    // width: 100%;
     transition: box-shadow 500ms 200ms ease, border-radius 500ms ease-out;
     border-radius: 14px 14px $card-bottom-rad $card-bottom-rad;
     text-decoration: none;
     overflow: hidden;
+    aspect-ratio: 3/4;
+    .archive & {
+      grid-column: span 3;
+    }
     @include bp(small-laptop) {
-      grid-column: span 4;
+      .archive & {
+        grid-column: span 3;
+      }
     }
     @include bp(tablet) {
-      grid-column: span 6;
+      .archive & {
+        grid-column: span 6;
+      }
     }
     @include bp(milli) {
-      grid-column: span 12
+      .archive & {
+        grid-column: span 12;
+      }
+      aspect-ratio: 1;
     }
     & .card_container {
+      aspect-ratio: inherit;
       overflow: hidden;
       height: 100%;
-      max-height: 500px;
+      max-height: 400px;
     }
     &:hover {
       color: $black;
-      border-radius:  23px;
+      border-radius: 23px;
       box-shadow: 0 14px 14px 5px rgba($black, 0.1);
       transition: box-shadow 500ms ease-out, border-radius 500ms ease-in;
       figure {
@@ -57,7 +124,7 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
         }
       }
       main {
-        margin:20px 15px 0;
+        margin: 20px 15px 0;
         opacity: 1;
         transition: opacity 500ms 600ms $easing;
       }
@@ -67,9 +134,8 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
         font-weight: bold;
         font-size: 18px;
         line-height: 24px;
-        margin-top:20px;
+        margin-top: 20px;
         text-align: center;
-      
       }
       p {
         font-size: 1rem;
@@ -83,14 +149,14 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
         }
       }
     }
-    min-width: 230px;
+    min-width: 300px;
     max-width: calc(1440px / 3);
-    height: 500px;
-    max-height: 500px;
+    height: 400px;
+    max-height: 400px;
     figure {
       position: relative;
       margin: 0;
-      height: 500px;
+      height: 400px;
       transition: $transition-medium;
       display: flex;
       justify-content: center;
@@ -108,7 +174,7 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
       }
       figcaption {
         position: absolute;
-        font-size: 36px;
+        font-size: 28px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -116,7 +182,7 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
         background-color: rgba($lilac, 0.6);
         text-shadow: 2px 2px 5px rgba($black, 0.3);
         top: 0;
-        right:0;
+        right: 0;
         width: 100%;
         height: 100%;
         text-align: center;
@@ -129,7 +195,7 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
         &.yellow {
           background: $yellow_overlay;
           // mix-blend-mode: luminosity;
-          }
+        }
         &.green {
           background: $green_overlay;
           // mix-blend-mode: saturation;
@@ -148,9 +214,9 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
         }
       }
     }
-  
+
     main {
-      margin:20px 15px 0;
+      margin: 20px 15px 0;
       opacity: 0;
     }
     h2 {
@@ -159,12 +225,12 @@ $card-bottom-rad :calc( (100vw - 120px) / 12 * 1.5  );
       font-weight: bold;
       font-size: 20px;
       line-height: 26px;
-      margin-top:20px;
-      text-align: center;
-
+      margin-top: 20px;
+      text-align: left;
     }
     p {
       font-size: 1rem;
+      line-height: 20px;
     }
   }
 }
