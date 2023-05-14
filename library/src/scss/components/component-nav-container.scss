@@ -3,11 +3,9 @@
   grid-column-end: middle-end;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 1.5rem;
-  grid-row-gap: 2rem;
-
-  // min-height: 500px;
-
+  grid-column-gap:3rem;
+  grid-row-gap: 4rem;
+  min-height: 400px;
   & .nav-card {
     display: flex;
     align-items: center;
@@ -17,6 +15,7 @@
     overflow: hidden;
     border-radius: 14px 14px 50% 50%;
     text-decoration: none;
+    box-shadow: 0 1px 10px 1px rgba($black, 0.1);
     // background: linear-gradient(90deg, $blue 0%, $lilac 100%);
     &.nav_lilac {
       background: $lilac_overlay;
@@ -36,7 +35,6 @@
     & h2 {
       text-align: center;
       text-decoration: none;
-      
       mix-blend-mode: overlay;
     }
     &.nav_yellow {
@@ -74,6 +72,7 @@
     & figure {
       overflow: hidden;
       margin: 0;
+      width: 100%;
     }
     & img {
       width: 100%;
@@ -109,6 +108,9 @@
       box-shadow: 0 14px 14px 5px rgba($black, 0.1);
       transition: box-shadow 500ms ease-in-out;
     }
+  }
+  & .card_container {
+    width: 100%;
   }
   // .div-type:hover {
   //   box-shadow: 0 14px 14px 5px rgba($black, 0.1);

@@ -153,7 +153,7 @@ function bones_scripts_and_styles() {
 		wp_register_script( 'load-more', get_stylesheet_directory_uri() . '/library/dist/js/element-load-more.js', array( 'jquery' ), '', true );
 		wp_register_script( 'cat_nav', get_stylesheet_directory_uri() . '/library/dist/js/element-category-nav.js', array( 'jquery' ), '', true );
 
-		$args_local = 	array( 
+		$args_local = 	array(
 			'ajaxPath' => admin_url( 'admin-ajax.php' ),
 			'ajax_nonce' => wp_create_nonce('morning_rain'),
 		);
@@ -170,7 +170,7 @@ function bones_scripts_and_styles() {
 		wp_enqueue_script( 'scroll' );
 		wp_enqueue_script( 'scroll-debug' );
 		wp_enqueue_style( 'avista-styles' );
-		
+
 		/*
 		I recommend using a plugin to call jQuery
 		using the google cdn. That way it stays cached
@@ -178,34 +178,66 @@ function bones_scripts_and_styles() {
 		*/
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'bones-js' );
-		wp_enqueue_script( 'avista-js' );	
+		wp_enqueue_script( 'avista-js' );
 		if(is_checkout() || is_cart()) {
 			wp_enqueue_style( 'avista-woocommerce' );
 		}
-		
+
 
 		if(is_archive()) {
 			wp_enqueue_script('archive-js');
 		}
 
-		if( have_rows('sections') ): 
-			$script_elements = [
-				'mailchimp' => 0,
-				'hero-slider' => 0,
-				'quote' => 0,
-				'load-more' => 0,
-				'cat_nav' => 0
+		if( have_rows('sections') ):
+			$row_layouts = [
+				'mailchimp_section' => function() {
+					wp_enqueue_script( 'mailchimp' );
+				},
+				'quote_section' => function() {
+					wp_enqueue_script( 'quote' );
+				},
+				'hero_slider_cont' => function() {
+					wp_enqueue_script( 'hero-slider' );
+				},
+				'product_section' => function() {
+					wp_enqueue_script( 'load-more' );
+				},
+				'blog_section' => function() {
+					wp_enqueue_script( 'load-more' );
+				},
+				'category_nav_section' => function() {
+					wp_enqueue_script( 'cat_nav' );
+				},
+				'default' => function() {
+						#do we want a hard error?!?
+					}
+			];
+
+			$row_layouts_index = [
+				'mailchimp_section' => 0,
+				'quote_section' => 0,
+				'hero_slider_cont' => 0,
+				'product_section' => 0,
+				'blog_section' => 0,
+				'category_nav_section' => 0,
+				'default' => 0
 			];
       /** How cool is this!! we can apply scripts if a specific row_layout is loaded !!!!! */
       while ( have_rows('sections') ) : the_row();
-				if('mailchimp_section' == get_row_layout() && 0 == $script_elements['mailchimp']) { wp_enqueue_script( 'mailchimp' ); $script_elements['mailchimp']++;  } 
-				if('quote_section' == get_row_layout() && 0 == $script_elements['quote'] ) { wp_enqueue_script( 'quote' ); $script_elements['quote']++; }
-				if('hero_slider_cont' == get_row_layout() && 0 == $script_elements['hero-slider']) { wp_enqueue_script( 'hero-slider' ); $script_elements['hero-slider']++;}
-				if('product_section' == get_row_layout() && 0 == $script_elements['load-more'] ) {wp_enqueue_script( 'load-more' ); $script_elements['load-more']++;}
-				if('blog_section' == get_row_layout() && 0 == $script_elements['load-more']) {wp_enqueue_script( 'load-more' ); $script_elements['load-more']++;}
-				if('category_nav_section' == get_row_layout() && 0 == $script_elements['cat_nav']) {wp_enqueue_script( 'cat_nav' ); $script_elements['cat_nav']++;}
-				
-      endwhile; 
+				$element = array_key_exists(get_row_layout(), $row_layouts) ? get_row_layout() : 'default';
+				if( 0 == $row_layouts_index[$element] ) { # run only once per layout
+					$row_layouts[$element]();
+				}
+				$row_layouts_index[$element]++;
+
+				// if('mailchimp_section' == get_row_layout() && 0 == $script_elements['mailchimp']) { wp_enqueue_script( 'mailchimp' ); $script_elements['mailchimp']++;  }
+				// if('quote_section' == get_row_layout() && 0 == $script_elements['quote'] ) { wp_enqueue_script( 'quote' ); $script_elements['quote']++; }
+				// if('hero_slider_cont' == get_row_layout() && 0 == $script_elements['hero-slider']) { wp_enqueue_script( 'hero-slider' ); $script_elements['hero-slider']++;}
+				// if('product_section' == get_row_layout() && 0 == $script_elements['load-more'] ) {wp_enqueue_script( 'load-more' ); $script_elements['load-more']++;}
+				// if('blog_section' == get_row_layout() && 0 == $script_elements['load-more']) {wp_enqueue_script( 'load-more' ); $script_elements['load-more']++;}
+				// if('category_nav_section' == get_row_layout() && 0 == $script_elements['cat_nav']) {wp_enqueue_script( 'cat_nav' ); $script_elements['cat_nav']++;}
+
+      endwhile;
     endif;
 
 

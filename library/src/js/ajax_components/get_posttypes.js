@@ -18,9 +18,10 @@ const GetProducts = {
     this.cardContainer = this.section.querySelector('.card-container')
     this.mainArea = this.body.querySelector('#mainarea');
   },
-  
+
   get_products(page = 1, hasButton) {
     this.ajaxObj.page = page
+    this.ajaxObj.preselected = this.section.dataset.hasOwnProperty('preselected') ? this.section.dataset.preselected : false;
     this.ajaxObj.per_page = this.section.dataset.hasOwnProperty('per_page') ? this.section.dataset.per_page : 4;
     Global.postAjax(this.ajaxObj).done(res => {
       if (page == 1) {
@@ -29,15 +30,15 @@ const GetProducts = {
       if (page > 1) {
         this.cardContainer.insertAdjacentHTML('beforeend', res.products)
       }
-      Animation.init(ScrollReveal())
-      if (res.queryObject.max_num_pages > 1 && hasButton )  {
+      Animation.init(window.sr, '#' + this.cardContainer.id)
+      if (res.queryObject?.max_num_pages && res.queryObject.max_num_pages > 1 && hasButton )  {
         this.loadMoreBtn = this.section.querySelector('.btnLoadMore')
         this.loadMoreBtn.dataset.nextPage = parseInt(this.loadMoreBtn.dataset.nextPage) + 1
         res.queryObject.max_num_pages <= page ? this.loadMoreBtn.classList.add('visibility__hidden') : this.loadMoreBtn.classList.remove('visibility__hidden')
       }
       // CardHoverState.init(this.body)
       this.mainArea.classList.add('mainarea--loaded');
-      Animation.animationSync(ScrollReveal())
+      Animation.animationSync(window.sr)
       this.cacheDom(this.body)
     })
   }
@@ -51,7 +52,7 @@ const GetPosts = {
   init(scope, page, hasButton) {
     this.cacheDom(scope)
     this.get_posts(page, hasButton)
-    
+
   },
   cacheDom(scope){
     this.body = scope
@@ -63,7 +64,9 @@ const GetPosts = {
   get_posts(page = 1, hasButton) {
     this.ajaxObj.page = page
     this.ajaxObj.term_id = this.section.dataset.hasOwnProperty('termId') ? this.section.dataset.termId : false;
+    this.ajaxObj.preselected = this.section.dataset.hasOwnProperty('preselected') ? this.section.dataset.preselected : false;
     this.ajaxObj.per_page = this.section.dataset.hasOwnProperty('per_page') ? this.section.dataset.per_page : 4;
+    this.ajaxObj.post_id = this.section.dataset.hasOwnProperty('post_id') ? this.section.dataset.post_id : false;
     this.ajaxObj.post_type = this.section.dataset.hasOwnProperty('post_type') ? this.section.dataset.post_type : 'post';
     Global.postAjax(this.ajaxObj).done(res => {
       if (page == 1) {
@@ -72,17 +75,17 @@ const GetPosts = {
       if (page > 1) {
         this.cardContainer.insertAdjacentHTML('beforeend', res.posts)
       }
-      Animation.init(ScrollReveal())
-      if (res.queryObject.max_num_pages > 1 && hasButton) {
+      Animation.init(window.sr, '#'+this.cardContainer.id)
+      if (res.queryObject?.max_num_pages && res.queryObject.max_num_pages > 1 && hasButton) {
         this.loadMoreBtn.dataset.nextPage = parseInt(this.loadMoreBtn.dataset.nextPage) + 1
         res.queryObject.max_num_pages <= page ? this.loadMoreBtn.classList.add('visibility__hidden') : this.loadMoreBtn.classList.remove('visibility__hidden')
       }
       this.mainArea.classList.add('mainarea--loaded');
-      Animation.animationSync(ScrollReveal())
+      Animation.animationSync(window.sr)
       // CardHoverState.init(this.body)
       this.cacheDom(this.body)
     })
   }
 }
 
-export { GetProducts, GetPosts }  
+export { GetProducts, GetPosts }

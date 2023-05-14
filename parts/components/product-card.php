@@ -1,12 +1,13 @@
-<?php 
-$product = wc_get_product(get_the_ID());
+<?php
+$post_id = get_the_ID() ? get_the_ID() : $product->ID;
+$product = wc_get_product($post_id);
 $product_title = $product->get_name();
 $product_id = $product->get_id();
 $missing_img_array = get_field('missing_image', 'option');
 $missing_img = $missing_img_array['sizes']['medium_large'];
 $product_img_url = get_the_post_thumbnail_url($product_id) ? get_the_post_thumbnail_url($product_id) : $missing_img; # get_field('missing_image', 'option');
 $product_text = wp_trim_words($product->get_description(), 20, ' ...');
-$card_color_class = get_field('overlay') ? get_field('overlay') : '';
+$card_color_class = get_field('overlay', $product_id) ? get_field('overlay', $product_id) : '';
 ?>
 <a class="uni_card cell medium-4 item-fadein load-hidden" href="<?php echo get_the_permalink($product_id); ?>">
   <div class="card_container">

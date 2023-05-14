@@ -398,7 +398,15 @@
                             "type": "text",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6460bc78bcbbe",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -409,6 +417,65 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_6460bc78bcbbe",
+                            "label": "Select products",
+                            "name": "select_products",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "ui": 1
+                        },
+                        {
+                            "key": "field_6460bc92bcbbf",
+                            "label": "Selected products",
+                            "name": "selected_products",
+                            "aria-label": "",
+                            "type": "relationship",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6460bc78bcbbe",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "product"
+                            ],
+                            "post_status": [
+                                "publish"
+                            ],
+                            "taxonomy": "",
+                            "filters": [
+                                "search",
+                                "post_type",
+                                "taxonomy"
+                            ],
+                            "return_format": "object",
+                            "min": "",
+                            "max": "",
+                            "elements": ""
                         }
                     ],
                     "min": "",
@@ -606,25 +673,17 @@
                             "type": "text",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_5e3f1f99ed376",
-                                        "operator": "==",
-                                        "value": "showcase"
-                                    }
-                                ]
-                            ],
+                            "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
                                 "id": ""
                             },
                             "default_value": "",
+                            "maxlength": "",
                             "placeholder": "",
                             "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "append": ""
                         },
                         {
                             "key": "field_6280e2426041b",
@@ -674,7 +733,15 @@
                             "type": "button_group",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6460baf1c939c",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -688,6 +755,65 @@
                             "return_format": "value",
                             "allow_null": 0,
                             "layout": "horizontal"
+                        },
+                        {
+                            "key": "field_6460baf1c939c",
+                            "label": "Select posts",
+                            "name": "select_posts",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "ui": 1
+                        },
+                        {
+                            "key": "field_6460bb10c939d",
+                            "label": "Selected posts",
+                            "name": "selected_posts",
+                            "aria-label": "",
+                            "type": "relationship",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6460baf1c939c",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "post"
+                            ],
+                            "post_status": [
+                                "publish"
+                            ],
+                            "taxonomy": "",
+                            "filters": [
+                                "search",
+                                "post_type",
+                                "taxonomy"
+                            ],
+                            "return_format": "object",
+                            "min": "",
+                            "max": "",
+                            "elements": ""
                         }
                     ],
                     "min": "",
@@ -843,7 +969,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "perlumodir"
+                "value": "post"
             }
         ]
     ],
@@ -856,5 +982,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676202316
+    "modified": 1684069585
 }

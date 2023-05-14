@@ -1,4 +1,4 @@
-<?php 
+<?php
   if(!function_exists('uni_partial')){
     function uni_partial($path, $args = [], $echo = true) {
       $path_explode = explode('.', $path);
@@ -33,7 +33,7 @@ function get_link_by_slug($slug, $lang_slug = null, $type = 'post'){
 
 
 if( function_exists('acf_add_options_page') ) {
-	
+
 	acf_add_options_page(array(
 		'page_title' 	=> 'Uni General Settings',
 		'menu_title'	=> 'Uni Settings',
@@ -41,19 +41,19 @@ if( function_exists('acf_add_options_page') ) {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
-	
+
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Uni Header Settings',
 		'menu_title'	=> 'Header',
 		'parent_slug'	=> 'uni-general-settings',
 	));
-	
+
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Uni Footer Settings',
 		'menu_title'	=> 'Footer',
 		'parent_slug'	=> 'uni-general-settings',
 	));
-	
+
 }
 
 add_filter('woocommerce_add_to_cart_redirect', 'uni_add_to_cart_redirect');
@@ -102,8 +102,9 @@ function errorsea_archive_title( $title ) {
 }
 
 if(!function_exists('print_uni')) {
-  function print_uni($data) {
-    echo '<pre>';
+  function print_uni($datan, $style=false) {
+    $style = !!$style ? 'style="'.$style.'"' : '';
+    echo "<pre $style>";
       print_r($data);
     echo '</pre>';
   }
