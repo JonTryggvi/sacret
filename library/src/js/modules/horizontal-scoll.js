@@ -5,6 +5,10 @@ const HorizontalScrolling = {
     if (!is_archive) {
       let counter = 'counter_' + this.slider.id
       let hold_time = 'hold_time_' + this.slider.id
+      let container = this.slider.querySelector('.card-container')
+      if (container.offsetWidth === container.scrollWidth) {
+        this.scrollForward.classList.add('visibility__hidden')
+      }
       this[hold_time] = 0
       this[counter] = 0
       this.addEvents()
@@ -71,7 +75,6 @@ const HorizontalScrolling = {
     if (this[hold_time] < 200) {
       let productContainer = container.querySelector('.card-container')
       this[counter] += this[direction] ? productContainer.offsetWidth : -productContainer.offsetWidth;
-      console.log(this[counter])
       productContainer.scroll({ left: this[counter], top: 0, behavior: 'smooth' })
     }
   },
