@@ -1,7 +1,8 @@
 $card-bottom-rad: calc((100vw - 120px) / 12 * 1.5);
 
 .uni_section {
-  &__posts, &__products {
+  &__posts,
+  &__products {
     position: relative;
     & .scrollBack,
     & .scrollForward {
@@ -16,7 +17,11 @@ $card-bottom-rad: calc((100vw - 120px) / 12 * 1.5);
       z-index: 100;
       top: calc(50% - 90px);
       // bottom:0;
-      transition: box-shadow 300ms ease, opacity 300ms ease-in-out, visibility 300ms 100ms ease-out;
+      transition: box-shadow 300ms ease, opacity 300ms ease-in-out,
+        visibility 300ms 100ms ease-out;
+      @include bp(tablet) {
+        display: none;
+      }
       .green_theme & {
         svg path {
           stroke: $darkGreen;
