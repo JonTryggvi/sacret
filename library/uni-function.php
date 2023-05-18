@@ -111,9 +111,11 @@ if(!function_exists('print_uni')) {
 }
 
 if(!function_exists('pprint')){
-  function pprint($data) {
-    echo '<pre>';
+  function pprint($data, $style=false) {
+    $style = !$style ?  '' : 'style="'.$style.'"';
+    echo "<pre $style>";
      print_r($data);
     echo '</pre>';
   }
 }
+
