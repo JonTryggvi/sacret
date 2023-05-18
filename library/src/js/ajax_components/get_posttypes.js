@@ -65,10 +65,12 @@ const GetPosts = {
     this.ajaxObj.page = page
     this.ajaxObj.term_id = this.section.dataset.hasOwnProperty('termId') ? this.section.dataset.termId : false;
     this.ajaxObj.preselected = this.section.dataset.hasOwnProperty('preselected') ? this.section.dataset.preselected : false;
+    this.ajaxObj.field = this.section.dataset.hasOwnProperty('field') ? this.section.dataset.field : false;
     this.ajaxObj.per_page = this.section.dataset.hasOwnProperty('per_page') ? this.section.dataset.per_page : 4;
     this.ajaxObj.post_id = this.section.dataset.hasOwnProperty('post_id') ? this.section.dataset.post_id : false;
     this.ajaxObj.post_type = this.section.dataset.hasOwnProperty('post_type') ? this.section.dataset.post_type : 'post';
     Global.postAjax(this.ajaxObj).done(res => {
+      console.log(res)
       if (page == 1) {
         this.cardContainer.innerHTML = res.posts
       }
@@ -80,7 +82,7 @@ const GetPosts = {
         this.loadMoreBtn.dataset.nextPage = parseInt(this.loadMoreBtn.dataset.nextPage) + 1
         res.queryObject.max_num_pages <= page ? this.loadMoreBtn.classList.add('visibility__hidden') : this.loadMoreBtn.classList.remove('visibility__hidden')
       }
-      this.mainArea.classList.add('mainarea--loaded');
+      this.mainArea?.classList.add('mainarea--loaded');
       Animation.animationSync(window.sr)
       // CardHoverState.init(this.body)
       this.cacheDom(this.body)

@@ -84,7 +84,7 @@ add_filter( 'image_size_names_choose', 'my_custom_sizes' );
 function my_custom_sizes( $sizes ) {
   return array_merge( $sizes, array(
     'site-thumb-square' => __( 'Unis Square 800x800' ),
-    
+
   ) );
 }
 
@@ -229,11 +229,60 @@ function special_nav_class ($classes, $item) {
 
 // Add Google API key for Advanced Custom Fields
 function my_acf_init() {
-
   acf_update_setting('google_api_key', 'AIzaSyCD61O31_QHfKo1rPqQBjGNZPfda6rCGgY');
+
+  if( function_exists('acf_register_block') ) {
+    acf_register_block(array(
+      'name'              => 'card-deck',
+      'title'             => __('Card deck'),
+      'description'       => __('A way to show cards in content.'),
+      'render_callback'   => 'card_rack',
+      'category'          => 'formatting',
+      'icon'              => 'admin-post',
+      'keywords'          => array( 'cards', 'posts' ),
+    ));
+  }
 }
 
 add_action('acf/init', 'my_acf_init');
+
+function card_rack( $block ) {
+    // convert name ("acf/testimonial") into path friendly slug ("testimonial")
+    $post_id = get_queried_object() ? get_queried_object()->ID : $_GET['post'];
+    $slug = str_replace('acf/', '', $block['name']);
+    $posts = $block['data']['posts'];
+    $field_name = $block['data']['_posts'];
+    // $posts = get_field($field_name);
+    $is_archive = false;
+    $section_type = 'content_block';
+    $select_posts = 1;
+    $section_id = random_int(1111, 9999);
+    ?>
+    <section id="<?php echo $section_id; ?>" class="uni_section uni_section__posts grid-with-margin" data-post-type="post" data-section_order="<?php echo 1 ?>" data-per_page="<?php echo 1 ?>" data-post_type="post" data-field="<?php echo implode(',',$posts); ?>"  data-preselected="<?php echo $select_posts ?>" data-post_id="<?php echo $post_id; ?>" >
+
+    <?php if(false !== $slug): ?>
+      <h2><?php echo $slug; ?></h2>
+    <?php endif; ?>
+      <?php if(!$is_archive) : ?>
+        <span class="scrollBtn scrollBack visibility__hidden"><?php uni_partial('library/images/ico-0003.svg') ?></i></span>
+      <?php endif; ?>
+      <div id="<?php echo "container_$section_id"; ?>" class="card-container common-cards">
+      </div>
+      <?php if($is_archive):
+        uni_partial('parts/components/loadmore-button');
+
+      endif; ?>
+      <?php if(!$is_archive) : ?>
+          <span class="scrollBtn scrollForward"><?php uni_partial('library/images/ico-0003.svg') ?></span>
+      <?php endif; ?>
+
+    </section>
+    <?php
+    // include a template part from within the "template-parts/block" folder
+    // if( file_exists( get_theme_file_path("/template-parts/block/content-{$slug}.php") ) ) {
+    //     include( get_theme_file_path("/template-parts/block/content-{$slug}.php") );
+    // }
+}
 
 // WPML language switcher
 // Language Code language_code
@@ -255,6 +304,7 @@ function language_selector(){
 add_action( 'after_setup_theme', 'woocommerce_support' );
 function woocommerce_support() {
     add_theme_support( 'woocommerce' );
+
 }
 
 

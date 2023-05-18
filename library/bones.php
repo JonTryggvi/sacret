@@ -164,7 +164,7 @@ function bones_scripts_and_styles() {
 				);
 		}
 		wp_localize_script( 'avista-js', 'phpObj', $args_local);
-	$body_classes = get_body_class();
+		$body_classes = get_body_class();
 		// enqueue styles and scripts
 		wp_enqueue_script( 'bones-modernizr' );
 		wp_enqueue_script( 'scroll' );
@@ -182,7 +182,6 @@ function bones_scripts_and_styles() {
 		if(is_checkout() || is_cart()) {
 			wp_enqueue_style( 'avista-woocommerce' );
 		}
-
 
 		if(is_archive()) {
 			wp_enqueue_script('archive-js');
@@ -229,17 +228,20 @@ function bones_scripts_and_styles() {
 					$row_layouts[$element]();
 				}
 				$row_layouts_index[$element]++;
-
-				// if('mailchimp_section' == get_row_layout() && 0 == $script_elements['mailchimp']) { wp_enqueue_script( 'mailchimp' ); $script_elements['mailchimp']++;  }
-				// if('quote_section' == get_row_layout() && 0 == $script_elements['quote'] ) { wp_enqueue_script( 'quote' ); $script_elements['quote']++; }
-				// if('hero_slider_cont' == get_row_layout() && 0 == $script_elements['hero-slider']) { wp_enqueue_script( 'hero-slider' ); $script_elements['hero-slider']++;}
-				// if('product_section' == get_row_layout() && 0 == $script_elements['load-more'] ) {wp_enqueue_script( 'load-more' ); $script_elements['load-more']++;}
-				// if('blog_section' == get_row_layout() && 0 == $script_elements['load-more']) {wp_enqueue_script( 'load-more' ); $script_elements['load-more']++;}
-				// if('category_nav_section' == get_row_layout() && 0 == $script_elements['cat_nav']) {wp_enqueue_script( 'cat_nav' ); $script_elements['cat_nav']++;}
-
       endwhile;
     endif;
-
+		$q_post = get_queried_object();
+		$blocks = parse_blocks( $q_post->post_content );
+		$map_blocks = [
+			'acf/card-deck' => 'blog_section'
+		];
+		foreach ($blocks as $key => $block) {
+			$block_name = array_key_exists($block['blockName'], $map_blocks) ? $map_blocks[$block['blockName']] : 'default';
+			if(0 == $row_layouts_index[$block_name]) {
+				$row_layouts[$block_name]();
+			}
+			// pprint($block['blockName'], 'margin-top:150px;');
+		}
 
 		/** Hér erum við með sérstakt js skjal fyrir single post type */
 		if(get_post_type() === 'product') {

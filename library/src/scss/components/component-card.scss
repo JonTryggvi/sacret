@@ -78,12 +78,12 @@ $card-bottom-rad: calc((100vw - 120px) / 12 * 1.5);
   div {
     display: flex;
     justify-content: center;
-    // width: 100%;
+    width: 100%;
     transition: box-shadow 500ms 200ms ease, border-radius 500ms ease-out;
     border-radius: 14px 14px $card-bottom-rad $card-bottom-rad;
     text-decoration: none;
     overflow: hidden;
-    aspect-ratio: 3/4;
+    aspect-ratio: 5/7;
     .archive & {
       grid-column: span 3;
     }
@@ -101,7 +101,7 @@ $card-bottom-rad: calc((100vw - 120px) / 12 * 1.5);
       .archive & {
         grid-column: span 12;
       }
-      aspect-ratio: 1;
+      aspect-ratio: 18/20;
     }
     & .card_container {
       aspect-ratio: inherit;

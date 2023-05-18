@@ -53,6 +53,7 @@ function get_uni_posts() {
   }
   $page = absint($_POST['page']);
   $post_type = wp_strip_all_tags($_POST['post_type']);
+  $field_posts = isset($_POST['field']) ? $_POST['field'] : false;
   $per_page = absint($_POST['per_page']);
   $preselected = 1 === absint($_POST['preselected']);
   $post_id = !empty($_POST['post_id']) ? absint($_POST['post_id']) : false;
@@ -69,6 +70,11 @@ function get_uni_posts() {
   if(!$preselected) {
     $query = new WP_Query( $args );
     $posts = $query->posts;
+  } elseif('false' === $field_posts[0]) {
+    $field_posts = explode(',', $field_posts);
+    foreach ($field_posts as $key => $post_id) {
+      $posts[]=get_post($post_id);
+    }
   } else {
     $acf_fields = get_fields($post_id);
     foreach ($acf_fields['sections'] as $key => $section) {
@@ -90,7 +96,7 @@ function get_uni_posts() {
     }
   endif;
   wp_reset_query();
-  wp_send_json(['posted' => $_POST, 'posts' => $s_posts, 'queryObject' => $query, 'p' => $posts, 'per_page' => $per_page]);
+  wp_send_json(['posted' => $_POST, 'posts' => $s_posts, 'queryObject' => $query, 'p' => $posts, 'per_page' => $per_page, 'field' => $field_posts]);
   wp_die();
 }
 
