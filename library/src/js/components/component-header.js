@@ -14,9 +14,9 @@ const Header = {
     this.body = body
     this.header = body.querySelector('header')
     this.nav = this.header.querySelector('nav')
-    this.navUl = this.header.querySelector('.uni_header__nav-list')
+    this.navUl = this.header.querySelector('.main-menu')
     this.menuItems = this.nav.querySelectorAll('.menu-item:not(.sub-menu > .menu-item)')
-    this.magicLine = this.nav.querySelector('.magic-line')
+    // this.magicLine = this.nav.querySelector('.magic-line')
     this.hamburger = this.nav.querySelector('.menu_hamburger')
     // this.btnCart = this.nav.querySelector('.toggle-cart');
     // this.miniCart = body.querySelector('.uni-minicart')
@@ -36,11 +36,11 @@ const Header = {
       if (clickedItem.classList.contains('menu_hamburger--active')) {
         this.header.classList.remove('menu-open')
         clickedItem.classList.remove('menu_hamburger--active')
-        this.navUl.classList.remove('uni_header__nav-list--active')
+        this.navUl.classList.remove('main-menu--active')
       } else {
         this.header.classList.add('menu-open')
         clickedItem.classList.add('menu_hamburger--active')
-        this.navUl.classList.add('uni_header__nav-list--active')
+        this.navUl.classList.add('main-menu--active')
         this.animation.restart();
 
       }
