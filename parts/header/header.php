@@ -8,10 +8,11 @@
     <nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
       <span class="menu_hamburger"><span></span><span></span></span>
       <!-- <span class="magic-line"></span> -->
+      <div></div>
       <?php
         wp_nav_menu(array(
-          'container' => false,
-          'container_class' => 'menu',
+          'container' => 'div',
+          'container_class' => 'main-menu',
           'menu' => __( 'The Main Menu', 'bonestheme' ),
           'menu_class' => 'nav top-nav uni_header__nav-list text-pink',
           'theme_location' => 'main-nav',
@@ -24,12 +25,7 @@
           // 'walker' => new Walker_Nav_Menu()
         ));
       ?>
-      <?php /* if(class_exists( 'WooCommerce' ) && !WC()->cart->is_empty()) : ?>
-        <button type="button" class="toggle-cart">cart</button>
-        <div class="mini-cart" >
-          <?php woocommerce_mini_cart(); ?>
-        </div>
-      <?php endif; */ ?>
+
     </nav>
   </div>
 

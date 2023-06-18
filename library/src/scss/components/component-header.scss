@@ -80,41 +80,55 @@
     }
   }
 
-  &__nav-list {
+  & .main-menu {
     display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 5rem 1rem 0;
     position: absolute;
-    flex-flow: column;
-    justify-content: flex-start;
-    margin: 0;
-    padding: 10% calc(50% - 130px) 0 0;
-    top: 100%;
-    right: -100vw;
     width: 100vw;
     height: calc(100vh - 50px);
+    top: 100%;
+    right: -100vw;
+    position: absolute;
     z-index: 4;
     background-color: $white;
     transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
-    // }
+    &--active {
+      right: 0;
+    }
+  }
+  &__nav-list {
+    display: flex;
+
+    flex-flow: column;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+
+    z-index: 4;
+    background-color: $white;
+    transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
     li {
       flex-flow: column;
       align-items: center;
       justify-content: flex-start;
       height: auto;
-      // }
       &.menu-item {
         position: relative;
         opacity: 0;
-        // @include bp(phablet) {
-          text-align: right;
-          & a {
-          font-size: 24px;
-
+        text-align: right;
+        & a {
+          font-size: 36px;
+          font-weight: 500;
+          @include bp(phablet) {
+            font-size: 28px;
+          }
         }
         &-has-children > a {
-        // font-size: 16px;
           margin-bottom: 0px;
         }
-        // }
         &.active > a {
           position: relative;
         }
@@ -151,7 +165,7 @@
         position: relative;
         transform: scale(1);
         text-align: center;
-        margin: 0px 0 50px 15px;
+        margin: 8px 0 32px;
         padding: 0 0px 0;
         & li {
           display: block;
@@ -163,11 +177,15 @@
           position: relative;
           width: 100%;
           box-sizing: border-box;
-          padding: 0px 30px 0 0;
+          padding: 0 0 0;
           opacity: 1;
         }
         & a {
-          font-size: 16px;
+          font-size: 24px;
+          font-weight: 400;
+          @include bp(phablet) {
+            font-size: 18px;
+          }
         }
         &.active > .menu-item:hover {
           background-color: white;
@@ -189,7 +207,7 @@
         font-family: $body-font-family;
         font-weight: 300;
         color: $lilac;
-        font-size: 18px;
+        font-size: 22px;
         transition: all 600ms 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
         text-decoration: none;
         // @include bp(phablet) {
@@ -210,9 +228,6 @@
         }
       }
     }
-    &--active {
-      right: 0;
-    }
   }
 
   & nav {
@@ -220,13 +235,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    // grid-column: span 6 / 13;
-    // @include bp(phablet) {
     grid-column: 12 / span 1;
-    // }
     & .menu_hamburger {
-      // display: none;
-
       position: relative;
       display: block;
       align-self: center;
@@ -256,31 +266,6 @@
           }
         }
       }
-    }
-    & .magic-line {
-      // position: absolute;
-      // top: 6px;
-      // min-width: 30px;
-      // width: 30px;
-      // height: calc(100% - 12px);
-      // opacity: 0;
-      // background-color: $lilac;
-      // z-index: 0;
-      // transition: opacity 400ms 100ms $easing, width 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
-      //   left 400ms 100ms cubic-bezier(1, 0, 0, 1);
-
-      // @include bp(phablet) {
-      display: none;
-      // }
-      // .blue_theme & {
-      //   background-color: $blue;
-      // }
-      // .green_theme & {
-      //   background-color: $green;
-      // }
-      // .gold_theme & {
-      //   background-color: $gold-light;
-      // }
     }
   }
   .black_theme &,
