@@ -1,7 +1,7 @@
 .uni_header {
   justify-content: center;
   position: fixed;
-  top:0;
+  top: 0;
   left: 0;
   width: 100vw;
   height: 80px;
@@ -10,7 +10,7 @@
   box-shadow: 0 0 0 rgba($blue, 0);
   transition: background-color 40ms $easing, box-shadow 400ms 100ms $easing, height 30ms $easing;
   box-sizing: border-box;
-  @include bp(phablet){
+  @include bp(phablet) {
     height: 50px;
   }
   &__inner-container {
@@ -31,24 +31,24 @@
       background-color: $white;
       max-height: 500px;
       padding: 15px;
-      transition:$transition;
+      transition: $transition;
       opacity: 0;
       display: none;
     }
     & .mini-active {
       right: 0;
       opacity: 1;
-      transition:$transition;
+      transition: $transition;
     }
   }
   &__logo-h1 {
     display: flex;
     margin-top: 0;
     margin-bottom: 0;
-    height:100%;
+    height: 100%;
     max-height: 80px;
-    color:transparent !important;
-    @include bp(phablet){
+    color: transparent !important;
+    @include bp(phablet) {
       max-height: 40px;
     }
   }
@@ -61,23 +61,17 @@
     height: 100%;
     color: transparent !important;
     font-size: 0;
-    // width: 83px;
-    // height: 66px;
-    &:hover {
-      color: transparent;
-    }
-    @include bp(phablet){
-      grid-column:6 / span 2;
+    @include bp(phablet) {
+      grid-column: 6 / span 2;
       justify-content: center;
-      height:36px;
+      height: 36px;
     }
     & svg {
       position: relative;
       top: 5px;
       left: 0px;
       transition: all 300ms $easing;
-      
-      @include bp(phablet){
+      @include bp(phablet) {
         left: calc(50% - 20px);
         height: 32px;
         width: 40px;
@@ -85,65 +79,53 @@
       }
     }
   }
-  
+
   &__nav-list {
     display: flex;
-    height: 100%;
-    min-width: 320px;
-    width: 100%;
-    justify-content: flex-end;
-    align-items: center;
+    position: absolute;
+    flex-flow: column;
+    justify-content: flex-start;
     margin: 0;
-    list-style: none;
-    z-index: 1;
-    padding: 0;
-    gap: 20px;
-    @include bp(phablet) {
-      display:flex;
-      position: absolute;
-      flex-flow: column;
-      justify-content: flex-start;
-      padding: 10% 0 0;
-      top: calc(100%);
-      right: -100vw;
-      width: 100vw;
-      height: calc(100vh - 50px);
-      z-index: 4;
-      background-color: $white;
-      transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
-      
-    }
+    padding: 10% calc(50% - 130px) 0 0;
+    top: 100%;
+    right: -100vw;
+    width: 100vw;
+    height: calc(100vh - 50px);
+    z-index: 4;
+    background-color: $white;
+    transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    // }
     li {
-      display: flex;
+      flex-flow: column;
       align-items: center;
-       height: 100%;
-      
-      z-index: 1;
-      @include bp(phablet) {
-        flex-flow: column;
-        align-items: center;
-        justify-content: flex-start;
-        height: auto;
-      }
+      justify-content: flex-start;
+      height: auto;
+      // }
       &.menu-item {
         position: relative;
         opacity: 0;
-        @include bp(phablet) {
-          font-size: 16px;
+        // @include bp(phablet) {
           text-align: right;
-          &-has-children > a {
-            font-size: 24px;
-            margin-bottom: 20px;
-          }
+          & a {
+          font-size: 24px;
+
         }
-        &.active::after {
-          content: '';
+        &-has-children > a {
+        // font-size: 16px;
+          margin-bottom: 0px;
+        }
+        // }
+        &.active > a {
+          position: relative;
+        }
+        &.active > a::after {
+          content: "";
           position: absolute;
-          width: 30px;
+          width: 15px;
           height: 2px;
-          bottom: 6px;
-          left: calc(50% - 15px);
-          
+          bottom: calc(50% - 1px);
+          right: -2rem;
+
           .lilac_theme & {
             background-color: $lilac;
           }
@@ -162,147 +144,58 @@
         }
       }
       & .sub-menu {
-        position: absolute;
-        right: -10px;
-        top: calc(100% - 7px);
-        padding-left: 0;
-        border-radius: 0px 0 8px 8px;
-        width: max-content;
-        box-sizing: content-box;
-        padding: 15px;
-        opacity: 0;
-        transform: scale(0);
-        @include bp(phablet) {
-          top:0;
-          width: auto;
-          height: auto;  
-          opacity: 1;
-          position: relative;
-          transform: scale(1);
+        top: 0;
+        width: auto;
+        height: auto;
+        opacity: 1;
+        position: relative;
+        transform: scale(1);
+        text-align: center;
+        margin: 0px 0 50px 15px;
+        padding: 0 0px 0;
+        & li {
+          display: block;
           text-align: center;
-          margin: 0px 0 20px 15px;
-          padding: 0 0px 0;
-          & li {
-            display: block;
-            text-align: center;
-          }
         }
-        // visibility: hidden;
-        .blue_theme & {
-         background-color: $blue;
-         @include bp(phablet) {
-          background-color: transparent;
-         }
-        }
-        .lilac_theme & {
-         background-color: $lilac;
-         & li a {
-           color: $white;
-         }
-         @include bp(phablet) {
-            background-color: transparent;
-            & li a {
-              color: $darkLilac;
-
-            }
-          }
-        }
-        .green_theme & {
-          background-color: $green;
-          @include bp(phablet) {
-          background-color: transparent;
-         }
-        }
-        .gold_theme & {
-          background-color: $gold-light;
-          @include bp(phablet) {
-          background-color: transparent;
-         }
-        }
-        .black_theme & {
-          background-color: $lilac;
-          @include bp(phablet) {
-          background-color: transparent;
-          }
-          & li a {
-            width: 100%;
-            color: $white;
-            font-size: em(14);
-          }
-        }
+        background-color: transparent;
         & > .menu-item {
           display: flex;
           position: relative;
           width: 100%;
           box-sizing: border-box;
-          padding: 5px 15px;
+          padding: 0px 30px 0 0;
           opacity: 1;
         }
-       
+        & a {
+          font-size: 16px;
+        }
         &.active > .menu-item:hover {
           background-color: white;
           a {
             color: $black;
           }
         }
-        // &::after {
-        //   content: '';
-        //   width: 12px;
-        //   height: 12px;
-        //   position: absolute;
-        //   right: 15px;
-        //   top: -5px;
-        //   transform: rotate(45deg);
-        //   .blue_theme & {
-        //     background-color: $blue;
-        //   }
-        //   .green_theme & {
-        //     background-color: $green;
-        //   }
-        //   .gold_theme & {
-        //     background-color: $gold-light;
-        //   }
-        //   .black_theme & {
-        //     background-color: $lilac;
-        //   }
-        // }
       }
-      // @include bp(phablet) {
-      //   width: 100%;
-      //   height: 10%;
-      //   justify-content: center;
-      // }
-      
+
       &:hover {
         cursor: pointer;
         a {
-          color: $white;
-          @include bp(phablet) {
-            color: $pink;
-          }
-          .blue_theme &, .green_theme &, .lilac_theme &  {
-            color: $white;
-          }
-          .gold_theme & {
-            color: $gold-dark;
-          }
+          color: $pink;
         }
       }
       a {
         display: flex;
         align-items: center;
-        height: 100%;
-        // text-transform: uppercase;
-        font-family: $nav-font-family;
+        font-family: $body-font-family;
         font-weight: 300;
         color: $lilac;
         font-size: 18px;
         transition: all 600ms 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
         text-decoration: none;
-        @include bp(phablet) {
-          width: 100%;
-          justify-content: flex-end;
-        }
+        // @include bp(phablet) {
+        width: 100%;
+        justify-content: flex-end;
+        // }
         .blue_theme & {
           color: $darkBlue;
         }
@@ -321,39 +214,38 @@
       right: 0;
     }
   }
- 
+
   & nav {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    grid-column: span 6 / 13;
-    @include  bp(phablet){
-      grid-column: 12 / span 1;
-    }
+    // grid-column: span 6 / 13;
+    // @include bp(phablet) {
+    grid-column: 12 / span 1;
+    // }
     & .menu_hamburger {
-      display: none;
-      @include bp(phablet){
-        position: relative;
-        display: block;
-        align-self: center;
-        cursor: pointer;
-        width: 19px;
-        height: 19px;
-        & span {
-          position: absolute;
-          height: 1px;
-          width: 100%;
-          background-color: $blue;
-          left:0;
-          top: 30%;
-          transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
-          &:last-child {
-            top: 70%;
-          }
-        }
+      // display: none;
 
+      position: relative;
+      display: block;
+      align-self: center;
+      cursor: pointer;
+      width: 19px;
+      height: 19px;
+      & span {
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        background-color: $blue;
+        left: 0;
+        top: 30%;
+        transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        &:last-child {
+          top: 70%;
+        }
       }
+
       &--active {
         span {
           top: 50%;
@@ -363,38 +255,36 @@
             transform: rotate(-45deg);
           }
         }
-        
       }
     }
     & .magic-line {
-      position: absolute;
-      top:6px;
-      min-width: 30px;
-      width: 30px;
-      height: calc(100% - 12px);
-      opacity: 0;
-      background-color: $lilac;
-      z-index: 0;
-      transition: 
-        opacity 400ms 100ms $easing, 
-        width 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95), 
-        left 400ms 100ms cubic-bezier(1, 0, 0, 1);
-      
-      @include bp(phablet) {
-        display: none;
-      }
-      .blue_theme & {
-        background-color: $blue;
-      }
-      .green_theme & {
-        background-color: $green;
-      }
-      .gold_theme & {
-        background-color: $gold-light;
-      }
+      // position: absolute;
+      // top: 6px;
+      // min-width: 30px;
+      // width: 30px;
+      // height: calc(100% - 12px);
+      // opacity: 0;
+      // background-color: $lilac;
+      // z-index: 0;
+      // transition: opacity 400ms 100ms $easing, width 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95),
+      //   left 400ms 100ms cubic-bezier(1, 0, 0, 1);
+
+      // @include bp(phablet) {
+      display: none;
+      // }
+      // .blue_theme & {
+      //   background-color: $blue;
+      // }
+      // .green_theme & {
+      //   background-color: $green;
+      // }
+      // .gold_theme & {
+      //   background-color: $gold-light;
+      // }
     }
   }
-  .black_theme &, .gold_theme & {
+  .black_theme &,
+  .gold_theme & {
     background-color: $black;
   }
 }
@@ -414,19 +304,19 @@
     & .uni_header__logo-h1 {
       max-height: 60px;
     }
-   
   }
   &--green {
     box-shadow: 0 0 16px rgba($darkGreen, 0.2);
   }
-  &--black, &--gold {
+  &--black,
+  &--gold {
     background-color: $black !important;
     box-shadow: 0 0 16px rgba(grey, 0.2);
   }
 }
 
 .menu-open {
-  background-color:$white;
+  background-color: $white;
 }
 
 .mini-cart {
@@ -434,15 +324,12 @@
   border-radius: 0 0 5px;
   .blue_theme & {
     box-shadow: 0px 0px 16px rgba($darkBlue, 0.2);
-    
   }
   .green_theme & {
     box-shadow: 0px 0px 16px rgba($darkGreen, 0.2);
-    
   }
   .lilac_theme & {
     box-shadow: 0px 0px 16px rgba($darkLilac, 0.2);
-
   }
   & ul {
     width: 100%;
@@ -460,4 +347,3 @@
     }
   }
 }
-

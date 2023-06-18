@@ -124,6 +124,12 @@ html.sr .load-hidden {
     visibility: hidden;
     opacity: 0;
   }
+  &__none {
+    transition: all 500ms ease;
+    visibility: hidden;
+    opacity: 0;
+    height: 0 !important
+  }
 }
 
 
