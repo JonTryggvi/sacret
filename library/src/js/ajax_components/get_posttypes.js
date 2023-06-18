@@ -38,7 +38,7 @@ const GetProducts = {
       }
       // CardHoverState.init(this.body)
       this.mainArea.classList.add('mainarea--loaded');
-      Animation.animationSync(window.sr)
+      // Animation.animationSync(window.sr)
       this.cacheDom(this.body)
     })
   }
@@ -70,7 +70,6 @@ const GetPosts = {
     this.ajaxObj.post_id = this.section.dataset.hasOwnProperty('post_id') ? this.section.dataset.post_id : false;
     this.ajaxObj.post_type = this.section.dataset.hasOwnProperty('post_type') ? this.section.dataset.post_type : 'post';
     Global.postAjax(this.ajaxObj).done(res => {
-      console.log(res)
       if (page == 1) {
         this.cardContainer.innerHTML = res.posts
       }
@@ -83,6 +82,7 @@ const GetPosts = {
         res.queryObject.max_num_pages <= page ? this.loadMoreBtn.classList.add('visibility__hidden') : this.loadMoreBtn.classList.remove('visibility__hidden')
       }
       this.mainArea?.classList.add('mainarea--loaded');
+      console.log(window.sr)
       Animation.animationSync(window.sr)
       // CardHoverState.init(this.body)
       this.cacheDom(this.body)

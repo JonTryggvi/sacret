@@ -3,7 +3,6 @@ const Animation = {
     this.sr = sr
     this.fadeIn(currentContainer);
   },
-
   fadeIn(currentContainer) {
     let fadein = document.querySelectorAll('.item-fadein')
     this.sr.reveal(fadein, {
@@ -16,10 +15,9 @@ const Animation = {
       // viewFactor: 0.9,
       container: currentContainer
     })
-
   },
   animationSync(sr = this.sr) {
-    // sr.sync()
+    sr.sync()
   }
 }
 export default Animation
