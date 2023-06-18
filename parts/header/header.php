@@ -7,15 +7,15 @@
 
     <nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
       <span class="menu_hamburger"><span></span><span></span></span>
-      <span class="magic-line"></span>
-      <?php 
+      <!-- <span class="magic-line"></span> -->
+      <?php
         wp_nav_menu(array(
           'container' => false,
           'container_class' => 'menu',
           'menu' => __( 'The Main Menu', 'bonestheme' ),
           'menu_class' => 'nav top-nav uni_header__nav-list text-pink',
           'theme_location' => 'main-nav',
-          'before' => '', 
+          'before' => '',
           'after' => '',
           'link_before' => '',
           'link_after' => '',

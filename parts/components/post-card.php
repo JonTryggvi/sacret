@@ -18,7 +18,7 @@
         </figure>
       </header>
       <main>
-        <h2><?php echo $title; ?></h2>
+        <h2 class="visibility__none"><?php echo $title; ?></h2>
         <p><?php echo $excerpt; ?></p>
       </main>
     </article>

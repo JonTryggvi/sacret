@@ -19,7 +19,7 @@ $card_color_class = get_field('overlay', $product_id) ? get_field('overlay', $pr
         </figure>
       </header>
       <main>
-        <h2><?php echo $product_title; ?></h2>
+        <h2 class="visibility__none"><?php echo $product_title; ?></h2>
         <p><?php echo $product_text; ?></p>
       </main>
     </article>

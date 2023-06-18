@@ -6,7 +6,7 @@ const Header = {
     this.cacheDom(body)
     this.addEvents()
     if (window.innerWidth > 414) {
-      this.animation.play()
+     // this.animation.play()
     }
 
   },
@@ -28,8 +28,8 @@ const Header = {
     this.menuItems.forEach(menuItem => {
       // if(menuItem.parentNode.classList.contains('sub'))
       // menuItem.addEventListener('mouseover', this.handleMenuItemMouseover.bind(this))
-      menuItem.addEventListener('mouseenter', this.handleMenuItemMouseEnter.bind(this))
-      menuItem.addEventListener('mouseleave', this.handleMenuItemMouseleave.bind(this))
+      // menuItem.addEventListener('mouseenter', this.handleMenuItemMouseEnter.bind(this))
+      // menuItem.addEventListener('mouseleave', this.handleMenuItemMouseleave.bind(this))
     })
     this.hamburger.onclick = e => {
       let clickedItem = e.target.closest('.menu_hamburger')

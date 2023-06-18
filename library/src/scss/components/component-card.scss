@@ -17,8 +17,7 @@ $card-bottom-rad: calc((100vw - 120px) / 12 * 1.5);
       z-index: 100;
       top: calc(50% - 90px);
       // bottom:0;
-      transition: box-shadow 300ms ease, opacity 300ms ease-in-out,
-        visibility 300ms 100ms ease-out;
+      transition: box-shadow 300ms ease, opacity 300ms ease-in-out, visibility 300ms 100ms ease-out;
       @include bp(tablet) {
         display: none;
       }
@@ -53,17 +52,24 @@ $card-bottom-rad: calc((100vw - 120px) / 12 * 1.5);
 .card-container {
   grid-column-start: middle;
   grid-column-end: middle-end;
-  display: flex;
+  // grid-template-columns:  minmax(260px, 1fr);
+  grid-gap: 0 20px; /* row gap: 0, column gap: 20px */
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, 1fr);
+  display: grid;
   overflow-x: visible;
   overflow-y: scroll;
   grid-column-gap: 1rem;
   grid-row-gap: 4rem;
   min-height: 300px;
   padding-bottom: 30px;
+  width: 100%;
   .archive & {
     display: grid;
     overflow: visible;
-    grid-template-columns: repeat(12, 1fr);
+    grid-auto-flow: initial;
+    grid-auto-columns: initial;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     overflow-x: visible;
     overflow-y: hidden;
   }
@@ -83,64 +89,52 @@ $card-bottom-rad: calc((100vw - 120px) / 12 * 1.5);
     border-radius: 14px 14px $card-bottom-rad $card-bottom-rad;
     text-decoration: none;
     overflow: hidden;
-    aspect-ratio: 5/7;
-    .archive & {
-      grid-column: span 3;
-    }
-    @include bp(small-laptop) {
-      .archive & {
-        grid-column: span 3;
-      }
-    }
-    @include bp(tablet) {
-      .archive & {
-        grid-column: span 6;
-      }
-    }
-    @include bp(milli) {
-      .archive & {
-        grid-column: span 12;
-      }
-      aspect-ratio: 18/20;
-    }
+    aspect-ratio: 5/8;
+
     & .card_container {
       aspect-ratio: inherit;
       overflow: hidden;
       height: 100%;
-      max-height: 400px;
+    }
+    article {
+      width: 100%;
+    }
+    & header {
+      height: 100%;
     }
     &:hover {
       color: $black;
       border-radius: 23px;
       box-shadow: 0 14px 14px 5px rgba($black, 0.1);
       transition: box-shadow 500ms ease-out, border-radius 500ms ease-in;
-      figure {
+
+      header {
         height: 220px;
         transition: $transition-medium;
+      }
+      figure {
+        width: 100%;
         img {
-          height: 100%;
-          max-height: 220px;
-          min-height: 220px;
+          width: 100%;
           transition: $transition-medium;
         }
         figcaption {
-          opacity: 0;
-          transition: opacity 1000ms $easing;
+          opacity: 1;
+          // transition: opacity 1000ms $easing;
         }
       }
       main {
-        margin: 20px 15px 0;
         opacity: 1;
         transition: opacity 500ms 600ms $easing;
       }
       h2 {
         font-family: $corma;
         font-style: normal;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 18px;
         line-height: 24px;
-        margin-top: 20px;
-        text-align: center;
+        margin: 20px 0 0;
+        text-align: left;
       }
       p {
         font-size: 1rem;
@@ -154,24 +148,18 @@ $card-bottom-rad: calc((100vw - 120px) / 12 * 1.5);
         }
       }
     }
-    min-width: 300px;
-    max-width: calc(1440px / 3);
-    height: 400px;
-    max-height: 400px;
+
     figure {
       position: relative;
       margin: 0;
-      height: 400px;
+      height: 100%;
       transition: $transition-medium;
       display: flex;
       justify-content: center;
 
       img {
         object-fit: cover;
-        width: 100%;
-        height: 100%;
-        max-height: 500px;
-        min-height: 500px;
+
         transition: $transition-medium;
       }
       img.emoji {
@@ -221,7 +209,7 @@ $card-bottom-rad: calc((100vw - 120px) / 12 * 1.5);
     }
 
     main {
-      margin: 20px 15px 0;
+      margin: 12px 15px 0;
       opacity: 0;
     }
     h2 {
@@ -236,6 +224,7 @@ $card-bottom-rad: calc((100vw - 120px) / 12 * 1.5);
     p {
       font-size: 1rem;
       line-height: 20px;
+      margin-top: 4px;
     }
   }
 }
