@@ -15,7 +15,7 @@
         'depth' => 0,                                   // limit the depth of the nav
         'fallback_cb' => 'bones_footer_links_fallback'  // fallback function
       )); ?>
-  <?php endif; ?>  
+  <?php endif; ?>
 </nav>
 
   <div class="grid-span--4 maillist">
@@ -24,7 +24,7 @@
   <div class="grid-span--4 footer-contact">
     <div class="footer-contact--inner" >
       <?php uni_partial('library/icons/uni_logo.svg'); ?>
-      <a href="mailto:uni@uni.is"><?php _e('Hafa samband', 'uni') ?></a>
+      <a href="mailto:uni@uni.is"><?php pll_e('Hafa samband') ?></a>
     </div>
   </div>
 </div>
