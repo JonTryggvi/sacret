@@ -4,6 +4,10 @@ if(function_exists('pll_register_string')) {
 
   pll_register_string('component', 'More', 'Avista');
   pll_register_string('component', 'Meira', 'Avista');
+  pll_register_string('component', 'Skrá mig', 'Avista');
+  pll_register_string('component', 'Hafa samband', 'Avista');
+  pll_register_string('component', 'Skrá mig á póstlista', 'Avista');
+  pll_register_string('component', 'Skrá veffang', 'Avista');
   // pll_register_string('cart', 'Total', 'Uni woo');
   // pll_register_string('cart', 'Subtotal', 'Uni woo');
   // pll_register_string('cart', 'Cart totals', 'Uni woo');
