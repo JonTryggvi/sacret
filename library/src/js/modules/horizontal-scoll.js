@@ -1,24 +1,28 @@
 const HorizontalScrolling = {
   time: 1,
   init(args) {
-    let is_archive = this.cacheDom(args)
-    if (!is_archive) {
-      let counter = 'counter_' + this.slider.id
-      let hold_time = 'hold_time_' + this.slider.id
-      let container = this.slider.querySelector('.card-container')
-      if (container.offsetWidth === container.scrollWidth) {
-        this.scrollForward.classList.add('visibility__hidden')
+    setTimeout(() => {
+      let is_archive = this.cacheDom(args)
+      if (!is_archive) {
+        let counter = 'counter_' + this.slider.id
+        let hold_time = 'hold_time_' + this.slider.id
+        this[hold_time] = 0
+        this[counter] = 0
+        this.addEvents()
       }
-      this[hold_time] = 0
-      this[counter] = 0
-      this.addEvents()
-    }
+    }, 700);
   },
-  cacheDom(args){
+  cacheDom(args) {
+    this.slider = null;
     this.slider = args.sliderWrapper
     this.scrollForward = this.slider.querySelector('.scrollForward')
     this.scrollBack = this.slider.querySelector('.scrollBack')
     this.productContainer = this.slider.querySelector('.card-container')
+    let container = this.slider.querySelector('.card-container')
+    if (container.childElementCount < 6) {
+      this.scrollForward.classList.add('visibility__hidden')
+    }
+
     return this.slider.classList.contains('archive')
   },
   addEvents(){
