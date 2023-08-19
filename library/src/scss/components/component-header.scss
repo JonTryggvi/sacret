@@ -194,31 +194,32 @@
         }
         &.active > a {
           position: relative;
+          font-weight: 700;
         }
-        &.active > a::after {
-          content: "";
-          position: absolute;
-          width: 15px;
-          height: 2px;
-          bottom: calc(50% - 1px);
-          right: -2rem;
+        // &.active > a::after {
+        //   content: "";
+        //   position: absolute;
+        //   width: 15px;
+        //   height: 1px;
+        //   bottom: 5px;
+        //   left: calc(50% - 7px);
 
-          .lilac_theme & {
-            background-color: $lilac;
-          }
-          .blue_theme & {
-            background-color: $darkBlue;
-          }
-          .green_theme & {
-            background-color: $green;
-          }
-          .gold_theme & {
-            background-color: $gold-light;
-          }
-          .black_theme & {
-            background-color: $black;
-          }
-        }
+        //   .lilac_theme & {
+        //     background-color: $lilac;
+        //   }
+        //   .blue_theme & {
+        //     background-color: $darkBlue;
+        //   }
+        //   .green_theme & {
+        //     background-color: $green;
+        //   }
+        //   .gold_theme & {
+        //     background-color: $gold-light;
+        //   }
+        //   .black_theme & {
+        //     background-color: $black;
+        //   }
+        // }
         &:hover {
           .lilac_theme & > a {
             color: $lilac;
