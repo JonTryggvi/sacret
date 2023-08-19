@@ -126,7 +126,7 @@
           ul::after {
             position: relative;
             content: "~";
-            font-size: 24px;
+            font-size: 36px;
             font-weight: 500;
             .lilac_theme & {
               color: $darkLilac;
@@ -147,7 +147,7 @@
               content: "~";
               flex-basis: 100%;
               text-align: center;
-              font-size: 24px;
+              font-size: 36px;
             }
             font-size: 36px;
             font-weight: 500;
@@ -156,7 +156,7 @@
           }
         }
         & a {
-          font-size: 24px;
+          font-size: 36px;
           font-weight: 400;
           @include bp(phablet) {
             font-size: 28px;
@@ -195,10 +195,11 @@
         &:hover {
           .lilac_theme & > a {
             color: $lilac;
-            transform: scale(1.01);
+            transform: scale(1.1);
           }
           .blue_theme & > a {
             color: $darkBlue;
+            transform: scale(1.1);
           }
           .green_theme & > a {
             color: $green;
@@ -206,9 +207,11 @@
           }
           .gold_theme & > a {
             color: $gold-light;
+            transform: scale(1.1);
           }
           .black_theme & > a {
             color: $black;
+            transform: scale(1.1);
           }
         }
       }
