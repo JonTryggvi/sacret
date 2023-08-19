@@ -85,7 +85,7 @@ function sass() {
       .pipe($.dartScss({
         includePaths: PATHS.sass
       })
-        .on('error', err => console.log(err)))
+      .on('error', err => console.log(err)))
       .pipe($.autoprefixer({
         overrideBrowserslist: COMPATIBILITY
       }))

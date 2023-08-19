@@ -8,7 +8,10 @@
   z-index: 10;
   background-color: $white;
   box-shadow: 0 0 0 rgba($blue, 0);
-  transition: background-color 40ms $easing, box-shadow 400ms 100ms $easing, height 30ms $easing;
+  transition:
+    background-color 40ms $easing,
+    box-shadow 400ms 100ms $easing,
+    height 30ms $easing;
   box-sizing: border-box;
   @include bp(phablet) {
     height: 50px;
@@ -84,9 +87,9 @@
     box-sizing: border-box;
     display: flex;
     flex-flow: row nowrap;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    padding: 5rem 1rem 0;
+    padding: 0rem 1rem 0;
     position: absolute;
     width: 100vw;
     height: calc(100vh - 50px);
@@ -95,19 +98,17 @@
     position: absolute;
     z-index: 4;
     background-color: $white;
-    transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    // transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);s
     &--active {
       right: 0;
     }
   }
   &__nav-list {
     display: flex;
-
     flex-flow: column;
     justify-content: flex-start;
     margin: 0;
     padding: 0;
-
     z-index: 4;
     background-color: $white;
     transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
@@ -120,9 +121,43 @@
         position: relative;
         opacity: 0;
         text-align: right;
+        &:has(ul) {
+          margin-top: 1rem;
+          ul::after {
+            position: relative;
+            content: "~";
+            font-size: 24px;
+            font-weight: 500;
+            .lilac_theme & {
+              color: $darkLilac;
+            }
+            .blue_theme & {
+              color: $darkBlue;
+            }
+            .green_theme & {
+              color: $darkGreen;
+            }
+          }
+          & > a {
+            &::before {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+              content: "~";
+              flex-basis: 100%;
+              text-align: center;
+              font-size: 24px;
+            }
+            font-size: 36px;
+            font-weight: 500;
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+        }
         & a {
-          font-size: 36px;
-          font-weight: 500;
+          font-size: 24px;
+          font-weight: 400;
           @include bp(phablet) {
             font-size: 28px;
           }
@@ -145,7 +180,7 @@
             background-color: $lilac;
           }
           .blue_theme & {
-            background-color: $blue;
+            background-color: $darkBlue;
           }
           .green_theme & {
             background-color: $green;
@@ -154,7 +189,26 @@
             background-color: $gold-light;
           }
           .black_theme & {
-            background-color: $lilac;
+            background-color: $black;
+          }
+        }
+        &:hover {
+          .lilac_theme & > a {
+            color: $lilac;
+            transform: scale(1.01);
+          }
+          .blue_theme & > a {
+            color: $darkBlue;
+          }
+          .green_theme & > a {
+            color: $green;
+            transform: scale(1.1);
+          }
+          .gold_theme & > a {
+            color: $gold-light;
+          }
+          .black_theme & > a {
+            color: $black;
           }
         }
       }
@@ -213,7 +267,7 @@
         text-decoration: none;
         // @include bp(phablet) {
         width: 100%;
-        justify-content: flex-end;
+        justify-content: center;
         // }
         .blue_theme & {
           color: $darkBlue;
@@ -280,7 +334,10 @@
     background-color: $white;
     box-shadow: 0px 0px 16px rgba($darkBlue, 0.2);
     height: 60px;
-    transition: background-color 300ms ease, box-shadow 400ms 100ms ease, height 30ms ease;
+    transition:
+      background-color 300ms ease,
+      box-shadow 400ms 100ms ease,
+      height 30ms ease;
 
     svg {
       top: 0;
