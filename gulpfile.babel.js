@@ -2,6 +2,7 @@
 import plugins from 'gulp-load-plugins';
 import yargs from 'yargs';
 import browser from 'browser-sync';
+// let browser = bs.create();
 import gulp from 'gulp';
 import rimraf from 'rimraf';
 import yaml from 'js-yaml';
@@ -95,7 +96,7 @@ function sass() {
       .pipe(gulp.dest(PATHS.dist + '/css'))
       .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
       .pipe(gulp.dest(PATHS.dist + '/css'))
-      .pipe(browser.reload({ stream: true }));
+      .pipe(browser.stream());
   });
   return merge(tasks);
 }
@@ -227,7 +228,7 @@ function server(done) {
     proxy: BROWSERSYNC.url,
     ui: {
       port: 8080
-    },
+    }
   }
   if (BROWSERSYNC.hasOwnProperty('key')) {
     options.https = {
