@@ -3,6 +3,10 @@
   width: 100vw;
   height: calc(100vh - 80px);
   overflow: hidden;
+  @include bp(phablet) {
+    min-height: 60vh;
+    height: auto;
+  }
   &__row {
     display: grid !important;
     width: 100vw;
@@ -11,29 +15,32 @@
     grid-column-gap: 1em;
     grid-template-rows: [top] 80px [middle] repeat(12, 1fr) [bottom] 80px [last-line];
     grid-row-gap: 1em;
-    @include bp(phablet){
-      grid-template-rows: [top] 50px [middle] repeat(5, 1fr) [bottom] 80px [last-line];
+    @include bp(phablet) {
+      min-height: 60vh;
+      height: auto;
+      grid-template-rows: [top] 50px [middle] repeat(auto-fill, 130px) [bottom] 80px [last-line];
       grid-column-gap: 0.2em;
       grid-row-gap: 0.2em;
     }
     &__text {
       grid-column: middle / span 5;
       grid-row: 5 / span 5;
-      p, a {
+      p,
+      a {
         margin-left: 40px;
       }
       &__box {
         display: flex;
         flex-direction: column;
       }
-      @include bp(phablet){
+      @include bp(phablet) {
         grid-column: middle / span 12;
         grid-row: 5 / span 3;
-        p, a {
+        p,
+        a {
           margin-left: 0px;
         }
       }
-
     }
     &__image {
       grid-column-start: 7;
@@ -42,9 +49,9 @@
       grid-row-end: 14;
       position: relative;
       // overflow: hidden;
-      @include bp(phablet){
+      @include bp(phablet) {
         grid-column: start / span 1;
-        grid-row: 2 / span 3 ;
+        grid-row: 2 / span 3;
       }
 
       picture {
@@ -58,7 +65,11 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
-          &.img_pos { &_top{object-position: top;} }
+          &.img_pos {
+            &_top {
+              object-position: top;
+            }
+          }
         }
       }
     }
@@ -74,14 +85,15 @@
         margin-bottom: 10px;
         text-align: left;
       }
-      p, a {
+      p,
+      a {
         text-align: left;
         margin-right: 40px;
       }
       a {
         align-self: flex-start;
       }
-      @include bp(phablet){
+      @include bp(phablet) {
         grid-column: middle / span 12;
         grid-row: 5 / span 3;
         h1.hero_h1 {
@@ -90,7 +102,8 @@
           text-align: left;
           margin: 25px 0 10px;
         }
-        p, a {
+        p,
+        a {
           opacity: 0;
           text-align: left;
           margin-top: 5px;
@@ -101,48 +114,78 @@
         }
       }
     }
-    &__image{
+    &__image {
       grid-column: 2 / span 7;
-      @include bp(phablet){
+      @include bp(phablet) {
         grid-column: start / span 14;
-        grid-row: 2 / span 3 ;
+        grid-row: 2 / span 3;
       }
       &__backdrop-mask {
         position: absolute;
-        background: radial-gradient(150.07% 712.09% at 144.05% 90.56%, rgba($lilac, 0) 0%, rgba($white, 0.1) 40.79%, $lilac 100%);
+        background: radial-gradient(
+          150.07% 712.09% at 144.05% 90.56%,
+          rgba($lilac, 0) 0%,
+          rgba($white, 0.1) 40.79%,
+          $lilac 100%
+        );
         width: calc(100vw / 1.7);
         height: calc((100vh - 80px) / 12 * 10);
         left: calc((30px + 1em) * -1);
         top: calc((100vh - 80px) / 12 * -1);
         clip-path: ellipse(182% 68% at 51% 32%);
         @include bp(phablet) {
-          height:  calc((100vh - 80px) / 12 * 5);
+          height: calc((100vh - 80px) / 12 * 5);
           top: 60px;
-          left:0;
-          clip-path: ellipse(162% 65%  at 51% 35%);
-          width:100vw;
+          left: 0;
+          clip-path: ellipse(162% 65% at 51% 35%);
+          width: 100vw;
         }
         .blue_theme & {
-          background: radial-gradient(150.07% 712.09% at 144.05% 90.56%, rgba($blue, 0) 0%, rgba($white, 0.1) 40.79%, $blue 100%);
+          background: radial-gradient(
+            150.07% 712.09% at 144.05% 90.56%,
+            rgba($blue, 0) 0%,
+            rgba($white, 0.1) 40.79%,
+            $blue 100%
+          );
         }
         .green_theme & {
-          background: radial-gradient(150.07% 712.09% at 144.05% 90.56%, rgba($darkGreen, 0) 0%, rgba($white, 0.1) 40.79%, $darkGreen 100%);
+          background: radial-gradient(
+            150.07% 712.09% at 144.05% 90.56%,
+            rgba($darkGreen, 0) 0%,
+            rgba($white, 0.1) 40.79%,
+            $darkGreen 100%
+          );
         }
         .lilac_theme & {
-          background: radial-gradient(150.07% 712.09% at 144.05% 90.56%, rgba($lilac, 0) 0%, rgba($white, 0.1) 40.79%, $lilac 100%);
+          background: radial-gradient(
+            150.07% 712.09% at 144.05% 90.56%,
+            rgba($lilac, 0) 0%,
+            rgba($white, 0.1) 40.79%,
+            $lilac 100%
+          );
         }
         .black_theme & {
-          background: radial-gradient(150.07% 712.09% at 144.05% 90.56%, rgba($lilac, 0) 0%, rgba($white, 0) 40.79%, $lilac 100%);
+          background: radial-gradient(
+            150.07% 712.09% at 144.05% 90.56%,
+            rgba($lilac, 0) 0%,
+            rgba($white, 0) 40.79%,
+            $lilac 100%
+          );
         }
         .gold_theme & {
-          background: radial-gradient(150.07% 712.09% at 144.05% 90.56%, rgba($gold-dark, 0) 0%, rgba($gold-light, 0) 40.79%, $gold 100%);
+          background: radial-gradient(
+            150.07% 712.09% at 144.05% 90.56%,
+            rgba($gold-dark, 0) 0%,
+            rgba($gold-light, 0) 40.79%,
+            $gold 100%
+          );
         }
       }
 
-      &__mask{
-        height:100%;
-        clip-path: ellipse(150% 65%  at 51% 35%);
-        @include bp(phablet){
+      &__mask {
+        height: 100%;
+        clip-path: ellipse(150% 65% at 51% 35%);
+        @include bp(phablet) {
           max-height: 41vh;
         }
       }
@@ -150,9 +193,8 @@
   }
 }
 
-.stagger, .staggerBtn {
+.stagger,
+.staggerBtn {
   opacity: 0;
   // transform: translateX(-270px);
 }
-
-

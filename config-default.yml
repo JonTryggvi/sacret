@@ -1,7 +1,7 @@
 # Browsersync config
 BROWSERSYNC:
   # URL of local development server goes here (ex. http://localsite.dev)
-  url: "http://uni.test"
+  url: "https://uni.test"
   # key: "/Users/avista_jontryggvi/.ssl/localhost.key"
   # crt: "/Users/avista_jontryggvi/.ssl/localhost.crt"
 
