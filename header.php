@@ -30,8 +30,9 @@
 				'lilac' => '#fefbfb',
 				'default' => '#fefbfb'
 			];
-			$set_bc_color_key = in_array($get_color, $bc_colors) ? $get_color : 'default';
+			$set_bc_color_key = array_key_exists($get_color, $bc_colors) ? $get_color : 'default';
 			$theme_color = $get_color .'_theme';
+
 		?>
 		<meta name="theme-color" content="<?php echo $bc_colors[$set_bc_color_key] ?>">
 		<?php wp_head();  // end of wordpress head ?>
