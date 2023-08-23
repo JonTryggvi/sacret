@@ -12,9 +12,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 		<title><?php wp_title(''); ?></title>
-		
+
 		<meta name="HandheldFriendly" content="True">
-		<!-- <meta name="MobileOptimized" content="320"> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 		<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
@@ -28,24 +27,29 @@
 		<meta name="application-name" content="Uni">
 		<meta name="msapplication-TileColor" content="#603cba">
 		<meta name="msapplication-config" content="/library/images/favicon/browserconfig.xml">
-		<meta name="theme-color" content="#ffffff">
 		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
-		<!--[if IE]>
-			<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
-		<![endif]-->
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
 		<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script><![endif]-->
-	
-		<?php // wordpress head functions ?>
-		<?php wp_head(); ?>
-		<?php // end of wordpress head ?>
+
+			<?php // wordpress head functions ?>
+			<?php wp_head(); ?>
+			<?php // end of wordpress head ?>
+	<?php
+	$get_color =  get_field('set_theme_color_palete', 'option');
+	var_dump($get_color);
+	$bc_colors = [
+		'black' => '#010125',
+		'gold' => '#010125',
+		'lilac' => '#fefbfb',
+		'default' => '#fefbfb'
+	];
+	$set_bc_color_key = in_array($get_color, $bc_colors) ? $get_color : 'default';
+	$theme_color = $get_color .'_theme';  ?>
+			<meta name="theme-color" content="<?php echo $bc_colors[$set_bc_color_key]; ?>">
 
 	</head>
-	<?php 
-	$get_color =  get_field('set_theme_color_palete', 'option');
-	$theme_color = $get_color .'_theme'; ?>
 
 	<body <?php body_class(['bc--white', $theme_color]); ?> itemscope itemtype="http://schema.org/WebPage">
 
