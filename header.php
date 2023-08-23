@@ -14,7 +14,7 @@
 		<title><?php wp_title(''); ?></title>
 
 		<meta name="HandheldFriendly" content="True">
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
 		<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
 		<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/library/images/favicon/apple-touch-icon.png">
@@ -30,6 +30,7 @@
 		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
 
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+		<meta name="theme-color" content="#fefbfb">
 
 		<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script><![endif]-->
 
@@ -38,7 +39,6 @@
 			<?php // end of wordpress head ?>
 	<?php
 	$get_color =  get_field('set_theme_color_palete', 'option');
-	var_dump($get_color);
 	$bc_colors = [
 		'black' => '#010125',
 		'gold' => '#010125',
@@ -47,7 +47,6 @@
 	];
 	$set_bc_color_key = in_array($get_color, $bc_colors) ? $get_color : 'default';
 	$theme_color = $get_color .'_theme';  ?>
-			<meta name="theme-color" content="#fefbfb">
 
 	</head>
 
