@@ -47,7 +47,7 @@
 	];
 	$set_bc_color_key = in_array($get_color, $bc_colors) ? $get_color : 'default';
 	$theme_color = $get_color .'_theme';  ?>
-			<meta name="theme-color" content="<?php echo $bc_colors[$set_bc_color_key]; ?>">
+			<meta name="theme-color" content="#fefbfb">
 
 	</head>
 
