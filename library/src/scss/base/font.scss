@@ -1,8 +1,9 @@
 // @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:700&display=swap|Raleway:400,600&display=swap|EB+Garamond:400,700&display=swap');
 // @import url('https://fonts.googleapis.com/css2?family=Gabriela&family=Fleur+De+Leah&&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100;0,600;1,100;1,600&display=swap|Raleway:400,600&display=swap');
-$raleway: 'Raleway', sans-serif;
-$nav-font-family: $raleway;  //'Raleway', 'Josefin Slab', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100;0,600;1,100;1,600&display=swap');
+// $nav-font-family: 'Raleway', sans-serif;
+$test: 'Viaoda Libre', serif;
+$nav-font-family: 'Josefin Slab', serif;  //'Raleway', 'Josefin Slab', sans-serif;
 $table: $nav-font-family;
 $paragraph-font-family: 'Josefin Slab', serif;
 $body-font-family: 'Josefin Slab', serif;
@@ -24,12 +25,12 @@ h1 {
     color: $darkLilac;
   }
   .black_theme & {
-    color: $white; 
+    color: $white;
   }
   .gold_theme & {
     color: $gold-light;
   }
-  @include bp(phablet){ 
+  @include bp(phablet){
     font-size: em(42);
     margin-top: em(12);
   }
@@ -96,7 +97,7 @@ p, a {
   font-family: $paragraph-font-family;
   font-size: em(24);
   line-height: em(28);
-  
+
   .green_theme & {
     color: $darkGreenParagraph;
   }
@@ -118,7 +119,7 @@ blockquote {
     font-size: 56px;
     position: absolute;
     top: calc(50% - 23px);
-  
+
   }
   .add_tilda &::before {
     left: 0px;
@@ -131,7 +132,7 @@ blockquote {
     @include bp(phablet) {
       right: -46px;
     }
-  } 
+  }
   & {
     .green_theme & {
        color: $darkGreenParagraph;
@@ -174,7 +175,7 @@ input {
 }
 
 label {
-  font-family: $raleway;
+  font-family: $nav-font-family;
   font-size: em(9);
   color: $black;
 }
@@ -185,14 +186,14 @@ label {
     line-height: 18px;
   }
   & .select2-results__options {
-    font-family: $raleway;
+    font-family: $nav-font-family;
   }
   &.select2-results__option--highlighted {
     color: $white;
     .green_theme & {
       background-color: lighten($green, 20%);
     }
-  
+
   }
 }
 

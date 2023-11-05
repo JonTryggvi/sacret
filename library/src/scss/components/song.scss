@@ -1,19 +1,19 @@
 .song-detail {
   & p, & span, & div {
-    font-family: $raleway;
+    font-family: $nav-font-family;
   }
   & .like-container, & .settings-bar-container, & .rel-song-container, & .all-song-container, & .chords-wrapper, & .tag-container--tag {
     display: none;
   }
- 
+
   & .subtitle-container {
     & ul {
-      margin: -37px auto 40px; 
+      margin: -37px auto 40px;
       padding-left: 0;
-  
+
      & li {
       font-size: 8px;
-  
+
     }}
   }
 
@@ -51,7 +51,7 @@
     min-height: 10px;
 
   }
- 
+
   .grid-row-content {
     display: flex;
     flex-flow: column;
@@ -60,7 +60,7 @@
 
   }
   .uni_section__content {
-    & h1 { 
+    & h1 {
       font-size:1rem;
       margin: 2px;}
   }
@@ -83,5 +83,5 @@
   @page {
     margin: 1cm 2cm 1cm;
   }
- 
+
 }

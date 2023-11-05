@@ -50,12 +50,12 @@
         text-align: center;
       }
       & a {
-        font-family: $raleway;
+        font-family: $nav-font-family;
         font-size: em(16);
         font-weight: 200;
         text-decoration: none;
       }
-      
+
     }
     // @include bp(phablet){
     //   width: 90%;
@@ -64,7 +64,7 @@
   .maillist {
     display: flex;
     justify-content: center;
-     
+
   }
   .footer-contact {
     display: flex;
@@ -81,15 +81,15 @@
         margin-top: 40px;
       }
     }
-    
-    
+
+
   }
   #inner-footer {
     margin-bottom: 46px;
   }
   .copyright {
-    font-family: $raleway;
-    font-size: em(12);    
+    font-family: $nav-font-family;
+    font-size: em(12);
     text-align: center;
     @include bp(phablet) {
       grid-column: span 12;
@@ -104,7 +104,7 @@
   height: calc(100vh - 80px);
   filter: drop-shadow( 1px 1px 7px transparent);
   path {
-    fill: transparent;  
+    fill: transparent;
     transition: fill 800ms ease-in-out;
   }
 
