@@ -66,11 +66,11 @@
       color: $white;
     }
   }
-  form .woocommerce-billing-fields .form-row .woocommerce-input-wrapper, 
+  form .woocommerce-billing-fields .form-row .woocommerce-input-wrapper,
   form .woocommerce-shipping-fields .form-row .woocommerce-input-wrapper,
   form .woocommerce-additional-fields .form-row .woocommerce-input-wrapper {
     textarea.input-text {
-      font-family: $raleway;
+      font-family: $nav-font-family;
       padding-top: 8px;
       min-height: 200px;
     }
@@ -113,7 +113,7 @@
       background-color: $lilac;
     }
     & .select2-selection__rendered {
-      font-family: $raleway;
+      font-family: $nav-font-family;
       .black_theme & {
         color: $white;
       }
@@ -156,12 +156,12 @@
     }
   }
   & .select2-results__options{
-    font-family: $raleway;
+    font-family: $nav-font-family;
     padding: 0 4px;
     border-radius: 4px;
   }
   & .select2-results__option[data-selected='true'] {
-    
+
     border-radius: 4px;
   }
   & .select2-results__option--highlighted[data-selected] {
@@ -185,4 +185,3 @@
   }
 }
 
-  
