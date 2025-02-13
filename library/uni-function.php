@@ -80,7 +80,7 @@ function product_count_shortcode () {
 }
 
 
-add_filter( 'woocommerce_return_to_shop_redirect', 'custom_empty_cart_redirect_url' );
+// add_filter( 'woocommerce_return_to_shop_redirect', 'custom_empty_cart_redirect_url' );
 function custom_empty_cart_redirect_url(){
   return home_url();
 }
@@ -119,3 +119,43 @@ if(!function_exists('pprint')){
   }
 }
 
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+
+// Part 1
+// Single Product Page Add to Cart
+
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'bbloomer_custom_add_cart_button_single_product', 9999 );
+
+function bbloomer_custom_add_cart_button_single_product( $label ) {
+   if ( WC()->cart && ! WC()->cart->is_empty() ) {
+      foreach( WC()->cart->get_cart() as $cart_item_key => $values ) {
+         $product = $values['data'];
+         if ( get_the_ID() == $product->get_id() ) {
+            $label = 'Already in Cart.';
+            break;
+         }
+      }
+   }
+   return $label;
+}
+
+// Part 2
+// Loop Pages Add to Cart
+
+add_filter( 'woocommerce_product_add_to_cart_text', 'bbloomer_custom_add_cart_button_loop', 9999, 2 );
+
+function bbloomer_custom_add_cart_button_loop( $label, $product ) {
+   if ( $product->get_type() == 'simple' && $product->is_purchasable() && $product->is_in_stock() ) {
+      if ( WC()->cart && ! WC()->cart->is_empty() ) {
+         foreach( WC()->cart->get_cart() as $cart_item_key => $values ) {
+            $_product = $values['data'];
+            if ( get_the_ID() == $_product->get_id() ) {
+               $label = 'Already in Cart';
+               break;
+            }
+         }
+      }
+   }
+   return $label;
+}

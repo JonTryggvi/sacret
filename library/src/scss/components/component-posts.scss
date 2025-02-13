@@ -1,4 +1,4 @@
-.uni_section__posts {
+.uni_section__posts, .products {
   &__container {
     grid-column-start: middle;
     grid-column-end: middle-end;
@@ -27,7 +27,7 @@
         }
       }
       main {
-        margin:20px 15px 0; 
+        margin:20px 15px 0;
         &, p {
           font-size: 1rem;
         }

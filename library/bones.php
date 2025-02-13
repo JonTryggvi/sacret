@@ -135,6 +135,7 @@ function bones_scripts_and_styles() {
 		// register main Avista stylesheet
 		wp_register_style( 'avista-styles', get_stylesheet_directory_uri() . '/library/dist/css/avista-app.css', array(), '', 'all' );
 		wp_register_style( 'avista-woocommerce', get_stylesheet_directory_uri() . '/library/dist/css/avista-woocommerce.css', array(), '', 'all' );
+		wp_register_style( 'avista-shop', get_stylesheet_directory_uri() . '/library/dist/css/shop.css', array(), '', 'all' );
 
 		// ie-only style sheet
 		// wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
@@ -186,6 +187,9 @@ function bones_scripts_and_styles() {
 		if(is_archive()) {
 			wp_enqueue_script('archive-js');
 		}
+		if(is_shop()) {
+			wp_enqueue_style( 'avista-shop' );
+		}
 
 		if( have_rows('sections') ):
 			$row_layouts = [
@@ -230,17 +234,21 @@ function bones_scripts_and_styles() {
 				$row_layouts_index[$element]++;
       endwhile;
     endif;
+
 		$q_post = get_queried_object();
-		$blocks = parse_blocks( $q_post->post_content );
-		$map_blocks = [
-			'acf/card-deck' => 'blog_section'
-		];
-		foreach ($blocks as $key => $block) {
-			$block_name = array_key_exists($block['blockName'], $map_blocks) ? $map_blocks[$block['blockName']] : 'default';
-			if(0 == $row_layouts_index[$block_name]) {
-				$row_layouts[$block_name]();
+		if(!empty($q_post) && property_exists($q_post, 'post_content')) {
+
+			$blocks = parse_blocks( $q_post->post_content);
+			$map_blocks = [
+				'acf/card-deck' => 'blog_section'
+			];
+			foreach ($blocks as $key => $block) {
+				$block_name = array_key_exists($block['blockName'], $map_blocks) ? $map_blocks[$block['blockName']] : 'default';
+				if(0 == $row_layouts_index[$block_name]) {
+					$row_layouts[$block_name]();
+				}
+				// pprint($block['blockName'], 'margin-top:150px;');
 			}
-			// pprint($block['blockName'], 'margin-top:150px;');
 		}
 
 		/** Hér erum við með sérstakt js skjal fyrir single post type */

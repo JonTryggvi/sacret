@@ -10,9 +10,11 @@
   $container_id = 'card_container_'.$i;
   $section_id = 'section_'.$i;
   $select_posts = get_sub_field('select_posts');
+  $margin_top = get_sub_field('top_margin');
+  $margin_top_class = !empty($margin_top) ? "uni_section__margin_top_$margin_top" : '';
   if(!empty($product_count) && $is_published) :
 ?>
-  <section id="<?php echo $section_id; ?>" class="uni_section uni_section__products <?php echo $section_has_title; echo $archive_class; ?> grid-with-margin" data-type="<?php echo $section_type; ?>" data-preselected="<?php echo $select_posts ?>" data-post-type="product" data-section_order="<?php echo $i ?>" data-per_page="<?php echo $per_page ?>"data-post_id="<?php echo $post->ID; ?>" >
+  <section id="<?php echo $section_id; ?>" class="uni_section uni_section__products <?php echo $section_has_title; echo $archive_class; ?> grid-with-margin <?php echo $margin_top_class ?>" data-type="<?php echo $section_type; ?>" data-preselected="<?php echo $select_posts ?>" data-post-type="product" data-section_order="<?php echo $i ?>" data-per_page="<?php echo $per_page ?>"data-post_id="<?php echo $post->ID; ?>" >
     <?php if(false !== $section_title): ?>
       <h2 class="text"><?php echo $section_title; ?></h2>
     <?php endif; ?>
