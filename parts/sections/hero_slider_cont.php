@@ -28,8 +28,17 @@ if(have_rows('hero_slider')):
 						<?php endif; ?>
 						<?php
 							if(!$sleppa_takka) :
-								if($is_add_to_cart) :  $product_id = $post->ID;  ?>
-									<a class="btn addToCart staggerBtn" data-product-id="<?php echo $product_id; ?>"><?php echo $hero_link_text;?></a>
+								if($is_add_to_cart) :
+									$product_id = $post->ID;
+									$add_to_cart_link = "/?add-to-cart=$product_id&quantity=1";
+									$product = wc_get_product($product_id);
+									$price = wc_price($product->get_price());
+								?>
+									<div>
+										<a href="<?php echo $add_to_cart_link; ?>" class="btn addToCart staggerBtn" data-product-id="<?php echo $product_id; ?>"><?php echo $hero_link_text.' ' ;?></a>
+										<span class="stagger"><?php echo $price; ?></span>
+
+									</div>
 								<?php		else :	?>
 								<a class="btn staggerBtn" href="<?php echo $hero_link ?>"><?php echo $hero_link_text; ?></a>
 						<?php endif; endif; ?>

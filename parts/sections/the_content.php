@@ -5,8 +5,10 @@
   $title = $product->get_name();
   $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'single-post-thumbnail' );
   // $description = $product->get_description();
+  $margin_top = get_sub_field('top_margin');
+  $margin_top_class = !empty($margin_top) ? "uni_sectio___margin_top_$margin_top" : '';
   $the_price = $product->get_price(); ?>
-  <section class="uni_section uni_section__single-product grid-with-margin grid-row-content__single-prod grid-row-content"  data-section_order="<?php echo $i ?>">
+  <section class="uni_section uni_section__single-product grid-with-margin grid-row-content__single-prod grid-row-content <?php echo $margin_top_class ?>"  data-section_order="<?php echo $i ?>">
     <!-- <figure>
       <img src="<?php echo $image[0]; ?>" alt="">
     </figure>

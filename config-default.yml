@@ -43,6 +43,7 @@ PATHS:
   entries_sass:
     - "library/src/scss/avista-app.scss"
     - "library/src/scss/avista-woocommerce.scss"
+    - "library/src/scss/shop.scss"
   # Paths for the package task to include/exclude in .zip archive
   package:
     - "**/*"

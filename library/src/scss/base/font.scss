@@ -176,7 +176,7 @@ input {
 
 label {
   font-family: $nav-font-family;
-  font-size: em(9);
+  font-size: em(14);
   color: $black;
 }
 
@@ -268,4 +268,9 @@ svg.uni_logo {
           fill:$gold-dark;
         }
       }
+}
+
+.woocommerce-Price-amount.amount {
+ font-family: $body-font-family;
+  font-size: em(20);
 }

@@ -22,7 +22,7 @@
       align-self: end;
       grid-column: middle / span 6;
       grid-row-start: title;
-      margin: 0;  
+      margin: 0;
       @include bp(tablet){
         grid-column: middle / span 12;
       }
@@ -34,9 +34,18 @@
   .card-container {
     grid-row-start: middle;
   }
+  &__margin_top {
+    &_min {
+      margin-top: 100px !important;
+    }
+    &_medium {
+      margin-top: 240px !important;
+    }
+    &_large {
+      margin-top: 480px !important;
+    }
+  }
   &.archive {
     margin-top: 100px;
-    
   }
-
 }
