@@ -51,13 +51,15 @@ function get_uni_posts() {
   if(!isset($_POST['action']) && empty($_POST['action'])) {
     exit('not happening');
   }
+  $query = false;
+  $posts = false;
   $page = absint($_POST['page']);
   $post_type = wp_strip_all_tags($_POST['post_type']);
   $field_posts = isset($_POST['field']) ? $_POST['field'] : false;
   $per_page = absint($_POST['per_page']);
   $preselected = 1 === absint($_POST['preselected']);
-  $post_id = !empty($_POST['post_id']) ? absint($_POST['post_id']) : false;
-  $term_id = !empty($_POST['term_id']) ? absint($_POST['term_id']) : false;
+  $post_id = absint($_POST['post_id']) ?? false;
+  $term_id = absint($_POST['term_id']) ?? false;
   $args = array(
     'posts_per_page' => $per_page,
     'paged' => $page,
