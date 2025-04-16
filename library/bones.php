@@ -243,7 +243,7 @@ function bones_scripts_and_styles() {
 				'acf/card-deck' => 'blog_section'
 			];
 			foreach ($blocks as $key => $block) {
-				$block_name = array_key_exists($block['blockName'], $map_blocks) ? $map_blocks[$block['blockName']] : 'default';
+				$block_name = $map_blocks[$block['blockName']] ?? 'default';
 				if(0 == $row_layouts_index[$block_name]) {
 					$row_layouts[$block_name]();
 				}
