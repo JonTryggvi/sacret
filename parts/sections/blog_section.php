@@ -10,7 +10,9 @@
   $container_id = 'card_container_'.$i;
   $section_id = 'section_'.$i;
   $select_posts = get_sub_field('select_posts'); // bool
-  $selected_posts = get_sub_field('selected_posts'); // array
+  $selected_posts = $select_posts ? get_sub_field('selected_posts') : []; // array
+
+  $select_post_category = get_sub_field('select_post_category'); // array
   $select_card_type = get_sub_field('select_card_type') ? get_sub_field('select_card_type') : 'u-shape';
   if(!$is_published) return;
 ?>
@@ -37,7 +39,7 @@
 
     </section>
   <?php elseif('o-shape' == $select_card_type) : ?>
-    <section id="<?php echo $section_id; ?>" class="uni_section <?php echo $section_has_title; echo $section_type; ?> grid-with-margin"  data-section_order="<?php echo $i ?>" data-per_page="<?php echo $per_page ?>" >
+    <section id="<?php echo $section_id; ?>" class="uni_section <?php echo $section_has_title; echo $section_type; ?> grid-with-margin uni_section__o"  data-section_order="<?php echo $i ?>" data-per_page="<?php echo $per_page ?>" >
 
       <?php if(false !== $section_title): ?>
         <h2><?php echo $section_title; ?></h2>
@@ -45,7 +47,22 @@
 
       <div id="<?php echo $container_id; ?>" class="card-container">
       <?php
-        // pprint($selected_posts);
+
+        if(empty($selected_posts)) {
+
+          $args = array(
+            'post_type' => $uni_post_type,
+            'posts_per_page' => $per_page,
+            'post_status' => 'publish',
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'category__in' => $select_post_category,
+          );
+          $the_query = new WP_Query( $args );
+          if ( $the_query->have_posts() ) {
+            $selected_posts = $the_query->posts;
+          }
+        }
         if( $selected_posts ): ?>
           <?php foreach( $selected_posts as $sel_post):
             //  pprint($sel_post);
