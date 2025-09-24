@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "../base" as *;
+
 .woocommerce  {
   & table {
     border-spacing: 0;
@@ -81,7 +84,7 @@
       border-radius: 4px;
       border: none;
       .blue_theme & {
-        background-color: lighten($blue, 20%);
+        background-color: color.adjust($blue, $lightness: 20%);
       }
       .green_theme & {
         color: $green;
@@ -145,10 +148,10 @@
        background-color: $white !important;
     }
     .blue_theme & {
-      background-color: lighten($blue, 20%) !important;
+      background-color: color.adjust($blue, $lightness: 20%) !important;
     }
     .lilac_theme & {
-      background-color: lighten($lilac, 20%) !important;
+      background-color: color.adjust($lilac, $lightness: 20%) !important;
     }
     .black_theme & {
       background-color: $lilac;
@@ -184,4 +187,3 @@
     }
   }
 }
-

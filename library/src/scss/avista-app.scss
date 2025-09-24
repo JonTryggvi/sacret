@@ -1,5 +1,7 @@
-@import "slick";
-// @import "owl.carousel";
-// @import "owl.theme.default";
-@import "base/index";
-@import "components/index";
+@use "sass:meta";
+@use "base";
+@use "components";
+
+@include meta.load-css("slick");
+// @include meta.load-css("owl.carousel");
+// @include meta.load-css("owl.theme.default");

@@ -1,3 +1,4 @@
+@use "../base" as *;
 $card-bottom-rad: calc((100vw - 120px) / 12 * 1.5);
 
 .uni_section {
@@ -80,8 +81,8 @@ $card-bottom-rad: calc((100vw - 120px) / 12 * 1.5);
   @include bp($large) {
     padding: 5rem 1rem 1rem;
   }
-  a,
-  div {
+  a:not(.uni_card__o-shape),
+  div:not(.uni_card__o-shape) {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -226,6 +227,16 @@ $card-bottom-rad: calc((100vw - 120px) / 12 * 1.5);
       font-size: 1rem;
       line-height: 20px;
       margin-top: 4px;
+    }
+  }
+  & .uni_card__o-shape {
+    & figure {
+      width: 100%;
+      max-width: 320px;
+      height: 100&;
+      max-height: 320px;
+      aspect-ratio: 1;
+      border-radius: 50%;
     }
   }
 }

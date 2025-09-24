@@ -1,3 +1,4 @@
+@use "../base" as *;
 .uni_section__gallery {
   & > h2 {
     grid-row-start: top;

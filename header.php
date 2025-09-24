@@ -4,11 +4,10 @@
 <!--[if (IE 7)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8"><![endif]-->
 <!--[if (IE 8)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!--> <html <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
-
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title><?php wp_title(''); ?></title>
+		<title><?php echo esc_html( wp_get_document_title() ); ?></title>
 		<meta name="HandheldFriendly" content="True">
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 		<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/library/images/favicon/apple-touch-icon.png">
@@ -38,5 +37,6 @@
 		<?php wp_head();  // end of wordpress head ?>
 	</head>
 	<body <?php body_class(['bc--white', $theme_color]); ?> itemscope itemtype="http://schema.org/WebPage">
+		<?php wp_body_open(); ?>
 		<div id="container">
 		<?php uni_partial('parts/header/header', ['theme_color' => $get_color]); ?>

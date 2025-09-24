@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "./variables" as *;
+@use "./mixins" as *;
+
 // @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:700&display=swap|Raleway:400,600&display=swap|EB+Garamond:400,700&display=swap');
 // @import url('https://fonts.googleapis.com/css2?family=Gabriela&family=Fleur+De+Leah&&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100;0,600;1,100;1,600&display=swap');
@@ -109,7 +113,7 @@ p, a {
   }
   .lilac_theme & {
     & strong { color: $darkLilac;}
-    color: darken($darkLilac, 20);
+    color: color.adjust($darkLilac, $lightness: -20%);
   }
 }
 blockquote {
@@ -191,7 +195,7 @@ label {
   &.select2-results__option--highlighted {
     color: $white;
     .green_theme & {
-      background-color: lighten($green, 20%);
+      background-color: color.adjust($green, $lightness: 20%);
     }
 
   }

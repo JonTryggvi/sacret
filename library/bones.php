@@ -47,7 +47,7 @@ function bones_head_cleanup() {
 	// remove WP version from css
 	add_filter( 'style_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
 	// remove Wp version from scripts
-	add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
+	// add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 ); #messes with post edit block editor
 
 } /* end bones head cleanup */
 
@@ -235,19 +235,21 @@ function bones_scripts_and_styles() {
       endwhile;
     endif;
 
-		$q_post = get_queried_object();
-		if(!empty($q_post) && property_exists($q_post, 'post_content')) {
+		if(is_single() && 'product' !== get_post_type()) {
+			$q_post = get_queried_object();
+			if(!empty($q_post) && property_exists($q_post, 'post_content')) {
 
-			$blocks = parse_blocks( $q_post->post_content);
-			$map_blocks = [
-				'acf/card-deck' => 'blog_section'
-			];
-			foreach ($blocks as $key => $block) {
-				$block_name = $map_blocks[$block['blockName']] ?? 'default';
-				if(0 == $row_layouts_index[$block_name]) {
-					$row_layouts[$block_name]();
+				$blocks = parse_blocks( $q_post->post_content);
+				$map_blocks = [
+					'acf/card-deck' => 'blog_section'
+				];
+				foreach ($blocks as $key => $block) {
+					$block_name = $map_blocks[$block['blockName']] ?? 'default';
+					// pprint($block_name, 'margin-top:150px;');
+					if(0 == $row_layouts_index[$block_name]) {
+						$row_layouts[$block_name]();
+					}
 				}
-				// pprint($block['blockName'], 'margin-top:150px;');
 			}
 		}
 

@@ -1,10 +1,10 @@
 'use strict';
-import plugins from 'gulp-load-plugins';
 import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
 import browser from 'browser-sync';
 // let browser = bs.create();
 import gulp from 'gulp';
-import rimraf from 'rimraf';
+import { rimraf } from 'rimraf';
 import yaml from 'js-yaml';
 import fs from 'fs';
 import dateFormat from 'dateformat';
@@ -14,20 +14,29 @@ import named from 'vinyl-named';
 import log from 'fancy-log';
 import colors from 'ansi-colors';
 import merge from 'merge-stream';
+import autoprefixer from 'gulp-autoprefixer';
+import dartScss from 'gulp-dart-scss';
+import sourcemaps from 'gulp-sourcemaps';
+import gulpIf from 'gulp-if';
+import rev from 'gulp-rev';
+import gulpUglify from 'gulp-uglify';
+import gulpPhpcs from 'gulp-phpcs';
+import gulpPhpcbf from 'gulp-phpcbf';
 
-// Load all Gulp plugins into one variable
-const $ = plugins();
+const argv = yargs(hideBin(process.argv)).argv;
 
 // Check for --production flag
-const PRODUCTION = !!(yargs.argv.production);
+const PRODUCTION = !!(argv.production);
 
 // Check for --development flag unminified with sourcemaps
-const DEV = !!(yargs.argv.dev);
+const DEV = !!(argv.dev);
 
 const WevPackEnv = PRODUCTION ? 'production' : 'development';
 
 // Load settings from settings.yml
 const { BROWSERSYNC, COMPATIBILITY, REVISIONING, PATHS } = loadConfig();
+
+const dynamicImport = modulePath => Function('modulePath', 'return import(modulePath);')(modulePath);
 
 // Check if file exists synchronously
 function checkFileExists(filepath) {
@@ -66,8 +75,8 @@ function loadConfig() {
 
 // Delete the "dist" folder
 // This happens every time a build starts
-function clean(done) {
-  rimraf(PATHS.dist, done);
+function clean() {
+  return rimraf(PATHS.dist);
 }
 
 // Copy files out of the assets folder
@@ -82,19 +91,19 @@ function copy() {
 function sass() {
   let tasks = PATHS.entries_sass.map(url => {
     return gulp.src(url)
-      .pipe($.sourcemaps.init())
-      .pipe($.dartScss({
+      .pipe(sourcemaps.init())
+      .pipe(dartScss({
         includePaths: PATHS.sass
       })
       .on('error', err => console.log(err)))
-      .pipe($.autoprefixer({
+      .pipe(autoprefixer({
         overrideBrowserslist: COMPATIBILITY
       }))
-      // .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
-      .pipe($.if(!PRODUCTION, $.sourcemaps.write('.')))
-      .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
+      // .pipe(gulpIf(PRODUCTION, cleanCss({ compatibility: 'ie9' })))
+      .pipe(gulpIf(!PRODUCTION, sourcemaps.write('.')))
+      .pipe(gulpIf(REVISIONING && PRODUCTION || REVISIONING && DEV, rev()))
       .pipe(gulp.dest(PATHS.dist + '/css'))
-      .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
+      .pipe(gulpIf(REVISIONING && PRODUCTION || REVISIONING && DEV, rev.manifest()))
       .pipe(gulp.dest(PATHS.dist + '/css'))
       .pipe(browser.stream());
   });
@@ -132,12 +141,12 @@ const webpack = {
     return gulp.src(PATHS.entries)
       .pipe(named())
       .pipe(webpackStream(webpack.config, webpack2))
-      .pipe($.if(PRODUCTION, $.uglify()
+      .pipe(gulpIf(PRODUCTION, gulpUglify()
         .on('error', e => { console.log(e); }),
       ))
-      .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
+      .pipe(gulpIf(REVISIONING && PRODUCTION || REVISIONING && DEV, rev()))
       .pipe(gulp.dest(PATHS.dist + '/js'))
-      .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
+      .pipe(gulpIf(REVISIONING && PRODUCTION || REVISIONING && DEV, rev.manifest()))
       .pipe(gulp.dest(PATHS.dist + '/js'));
   },
 
@@ -166,25 +175,28 @@ gulp.task('webpack:watch', webpack.watch);
 
 // Copy images to the "dist" folder
 // In production, the images are compressed
-function images() {
-  return gulp.src('library/src/images/**/*')
-    .pipe($.if(PRODUCTION, $.imagemin([
-      $.imagemin.jpegtran({
-        progressive: true,
-      }),
-      $.imagemin.optipng({
-        optimizationLevel: 5,
-      }),
-      $.imagemin.gifsicle({
-        interlaced: true,
-      }),
-      $.imagemin.svgo({
-        plugins: [
-          { cleanupAttrs: true },
-          { removeComments: true },
-        ]
-      })
-    ])))
+async function images() {
+  const imageSource = 'library/src/images/**/*';
+  if (!checkFileExists('library/src/images')) {
+    log(colors.yellow('Skipping image optimization, library/src/images not found.'));
+    return Promise.resolve();
+  }
+
+  const { default: gulpImagemin, gifsicle, mozjpeg, optipng, svgo } = await dynamicImport('gulp-imagemin');
+  const imageminPlugins = await Promise.all([
+    mozjpeg({ progressive: true }),
+    optipng({ optimizationLevel: 5 }),
+    gifsicle({ interlaced: true }),
+    svgo({
+      plugins: [
+        { name: 'cleanupAttrs', active: true },
+        { name: 'removeComments', active: true },
+      ]
+    })
+  ]);
+
+  return gulp.src(imageSource)
+    .pipe(gulpIf(PRODUCTION, gulpImagemin(imageminPlugins)))
     .pipe(gulp.dest(PATHS.dist + '/images'));
 }
 
@@ -202,18 +214,18 @@ function images() {
 // PHP Code Sniffer task
 gulp.task('phpcs', function () {
   return gulp.src(PATHS.phpcs)
-    .pipe($.phpcs({
+    .pipe(gulpPhpcs({
       bin: 'wpcs/vendor/bin/phpcs',
       standard: './codesniffer.ruleset.xml',
       showSniffCode: true,
     }))
-    .pipe($.phpcs.reporter('log'));
+    .pipe(gulpPhpcs.reporter('log'));
 });
 
 // PHP Code Beautifier task
 gulp.task('phpcbf', function () {
   return gulp.src(PATHS.phpcs)
-    .pipe($.phpcbf({
+    .pipe(gulpPhpcbf({
       bin: 'wpcs/vendor/bin/phpcbf',
       standard: './codesniffer.ruleset.xml',
       warningSeverity: 0
