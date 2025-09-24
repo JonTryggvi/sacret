@@ -1,4 +1,5 @@
 'use strict';
+process.env.SASS_SUPPRESS_LEGACY_JS_API_WARNING = '1';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import browser from 'browser-sync';
@@ -15,13 +16,16 @@ import log from 'fancy-log';
 import colors from 'ansi-colors';
 import merge from 'merge-stream';
 import autoprefixer from 'gulp-autoprefixer';
-import dartScss from 'gulp-dart-scss';
+import gulpSass from 'gulp-sass';
+import dartSass from 'sass';
 import sourcemaps from 'gulp-sourcemaps';
 import gulpIf from 'gulp-if';
 import rev from 'gulp-rev';
 import gulpUglify from 'gulp-uglify';
 import gulpPhpcs from 'gulp-phpcs';
 import gulpPhpcbf from 'gulp-phpcbf';
+
+const compileSass = gulpSass(dartSass);
 
 const argv = yargs(hideBin(process.argv)).argv;
 
@@ -92,10 +96,9 @@ function sass() {
   let tasks = PATHS.entries_sass.map(url => {
     return gulp.src(url)
       .pipe(sourcemaps.init())
-      .pipe(dartScss({
+      .pipe(compileSass({
         includePaths: PATHS.sass
-      })
-      .on('error', err => console.log(err)))
+      }).on('error', compileSass.logError))
       .pipe(autoprefixer({
         overrideBrowserslist: COMPATIBILITY
       }))

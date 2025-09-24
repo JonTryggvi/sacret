@@ -846,6 +846,45 @@
                             "layout": "horizontal"
                         },
                         {
+                            "key": "field_68d3b730347d3",
+                            "label": "Select Post Category",
+                            "name": "select_post_category",
+                            "aria-label": "",
+                            "type": "taxonomy",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6460baf1c939c",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "field": "field_63e8d092ac8fe",
+                                        "operator": "==",
+                                        "value": "post"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "taxonomy": "category",
+                            "add_term": 1,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "id",
+                            "field_type": "multi_select",
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "bidirectional": 0,
+                            "multiple": 0,
+                            "bidirectional_target": []
+                        },
+                        {
                             "key": "field_6460baf1c939c",
                             "label": "Select posts",
                             "name": "select_posts",
@@ -1073,5 +1112,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1758631638
+    "modified": 1758705582
 }

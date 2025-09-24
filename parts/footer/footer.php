@@ -1,6 +1,6 @@
 <div id="inner-footer" class="grid-with-margin">
-    <nav class="" role="navigation">
-      <?php if( has_nav_menu('footer-links')) : ?>
+  <nav class="" role="navigation">
+    <?php if( has_nav_menu('footer-links')) : ?>
       <p>Nytsamlegir hlekkir</p>
       <?php wp_nav_menu(array(
         'container' => 'div',                           // enter '' to remove nav container (just make sure .footer-links in _base.scss isn't wrapping)
@@ -15,17 +15,16 @@
         'depth' => 0,                                   // limit the depth of the nav
         'fallback_cb' => 'bones_footer_links_fallback'  // fallback function
       )); ?>
-  <?php endif; ?>
-</nav>
-
-  <div class="grid-span--4 maillist">
-    <?php uni_partial('parts/components/mailchimp-form', ['id_index' => 2, 'columns' => 4, 'location' => 'footer']); ?>
-  </div>
+    <?php endif; ?>
+  </nav>
   <div class="grid-span--4 footer-contact">
     <div class="footer-contact--inner" >
       <?php uni_partial('library/icons/uni_logo.svg'); ?>
       <a href="mailto:uni@uni.is"><?php pll_e('Hafa samband') ?></a>
     </div>
+  </div>
+  <div class="grid-span--4 maillist">
+    <?php uni_partial('parts/components/mailchimp-form', ['id_index' => 2, 'columns' => 4, 'location' => 'footer']); ?>
   </div>
 </div>
 <p class="source-org copyright grid-span-12">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>.</p>
