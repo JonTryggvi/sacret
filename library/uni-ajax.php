@@ -10,6 +10,8 @@ function get_products() {
   $per_page = absint($_POST['per_page']);
   $post_id = !empty($_POST['post_id']) ? absint($_POST['post_id']) : false;
   $preselected = 1 === absint($_POST['preselected']);
+  $query = null;
+  $products = [];
   if(!$preselected) {
     $query = new WP_Query( array(
       'posts_per_page' => $per_page,
@@ -20,10 +22,13 @@ function get_products() {
     ) );
     $products = $query->posts;
   } else {
-    $acf_fields = get_fields($post_id);
-    foreach ($acf_fields['sections'] as $key => $section) {
-      if('product_section' === $section['acf_fc_layout']) {
-        $products =  $section['selected_products'];
+    $acf_fields = $post_id ? get_fields($post_id) : null;
+    if (is_array($acf_fields) && !empty($acf_fields['sections']) && is_array($acf_fields['sections'])) {
+      foreach ($acf_fields['sections'] as $section) {
+        if ('product_section' === $section['acf_fc_layout'] && !empty($section['selected_products'])) {
+          $products = $section['selected_products'];
+          break;
+        }
       }
     }
   }
@@ -35,8 +40,10 @@ function get_products() {
      $sProducts .= uni_partial('parts/components/product-card', [], false);
     endwhile;
   else :
-    foreach ($products as $key => $product) {
-      $s_posts .= uni_partial('parts/components/product-card', ['product' => $product], false);
+    if (!empty($products)) {
+      foreach ($products as $key => $product) {
+        $sProducts .= uni_partial('parts/components/product-card', ['product' => $product], false);
+      }
     }
   endif;
   wp_reset_query();
@@ -72,16 +79,39 @@ function get_uni_posts() {
   if(!$preselected) {
     $query = new WP_Query( $args );
     $posts = $query->posts;
-  } elseif('false' === $field_posts[0]) {
-    $field_posts = explode(',', $field_posts);
-    foreach ($field_posts as $key => $post_id) {
-      $posts[]=get_post($post_id);
-    }
   } else {
-    $acf_fields = get_fields($post_id);
-    foreach ($acf_fields['sections'] as $key => $section) {
-      if('blog_section' === $section['acf_fc_layout']) {
-        $posts =  $section['selected_posts'];
+    $posts = [];
+    $field_post_values = [];
+
+    if (is_string($field_posts)) {
+      $field_post_values = array_map('trim', explode(',', $field_posts));
+    } elseif (is_array($field_posts)) {
+      $field_post_values = array_values($field_posts);
+    }
+
+    if ($field_post_values && isset($field_post_values[0]) && 'false' === $field_post_values[0]) {
+      $requested_ids = array_filter(array_map('absint', array_slice($field_post_values, 1)));
+
+      if ($requested_ids) {
+        $posts = get_posts([
+          'numberposts' => count($requested_ids),
+          'post__in' => $requested_ids,
+          'orderby' => 'post__in',
+          'post_type' => $post_type,
+          'post_status' => 'publish',
+        ]);
+      }
+    }
+
+    if (!$posts) {
+      $acf_fields = get_fields($post_id);
+      if (!empty($acf_fields['sections'])) {
+        foreach ($acf_fields['sections'] as $section) {
+          if('blog_section' === $section['acf_fc_layout']) {
+            $posts = $section['selected_posts'];
+            break;
+          }
+        }
       }
     }
   }
@@ -132,4 +162,3 @@ function call_mailchimp() {
   wp_send_json(['posted' => $_POST, 'member_added' => $member_add_res]);
   wp_die();
 }
-

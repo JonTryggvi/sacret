@@ -1,2 +1,2 @@
-@import "woocommerce";
-@import "cart";
+@forward "woocommerce";
+@forward "cart";

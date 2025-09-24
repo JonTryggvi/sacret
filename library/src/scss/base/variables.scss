@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // colors
 
 $pink: #CF6262;
@@ -8,14 +10,14 @@ $blue: #6788A7;
 $darkBlue: #264D6A;
 $lilac: #A29BAB;
 $green: #787e01;
-$darkGreen: darken($green, 10%);
-$darkGreenParagraph: darken($green, 15%);
+$darkGreen: color.adjust($green, $lightness: -10%);
+$darkGreenParagraph: color.adjust($green, $lightness: -15%);
 $darkLilac: #6d616c;
 $background1: #D4CDD2;
 
 $gold:#ffd700;
-$gold-light: lighten($gold, 25%);
-$gold-dark: darken($gold, 25%);
+$gold-light: color.adjust($gold, $lightness: 25%);
+$gold-dark: color.adjust($gold, $lightness: -25%);
 
 $gold_overlay: linear-gradient(180deg, rgba($gold, 0.421) 0%, rgba($gold, 0.47) 100%);
 $yellow_overlay: linear-gradient(180deg, rgba(255, 250, 95, 0.421) 0%, rgba(39, 174, 166, 0.47) 100%);

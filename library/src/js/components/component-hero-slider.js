@@ -1,7 +1,7 @@
 var $ = window.jQuery
 // import Owl from "../modules/module-owl";
 import slick from 'slick-slider';
-import anime from 'animejs/lib/anime.es.js'
+import anime from '../utils/anime-compat'
 const HeroSlider = {
 
   init(scope){

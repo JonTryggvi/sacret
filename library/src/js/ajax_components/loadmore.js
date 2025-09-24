@@ -4,10 +4,11 @@ const LoadMore = {
   hasButton: false,
   init(scope) {
     this.cacheDom(scope)
-    jQuery('.btnLoadMore').exists(() => {
+    const $buttons = jQuery('.btnLoadMore');
+    if ($buttons.length) {
       this.hasButton = true;
       this.addEvents()
-    })
+    }
     this.getAvailablePosttypes(this.ajaxSections)
   },
   cacheDom(scope) {

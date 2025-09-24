@@ -1,5 +1,5 @@
 $ = window.$
-import anime from 'animejs/lib/anime.es.js'
+import anime from '../utils/anime-compat'
 const Header = {
   scrolled: false,
   init(body, loaded){
@@ -68,4 +68,3 @@ const Header = {
   }),
 }
 export default Header
-

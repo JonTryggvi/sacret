@@ -1,3 +1,4 @@
+@use "../base" as *;
 .song-detail {
   & p, & span, & div {
     font-family: $nav-font-family;

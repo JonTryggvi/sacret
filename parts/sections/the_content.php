@@ -1,4 +1,4 @@
-<?php if('product' ==get_post_type()) :
+<?php if('product' == get_post_type()) :
   $post_id = get_the_id();
   $product = wc_get_product($post_id);
   $product_id = $product->get_id();
@@ -23,7 +23,7 @@
     </div>
   </section>
 <?php else :
-  $grid_class = $hero_title ? '' : ' grid-row-content'
+  $grid_class = $hero_title ? '' : ' grid-row-content';
   ?>
   <section class="uni_section uni_section__content grid-with-margin <?php echo $grid_class; ?>" data-section_order="<?php echo $i ?>">
     <?php if(!$hero_title): ?>

@@ -248,9 +248,16 @@ add_action('acf/init', 'my_acf_init');
 
 function card_rack( $block ) {
     // convert name ("acf/testimonial") into path friendly slug ("testimonial")
-    $post_id = get_queried_object() ? get_queried_object()->ID : $_GET['post'];
+    $queried_object = get_queried_object();
+    if ( $queried_object && isset( $queried_object->ID ) ) {
+        $post_id = absint( $queried_object->ID );
+    } else {
+        $post_param = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
+        $post_id = absint( $post_param );
+    }
     $slug = str_replace('acf/', '', $block['name']);
-    $posts = $block['data']['posts'];
+    $posts_data = isset( $block['data']['posts'] ) ? $block['data']['posts'] : array();
+    $posts = is_array( $posts_data ) ? array_filter( array_map( 'absint', $posts_data ) ) : array();
     $field_name = $block['data']['_posts'];
     // $posts = get_field($field_name);
     $is_archive = false;
@@ -284,11 +291,11 @@ function card_rack( $block ) {
     // }
 }
 
-// WPML language switcher
-// Language Code language_code
-// Language name native_name
-// function for placement language_selector();
+
 function language_selector(){
+    if ( ! function_exists( 'icl_get_languages' ) ) {
+        return;
+    }
     $languages = icl_get_languages('skip_missing=0&orderby=code');
     if(!empty($languages)){
         foreach($languages as $l){

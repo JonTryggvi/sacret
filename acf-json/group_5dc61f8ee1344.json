@@ -503,7 +503,9 @@
                             "allow_null": 0,
                             "ui": 0,
                             "ajax": 0,
-                            "placeholder": ""
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
                         }
                     ],
                     "min": "",
@@ -608,7 +610,9 @@
                             "allow_null": 0,
                             "ui": 0,
                             "ajax": 0,
-                            "placeholder": ""
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
                         }
                     ],
                     "min": "",
@@ -720,6 +724,35 @@
                             "default_value": "",
                             "layout": "horizontal",
                             "return_format": "value"
+                        },
+                        {
+                            "key": "field_68d28e5f68c2a",
+                            "label": "Select card type",
+                            "name": "select_card_type",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "u-shape": "U shape",
+                                "o-shape": "O shape"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 1,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
                         },
                         {
                             "key": "field_6173f537c0047",
@@ -1040,5 +1073,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1722693087
+    "modified": 1758631638
 }

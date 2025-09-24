@@ -27,7 +27,18 @@ add_filter( 'body_class', 'add_slug_body_class' );
 
 function get_link_by_slug($slug, $lang_slug = null, $type = 'post'){
   $post = get_page_by_path($slug, OBJECT, $type);
-  $id = ($lang_slug) ? pll_get_post($post->ID, $lang_slug) : $post->ID;
+  if (!$post) {
+    return '';
+  }
+
+  $id = $post->ID;
+  if ($lang_slug && function_exists('pll_get_post')) {
+    $translated_id = pll_get_post($id, $lang_slug);
+    if ($translated_id) {
+      $id = $translated_id;
+    }
+  }
+
   return get_permalink($id);
 }
 
@@ -102,7 +113,8 @@ function errorsea_archive_title( $title ) {
 }
 
 if(!function_exists('print_uni')) {
-  function print_uni($datan, $style=false) {
+
+  function print_uni($data, $style=false) {
     $style = !!$style ? 'style="'.$style.'"' : '';
     echo "<pre $style>";
       print_r($data);
