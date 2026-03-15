@@ -40,6 +40,10 @@ nbproject/
 
 node_modules/
 vendor/
+!library/css/vendor/
+!library/css/vendor/**
+!library/js/vendor/
+!library/js/vendor/**
 bin/
 tmp/
 *.tmp
