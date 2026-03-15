@@ -1,0 +1,9 @@
+{
+  "name": "jontryggvi/sacret",
+  "description": "Sacret WordPress theme",
+  "type": "wordpress-theme",
+  "license": "WTFPL",
+  "require": {
+    "yahnis-elsts/plugin-update-checker": "^5.6"
+  }
+}

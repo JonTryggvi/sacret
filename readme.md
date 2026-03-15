@@ -1,57 +1,33 @@
-# from JT
+# Sacret Theme
 
-Smá svona leiðbeiningar frá JT
+This theme now ships source assets directly.
 
-1.  Þegar þið eruð búnir að pulla á local by flywheel má fara inní themes möppuna og gera
-    git clone git@bitbucket.org:JonTryggviUnnarsson/aaa-blueprint.git some_name_we_like
-    annars mun theme mappan heita aaa_blueprint sem er svo sem í lagi
-  
-2.  cd some_name_we_like og þegar við erum þar getum við gert npm install eða yarn install (ég mæli með yarn því það virðist vera stabílla)
+CSS lives in `library/css`:
+- `avista-app.css`
+- `avista-woocommerce.css`
+- `shop.css`
+- partials under `base`, `components`, `layout`, `vendor`, and `woocommerce`
 
-3.  Hér er mikilvægt að skipta bara strax um git branch. Við viljum aldrei vinna á master branch
-    git branch -m some_new_branch_name. Ég geri venjulega bara safe sem ég breiti síðar í eitthvað annað þegar kemur að því að pusha á origin.
+JavaScript lives in `library/js`:
+- entry modules at the top level
+- feature modules under `ajax_components`, `base`, `components`, `effects`, `elements`, `modules`, `utils`, and `vendor`
 
-4.  Ef allt gekk vel má keyra skipunina gulp og vona það besta. 
+There is no runtime dependency on `library/dist`, `gulp`, or `webpack`.
 
-5.  Chrome er stundum með vesen varðandi https og þá þarf að tryggja að flywheel sé stillt á trusted undir ssl stillingunni.
+Local workflow:
+1. Clone the theme into the WordPress themes directory.
+2. Create a branch before changing anything.
+3. Edit PHP, CSS, and JS source files directly.
+4. Load the site locally and verify changes in the browser.
 
-ps. Ég mæli með að setja upp .bash_profile og henda inn git aliases þar til að flýta fyrir með git skipanir t.d. Við notum ekki GUI ;)
-https://natelandau.com/my-mac-osx-bash_profile/
+Deployment:
+1. Deploy `library/css` and `library/js` directly.
+2. Install Composer dependencies so `vendor/` is present in the deployed theme.
+3. Do not deploy `node_modules`.
+4. Do not expect a build step to generate frontend assets.
 
-# Bones
-A Lightweight Wordpress Development Theme
-
-Bones is designed to make the life of developers easier. It's built
-using HTML5 & has a strong semantic foundation.
-It's constantly growing so be sure to check back often if you are a
-frequent user. I'm always open to contribution. :)
-
-Designed by Eddie Machado
-http://themble.com/bones
-
-License: WTFPL
-License URI: http://sam.zoy.org/wtfpl/
-Are You Serious? Yes.
-
-#### Special Thanks to:
-Paul Irish & the HTML5 Boilerplate
-Yoast for some WP functions & optimization ideas
-Andrew Rogers for code optimization
-David Dellanave for speed & code optimization
-and several other developers. :)
-
-#### Submit Bugs & or Fixes:
-https://github.com/eddiemachado/bones/issues
-
-To view Release & Update Notes, read the CHANGELOG.md file in the main folder.
-
-For more news and to see why my parents constantly ask me what I'm
-doing with my life, follow me on twitter: @eddiemachado
-
-## Helpful Tools & Links
-
-Yeoman generator to quickly install Bones Wordpress starter theme into your Wordpress theme folder
-by 0dp
-https://github.com/0dp/generator-wp-bones
-
-
+Theme updates:
+1. The theme uses `yahnis-elsts/plugin-update-checker` through Composer.
+2. Publish a GitHub release to trigger the packaging workflow.
+3. The release workflow builds `sacret.zip` and uploads it as a release asset.
+4. For private repositories, define `SACRET_GITHUB_TOKEN` in `wp-config.php` or provide it through the `sacret_github_token` filter.

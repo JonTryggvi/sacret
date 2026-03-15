@@ -39,7 +39,7 @@ nbproject/
 ############
 
 node_modules/
-library/dist/
+vendor/
 bin/
 tmp/
 *.tmp
@@ -53,7 +53,6 @@ tmp/
 temp/
 ._*
 .Trashes
-config.yml
 .svn
 *.codekit
 *.scssc
