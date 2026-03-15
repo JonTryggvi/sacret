@@ -1,0 +1,91 @@
+.zen-rows {
+  grid-template-rows: [top] 15px [middle] repeat(5, 1fr) [bottom] 15px [last-line];
+  grid-row-gap: 1em;
+}
+
+.zen-dot {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-column: 3/span 4;
+  grid-row: 3/span 3;
+}
+@media (max-width: 414px) {
+  .zen-dot {
+    grid-column: 2/span 12;
+    grid-row: top/span 3;
+  }
+}
+.zen-dot .zen-pulse {
+  min-width: 200px;
+  min-height: 200px;
+  overflow: visible;
+  position: relative;
+}
+.zen-dot .zen-pulse::after {
+  position: absolute;
+  content: "";
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #cf6262 10%, rgba(207, 98, 98, 0.1) 50%, rgba(207, 98, 98, 0) 60%), no-repeat;
+  -webkit-animation: pulse 10s infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+          animation: pulse 10s infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.zen-text {
+  grid-column: 7/span 4;
+  grid-row: 3/span 3;
+  align-self: center;
+}
+.zen-text h2 {
+  font-family: "Josefin Slab", serif;
+  font-weight: 600;
+  display: block;
+  text-align: right;
+}
+.zen-text p {
+  text-align: right;
+}
+@media (max-width: 414px) {
+  .zen-text {
+    grid-column: 2/span 12;
+    grid-row: span 3/bottom;
+  }
+  .zen-text h2, .zen-text p {
+    text-align: center;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  50% {
+    opacity: 0.9;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  50% {
+    opacity: 0.9;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}

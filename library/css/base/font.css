@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100;0,600;1,100;1,600&display=swap");
+h1 {
+  font-family: "Josefin Slab", serif;
+  font-size: calc(64 / 16 * 1rem);
+  color: inherit;
+  font-weight: 600;
+}
+.blue_theme h1 {
+  color: #264D6A;
+}
+.green_theme h1 {
+  color: rgb(71.811023622, 75.4015748031, 0.5984251969);
+}
+.lilac_theme h1 {
+  color: #6d616c;
+}
+.black_theme h1 {
+  color: #fefbfb;
+}
+.gold_theme h1 {
+  color: rgb(255, 235, 127.5);
+}
+@media (max-width: 414px) {
+  h1 {
+    font-size: calc(42 / 16 * 1rem);
+    margin-top: calc(12 / 16 * 1rem);
+  }
+}
+
+h2 {
+  font-family: "Josefin Slab", serif;
+  font-size: calc(44 / 16 * 1rem);
+  color: #264D6A;
+  font-weight: 400;
+}
+.blue_theme h2 {
+  color: #264D6A;
+}
+.green_theme h2 {
+  color: rgb(71.811023622, 75.4015748031, 0.5984251969);
+}
+.lilac_theme h2 {
+  color: #6d616c;
+}
+.black_theme h2 {
+  color: #fefbfb;
+}
+.gold_theme h2 {
+  color: rgb(255, 235, 127.5);
+}
+@media (max-width: 414px) {
+  h2 {
+    font-size: calc(36 / 16 * 1rem);
+  }
+}
+
+h3 {
+  font-family: "Josefin Slab", serif;
+  font-size: calc(36 / 16 * 1rem);
+  color: #264D6A;
+  font-weight: 400;
+}
+h3 b {
+  font-weight: 400 !important;
+}
+.blue_theme h3 {
+  color: #264D6A;
+}
+.green_theme h3 {
+  color: rgb(71.811023622, 75.4015748031, 0.5984251969);
+}
+.green_theme h3 b {
+  font-weight: 400 !important;
+}
+.lilac_theme h3 {
+  color: #6d616c;
+}
+.black_theme h3 {
+  color: #fefbfb;
+}
+.gold_theme h3 {
+  color: rgb(255, 235, 127.5);
+}
+@media (max-width: 414px) {
+  h3 {
+    font-size: calc(18 / 16 * 1rem);
+  }
+}
+
+.s1 b {
+  font-weight: 400 !important;
+}
+
+p, a {
+  font-family: "Josefin Slab", serif;
+  font-size: calc(24 / 16 * 1rem);
+  line-height: calc(28 / 16 * 1rem);
+}
+.green_theme p, .green_theme a {
+  color: rgb(47.7165354331, 50.1023622047, 0.3976377953);
+}
+.black_theme p, .black_theme a {
+  color: #fefbfb;
+}
+.gold_theme p, .gold_theme a {
+  color: rgb(255, 235, 127.5);
+}
+.lilac_theme p strong, .lilac_theme a strong {
+  color: #6d616c;
+}
+.lilac_theme p, .lilac_theme a {
+  color: rgb(55.0291262136, 48.9708737864, 54.5242718447);
+}
+
+blockquote {
+  position: relative;
+}
+.add_tilda blockquote::before, .add_tilda blockquote::after {
+  content: "~";
+  font-size: 56px;
+  position: absolute;
+  top: calc(50% - 23px);
+}
+.add_tilda blockquote::before {
+  left: 0px;
+}
+@media (max-width: 414px) {
+  .add_tilda blockquote::before {
+    left: -46px;
+  }
+}
+.add_tilda blockquote::after {
+  right: 0px;
+}
+@media (max-width: 414px) {
+  .add_tilda blockquote::after {
+    right: -46px;
+  }
+}
+.green_theme blockquote {
+  color: rgb(47.7165354331, 50.1023622047, 0.3976377953);
+}
+.black_theme blockquote {
+  color: #fefbfb;
+}
+.gold_theme blockquote {
+  color: rgb(255, 235, 127.5);
+}
+.lilac_theme blockquote {
+  color: #6d616c;
+}
+
+button, .btn, .wp-block-button__link {
+  font-family: "Josefin Slab", serif;
+  font-size: calc(16 / 16 * 1rem);
+  text-decoration: none;
+}
+
+a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  font-weight: 600;
+  -webkit-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+a:hover {
+  color: #CF6262;
+}
+
+ul {
+  list-style: none;
+}
+
+input {
+  font-size: calc(18 / 16 * 1rem);
+  line-height: 50px;
+}
+
+label {
+  font-family: "Josefin Slab", serif;
+  font-size: calc(14 / 16 * 1rem);
+  color: #010125;
+}
+
+.select2-container--open .select2-dropdown input.select2-search__field {
+  border: none;
+  line-height: 18px;
+}
+.select2-container--open .select2-dropdown .select2-results__options {
+  font-family: "Josefin Slab", serif;
+}
+.select2-container--open .select2-dropdown.select2-results__option--highlighted {
+  color: #fefbfb;
+}
+.green_theme .select2-container--open .select2-dropdown.select2-results__option--highlighted {
+  background-color: rgb(216.3779527559, 227.1968503937, 1.8031496063);
+}
+
+.green_theme svg.uni_logo path {
+  fill: #787e01;
+}
+.green_theme svg.uni_logo #dot_1 {
+  fill: #787e01;
+}
+.green_theme svg.uni_logo #dot_2 {
+  fill: rgba(120, 126, 1, 0.75);
+}
+.green_theme svg.uni_logo #dot_3 {
+  fill: rgba(120, 126, 1, 0.25);
+}
+.blue_theme svg.uni_logo path {
+  fill: #6788A7;
+}
+.blue_theme svg.uni_logo #dot_1 {
+  fill: #6788A7;
+}
+.blue_theme svg.uni_logo #dot_2 {
+  fill: rgba(103, 136, 167, 0.75);
+}
+.blue_theme svg.uni_logo #dot_3 {
+  fill: rgba(103, 136, 167, 0.25);
+}
+.lilac_theme svg.uni_logo path {
+  fill: #A29BAB;
+}
+.lilac_theme svg.uni_logo #dot_1 {
+  fill: #A29BAB;
+}
+.lilac_theme svg.uni_logo #dot_2 {
+  fill: rgba(162, 155, 171, 0.75);
+}
+.lilac_theme svg.uni_logo #dot_3 {
+  fill: rgba(162, 155, 171, 0.25);
+}
+.black_theme svg.uni_logo path {
+  fill: #A29BAB;
+}
+.black_theme svg.uni_logo #dot_1 {
+  fill: #A29BAB;
+}
+.black_theme svg.uni_logo #dot_2 {
+  fill: rgba(162, 155, 171, 0.75);
+}
+.black_theme svg.uni_logo #dot_3 {
+  fill: rgba(162, 155, 171, 0.5);
+}
+.gold_theme svg.uni_logo path {
+  fill: #ffd700 !important;
+}
+.gold_theme svg.uni_logo #dot_1 {
+  fill: rgb(255, 235, 127.5);
+}
+.gold_theme svg.uni_logo #dot_2 {
+  fill: #ffd700;
+}
+.gold_theme svg.uni_logo #dot_3 {
+  fill: rgb(127.5, 107.5, 0);
+}
+
+.woocommerce-Price-amount.amount {
+  font-family: "Josefin Slab", serif;
+  font-size: calc(20 / 16 * 1rem);
+}

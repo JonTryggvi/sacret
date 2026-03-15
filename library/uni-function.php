@@ -144,7 +144,7 @@ function bbloomer_custom_add_cart_button_single_product( $label ) {
       foreach( WC()->cart->get_cart() as $cart_item_key => $values ) {
          $product = $values['data'];
          if ( get_the_ID() == $product->get_id() ) {
-            $label = 'Already in Cart.';
+            $label = __('Already in Cart.', 'woocommerce');
             break;
          }
       }
@@ -163,7 +163,7 @@ function bbloomer_custom_add_cart_button_loop( $label, $product ) {
          foreach( WC()->cart->get_cart() as $cart_item_key => $values ) {
             $_product = $values['data'];
             if ( get_the_ID() == $_product->get_id() ) {
-               $label = 'Already in Cart';
+               $label = __('Already in Cart', 'woocommerce');
                break;
             }
          }

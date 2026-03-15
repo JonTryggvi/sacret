@@ -120,39 +120,32 @@ SCRIPTS & ENQUEUEING
 // loading modernizr and jquery, and reply script
 function bones_scripts_and_styles() {
 
-  global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
-
   if (! is_admin()) {
 
-		// modernizr (without media query polyfill)
-		wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
-		wp_register_script( 'scroll', 'https://unpkg.com/scrollreveal', array(), '2.5.3', false );
-		wp_register_script( 'scroll-debug',get_stylesheet_directory_uri() . '/library/js/libs/debugscroll.js' , array(), '2.5.3', false );
+			// Base libraries.
+			wp_register_script( 'bones-modernizr', get_stylesheet_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
+			wp_register_script( 'scroll', 'https://unpkg.com/scrollreveal', array(), '2.5.3', false );
+			wp_register_script( 'scroll-debug',get_stylesheet_directory_uri() . '/library/js/libs/debugscroll.js' , array(), '2.5.3', false );
 
-		// register other stylesheets
-		// wp_register_style( '-styles', get_stylesheet_directory_uri() . '/library/css/.css', array(), '', 'all' );
+			// Theme styles.
+			wp_register_style( 'avista-styles', get_stylesheet_directory_uri() . '/library/css/avista-app.css', array(), '', 'all' );
+			wp_register_style( 'avista-woocommerce', get_stylesheet_directory_uri() . '/library/css/avista-woocommerce.css', array(), '', 'all' );
+			wp_register_style( 'avista-shop', get_stylesheet_directory_uri() . '/library/css/shop.css', array(), '', 'all' );
 
-		// register main Avista stylesheet
-		wp_register_style( 'avista-styles', get_stylesheet_directory_uri() . '/library/dist/css/avista-app.css', array(), '', 'all' );
-		wp_register_style( 'avista-woocommerce', get_stylesheet_directory_uri() . '/library/dist/css/avista-woocommerce.css', array(), '', 'all' );
-		wp_register_style( 'avista-shop', get_stylesheet_directory_uri() . '/library/dist/css/shop.css', array(), '', 'all' );
+	    // comment reply script for threaded comments
+	    if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
+				wp_enqueue_script( 'comment-reply' );
+	    }
 
-		// ie-only style sheet
-		// wp_register_style( 'bones-ie-only', get_stylesheet_directory_uri() . '/library/css/ie.css', array(), '' );
-
-    // comment reply script for threaded comments
-    if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
-			wp_enqueue_script( 'comment-reply' );
-    }
-
-		wp_register_script( 'avista-js', get_stylesheet_directory_uri() . '/library/dist/js/avista-app.js', array( 'jquery' ), '', true );
-		wp_register_script( 'archive-js', get_stylesheet_directory_uri() . '/library/dist/js/archive.js', array( 'jquery' ), '', true );
-		wp_register_script( 'single-product-js', get_stylesheet_directory_uri() . '/library/dist/js/single-product.js', array( 'jquery' ), '', true );
-		wp_register_script( 'mailchimp', get_stylesheet_directory_uri() . '/library/dist/js/element-mailchimp.js', array( 'jquery' ), '', true );
-		wp_register_script( 'hero-slider', get_stylesheet_directory_uri() . '/library/dist/js/element-hero-slider.js', array( 'jquery' ), '', true );
-		wp_register_script( 'quote', get_stylesheet_directory_uri() . '/library/dist/js/element-quote.js', array( 'jquery' ), '', true );
-		wp_register_script( 'load-more', get_stylesheet_directory_uri() . '/library/dist/js/element-load-more.js', array( 'jquery' ), '', true );
-		wp_register_script( 'cat_nav', get_stylesheet_directory_uri() . '/library/dist/js/element-category-nav.js', array( 'jquery' ), '', true );
+			// Theme modules.
+			wp_register_script( 'avista-js', get_stylesheet_directory_uri() . '/library/js/avista-app.js', array( 'jquery' ), '', true );
+			wp_register_script( 'archive-js', get_stylesheet_directory_uri() . '/library/js/archive.js', array( 'jquery' ), '', true );
+			wp_register_script( 'single-product-js', get_stylesheet_directory_uri() . '/library/js/single-product.js', array( 'jquery' ), '', true );
+		wp_register_script( 'mailchimp', get_stylesheet_directory_uri() . '/library/js/elements/element-mailchimp.js', array( 'jquery' ), '', true );
+		wp_register_script( 'hero-slider', get_stylesheet_directory_uri() . '/library/js/elements/element-hero-slider.js', array( 'jquery' ), '', true );
+		wp_register_script( 'quote', get_stylesheet_directory_uri() . '/library/js/elements/element-quote.js', array( 'jquery' ), '', true );
+		wp_register_script( 'load-more', get_stylesheet_directory_uri() . '/library/js/elements/element-load-more.js', array( 'jquery' ), '', true );
+		wp_register_script( 'cat_nav', get_stylesheet_directory_uri() . '/library/js/elements/element-category-nav.js', array( 'jquery' ), '', true );
 
 		$args_local = 	array(
 			'ajaxPath' => admin_url( 'admin-ajax.php' ),
@@ -165,21 +158,13 @@ function bones_scripts_and_styles() {
 				);
 		}
 		wp_localize_script( 'avista-js', 'phpObj', $args_local);
-		$body_classes = get_body_class();
 		// enqueue styles and scripts
 		wp_enqueue_script( 'bones-modernizr' );
 		wp_enqueue_script( 'scroll' );
-		wp_enqueue_script( 'scroll-debug' );
-		wp_enqueue_style( 'avista-styles' );
-
-		/*
-		I recommend using a plugin to call jQuery
-		using the google cdn. That way it stays cached
-		and your site will load faster.
-		*/
-		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'bones-js' );
-		wp_enqueue_script( 'avista-js' );
+			wp_enqueue_script( 'scroll-debug' );
+			wp_enqueue_style( 'avista-styles' );
+			wp_enqueue_script( 'jquery' );
+			wp_enqueue_script( 'avista-js' );
 		if(is_checkout() || is_cart()) {
 			wp_enqueue_style( 'avista-woocommerce' );
 		}

@@ -868,7 +868,46 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "taxonomy": "category",
+                            "add_term": 1,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "id",
+                            "field_type": "multi_select",
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "bidirectional": 0,
+                            "multiple": 0,
+                            "bidirectional_target": []
+                        },
+                        {
+                            "key": "field_68d4f139dbe9e",
+                            "label": "Select Post Category Not",
+                            "name": "select_post_category_not",
+                            "aria-label": "",
+                            "type": "taxonomy",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6460baf1c939c",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "field": "field_63e8d092ac8fe",
+                                        "operator": "==",
+                                        "value": "post"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -1112,5 +1151,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1758705582
+    "modified": 1758785916
 }

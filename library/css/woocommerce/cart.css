@@ -1,0 +1,198 @@
+.woocommerce table {
+  border-spacing: 0;
+}
+.woocommerce table thead tr th {
+  font-family: "Josefin Slab", serif !important;
+}
+.black_theme .woocommerce table thead th {
+  color: #fefbfb;
+}
+.black_theme .woocommerce table tbody tr {
+  background-color: #A29BAB;
+}
+.woocommerce table tbody tr:first-child td:first-child {
+  border-top-left-radius: 4px;
+}
+.woocommerce table tbody tr:first-child td:last-child {
+  border-top-right-radius: 4px;
+}
+.woocommerce table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 4px;
+}
+.woocommerce table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 4px;
+}
+.woocommerce table tbody tr td.product-quantity input {
+  font-size: calc(16 / 16 * 1rem);
+  line-height: calc(30 / 16 * 1rem);
+}
+.black_theme .woocommerce table tbody td {
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  color: #fefbfb;
+}
+.woocommerce table tfoot tr:first-child td:first-child {
+  border-top-left-radius: 4px;
+}
+.woocommerce table tfoot tr:first-child td:last-child {
+  border-top-right-radius: 4px;
+}
+.woocommerce table tfoot tr:last-child td:first-child {
+  border-bottom-left-radius: 4px;
+}
+.woocommerce table tfoot tr:last-child td:last-child {
+  border-bottom-right-radius: 4px;
+}
+.black_theme .woocommerce table tfoot th, .black_theme .woocommerce table tfoot td {
+  color: #fefbfb;
+}
+.black_theme .woocommerce #payment {
+  background-color: #6d616c;
+}
+.black_theme .woocommerce #payment .wc_payment_methods .wc_payment_method label {
+  color: #fefbfb;
+}
+.black_theme .woocommerce #payment .wc_payment_methods .payment_box {
+  border-radius: 4px;
+  background-color: #A29BAB;
+}
+.black_theme .woocommerce #payment .wc_payment_methods .payment_box::before {
+  border: 1em solid #A29BAB;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  border-top-color: transparent;
+}
+.black_theme .woocommerce form .woocommerce-billing-fields .form-row label {
+  color: #fefbfb;
+}
+.woocommerce form .woocommerce-billing-fields .form-row .woocommerce-input-wrapper textarea.input-text,
+.woocommerce form .woocommerce-shipping-fields .form-row .woocommerce-input-wrapper textarea.input-text,
+.woocommerce form .woocommerce-additional-fields .form-row .woocommerce-input-wrapper textarea.input-text {
+  font-family: "Josefin Slab", serif;
+  padding-top: 8px;
+  min-height: 200px;
+}
+.woocommerce form .woocommerce-billing-fields .form-row .woocommerce-input-wrapper input.input-text, .woocommerce form .woocommerce-billing-fields .form-row .woocommerce-input-wrapper textarea.input-text,
+.woocommerce form .woocommerce-shipping-fields .form-row .woocommerce-input-wrapper input.input-text,
+.woocommerce form .woocommerce-shipping-fields .form-row .woocommerce-input-wrapper textarea.input-text,
+.woocommerce form .woocommerce-additional-fields .form-row .woocommerce-input-wrapper input.input-text,
+.woocommerce form .woocommerce-additional-fields .form-row .woocommerce-input-wrapper textarea.input-text {
+  height: 44px;
+  font-size: 18px;
+  text-indent: 10px;
+  border-radius: 4px;
+  border: none;
+}
+.blue_theme .woocommerce form .woocommerce-billing-fields .form-row .woocommerce-input-wrapper input.input-text, .blue_theme .woocommerce form .woocommerce-billing-fields .form-row .woocommerce-input-wrapper textarea.input-text,
+.blue_theme .woocommerce form .woocommerce-shipping-fields .form-row .woocommerce-input-wrapper input.input-text,
+.blue_theme .woocommerce form .woocommerce-shipping-fields .form-row .woocommerce-input-wrapper textarea.input-text,
+.blue_theme .woocommerce form .woocommerce-additional-fields .form-row .woocommerce-input-wrapper input.input-text,
+.blue_theme .woocommerce form .woocommerce-additional-fields .form-row .woocommerce-input-wrapper textarea.input-text {
+  background-color: rgb(167.6, 186.575, 204.4);
+}
+.green_theme .woocommerce form .woocommerce-billing-fields .form-row .woocommerce-input-wrapper input.input-text, .green_theme .woocommerce form .woocommerce-billing-fields .form-row .woocommerce-input-wrapper textarea.input-text,
+.green_theme .woocommerce form .woocommerce-shipping-fields .form-row .woocommerce-input-wrapper input.input-text,
+.green_theme .woocommerce form .woocommerce-shipping-fields .form-row .woocommerce-input-wrapper textarea.input-text,
+.green_theme .woocommerce form .woocommerce-additional-fields .form-row .woocommerce-input-wrapper input.input-text,
+.green_theme .woocommerce form .woocommerce-additional-fields .form-row .woocommerce-input-wrapper textarea.input-text {
+  color: #787e01;
+  border: 1px solid #787e01;
+}
+.blue_theme .woocommerce form .woocommerce-billing-fields .form-row .woocommerce-input-wrapper input.input-text, .blue_theme .woocommerce form .woocommerce-billing-fields .form-row .woocommerce-input-wrapper textarea.input-text,
+.blue_theme .woocommerce form .woocommerce-shipping-fields .form-row .woocommerce-input-wrapper input.input-text,
+.blue_theme .woocommerce form .woocommerce-shipping-fields .form-row .woocommerce-input-wrapper textarea.input-text,
+.blue_theme .woocommerce form .woocommerce-additional-fields .form-row .woocommerce-input-wrapper input.input-text,
+.blue_theme .woocommerce form .woocommerce-additional-fields .form-row .woocommerce-input-wrapper textarea.input-text {
+  color: #6788A7;
+  border: 1px solid #6788A7;
+}
+.black_theme .woocommerce form .woocommerce-billing-fields .form-row .woocommerce-input-wrapper input.input-text, .black_theme .woocommerce form .woocommerce-billing-fields .form-row .woocommerce-input-wrapper textarea.input-text,
+.black_theme .woocommerce form .woocommerce-shipping-fields .form-row .woocommerce-input-wrapper input.input-text,
+.black_theme .woocommerce form .woocommerce-shipping-fields .form-row .woocommerce-input-wrapper textarea.input-text,
+.black_theme .woocommerce form .woocommerce-additional-fields .form-row .woocommerce-input-wrapper input.input-text,
+.black_theme .woocommerce form .woocommerce-additional-fields .form-row .woocommerce-input-wrapper textarea.input-text {
+  color: white;
+  background-color: #A29BAB;
+}
+.woocommerce form .woocommerce-billing-fields .form-row.woocommerce-validated .input-text {
+  border: 1px solod #787e01;
+}
+.woocommerce .select2-container .select2-selection--single {
+  height: 44px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+}
+.green_theme .woocommerce .select2-container .select2-selection--single {
+  border: 1px solid #787e01;
+}
+.black_theme .woocommerce .select2-container .select2-selection--single {
+  background-color: #A29BAB;
+}
+.woocommerce .select2-container .select2-selection--single .select2-selection__rendered {
+  font-family: "Josefin Slab", serif;
+}
+.black_theme .woocommerce .select2-container .select2-selection--single .select2-selection__rendered {
+  color: #fefbfb;
+}
+.green_theme .woocommerce .select2-container .select2-selection--single .select2-selection__rendered {
+  color: #787e01;
+}
+.woocommerce .select2-container .select2-selection--single .select2-selection__arrow {
+  height: 38px;
+}
+.black_theme .woocommerce .woocommerce-thankyou-order-details li {
+  color: #fefbfb;
+}
+
+.select2-container--open .select2-dropdown input.select2-search__field {
+  border: none;
+  line-height: 18px;
+  border-radius: 4px;
+}
+.green_theme .select2-container--open .select2-dropdown input.select2-search__field {
+  background-color: #fefbfb !important;
+}
+.blue_theme .select2-container--open .select2-dropdown input.select2-search__field {
+  background-color: rgb(167.6, 186.575, 204.4) !important;
+}
+.lilac_theme .select2-container--open .select2-dropdown input.select2-search__field {
+  background-color: rgb(213.5543478261, 210.4347826087, 217.5652173913) !important;
+}
+.black_theme .select2-container--open .select2-dropdown input.select2-search__field {
+  background-color: #A29BAB;
+  color: #fefbfb;
+}
+.select2-container--open .select2-dropdown .select2-results__options {
+  font-family: "Josefin Slab", serif;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+.select2-container--open .select2-dropdown .select2-results__option[data-selected=true] {
+  border-radius: 4px;
+}
+.select2-container--open .select2-dropdown .select2-results__option--highlighted[data-selected] {
+  border-radius: 4px;
+  color: #fefbfb;
+}
+.green_theme .select2-container--open .select2-dropdown .select2-results__option--highlighted[data-selected] {
+  color: #fefbfb;
+  background-color: #787e01 !important;
+}
+.blue_theme .select2-container--open .select2-dropdown .select2-results__option--highlighted[data-selected] {
+  color: #fefbfb;
+  background-color: #6788A7 !important;
+}
+.lilac_theme .select2-container--open .select2-dropdown .select2-results__option--highlighted[data-selected] {
+  color: #fefbfb;
+  background-color: #A29BAB !important;
+}
+.black_theme .select2-container--open .select2-dropdown .select2-results__option--highlighted[data-selected] {
+  background-color: #A29BAB;
+}

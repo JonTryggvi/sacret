@@ -26,20 +26,20 @@ jobs:
 
       - name: Prepare Theme Artifact
         run: |
-          mkdir sacret
+          mkdir uni-hub
 
           rsync -av \
-            --exclude 'sacret' \
+            --exclude 'uni-hub' \
             --exclude '.git' \
             --exclude '.github' \
             --exclude '.gitignore' \
             --exclude '.DS_Store' \
             --exclude 'node_modules' \
-            ./ sacret/
+            ./ uni-hub/
 
-          zip -r sacret.zip sacret
+          zip -r uni-hub.zip uni-hub
 
       - name: Upload Zip to Release
         uses: softprops/action-gh-release@v2
         with:
-          files: sacret.zip
+          files: uni-hub.zip

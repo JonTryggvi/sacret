@@ -29,5 +29,5 @@ Deployment:
 Theme updates:
 1. The theme uses `yahnis-elsts/plugin-update-checker` through Composer.
 2. Publish a GitHub release to trigger the packaging workflow.
-3. The release workflow builds `sacret.zip` and uploads it as a release asset.
+3. The release workflow builds `uni-hub.zip` and uploads it as a release asset.
 4. For private repositories, define `SACRET_GITHUB_TOKEN` in `wp-config.php` or provide it through the `sacret_github_token` filter.

@@ -5,7 +5,7 @@ use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 class SacretThemeUpdater {
   private const REPOSITORY_URL = 'https://github.com/JonTryggvi/sacret/';
   private const THEME_FILE = '/functions.php';
-  private const THEME_SLUG = 'sacret';
+  private const THEME_SLUG = 'uni-hub';
 
   public function __construct() {
     add_action('init', [$this, 'initializeUpdateChecker']);
