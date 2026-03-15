@@ -1,0 +1,334 @@
+.uni_section__posts, .uni_section__products {
+  position: relative;
+}
+.uni_section__posts .scrollBack, .uni_section__posts .scrollForward, .uni_section__products .scrollBack, .uni_section__products .scrollForward {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  z-index: 100;
+  top: calc(50% - 90px);
+  -webkit-transition: opacity 300ms ease-in-out, visibility 300ms 100ms ease-out, -webkit-box-shadow 300ms ease;
+  transition: opacity 300ms ease-in-out, visibility 300ms 100ms ease-out, -webkit-box-shadow 300ms ease;
+  transition: box-shadow 300ms ease, opacity 300ms ease-in-out, visibility 300ms 100ms ease-out;
+  transition: box-shadow 300ms ease, opacity 300ms ease-in-out, visibility 300ms 100ms ease-out, -webkit-box-shadow 300ms ease;
+}
+@media (max-width: 768px) {
+  .uni_section__posts .scrollBack, .uni_section__posts .scrollForward, .uni_section__products .scrollBack, .uni_section__products .scrollForward {
+    display: none;
+  }
+}
+.green_theme .uni_section__posts .scrollBack svg path, .green_theme .uni_section__posts .scrollForward svg path, .green_theme .uni_section__products .scrollBack svg path, .green_theme .uni_section__products .scrollForward svg path {
+  stroke: rgb(71.811023622, 75.4015748031, 0.5984251969);
+}
+.lilac_theme .uni_section__posts .scrollBack svg path, .lilac_theme .uni_section__posts .scrollForward svg path, .lilac_theme .uni_section__products .scrollBack svg path, .lilac_theme .uni_section__products .scrollForward svg path {
+  stroke: #6d616c;
+}
+.uni_section__posts .scrollBack:active, .uni_section__posts .scrollForward:active, .uni_section__products .scrollBack:active, .uni_section__products .scrollForward:active {
+  -webkit-box-shadow: 0px 0px 3px -3px rgba(128, 128, 128, 0.5);
+          box-shadow: 0px 0px 3px -3px rgba(128, 128, 128, 0.5);
+}
+.uni_section__posts .scrollBack, .uni_section__products .scrollBack {
+  border-radius: 50% 0 0 50%;
+  -webkit-box-shadow: 0px 1px 13px -3px rgba(128, 128, 128, 0.5);
+          box-shadow: 0px 1px 13px -3px rgba(128, 128, 128, 0.5);
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  left: 0px;
+}
+.uni_section__posts .scrollForward, .uni_section__products .scrollForward {
+  border-radius: 50% 0 0 50%;
+  -webkit-box-shadow: 5px 1px 13px -3px rgba(128, 128, 128, 0.5);
+          box-shadow: 5px 1px 13px -3px rgba(128, 128, 128, 0.5);
+  right: 0px;
+}
+
+.card-container:not(:has(.uni_card__o-shape)) {
+  grid-column-start: middle;
+  grid-column-end: middle-end;
+  grid-gap: 0 20px; /* row gap: 0, column gap: 20px */
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(320px, 1fr);
+  display: grid;
+  overflow-x: visible;
+  overflow-y: scroll;
+  grid-column-gap: 1rem;
+  grid-row-gap: 4rem;
+  min-height: 300px;
+  padding-bottom: 60px;
+  width: 100%;
+}
+.archive .card-container:not(:has(.uni_card__o-shape)) {
+  display: grid;
+  overflow: visible;
+  grid-auto-flow: initial;
+  grid-auto-columns: initial;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  overflow-x: visible;
+  overflow-y: visible;
+}
+.card-container:not(:has(.uni_card__o-shape))::-webkit-scrollbar {
+  display: none;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape), .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  -webkit-transition: border-radius 500ms ease-out, -webkit-box-shadow 500ms 200ms ease;
+  transition: border-radius 500ms ease-out, -webkit-box-shadow 500ms 200ms ease;
+  transition: box-shadow 500ms 200ms ease, border-radius 500ms ease-out;
+  transition: box-shadow 500ms 200ms ease, border-radius 500ms ease-out, -webkit-box-shadow 500ms 200ms ease;
+  border-radius: 14px 14px calc((100vw - 120px) / 12 * 1.5) calc((100vw - 120px) / 12 * 1.5);
+  text-decoration: none;
+  overflow: hidden;
+  aspect-ratio: 5/8;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) .card_container, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) .card_container {
+  aspect-ratio: inherit;
+  overflow: hidden;
+  height: 100%;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) article, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) article {
+  width: 100%;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) header, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) header {
+  height: 100%;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape):hover, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape):hover {
+  color: #010125;
+  border-radius: 23px;
+  -webkit-box-shadow: 0 5px 10px 1px rgba(1, 1, 37, 0.1);
+          box-shadow: 0 5px 10px 1px rgba(1, 1, 37, 0.1);
+  -webkit-transition: border-radius 500ms ease-in, -webkit-box-shadow 500ms 300ms ease-out;
+  transition: border-radius 500ms ease-in, -webkit-box-shadow 500ms 300ms ease-out;
+  transition: box-shadow 500ms 300ms ease-out, border-radius 500ms ease-in;
+  transition: box-shadow 500ms 300ms ease-out, border-radius 500ms ease-in, -webkit-box-shadow 500ms 300ms ease-out;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape):hover header, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape):hover header {
+  height: 50%;
+  -webkit-transition: all 600ms ease-in-out;
+  transition: all 600ms ease-in-out;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape):hover figure, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape):hover figure {
+  width: 100%;
+  height: 100%;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape):hover figure img, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape):hover figure img {
+  width: 100%;
+  -webkit-transition: all 600ms ease-in-out;
+  transition: all 600ms ease-in-out;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape):hover figure figcaption, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape):hover figure figcaption {
+  opacity: 1;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape):hover main, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape):hover main {
+  margin: 12px 15px 0;
+  opacity: 1;
+  height: 50%;
+  -webkit-transition: all 600ms ease-in-out;
+  transition: all 600ms ease-in-out;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape):hover h2, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape):hover h2 {
+  font-family: "Josefin Slab", serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 20px 0 0;
+  text-align: left;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape):hover p, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape):hover p {
+  font-size: 1rem;
+  line-height: 20px;
+  margin-top: 4px;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) .link_container, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) .link_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) .link_container a, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) .link_container a {
+  grid-column: span 12;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) figure, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) figure {
+  position: relative;
+  margin: 0;
+  height: 100%;
+  -webkit-transition: all 600ms ease-in-out;
+  transition: all 600ms ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) figure img, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) figure img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: all 600ms ease-in-out;
+  transition: all 600ms ease-in-out;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) figure img.emoji, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) figure img.emoji {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) figure figcaption, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) figure figcaption {
+  position: absolute;
+  font-size: 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fefbfb;
+  background-color: rgba(162, 155, 171, 0.6);
+  text-shadow: 2px 2px 5px rgba(1, 1, 37, 0.3);
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  text-indent: 5px;
+  z-index: 9;
+  opacity: 1;
+  padding: 0px;
+  border-radius: 3px;
+  -webkit-transition: opacity 1000ms 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 1000ms 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) figure figcaption.yellow, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) figure figcaption.yellow {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 250, 95, 0.421)), to(rgba(39, 174, 166, 0.47)));
+  background: linear-gradient(180deg, rgba(255, 250, 95, 0.421) 0%, rgba(39, 174, 166, 0.47) 100%);
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) figure figcaption.green, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) figure figcaption.green {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(18, 133, 112, 0.53)), to(rgba(220, 142, 73, 0.41)));
+  background: linear-gradient(180deg, rgba(18, 133, 112, 0.53) 0%, rgba(220, 142, 73, 0.41) 100%);
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) figure figcaption.blue, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) figure figcaption.blue {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(207, 98, 98, 0.41)), color-stop(50%, rgba(103, 136, 167, 0.47)));
+  background: linear-gradient(0, rgba(207, 98, 98, 0.41), rgba(103, 136, 167, 0.47) 50%);
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) figure figcaption.red, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) figure figcaption.red {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(207, 98, 98, 0.47)), to(rgba(207, 98, 98, 0.47)));
+  background: linear-gradient(0deg, rgba(207, 98, 98, 0.47), rgba(207, 98, 98, 0.47));
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) figure figcaption.lilac, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) figure figcaption.lilac {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(162, 155, 171, 0.47)), to(rgba(162, 155, 171, 0.47)));
+  background: linear-gradient(0deg, rgba(162, 155, 171, 0.47), rgba(162, 155, 171, 0.47));
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) main, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) main {
+  margin: 0;
+  opacity: 0;
+  height: 0;
+  -webkit-transition: all 600ms ease-in-out;
+  transition: all 600ms ease-in-out;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) h2, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) h2 {
+  font-family: "Josefin Slab", serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0px;
+  line-height: 0px;
+  margin-top: 0px;
+  text-align: left;
+}
+.card-container:not(:has(.uni_card__o-shape)) a:not(.uni_card__o-shape) p, .card-container:not(:has(.uni_card__o-shape)) div:not(.uni_card__o-shape) p {
+  font-size: 0;
+  line-height: 0;
+  margin-top: 0;
+}
+
+.card-container:has(.uni_card__o-shape) {
+  grid-column-start: middle;
+  grid-column-end: middle-end;
+  grid-template-columns: minmax(260px, 1fr);
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, 1fr);
+  display: grid;
+  grid-column-gap: 1rem;
+  grid-row-gap: 4rem;
+  min-height: 300px;
+  padding-bottom: 60px;
+  width: 100%;
+}
+.uni_section__o.archive .card-container:has(.uni_card__o-shape) {
+  grid-auto-flow: row;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-columns: unset;
+  overflow: visible;
+}
+@media (max-width: 1440px) {
+  .uni_section__o.archive .card-container:has(.uni_card__o-shape) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 1024px) {
+  .card-container:has(.uni_card__o-shape) {
+    grid-auto-flow: row;
+  }
+}
+.card-container:has(.uni_card__o-shape) .uni_card__o-shape {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  justify-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.card-container:has(.uni_card__o-shape) .uni_card__o-shape header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.card-container:has(.uni_card__o-shape) .uni_card__o-shape figure {
+  width: 100%;
+  max-width: 320px;
+  height: 100%;
+  max-height: 320px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.card-container:has(.uni_card__o-shape) .uni_card__o-shape figure img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+.card-container:has(.uni_card__o-shape) .uni_card__o-shape h2 {
+  text-align: center;
+  font-size: 2rem;
+}

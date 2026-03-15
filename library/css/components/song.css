@@ -1,0 +1,78 @@
+.song-detail p, .song-detail span, .song-detail div {
+  font-family: "Josefin Slab", serif;
+}
+.song-detail .like-container, .song-detail .settings-bar-container, .song-detail .rel-song-container, .song-detail .all-song-container, .song-detail .chords-wrapper, .song-detail .tag-container--tag {
+  display: none;
+}
+.song-detail .subtitle-container ul {
+  margin: -37px auto 40px;
+  padding-left: 0;
+}
+.song-detail .subtitle-container ul li {
+  font-size: 8px;
+}
+
+.song .chordline {
+  min-height: 2.1rem;
+  position: relative;
+  vertical-align: bottom;
+  font-size: 1rem;
+  page-break-inside: avoid;
+}
+.song .chordline .span {
+  line-height: 2rem;
+  position: relative;
+}
+.song .chordline .open-chords {
+  font-size: 0.8rem;
+  top: -0.8rem;
+}
+.song .chordline .open-chords span {
+  display: none;
+}
+.song .chordline .open-chords {
+  position: absolute;
+}
+
+@media print {
+  .uni_header {
+    overflow: hidden;
+    height: 0;
+  }
+  .footer {
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    min-height: 10px;
+  }
+  .grid-row-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    padding-left: 30px;
+  }
+  .uni_section__content h1 {
+    font-size: 1rem;
+    margin: 2px;
+  }
+  .uni_section__content__wrap {
+    grid-column: 4/span 7 !important;
+    grid-row: 2;
+  }
+  .chordline {
+    page-break-after: avoid;
+  }
+  .open-chords {
+    page-break-after: avoid;
+  }
+  .page-break {
+    page-break-after: always;
+  }
+  @page {
+    margin: 1cm 2cm 1cm;
+  }
+}

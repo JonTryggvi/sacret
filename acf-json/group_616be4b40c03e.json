@@ -6,6 +6,7 @@
             "key": "field_616be4d6833d4",
             "label": "Set theme color palette",
             "name": "set_theme_color_palete",
+            "aria-label": "",
             "type": "select",
             "instructions": "Hér geturðu stillt hvaða litaur á að vera grunnlitur fyrir síðuna þína :)",
             "required": 0,
@@ -29,12 +30,15 @@
             "ui": 1,
             "ajax": 0,
             "return_format": "value",
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_61ffb130fff40",
             "label": "Missing image",
             "name": "missing_image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -74,5 +78,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1644147094
+    "modified": 1759051896
 }

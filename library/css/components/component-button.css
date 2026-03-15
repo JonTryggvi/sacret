@@ -1,0 +1,139 @@
+.btn, .wp-block-button__link {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 220px;
+  height: 50px;
+  border: none;
+  border-radius: 3px;
+  margin: 20px 0 15px;
+  cursor: pointer;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  overflow: hidden;
+  clip-path: ellipse(82% 68% at 50% 30%);
+  position: relative;
+}
+.btn:hover, .wp-block-button__link:hover {
+  background-color: #264D6A;
+}
+.btn:hover::before, .wp-block-button__link:hover::before {
+  -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  opacity: 0;
+}
+.btn::before, .wp-block-button__link::before {
+  -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  opacity: 1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.blue_theme .btn, .blue_theme .wp-block-button__link {
+  color: #fefbfb !important;
+  background: radial-gradient(82% 68% at 50% 32%, #6788a7 0%, #264d6a 100%);
+}
+.blue_theme .btn::before, .blue_theme .wp-block-button__link::before {
+  background: radial-gradient(82% 78% at 50% 0%, #264d6a 0%, #6788a7 100%);
+}
+.blue_theme .btn:hover, .blue_theme .wp-block-button__link:hover {
+  color: #fefbfb;
+}
+.green_theme .btn, .green_theme .wp-block-button__link {
+  color: #fefbfb !important;
+  background: radial-gradient(82% 68% at 50% 32%, #787e01 0%, rgb(71.811023622, 75.4015748031, 0.5984251969) 100%);
+}
+.green_theme .btn::before, .green_theme .wp-block-button__link::before {
+  background: radial-gradient(82% 78% at 50% 0%, rgb(71.811023622, 75.4015748031, 0.5984251969) 0%, #787e01 100%);
+}
+.green_theme .btn:hover, .green_theme .wp-block-button__link:hover {
+  color: #fefbfb;
+}
+.lilac_theme .btn, .lilac_theme .wp-block-button__link {
+  color: #fefbfb !important;
+  background: radial-gradient(82% 68% at 50% 32%, #a29bab 0%, #6d616c 100%);
+}
+.lilac_theme .btn::before, .lilac_theme .wp-block-button__link::before {
+  background: radial-gradient(82% 78% at 50% 0%, #6d616c 0%, #a29bab 100%);
+}
+.lilac_theme .btn:hover, .lilac_theme .wp-block-button__link:hover {
+  color: #fefbfb;
+}
+.black_theme .btn, .black_theme .wp-block-button__link {
+  color: #fefbfb !important;
+  background: radial-gradient(82% 68% at 50% 32%, #a29bab 0%, #6d616c 100%);
+}
+.black_theme .btn::before, .black_theme .wp-block-button__link::before {
+  background: radial-gradient(82% 78% at 50% 0%, #6d616c 0%, #a29bab 100%);
+}
+.black_theme .btn:hover, .black_theme .wp-block-button__link:hover {
+  color: #fefbfb;
+}
+.gold_theme .btn, .gold_theme .wp-block-button__link {
+  color: #332b00 !important;
+  background: radial-gradient(82% 68% at 50% 32%, gold 0%, rgb(127.5, 107.5, 0) 100%) !important;
+}
+.gold_theme .btn::before, .gold_theme .wp-block-button__link::before {
+  background: radial-gradient(82% 78% at 50% 0%, rgb(127.5, 107.5, 0) 0%, gold 100%);
+}
+.gold_theme .btn:hover, .gold_theme .wp-block-button__link:hover {
+  color: rgb(255, 235, 127.5);
+}
+.btn--lilac {
+  color: #fefbfb;
+  background: radial-gradient(82% 68% at 50% 32%, #a29bab 0%, #6d616c 100%);
+}
+.btn--lilac::before {
+  -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  opacity: 1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(82% 78% at 50% 0%, #6d616c 0%, #a29bab 100%);
+}
+.btn--lilac:hover {
+  color: #fefbfb;
+}
+.btn--lilac:hover::before {
+  -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  opacity: 0;
+}
+.btn--dark-blue {
+  background-color: #264D6A;
+  color: #fefbfb;
+}
+.btn--small {
+  min-width: 110px;
+}
+.btn--nomargin {
+  margin: 0;
+}
+
+.btnContainer {
+  grid-row: end;
+  grid-column: middle/span 12;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.btnContainer a, .btnContainer button {
+  margin-top: 60px;
+}

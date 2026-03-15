@@ -67,12 +67,21 @@ function get_uni_posts() {
   $preselected = 1 === absint($_POST['preselected']);
   $post_id = absint($_POST['post_id']) ?? false;
   $term_id = absint($_POST['term_id']) ?? false;
+  $select_post_category = isset($_POST['post_cat_in']) && !empty($_POST['post_cat_in']) ? array_map('absint', explode(',', wp_strip_all_tags($_POST['post_cat_in']))) : [];
+  $select_post_category_not = isset($_POST['post_cat_not_in']) && !empty($_POST['post_cat_not_in']) ? array_map('absint', explode(',', wp_strip_all_tags($_POST['post_cat_not_in']))) : [];
   $args = array(
     'posts_per_page' => $per_page,
     'paged' => $page,
     'post_type' => $post_type,
     'post_status' => "publish"
   );
+
+  if(!empty($select_post_category)) {
+    $args['category__in'] = $select_post_category;
+  }
+  if(!empty($select_post_category_not)) {
+    $args['category__not_in'] = $select_post_category_not;
+  }
   if(!!$term_id) {
     $args['cat'] = $term_id;
   }
@@ -128,7 +137,7 @@ function get_uni_posts() {
     }
   endif;
   wp_reset_query();
-  wp_send_json(['posted' => $_POST, 'posts' => $s_posts, 'queryObject' => $query, 'p' => $posts, 'per_page' => $per_page, 'field' => $field_posts]);
+  wp_send_json(['args' => $args, 'posted' => $_POST, 'posts' => $s_posts, 'queryObject' => $query, 'p' => $posts, 'per_page' => $per_page, 'field' => $field_posts]);
   wp_die();
 }
 

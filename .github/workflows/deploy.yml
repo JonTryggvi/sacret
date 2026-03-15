@@ -6,24 +6,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v4
-    - name: Install Node.js
-      uses: actions/setup-node@v4
-      with:
-       node-version: 'lts/*'
-       cache: 'yarn'
-    - name: Install dependencies
-      run: yarn install --frozen-lockfile
-    - name: Run build task
-      run: yarn build
-    - name: Deploy to Server 🗂️
-      uses: easingthemes/ssh-deploy@main
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        REMOTE_HOST: "uni-is.tempurl.host"
-        REMOTE_USER: ${{ secrets.SSH_USER }}
-        ARGS: "-rlgoDzvc -i"
-        EXCLUDE: "/node_modules/, /.github/, /.git/, /package-lock.json"
-        TARGET: "./site/public_html/wp-content/themes/uni-hub/"
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
+      - name: Setup PHP & Composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer
+
+      - name: Install Dependencies
+        run: composer install --no-dev --prefer-dist --optimize-autoloader
+
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          REMOTE_HOST: uni-is.tempurl.host
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          ARGS: "-rlgoDzvc -i"
+          EXCLUDE: "/node_modules/, /.github/, /.git/"
+          TARGET: "./site/public_html/wp-content/themes/uni-hub/"

@@ -1,7 +1,5 @@
 ## Directories to ignore
 node_modules/
 node_modules/**
-library/src
-library/src/**
 ## Files to ignore
 config.yaml

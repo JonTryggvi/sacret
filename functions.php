@@ -15,6 +15,7 @@ require( 'library/uni-translations.php' );
 require( 'library/uni-function.php') ;
 require( 'library/uni_custom_posttypes.php' );
 require( 'library/uni-ajax.php' );
+require( 'library/functions/index.php' );
 // CUSTOMIZE THE WORDPRESS ADMIN (off by default)
 // require_once( 'library/admin.php' );
 
@@ -62,6 +63,26 @@ function bones_ahoy() {
 
 // let's get this party started
 add_action( 'after_setup_theme', 'bones_ahoy' );
+
+add_filter( 'script_loader_tag', 'avista_add_module_type', 10, 3 );
+function avista_add_module_type( $tag, $handle, $src ) {
+	$module_handles = array(
+		'avista-js',
+		'archive-js',
+		'single-product-js',
+		'mailchimp',
+		'hero-slider',
+		'quote',
+		'load-more',
+		'cat_nav',
+	);
+
+	if ( ! in_array( $handle, $module_handles, true ) ) {
+		return $tag;
+	}
+
+	return str_replace( '<script ', '<script type="module" ', $tag );
+}
 
 
 /************* OEMBED SIZE OPTIONS *************/

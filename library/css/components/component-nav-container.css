@@ -1,0 +1,118 @@
+.cat-nav-container {
+  grid-column-start: middle;
+  grid-column-end: middle-end;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 3rem;
+  grid-row-gap: 4rem;
+  min-height: 400px;
+}
+.cat-nav-container .nav-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: clamp(100px, 120px, 100%);
+  grid-column: span 3;
+  overflow: hidden;
+  border-radius: 14px 14px 50% 50%;
+  text-decoration: none;
+  -webkit-box-shadow: 0 1px 10px 1px rgba(1, 1, 37, 0.1);
+          box-shadow: 0 1px 10px 1px rgba(1, 1, 37, 0.1);
+}
+.cat-nav-container .nav-card.nav_lilac {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(162, 155, 171, 0.47)), to(rgba(162, 155, 171, 0.47)));
+  background: linear-gradient(0deg, rgba(162, 155, 171, 0.47), rgba(162, 155, 171, 0.47));
+}
+.cat-nav-container .nav-card.nav_green {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(18, 133, 112, 0.53)), to(rgba(220, 142, 73, 0.41)));
+  background: linear-gradient(180deg, rgba(18, 133, 112, 0.53) 0%, rgba(220, 142, 73, 0.41) 100%);
+}
+.cat-nav-container .nav-card.nav_blue {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(207, 98, 98, 0.41)), color-stop(50%, rgba(103, 136, 167, 0.47)));
+  background: linear-gradient(0, rgba(207, 98, 98, 0.41), rgba(103, 136, 167, 0.47) 50%);
+}
+.cat-nav-container .nav-card.nav_yellow {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 250, 95, 0.421)), to(rgba(39, 174, 166, 0.47)));
+  background: linear-gradient(0deg, rgba(255, 250, 95, 0.421) 0%, rgba(39, 174, 166, 0.47) 100%);
+}
+.cat-nav-container .nav-card.nav_red {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(207, 98, 98, 0.47)), to(rgba(207, 98, 98, 0.47)));
+  background: linear-gradient(0deg, rgba(207, 98, 98, 0.47), rgba(207, 98, 98, 0.47));
+}
+.cat-nav-container .nav-card h2 {
+  text-align: center;
+  text-decoration: none;
+  mix-blend-mode: overlay;
+}
+.cat-nav-container .nav-card.nav_yellow h2 {
+  color: #787e01;
+  text-shadow: 1px 1px 4px rgba(120, 126, 1, 0.3);
+}
+.cat-nav-container .nav-card.nav_lilac h2 {
+  color: #A29BAB;
+  text-shadow: 1px 1px 4px rgba(162, 155, 171, 0.3);
+}
+.cat-nav-container .nav-card.nav_green h2, .cat-nav-container .nav-card.nav_perlumodir h2 {
+  color: #787e01;
+  text-shadow: 1px 1px 4px rgba(120, 126, 1, 0.3);
+}
+.cat-nav-container .nav-card.nav_blue h2 {
+  color: #6788A7;
+  text-shadow: 1px 1px 4px rgba(103, 136, 167, 0.3);
+}
+.cat-nav-container .nav-card.nav_red h2 {
+  color: #CF6262;
+  text-shadow: 1px 1px 4px rgba(207, 98, 98, 0.3);
+}
+.cat-nav-container .nav-card figure {
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+}
+.cat-nav-container .nav-card img {
+  width: 100%;
+  max-height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.cat-nav-container .nav-card .link_container {
+  height: 0;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  opacity: 0;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  overflow: hidden;
+  width: 90%;
+  margin: 0 auto;
+}
+.cat-nav-container .nav-card .link_container a {
+  white-space: nowrap;
+  font-size: 14px;
+  text-decoration: none;
+  height: 20px;
+  border-radius: 10px;
+  margin: 5px 3px;
+  padding: 5px;
+  background: -webkit-gradient(linear, left top, right top, from(#e3ffe7), color-stop(50%, #e3ffe7), to(#d9e7ff));
+  background: linear-gradient(90deg, #e3ffe7 0%, #e3ffe7 50%, #d9e7ff 100%);
+}
+.cat-nav-container .nav-card:hover {
+  -webkit-box-shadow: 0 14px 14px 5px rgba(1, 1, 37, 0.1);
+          box-shadow: 0 14px 14px 5px rgba(1, 1, 37, 0.1);
+  -webkit-transition: -webkit-box-shadow 500ms ease-in-out;
+  transition: -webkit-box-shadow 500ms ease-in-out;
+  transition: box-shadow 500ms ease-in-out;
+  transition: box-shadow 500ms ease-in-out, -webkit-box-shadow 500ms ease-in-out;
+}
+.cat-nav-container .card_container {
+  width: 100%;
+}

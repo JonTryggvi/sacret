@@ -1,0 +1,45 @@
+name: Build Theme Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP & Composer
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer
+
+      - name: Install Dependencies
+        run: composer install --no-dev --prefer-dist --optimize-autoloader
+
+      - name: Prepare Theme Artifact
+        run: |
+          mkdir uni-hub
+
+          rsync -av \
+            --exclude 'uni-hub' \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude '.gitignore' \
+            --exclude '.DS_Store' \
+            --exclude 'node_modules' \
+            ./ uni-hub/
+
+          zip -r uni-hub.zip uni-hub
+
+      - name: Upload Zip to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: uni-hub.zip
