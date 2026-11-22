@@ -13,7 +13,7 @@
  *  - window.SacretConsent is defined in wp_head at priority 1, before the GA tag
  *    at priority 2, which asks it before loading gtag.js.
  *  - Reject sits beside accept at the same size and weight. Any element with
- *    data-consent-open (the "Vafrakökur" button in the footer), or any link to
+ *    data-consent-open (the "Vafrakökur" link in the footer), or any link to
  *    #vafrakokur, reopens the banner. Withdrawing reloads the page so nothing
  *    already running keeps measuring.
  *  - Text follows the Polylang language (is / en), Icelandic by default.
@@ -60,13 +60,16 @@ final class SacretConsent {
   }
 
   /**
-   * The footer button that reopens the banner.
+   * The footer control that reopens the banner. A link rather than a button so
+   * it takes the same theme styles as the links beside it; the click handler
+   * in render_script() catches #vafrakokur and opens the banner instead.
    */
   public static function open_button(): string {
-    $label = esc_html( self::text( 'open' ) );
+    $label  = esc_html( self::text( 'open' ) );
+    $anchor = self::ANCHOR;
 
     return <<<HTML
-<button type="button" class="consent-open" data-consent-open>{$label}</button>
+<a href="#{$anchor}" class="consent-open" role="button" data-consent-open>{$label}</a>
 HTML;
   }
 
@@ -199,7 +202,6 @@ JS;
 .consent-banner__btn{min-width:7.5rem;padding:.6rem 1.25rem;border:1px solid #fff;border-radius:6px;background:#fff;font:inherit;font-size:.9rem;font-weight:500;color:#1c1917;cursor:pointer;transition:background 180ms ease,color 180ms ease}
 .consent-banner__btn:hover{background:transparent;color:#fff}
 .consent-banner__btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
-.consent-open{padding:0;border:0;background:none;font:inherit;color:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
 @media (max-width:600px){.consent-banner__actions{width:100%}.consent-banner__btn{flex:1}}
 CSS;
   }
