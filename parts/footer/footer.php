@@ -21,6 +21,7 @@
     <div class="footer-contact--inner" >
       <?php uni_partial('library/icons/uni_logo.svg'); ?>
       <a href="mailto:uni@uni.is"><?php pll_e('Hafa samband') ?></a>
+      <?php echo SacretConsent::open_button(); ?>
     </div>
   </div>
   <div class="grid-span--4 maillist">

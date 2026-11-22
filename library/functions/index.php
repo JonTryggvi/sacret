@@ -8,5 +8,7 @@ if (file_exists($autoload)) {
 
 require_once __DIR__ . '/actions_filters.php';
 require_once __DIR__ . '/class-sacret-theme-updater.php';
+require_once __DIR__ . '/class-sacret-consent.php';
+require_once __DIR__ . '/class-sacret-analytics.php';
 
 new SacretThemeUpdater();
