@@ -192,14 +192,14 @@ JS;
    */
   private static function styles(): string {
     return <<<'CSS'
-.consent-banner{position:fixed;right:0;bottom:0;left:0;z-index:10000;padding:1rem 1.25rem;background:#1c1917;color:rgba(255,255,255,.85);box-shadow:0 -4px 24px rgba(0,0,0,.2)}
+.consent-banner{position:fixed;right:0;bottom:0;left:0;z-index:10000;padding:1rem 1.25rem;background:#1c1917;color:rgba(255,255,255,.85);font-family:"Josefin Slab",Georgia,serif;box-shadow:0 -4px 24px rgba(0,0,0,.2)}
 .consent-banner[hidden]{display:none}
 .consent-banner__inner{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 2.5rem;max-width:1200px;margin:0 auto}
 .consent-banner__body{flex:1 1 28rem}
-.consent-banner__title{margin:0 0 .25rem;font-weight:600;color:#fff}
-.consent-banner__text{margin:0;font-size:.85rem;line-height:1.6}
+#consent-banner .consent-banner__title{margin:0 0 .25rem;font-family:inherit;font-size:1.25rem;font-weight:600;line-height:1.3;color:#fff}
+#consent-banner .consent-banner__text{margin:0;font-family:inherit;font-size:1rem;line-height:1.6;color:rgba(255,255,255,.85)}
 .consent-banner__actions{display:flex;flex:0 0 auto;gap:.5rem}
-.consent-banner__btn{min-width:7.5rem;padding:.6rem 1.25rem;border:1px solid #fff;border-radius:6px;background:#fff;font:inherit;font-size:.9rem;font-weight:500;color:#1c1917;cursor:pointer;transition:background 180ms ease,color 180ms ease}
+.consent-banner__btn{min-width:7.5rem;padding:.6rem 1.25rem;border:1px solid #fff;border-radius:6px;background:#fff;font:inherit;font-size:1rem;font-weight:600;color:#1c1917;cursor:pointer;transition:background 180ms ease,color 180ms ease}
 .consent-banner__btn:hover{background:transparent;color:#fff}
 .consent-banner__btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
 @media (max-width:600px){.consent-banner__actions{width:100%}.consent-banner__btn{flex:1}}
