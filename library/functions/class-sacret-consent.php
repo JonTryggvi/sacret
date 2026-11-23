@@ -29,15 +29,15 @@ final class SacretConsent {
 
   private const STRINGS = [
     'is' => [
-      'title'  => 'Vafrakökur fyrir vefmælingar',
-      'text'   => 'Með þínu leyfi notar uni.is vafrakökur frá Google Analytics til að sjá hvernig vefurinn er notaður. Engar auglýsingakökur. Þú getur breytt vali þínu hvenær sem er undir „Vafrakökur“ neðst á síðunni.',
+      'title'  => 'Vafrakökur',
+      'text'   => 'Við notum vafrakökur til að safna nafnlausri tölfræði um notkun vefsins. Gögnin eru ekki notuð til að bera kennsl á þig eða í auglýsingaskyni. Þú getur breytt vali þínu hvenær sem er undir „Vafrakökur“ neðst á síðunni.',
       'reject' => 'Hafna',
       'accept' => 'Samþykkja',
       'open'   => 'Vafrakökur',
     ],
     'en' => [
-      'title'  => 'Analytics cookies',
-      'text'   => 'With your permission, uni.is uses Google Analytics cookies to see how the site is used. No advertising cookies. You can change your choice at any time under “Cookies” at the foot of every page.',
+      'title'  => 'Cookies',
+      'text'   => 'We use cookies to collect anonymous statistics on how the site is used. The data is not used to identify you or for advertising. You can change your choice at any time under “Cookies” at the bottom of the page.',
       'reject' => 'Reject',
       'accept' => 'Accept',
       'open'   => 'Cookies',
